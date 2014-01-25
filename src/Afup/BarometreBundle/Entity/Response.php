@@ -21,7 +21,7 @@ class Response
      * @ORM\ManyToOne(targetEntity="Campaign")
      * @ORM\JoinColumn(name="campaign_id", referencedColumnName="id")
      */
-    protected $campaing;
+    protected $campaign;
 
     /**
      * @ORM\ManyToMany(targetEntity="Certification")
@@ -362,12 +362,12 @@ class Response
     }
 
     /**
-     * @param \Afup\BarometreBundle\Entity\Campaign $campaing
+     * @param \Afup\BarometreBundle\Entity\Campaign $campaign
      * @return Response
      */
-    public function setCampaing(\Afup\BarometreBundle\Entity\Campaign $campaing = null)
+    public function setCampaign(\Afup\BarometreBundle\Entity\Campaign $campaign = null)
     {
-        $this->campaing = $campaing;
+        $this->campaign = $campaign;
 
         return $this;
     }
@@ -375,9 +375,9 @@ class Response
     /**
      * @return \Afup\BarometreBundle\Entity\Campaign
      */
-    public function getCampaing()
+    public function getCampaign()
     {
-        return $this->campaing;
+        return $this->campaign;
     }
 
     /**
