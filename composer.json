@@ -1,8 +1,7 @@
 {
-    "name": "symfony/framework-standard-edition",
+    "name": "afup/barometre",
     "license": "MIT",
     "type": "project",
-    "description": "The \"Symfony Standard Edition\" distribution",
     "autoload": {
         "psr-0": { "": "src/" }
     },
