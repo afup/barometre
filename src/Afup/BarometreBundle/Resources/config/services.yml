@@ -1,3 +1,22 @@
 parameters:
-
+    afup.barometre.campaign.importer.class: Afup\BarometreBundle\Campaign\Importer\CampaignImporter
+    afup.barometre.campaign.response_factory.class: Afup\BarometreBundle\Campaign\ResponseFactory
+    number_formatter.class: NumberFormatter
 services:
+    afup.barometre.campaign.importer:
+        class: %afup.barometre.campaign.importer.class%
+        arguments:
+            objectManager: "@doctrine.orm.entity_manager"
+            responseFactory: "@afup.barometre.campaign.response_factory"
+
+    afup.barometre.campaign.response_factory:
+        class: %afup.barometre.campaign.response_factory.class%
+        arguments:
+            numberFormatter: "@number_formatter"
+            enumsChain: "@afup.barometre.enums_collection"
+
+    number_formatter:
+        class: %number_formatter.class%
+        arguments:
+            - 'fr'
+            - 1
