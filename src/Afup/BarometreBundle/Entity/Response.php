@@ -362,10 +362,10 @@ class Response
     }
 
     /**
-     * @param \Afup\BarometreBundle\Entity\Campaign $campaign
+     * @param Campaign $campaign
      * @return Response
      */
-    public function setCampaign(\Afup\BarometreBundle\Entity\Campaign $campaign = null)
+    public function setCampaign(Campaign $campaign = null)
     {
         $this->campaign = $campaign;
 
@@ -373,7 +373,7 @@ class Response
     }
 
     /**
-     * @return \Afup\BarometreBundle\Entity\Campaign
+     * @return Campaign
      */
     public function getCampaign()
     {
@@ -381,10 +381,10 @@ class Response
     }
 
     /**
-     * @param \Afup\BarometreBundle\Entity\Certification $certifiations
+     * @param Certification $certifiations
      * @return Response
      */
-    public function addCertifiation(\Afup\BarometreBundle\Entity\Certification $certifiations)
+    public function addCertifiation(Certification $certifiations)
     {
         $this->certifiations[] = $certifiations;
 
@@ -392,9 +392,9 @@ class Response
     }
 
     /**
-     * @param \Afup\BarometreBundle\Entity\Certification $certifiations
+     * @param Certification $certifiations
      */
-    public function removeCertifiation(\Afup\BarometreBundle\Entity\Certification $certifiations)
+    public function removeCertifiation(Certification $certifiations)
     {
         $this->certifiations->removeElement($certifiations);
     }
@@ -408,10 +408,10 @@ class Response
     }
 
     /**
-     * @param \Afup\BarometreBundle\Entity\Speciality $specialities
+     * @param Speciality $specialities
      * @return Response
      */
-    public function addSpeciality(\Afup\BarometreBundle\Entity\Speciality $specialities)
+    public function addSpeciality(Speciality $specialities)
     {
         $this->specialities[] = $specialities;
 
@@ -419,9 +419,9 @@ class Response
     }
 
     /**
-     * @param \Afup\BarometreBundle\Entity\Speciality $specialities
+     * @param Speciality $specialities
      */
-    public function removeSpeciality(\Afup\BarometreBundle\Entity\Speciality $specialities)
+    public function removeSpeciality(Speciality $specialities)
     {
         $this->specialities->removeElement($specialities);
     }
