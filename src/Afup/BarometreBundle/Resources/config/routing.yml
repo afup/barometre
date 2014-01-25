@@ -1,0 +1,3 @@
+afup_barometre_homepage:
+    pattern:  /
+    defaults: { _controller: AfupBarometreBundle:Default:index }

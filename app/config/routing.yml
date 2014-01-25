@@ -1,0 +1,4 @@
+afup_barometre:
+    resource: "@AfupBarometreBundle/Resources/config/routing.yml"
+    prefix:   /
+
