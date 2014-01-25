@@ -19,7 +19,6 @@ abstract class AbstractEnums implements EnumsInterface
      */
     public function getIdByLibelle($libelle)
     {
-        var_dump(ord(" "));
         $key = array_search(trim($libelle), $this->choices);
 
         return false === $key ? null : $key;
