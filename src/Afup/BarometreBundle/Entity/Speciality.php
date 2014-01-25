@@ -14,11 +14,13 @@ class Speciality
      * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @var int
      */
     protected $id;
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @var string
      */
     protected $name;
 

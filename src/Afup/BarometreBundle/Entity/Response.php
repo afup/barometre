@@ -14,87 +14,104 @@ class Response
      * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @var int
      */
     protected $id;
 
     /**
      * @ORM\ManyToOne(targetEntity="Campaign")
      * @ORM\JoinColumn(name="campaign_id", referencedColumnName="id")
+     * @var int
      */
     protected $campaign;
 
     /**
      * @ORM\ManyToMany(targetEntity="Certification")
+     * @var \Doctrine\Common\Collections\Collection
      */
     protected $certifiations;
 
     /**
      * @ORM\ManyToMany(targetEntity="Speciality")
+     * @var \Doctrine\Common\Collections\Collection
      */
     protected $specialities;
 
     /**
      * @ORM\Column(type="integer")
+     * @var int
      */
     protected $grossAnnualSalary;
 
     /**
      * @ORM\Column(type="integer")
+     * @var int
      */
     protected $variableAnnualSalary;
 
     /**
      * @ORM\Column(type="integer")
+     * @var int
      */
     protected $salarySatisfaction;
 
     /**
      * @ORM\Column(type="integer")
+     * @var int
      */
     protected $status;
 
     /**
      * @ORM\Column(type="integer")
+     * @var int
      */
     protected $initialTraining;
 
     /**
      * @ORM\Column(type="integer")
+     * @var int
      */
     protected $compagnyType;
 
     /**
      * @ORM\Column(type="integer")
+     * @var int
      */
     protected $compagnySize;
 
     /**
      * @ORM\Column(type="integer")
+     * @var int
      */
     protected $compagnyDepartment;
 
     /**
      * @ORM\Column(type="integer")
+     * @var int
      */
     protected $jobInterest;
 
     /**
      * @ORM\Column(type="integer")
+     * @var int
      */
     protected $phpVersion;
 
     /**
      * @ORM\Column(type="integer")
+     * @var int
      */
     protected $phpStrength;
 
     /**
      * @ORM\Column(type="boolean")
+     * @var bool
      */
     protected $hasRecentTraining;
 
     /**
      * @ORM\Column(type="boolean")
+     * @var bool
      */
     protected $isRecentTrainingHadSalaryImpact;
 

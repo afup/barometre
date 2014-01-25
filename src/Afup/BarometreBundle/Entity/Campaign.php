@@ -15,21 +15,25 @@ class Campaign
      * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     * @var int
      */
     protected $id;
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @var string
      */
     protected $name;
 
     /**
      * @ORM\Column(type="date")
+     * @var \DateTime
      */
     protected $startDate;
 
     /**
      * @ORM\Column(type="date")
+     * @var \DateTime
      */
     protected $endDate;
 
