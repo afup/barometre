@@ -2,16 +2,14 @@
 
 namespace Afup\BarometreBundle\Filter;
 
-
 class Collection
 {
-
     public static function getAll()
     {
         $filterFactory = new \Afup\BarometreBundle\Filter\Factory();
         $all = array();
         foreach (static::getAllCodes() as $code) {
-          $all[] = $filterFactory->create($code);
+            $all[] = $filterFactory->create($code);
         }
         return $all;
     }
@@ -19,9 +17,8 @@ class Collection
     public static function getAllCodes()
     {
         return array(
-          'company_size',
-          'company_type',
+            'company_size',
+            'company_type',
         );
     }
-
 }

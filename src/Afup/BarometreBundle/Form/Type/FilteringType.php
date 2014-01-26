@@ -12,15 +12,14 @@ class FilteringType extends AbstractType
     {
         $filters = $options['filters'];
         $builder->setMethod('GET');
-        foreach ($filters as $filter)
-        {
-          $builder->add($filter->getIdentifier(), 'choice', array(
-            'choices' => $filter->getChoices(),
-            'label' => $filter->getLabel(),
-            'required' => false,
-            'multiple' => true,
-            'attr' => array('class' => 'select2')
-          ));
+        foreach ($filters as $filter) {
+            $builder->add($filter->getIdentifier(), 'choice', array(
+              'choices' => $filter->getChoices(),
+              'label' => $filter->getLabel(),
+              'required' => false,
+              'multiple' => true,
+              'attr' => array('class' => 'select2')
+            ));
         }
 
         $builder->add('submit', 'submit');
