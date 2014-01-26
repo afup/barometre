@@ -1,0 +1,9 @@
+Afup\BarometreBundle\Entity\Certification:
+    certification0:
+        name: PHP5
+    certification1:
+        name: Symfony
+    certification2:
+        name: Zend Framework
+    certification3:
+        name: eZ Publish
