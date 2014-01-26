@@ -39,3 +39,11 @@ services:
         arguments:
             - 'fr'
             - 1
+
+    afup.barometre.twig.enums:
+      class: Afup\BarometreBundle\Twig\Enums
+      arguments:
+           enumsChain: "@afup.barometre.enums_collection"
+      tags:
+          - { name: twig.extension }
+

@@ -13,7 +13,7 @@
 <tbody>
 {% for row in results %}
   <tr>
-    <td>{{ row.companyType }}</td>
+    <td>{{ row.companyType|enum_label('company_type') }}</td>
     <td>{{ row.count }}</td>
   </tr>
 {% endfor %}
