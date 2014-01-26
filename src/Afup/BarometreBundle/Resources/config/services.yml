@@ -1,8 +1,20 @@
 parameters:
     afup.barometre.campaign.importer.class: Afup\BarometreBundle\Campaign\Importer\CampaignImporter
     afup.barometre.campaign.response_factory.class: Afup\BarometreBundle\Campaign\ResponseFactory
+    afup.barometre.context.class: Afup\BarometreBundle\Filtering\Context
+    afup.barometre.context_factory.class: Afup\BarometreBundle\Filtering\ContextFactory
     number_formatter.class: NumberFormatter
 services:
+    afup.barometre.context:
+      class: %afup.barometre.context.class%
+      factory_service : afup.barometre.context_factory
+      factory_method: createFromRequestStack
+      arguments:
+            request: "@request_stack"
+
+    afup.barometre.context_factory:
+       class: %afup.barometre.context_factory.class%
+
     afup.barometre.campaign.importer:
         class: %afup.barometre.campaign.importer.class%
         arguments:

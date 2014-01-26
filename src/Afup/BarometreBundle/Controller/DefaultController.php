@@ -12,12 +12,15 @@ class DefaultController extends Controller
         $filters    = \Afup\BarometreBundle\Filter\Collection::getAll();
         $connection = $this->getDoctrine()->getConnection();
 
+        $context = $this->get('afup.barometre.context');
+
         $form = $this->createForm(new FilteringType(), null, array(
           'filters' => $filters
         ));
-        $form->handleRequest($this->getRequest());
+        $form->submit($context->getParameters());
 
-        $queryInfos = $this->createQueryInfosFromForm($connection, $form);
+
+        $queryInfos = $this->createQueryInfosFromForm($connection, $context);
         $query = $queryInfos['query'];
         $query->select('grossAnnualSalary');
 
@@ -29,7 +32,8 @@ class DefaultController extends Controller
         ));
     }
 
-    protected function createQueryInfosFromForm($connection, $form) {
+    protected function createQueryInfosFromForm($connection, $context)
+    {
         $query = new \Doctrine\DBAL\Query\QueryBuilder($connection);
         $query->from('response', 'response');
 
@@ -37,14 +41,12 @@ class DefaultController extends Controller
         $types = array();
 
         $filterFactory = new \Afup\BarometreBundle\Filter\Factory();
-        if ($form->isValid()) {
-            foreach ($form->getData() as $filterIdentifier => $values) {
-              if (0 === count($values)) {
+        foreach ($context->getParameters() as $filterIdentifier => $values) {
+            if (0 === count($values)) {
                 continue;
-              }
-              $filter = $filterFactory->create($filterIdentifier);
-              $filter->alterQuery($query, $params, $types, $values);
             }
+            $filter = $filterFactory->create($filterIdentifier);
+            $filter->alterQuery($query, $params, $types, $values);
         }
         return array('query' => $query, 'params' => $params, 'types' => $types);
     }

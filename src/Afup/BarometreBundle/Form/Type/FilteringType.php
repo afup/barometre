@@ -30,6 +30,7 @@ class FilteringType extends AbstractType
     {
         $resolver->setDefaults(array(
           'filters' => array(),
+          'csrf_protection' => false,
         ));
     }
 
