@@ -41,6 +41,14 @@ services:
         arguments:
             - 'fr'
             - 1
+
+    afup.barometre.twig.enums:
+      class: Afup\BarometreBundle\Twig\Enums
+      arguments:
+           enumsChain: "@afup.barometre.enums_collection"
+      tags:
+          - { name: twig.extension }
+
     afup.barometre.repository.certification_repository:
         class: Doctrine\ORM\EntityRepository
         factory_service: doctrine.orm.entity_manager
