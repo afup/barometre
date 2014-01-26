@@ -7,10 +7,19 @@
 {{ form_end(form) }}
 
 <table>
+<thead>
+  <tr>
+    <td>Type d'entreprise</td>
+    <td>Nombre de réponses</td>
+  </tr>
+</thead>
+<tbody>
 {% for row in results %}
   <tr>
-    <td>{{ row.grossAnnualSalary }}</td>
+    <td>{{ row.companyType }}</td>
+    <td>{{ row.count }}</td>
   </tr>
 {% endfor %}
+</tbody>
 </table>
 {% endblock %}

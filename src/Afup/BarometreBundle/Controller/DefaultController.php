@@ -22,7 +22,9 @@ class DefaultController extends Controller
 
         $queryInfos = $this->createQueryInfosFromForm($connection, $context);
         $query = $queryInfos['query'];
-        $query->select('grossAnnualSalary');
+        $query->select('count(distinct response.id) as count');
+        $query->addSelect('response.compagnyType as companyType');
+        $query->addGroupBy('response.compagnyType');
 
         $results = $connection->executeQuery($query->getSQL(), $queryInfos['params'], $queryInfos['types']);
 
