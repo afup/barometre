@@ -4,24 +4,23 @@ namespace Afup\BarometreBundle\Enums;
 
 class CompanyTypeEnums extends AbstractEnums
 {
-    const AGENCE_COMM  = 0;
-    const EDITEUR      = 1;
-    const PRESSE_MEDIA = 2;
-    const CLIENT_FINAL = 3;
-    const SSII         = 4;
+    const PRESSE_MEDIA = 1;
+    const SSII         = 2;
+    const AGENCE_COMM  = 3;
+    const CLIENT_FINAL = 4;
     const STARTUP      = 5;
-    const AUTRE        = 6;
+    const EDITEUR      = 6;
 
     /**
      * @var array
      */
     protected $choices = array(
-        self::AGENCE_COMM  => "Agence de communication",
-        self::EDITEUR      => "Editeur",
         self::PRESSE_MEDIA => "Presse / média",
-        self::CLIENT_FINAL => "Service informatique d'un client final",
         self::SSII         => "SSII / conseil",
+        self::AGENCE_COMM  => "Agence de communication",
+        self::CLIENT_FINAL => "Service informatique d'un client final",
         self::STARTUP      => "Startup",
+        self::EDITEUR      => "Editeur de logiciel",
         self::AUTRE        => "Autre",
     );
 }

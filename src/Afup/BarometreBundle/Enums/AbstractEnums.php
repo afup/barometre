@@ -4,6 +4,8 @@ namespace Afup\BarometreBundle\Enums;
 
 abstract class AbstractEnums implements EnumsInterface
 {
+    const AUTRE = 0;
+
     protected $choices = array();
 
     /**
@@ -17,9 +19,9 @@ abstract class AbstractEnums implements EnumsInterface
     /**
      * {@inheritdoc}
      */
-    public function getIdByLibelle($libelle)
+    public function getIdByLabel($label)
     {
-        $key = array_search(trim($libelle), $this->choices);
+        $key = array_search(trim($label), $this->choices);
 
         return false === $key ? null : $key;
     }

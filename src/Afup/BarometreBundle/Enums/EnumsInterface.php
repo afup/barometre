@@ -10,9 +10,9 @@ interface EnumsInterface
     public function getChoices();
 
     /**
-     * @param string $libelle
+     * @param string $label
      *
      * @return int|null
      */
-    public function getIdByLibelle($libelle);
+    public function getIdByLabel($label);
 }

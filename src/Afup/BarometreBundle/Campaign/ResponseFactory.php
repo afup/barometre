@@ -52,28 +52,28 @@ class ResponseFactory
         );
 
         $response->setStatus(
-            $this->enums->getEnums('status')->getIdByLibelle($data["status"])
+            $this->enums->getEnums('status')->getIdByLabel($data["status"])
         );
         $response->setInitialTraining(
-            $this->enums->getEnums('initial_training')->getIdByLibelle($data["initial_training"])
+            $this->enums->getEnums('initial_training')->getIdByLabel($data["initial_training"])
         );
         $response->setCompagnyType(
-            $this->enums->getEnums('company_type')->getIdByLibelle($data["company_type"])
+            $this->enums->getEnums('company_type')->getIdByLabel($data["company_type"])
         );
         $response->setCompagnySize(
-            $this->enums->getEnums('company_size')->getIdByLibelle($data["company_size"])
+            $this->enums->getEnums('company_size')->getIdByLabel($data["company_size"])
         );
         $response->setCompagnyDepartment(
             $data["company_department"]
         );
         $response->setJobInterest(
-            $this->enums->getEnums('job_interest')->getIdByLibelle($data["job_interest"])
+            $this->enums->getEnums('job_interest')->getIdByLabel($data["job_interest"])
         );
         $response->setPhpVersion(
-            $this->enums->getEnums('php_version')->getIdByLibelle($data["php_version"])
+            $this->enums->getEnums('php_version')->getIdByLabel($data["php_version"])
         );
         $response->setPhpStrength(
-            $this->enums->getEnums('php_strength')->getIdByLibelle($data["php_strength"])
+            $this->enums->getEnums('php_strength')->getIdByLabel($data["php_strength"])
         );
         $response->setHasRecentTraining(
             "oui" === $data["has_formation"]
