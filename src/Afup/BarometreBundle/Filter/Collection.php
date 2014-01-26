@@ -19,6 +19,7 @@ class Collection
         return array(
             'company_size',
             'company_type',
+            'php_version',
         );
     }
 }

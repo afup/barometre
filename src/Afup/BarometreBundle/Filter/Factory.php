@@ -8,6 +8,9 @@ class Factory
     public function create($code)
     {
         switch ($code) {
+            case 'php_version':
+                return new \Afup\BarometreBundle\Filters\PhpVersion();
+            break;
             case 'company_size':
                 return new \Afup\BarometreBundle\Filters\CompanySize();
             break;
