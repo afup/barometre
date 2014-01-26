@@ -13,13 +13,12 @@ class DefaultController extends Controller
 
         $context = $this->get('afup.barometre.context');
 
-        $queryInfos = $this->createQueryInfosFromForm($connection, $context);
-        $query = $queryInfos['query'];
+        $query = $this->createQueryInfosFromForm($connection, $context);
         $query->select('count(distinct response.id) as count');
         $query->addSelect('response.compagnyType as companyType');
         $query->addGroupBy('response.compagnyType');
 
-        $results = $connection->executeQuery($query->getSQL(), $queryInfos['params'], $queryInfos['types']);
+        $results = $query->execute();
 
         return $this->render('AfupBarometreBundle:Default:index.html.twig', array(
           'results' => $results,
@@ -40,8 +39,9 @@ class DefaultController extends Controller
                 continue;
             }
             $filter = $filterFactory->create($filterIdentifier);
-            $filter->alterQuery($query, $params, $types, $values);
+            $filter->alterQuery($query, $values);
         }
-        return array('query' => $query, 'params' => $params, 'types' => $types);
+
+        return $query;
     }
 }

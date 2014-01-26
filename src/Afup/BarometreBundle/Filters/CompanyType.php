@@ -13,12 +13,11 @@ class CompanyType implements FilterInterface
         return $enum->getChoices();
     }
 
-    public function alterQuery(\Doctrine\DBAL\Query\QueryBuilder $query, &$params, &$types, $values)
+    public function alterQuery(\Doctrine\DBAL\Query\QueryBuilder $query, $values)
     {
         $key = $this->getIdentifier();
         $query->andWhere(sprintf('response.compagnyType IN(:%s)', $key));
-        $params[$key] = $values;
-        $types[$key] = \Doctrine\DBAL\Connection::PARAM_INT_ARRAY;
+        $query->setParameter($key, $values, \Doctrine\DBAL\Connection::PARAM_INT_ARRAY);
     }
 
     public function getIdentifier()
