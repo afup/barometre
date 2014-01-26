@@ -1,1 +1,16 @@
-Index.
+{% extends '::base.html.twig' %}
+
+{% block body %}
+
+{{ form_start(form) }}
+    {{ form_errors(form) }}
+{{ form_end(form) }}
+
+<table>
+{% for row in results %}
+  <tr>
+    <td>{{ row.grossAnnualSalary }}</td>
+  </tr>
+{% endfor %}
+</table>
+{% endblock %}
