@@ -4,15 +4,18 @@ namespace Afup\BarometreBundle\Enums;
 
 class PHPVersionEnums extends AbstractEnums
 {
-    const PHP_53 = 0;
-    const PHP_54 = 1;
-    const PHP_55 = 2;
+    const PHP_4  = 0;
+    const PHP_52 = 1;
+    const PHP_53 = 2;
+    const PHP_54 = 3;
+    const PHP_55 = 4;
 
     /**
      * @var array
      */
     protected $choices = array(
-        // TODO : ajouter les versions précédentes.
+        self::PHP_4  => 'PHP 4',
+        self::PHP_52 => 'PHP 5.2',
         self::PHP_53 => 'PHP 5.3',
         self::PHP_54 => 'PHP 5.4',
         self::PHP_55 => 'PHP 5.5',

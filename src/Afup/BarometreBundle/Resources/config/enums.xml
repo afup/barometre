@@ -8,6 +8,7 @@
         <parameter key="afup.barometre.enums.company_type.class">Afup\BarometreBundle\Enums\CompanyTypeEnums</parameter>
         <parameter key="afup.barometre.enums.initial_training.class">Afup\BarometreBundle\Enums\InitialTrainingEnums</parameter>
         <parameter key="afup.barometre.enums.job_interest.class">Afup\BarometreBundle\Enums\JobInterestEnums</parameter>
+        <parameter key="afup.barometre.enums.job_title.class">Afup\BarometreBundle\Enums\JobTitleEnums</parameter>
         <parameter key="afup.barometre.enums.php_strength.class">Afup\BarometreBundle\Enums\PHPStrengthEnums</parameter>
         <parameter key="afup.barometre.enums.php_version.class">Afup\BarometreBundle\Enums\PHPVersionEnums</parameter>
         <parameter key="afup.barometre.enums.status.class">Afup\BarometreBundle\Enums\StatusEnums</parameter>
@@ -31,6 +32,10 @@
 
         <service id="afup.barometre.enums.job_interest" class="%afup.barometre.enums.job_interest.class%">
             <tag name="barometre.enums" alias="job_interest"/>
+        </service>
+
+        <service id="afup.barometre.enums.job_title" class="%afup.barometre.enums.job_title.class%">
+            <tag name="barometre.enums" alias="job_title"/>
         </service>
 
         <service id="afup.barometre.enums.php_strength" class="%afup.barometre.enums.php_strength.class%">

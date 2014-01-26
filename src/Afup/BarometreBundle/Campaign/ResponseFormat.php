@@ -9,7 +9,7 @@ class ResponseFormat
      */
     public function getColumns()
     {
-        return [
+        return array(
             "gross_annual_salary",
             "variable_annual_salary",
             "AnnualSalary",
@@ -29,6 +29,6 @@ class ResponseFormat
             "has_formation",
             "formation_subject",
             "formation_impact",
-        ];
+        );
     }
 }
