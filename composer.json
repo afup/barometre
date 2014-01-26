@@ -22,6 +22,7 @@
         "nelmio/alice": "1.5.*"
     },
     "require-dev": {
+        "atoum/atoum": "0.0.1",
         "m6web/coke": "1.0.0"
     },
     "scripts": {
