@@ -7,7 +7,7 @@ use Afup\BarometreBundle\Entity\Certification;
 use Afup\BarometreBundle\Entity\Response;
 use Afup\BarometreBundle\Entity\Speciality;
 use Afup\BarometreBundle\Enums\EnumsCollection;
-use Doctrine\ORM\EntityRepository;
+use Doctrine\Common\Persistence\ObjectRepository;
 use NumberFormatter;
 
 class ResponseFactory
@@ -23,26 +23,26 @@ class ResponseFactory
     private $enums;
 
     /**
-     * @var EntityRepository
+     * @var ObjectRepository
      */
     private $certificationRepository;
 
     /**
-     * @var EntityRepository
+     * @var ObjectRepository
      */
     private $specialityRepository;
 
     /**
      * @param NumberFormatter  $numberFormatter
      * @param EnumsCollection  $enums
-     * @param EntityRepository $certificationRepository
-     * @param EntityRepository $specialityRepository
+     * @param ObjectRepository $certificationRepository
+     * @param ObjectRepository $specialityRepository
      */
     public function __construct(
         NumberFormatter $numberFormatter,
         EnumsCollection $enums,
-        EntityRepository $certificationRepository,
-        EntityRepository $specialityRepository
+        ObjectRepository $certificationRepository,
+        ObjectRepository $specialityRepository
     ) {
         $this->numberFormatter         = $numberFormatter;
         $this->enums                   = $enums;

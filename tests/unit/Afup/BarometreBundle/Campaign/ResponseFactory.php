@@ -27,7 +27,15 @@ class ResponseFactory extends atoum
         $enumCollection->addEnums(new PHPVersionEnums(), 'php_version');
         $enumCollection->addEnums(new PHPStrengthEnums(), 'php_strength');
 
-        $testedClass = new TestedClass($numberFormatter, $enumCollection);
+        $certificationRepository = new \mock\Doctrine\Common\Persistence\ObjectRepository();
+        $specialityRepository = new \mock\Doctrine\Common\Persistence\ObjectRepository();
+
+        $testedClass = new TestedClass(
+            $numberFormatter,
+            $enumCollection,
+            $certificationRepository,
+            $specialityRepository
+        );
 
         $data = array (
             'gross_annual_salary' => '42 000',
