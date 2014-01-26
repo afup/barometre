@@ -33,17 +33,24 @@ services:
         arguments:
             numberFormatter: "@number_formatter"
             enumsChain: "@afup.barometre.enums_collection"
+            certificationRepository: "@afup.barometre.repository.certification_repository"
+            specialityRepository: "@afup.barometre.repository.speciality_repository"
 
     number_formatter:
         class: %number_formatter.class%
         arguments:
             - 'fr'
             - 1
+    afup.barometre.repository.certification_repository:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:
+            - Afup\BarometreBundle\Entity\Certification
 
-    afup.barometre.twig.enums:
-      class: Afup\BarometreBundle\Twig\Enums
-      arguments:
-           enumsChain: "@afup.barometre.enums_collection"
-      tags:
-          - { name: twig.extension }
-
+    afup.barometre.repository.speciality_repository:
+        class: Doctrine\ORM\EntityRepository
+        factory_service: doctrine.orm.entity_manager
+        factory_method: getRepository
+        arguments:
+            - Afup\BarometreBundle\Entity\Speciality
