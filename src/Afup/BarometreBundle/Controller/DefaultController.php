@@ -9,16 +9,9 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        $filters    = \Afup\BarometreBundle\Filter\Collection::getAll();
         $connection = $this->getDoctrine()->getConnection();
 
         $context = $this->get('afup.barometre.context');
-
-        $form = $this->createForm(new FilteringType(), null, array(
-          'filters' => $filters
-        ));
-        $form->submit($context->getParameters());
-
 
         $queryInfos = $this->createQueryInfosFromForm($connection, $context);
         $query = $queryInfos['query'];
@@ -30,7 +23,6 @@ class DefaultController extends Controller
 
         return $this->render('AfupBarometreBundle:Default:index.html.twig', array(
           'results' => $results,
-          'form'    => $form->createView(),
         ));
     }
 

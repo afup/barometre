@@ -1,10 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body %}
-
-{{ form_start(form) }}
-    {{ form_errors(form) }}
-{{ form_end(form) }}
+{{ render(controller('AfupBarometreBundle:Filters:index')) }}
 
 <table>
 <thead>
