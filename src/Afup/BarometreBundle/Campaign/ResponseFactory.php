@@ -134,7 +134,6 @@ class ResponseFactory
             );
 
             if (!$certification instanceof Certification) {
-                // TODO :
                 continue;
             }
             $response->addCertifiation($certification);
@@ -151,7 +150,6 @@ class ResponseFactory
             $speciality = $this->specialityRepository->findOneBy(array('name' => trim($speciality)));
 
             if (!$speciality instanceof Speciality) {
-                // TODO
                 continue;
             }
 
