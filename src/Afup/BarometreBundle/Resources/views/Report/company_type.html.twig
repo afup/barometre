@@ -1,0 +1,27 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+{{ render(controller('AfupBarometreBundle:Filters:index')) }}
+
+Distribution des types d'entreprises.
+
+<table>
+<thead>
+  <tr>
+    <td>Type d'entreprise</td>
+    <td>Nombre de réponses</td>
+  </tr>
+</thead>
+<tbody>
+{% for row in results %}
+  <tr>
+    <td>{{ row.companyType|enum_label('company_type') }}</td>
+    <td>{{ row.count }}</td>
+  </tr>
+{% endfor %}
+</tbody>
+</table>
+
+<a href="{{ path('afup_barometre_report_company_size') }}">Voir par taille d'entreprise</a>
+
+{% endblock %}
