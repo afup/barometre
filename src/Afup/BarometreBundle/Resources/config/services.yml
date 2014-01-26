@@ -3,6 +3,7 @@ parameters:
     afup.barometre.campaign.response_factory.class: Afup\BarometreBundle\Campaign\ResponseFactory
     afup.barometre.context.class: Afup\BarometreBundle\Filtering\Context
     afup.barometre.context_factory.class: Afup\BarometreBundle\Filtering\ContextFactory
+    afup.barometre.query_builder_factory.class: Afup\BarometreBundle\Filtering\QueryBuilderFactory
     number_formatter.class: NumberFormatter
 services:
     afup.barometre.context:
@@ -11,6 +12,12 @@ services:
       factory_method: createFromRequestStack
       arguments:
             request: "@request_stack"
+
+    afup.barometre.query_builder_factory:
+       class: %afup.barometre.query_builder_factory.class%
+       arguments:
+            connection: @doctrine.dbal.default_connection
+            context: @afup.barometre.context
 
     afup.barometre.context_factory:
        class: %afup.barometre.context_factory.class%
