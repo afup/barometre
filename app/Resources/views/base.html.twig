@@ -5,9 +5,9 @@
         <title>{% block title %}Baromètre AFUP{% endblock %}</title>
         {% block stylesheets %}
          {% stylesheets
-            '@AfupBarometreBundle/Resources/assets/css/vendor/bootstrap.css'
-            '@AfupBarometreBundle/Resources/assets/css/vendor/select2.css'
-            '@AfupBarometreBundle/Resources/assets/css/vendor/select2-bootstrap.css'
+            '@AfupBarometreBundle/Resources/assets/vendor/bootstrap/dist/css/bootstrap.css'
+            '@AfupBarometreBundle/Resources/assets/vendor/select2/select2.css'
+            '@AfupBarometreBundle/Resources/assets/vendor/select2/select2-bootstrap.css'
             '@AfupBarometreBundle/Resources/assets/css/main.css'
          %}
             <link href="{{ asset_url }}" rel="stylesheet" />
@@ -35,8 +35,8 @@
 
         {% block javascripts %}
          {% javascripts 
-            '@AfupBarometreBundle/Resources/assets/js/vendor/jquery-1.11.0.js'
-            '@AfupBarometreBundle/Resources/assets/js/vendor/select2.js'
+            '@AfupBarometreBundle/Resources/assets/vendor/jquery/jquery.js'
+            '@AfupBarometreBundle/Resources/assets/vendor/select2/select2.js'
             '@AfupBarometreBundle/Resources/assets/js/main.js'
          %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
