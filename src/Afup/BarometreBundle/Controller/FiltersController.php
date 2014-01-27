@@ -9,13 +9,10 @@ class FiltersController extends Controller
 {
     public function indexAction()
     {
-        $filters    = \Afup\BarometreBundle\Filter\Collection::getAll();
-        $connection = $this->getDoctrine()->getConnection();
-
         $context = $this->get('afup.barometre.context');
 
         $form = $this->createForm(new FilteringType(), null, array(
-          'filters' => $filters
+          'filters' => $this->get('afup.barometre.filter_collection')->getAll(),
         ));
         $form->submit($context->getParameters());
 

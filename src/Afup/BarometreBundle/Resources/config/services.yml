@@ -18,6 +18,7 @@ services:
        arguments:
             connection: @doctrine.dbal.default_connection
             context: @afup.barometre.context
+            filterCollection: @afup.barometre.filter_collection
 
     afup.barometre.context_factory:
        class: %afup.barometre.context_factory.class%
