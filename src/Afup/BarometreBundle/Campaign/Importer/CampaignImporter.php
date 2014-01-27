@@ -45,7 +45,6 @@ class CampaignImporter
             ->setEndDate($endDate);
 
         $this->objectManager->persist($campaign);
-        $this->objectManager->flush();
 
         $file = new SplFileObject($filename, 'r');
         $file->setCsvControl(";");

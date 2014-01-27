@@ -16,8 +16,8 @@ class BarometreImportCommand extends ContainerAwareCommand
             ->setName("barometre:imports")
             ->setDescription("Importe une nouvelle campagne")
             ->addArgument('name', InputArgument::REQUIRED, 'Nom de la campagne')
-            ->addArgument('startDate', InputArgument::REQUIRED, 'Date de début de la campagne')
-            ->addArgument('endDate', InputArgument::REQUIRED, 'Date de fin de la campagne')
+            ->addArgument('startDate', InputArgument::REQUIRED, 'Date de début de la campagne (format: dd/mm/yyyy)')
+            ->addArgument('endDate', InputArgument::REQUIRED, 'Date de fin de la campagne (format: dd/mm/yyyy)')
             ->addArgument('filename', InputArgument::REQUIRED, 'Fichier à importer');
     }
 
