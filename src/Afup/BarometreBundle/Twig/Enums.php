@@ -4,7 +4,6 @@ namespace Afup\BarometreBundle\Twig;
 
 use Afup\BarometreBundle\Enums\EnumsCollection;
 
-
 class Enums extends \Twig_Extension
 {
     /**
@@ -40,7 +39,7 @@ class Enums extends \Twig_Extension
     {
         $choices = $this->enums->getEnums($enumName)->getChoices();
         if (!isset($choices[$enumId])) {
-          return $enumId;
+            return $enumId;
         }
         return $choices[$enumId];
     }
