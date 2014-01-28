@@ -34,7 +34,7 @@
         </service>
 
         <service id="afup.barometre.twig.assets" class="Afup\BarometreBundle\Twig\Assets">
-            <argument>%kernel.root_dir%</argument>
+            <argument>%kernel.root_dir%/../web/assets/</argument>
             <tag name="twig.extension" />
         </service>
 

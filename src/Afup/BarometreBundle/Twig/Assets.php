@@ -6,14 +6,22 @@ use Symfony\Component\Finder\Finder;
 
 class Assets extends \Twig_Extension
 {
+    /**
+     * @var string
+     */
+    protected $assetsDir;
 
-    protected $assetsPath;
-
-    public function __construct($kernelRootDir)
+    /**
+     * @param string $assetsDir
+     */
+    public function __construct($assetsDir)
     {
-        $this->assetsPath = $kernelRootDir . '/../web/assets/';
+        $this->assetsDir = $assetsDir;
     }
 
+    /**
+     * @return string
+     */
     public function getGlobals()
     {
         return array(
@@ -22,10 +30,16 @@ class Assets extends \Twig_Extension
         );
     }
 
+    /**
+     * @param string $pattern
+     * @param string $subDir
+     *
+     * @return string
+     */
     protected function getCompiledFile($pattern, $subDir)
     {
         $finder = new Finder();
-        $files = $finder->files()->name($pattern)->in($this->assetsPath . '/' . $subDir);
+        $files = $finder->files()->name($pattern)->in($this->assetsDir . '/' . $subDir);
         if (count($files) > 1) {
             throw new \Exception('There should not have more than one file in the assets dir');
         }
