@@ -33,6 +33,11 @@
             <argument type="service" id="afup.barometre.campaign.response_factory" />
         </service>
 
+        <service id="afup.barometre.twig.enums" class="Afup\BarometreBundle\Twig\Enums">
+            <argument type="service" id="afup.barometre.enums_collection" />
+            <tag name="twig.extension" />
+        </service>
+
         <service id="afup.barometre.campaign.response_factory" class="%afup.barometre.campaign.response_factory.class%">
             <argument type="service" id="number_formatter" />
             <argument type="service" id="afup.barometre.enums_collection" />
