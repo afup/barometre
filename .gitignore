@@ -9,4 +9,6 @@
 /vendor/
 /bin/
 /composer.phar
-/src/Afup/BarometreBundle/Resources/assets/vendor
+/bower_components/
+/node_modules/
+/web/assets/
