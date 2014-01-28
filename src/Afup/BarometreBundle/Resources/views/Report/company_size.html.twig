@@ -1,0 +1,25 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+{{ render(controller('AfupBarometreBundle:Filters:index')) }}
+
+Distribution des tailles d'entreprises.
+
+<table class="table table-striped">
+<thead>
+  <tr>
+    <td>Taille d'entreprise</td>
+    <td>Nombre de réponses</td>
+  </tr>
+</thead>
+<tbody>
+{% for row in results %}
+  <tr>
+    <td>{{ row.companySize|enum_label('company_size') }}</td>
+    <td>{{ row.count }}</td>
+  </tr>
+{% endfor %}
+</tbody>
+</table>
+
+{% endblock %}

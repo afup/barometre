@@ -5,13 +5,37 @@
     <parameters>
         <parameter key="afup.barometre.campaign.importer.class">Afup\BarometreBundle\Campaign\Importer\CampaignImporter</parameter>
         <parameter key="afup.barometre.campaign.response_factory.class">Afup\BarometreBundle\Campaign\ResponseFactory</parameter>
+        <parameter key="afup.barometre.context.class">Afup\BarometreBundle\Filtering\Context</parameter>
+        <parameter key="afup.barometre.context_factory.class">Afup\BarometreBundle\Filtering\ContextFactory</parameter>
+        <parameter key="afup.barometre.query_builder_factory.class">Afup\BarometreBundle\Filtering\QueryBuilderFactory</parameter>
         <parameter key="number_formatter.class">NumberFormatter</parameter>
     </parameters>
 
     <services>
+        <service id="afup.barometre.context"
+                 class="%afup.barometre.context.class%"
+                 factory-service="afup.barometre.context_factory"
+                 factory-method="createFromRequestStack"
+        >
+            <argument type="service" id="request_stack" />
+        </service>
+
+        <service id="afup.barometre.query_builder_factory" class="%afup.barometre.query_builder_factory.class%">
+            <argument type="service" id="doctrine.dbal.default_connection" />
+            <argument type="service" id="afup.barometre.context" />
+            <argument type="service" id="afup.barometre.filter_collection" />
+        </service>
+
+        <service id="afup.barometre.context_factory" class="%afup.barometre.context_factory.class%" />
+
         <service id="afup.barometre.campaign.importer" class="%afup.barometre.campaign.importer.class%">
             <argument type="service" id="doctrine.orm.entity_manager" />
             <argument type="service" id="afup.barometre.campaign.response_factory" />
+        </service>
+
+        <service id="afup.barometre.twig.enums" class="Afup\BarometreBundle\Twig\Enums">
+            <argument type="service" id="afup.barometre.enums_collection" />
+            <tag name="twig.extension" />
         </service>
 
         <service id="afup.barometre.campaign.response_factory" class="%afup.barometre.campaign.response_factory.class%">
