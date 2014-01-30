@@ -3,28 +3,18 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}Baromètre AFUP{% endblock %}</title>
-        {% block stylesheets %}
-         {% stylesheets
-            '@AfupBarometreBundle/Resources/assets/vendor/bootstrap/dist/css/bootstrap.css'
-            '@AfupBarometreBundle/Resources/assets/vendor/select2/select2.css'
-            '@AfupBarometreBundle/Resources/assets/vendor/select2/select2-bootstrap.css'
-            '@AfupBarometreBundle/Resources/assets/css/main.css'
-         %}
-            <link href="{{ asset_url }}" rel="stylesheet" />
-          {% endstylesheets %}
-        {% endblock %}
+        <link rel='stylesheet' href='{{ compiled_css_file }}' type='text/css' />
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-
       <div id="wrapper">
 
          <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                   <li class="sidebar-brand"><a href="#">Baromètre AFUP</a></li>
-                  <li><a href="{{ path('afup_barometre_report_company_type') }}">Voir par type d'entreprise</a></li>
-                  <li><a href="{{ path('afup_barometre_report_company_size') }}">Voir par taille d'entreprise</a></li>
-                  <li><a href="{{ path('afup_barometre_report_salary') }}">Voir par salaire</a></li>
+                  <li><a href="{{ context_path('afup_barometre_report_company_type') }}">Voir par type d'entreprise</a></li>
+                  <li><a href="{{ context_path('afup_barometre_report_company_size') }}">Voir par taille d'entreprise</a></li>
+                  <li><a href="{{ context_path('afup_barometre_report_salary') }}">Voir par salaire</a></li>
               </ul>
           </div>
 
@@ -35,13 +25,7 @@
         </div>
 
         {% block javascripts %}
-         {% javascripts 
-            '@AfupBarometreBundle/Resources/assets/vendor/jquery/jquery.js'
-            '@AfupBarometreBundle/Resources/assets/vendor/select2/select2.js'
-            '@AfupBarometreBundle/Resources/assets/js/main.js'
-         %}
-            <script type="text/javascript" src="{{ asset_url }}"></script>
-          {% endjavascripts %}
+            <script type="text/javascript" src="{{ compiled_js_file }}"></script>
         {% endblock %}
     </body>
 </html>
