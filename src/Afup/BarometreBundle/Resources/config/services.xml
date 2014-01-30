@@ -63,5 +63,9 @@
                  factory-method="getRepository">
             <argument>Afup\BarometreBundle\Entity\Speciality</argument>
         </service>
+
+        <service id="afup.barometre.reports.response" class="Afup\BarometreBundle\Entity\ResponseReports">
+        </service>
+
     </services>
 </container>
