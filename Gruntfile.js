@@ -2,14 +2,16 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
 
-    clean: ["web/assets", "app/cache/grunt"],
+    clean: ["web/assets", "app/cache/grunt", "src/Afup/BarometreBundle/Resources/assets/sass/vendor/"],
 
     copy: {
       main: {
         files: [
           {expand: true, cwd: 'bower_components/select2/', src: ['**.png'], dest: 'web/assets/images/select2/', filter: 'isFile'},
           {expand: true, cwd: 'bower_components/select2/', src: ['**.gif'], dest: 'web/assets/images/select2/', filter: 'isFile'},
-          {expand: true, cwd: 'bower_components/bootstrap/dist/fonts/', src: ['*'], dest: 'web/assets/fonts/', filter: 'isFile'}
+          {expand: true, cwd: 'bower_components/bootstrap/dist/fonts/', src: ['*'], dest: 'web/assets/fonts/', filter: 'isFile'},
+          {expand: true, cwd: 'bower_components/bootstrap-sass-official/vendor/assets/stylesheets/', src: ['**'], dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/'},
+          {expand: true, cwd: 'bower_components/select2/', src: ['select2-bootstrap.scss'], dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/'}
         ]
       }
     },
@@ -17,13 +19,23 @@ module.exports = function(grunt) {
     cssUrlRewrite: {
       select2: {
           src: 'bower_components/select2/select2.css',
-          dest: 'app/cache/grunt/select2.css',
+          dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/select2.scss',
           options: {
             rewriteUrl: function(url, options, dataURI) {
               return '/assets/images/select2/' + url.replace('bower_components/select2/', '');
             }
           }
       },
+    },
+
+    sass: {
+       dist: {
+          options: {
+            style: 'expanded'
+          },
+          src: 'src/Afup/BarometreBundle/Resources/assets/sass/main.scss',
+          dest : 'app/cache/grunt/main.css'
+       }
     },
 
     concat: {
@@ -38,18 +50,6 @@ module.exports = function(grunt) {
 
         ],
         dest: 'app/cache/grunt/main.js'
-      },
-      css: {
-        options: {
-          separator: ''
-        },
-        src: [
-          'bower_components/bootstrap/dist/css/bootstrap.css',
-          'app/cache/grunt/select2.css',
-          'bower_components/select2/select2-bootstrap.css',
-          'src/Afup/BarometreBundle/Resources/assets/css/main.css',
-        ],
-        dest: 'app/cache/grunt/main.css'
       }
     },
      uglify: {
@@ -63,11 +63,10 @@ module.exports = function(grunt) {
     cssmin: {
       css: {
         files: {
-          '<%= concat.css.dest %>': ['<%= concat.css.dest %>']
+          '<%= sass.dist.dest %>': ['<%= sass.dist.dest %>']
         }
       }
     },
-
 
     hash: {
       options: {
@@ -91,8 +90,11 @@ module.exports = function(grunt) {
         files: ['src/Afup/BarometreBundle/Resources/assets/js/**'],
         tasks: ['dev']
       },
-      css : {
-        files: ['src/Afup/BarometreBundle/Resources/assets/css/**'],
+      sass : {
+        files: [
+          'src/Afup/BarometreBundle/Resources/assets/sass/*',
+          'src/Afup/BarometreBundle/Resources/assets/sass/ui/*'
+        ],
         tasks: ['dev']
       }
     }
@@ -103,10 +105,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-clean');
+  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-css-url-rewrite');
   grunt.loadNpmTasks('grunt-hash');
 
-  grunt.registerTask('dev', ['clean', 'copy', 'cssUrlRewrite', 'concat', 'hash']);
+  grunt.registerTask('dev', ['clean', 'copy', 'cssUrlRewrite', 'sass', 'concat', 'hash']);
   grunt.registerTask('default', ['dev', 'uglify', 'cssmin']);
 
 };
