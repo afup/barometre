@@ -1,6 +1,6 @@
 <?php
 
-namespace Afup\BarometreBundle\Entity;
+namespace Afup\BarometreBundle\Service\Reports;
 
 use Doctrine\DBAL\Query\QueryBuilder;
 
