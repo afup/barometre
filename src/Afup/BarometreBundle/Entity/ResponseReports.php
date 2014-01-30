@@ -21,6 +21,10 @@ class ResponseReports
           );
         }
 
+        if (0 === count($results)) {
+          return $results;
+        }
+
         $baseResult = array(
           'count' => 0,
         );
