@@ -68,5 +68,11 @@
                  factory-method="getRepository">
             <argument>Afup\BarometreBundle\Entity\Speciality</argument>
         </service>
+
+        <service id="afup.barometre.twig.extension.context_path" class="Afup\BarometreBundle\Twig\Extension\PathExtension">
+            <argument type="service" id="afup.barometre.context" />
+            <argument type="service" id="router" />
+            <tag name="twig.extension" />
+        </service>
     </services>
 </container>
