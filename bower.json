@@ -3,6 +3,6 @@
     "dependencies": {
         "jquery": "1.11.0",
         "select2": "3.4.5",
-        "bootstrap": "v3.0.3"
+        "bootstrap-sass-official": "v3.0.3.0"
     }
 }
