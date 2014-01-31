@@ -6,7 +6,11 @@ use Doctrine\DBAL\Query\QueryBuilder;
 
 class ResponseReports
 {
-
+    /**
+     * @param QueryBuilder $query
+     *
+     * @return array
+     */
     public function getSalaryReport(QueryBuilder $query)
     {
         $query->select('count(distinct response.id) as count');
@@ -15,14 +19,14 @@ class ResponseReports
 
         $results = array();
         foreach ($query->execute() as $row) {
-          $slice = $row['salarySlice'];
-          $results[$slice] = array(
-            'count' => $row['count']
-          );
+            $slice = $row['salarySlice'];
+            $results[$slice] = array(
+               'count' => $row['count']
+            );
         }
 
         if (0 === count($results)) {
-          return $results;
+            return $results;
         }
 
         $baseResult = array(
@@ -43,6 +47,11 @@ class ResponseReports
         return $results;
     }
 
+    /**
+     * @param QueryBuilder $query
+     *
+     * @return array
+     */
     public function getCompanySizeReport(QueryBuilder $query)
     {
         $query->select('count(distinct response.id) as count');
@@ -52,6 +61,11 @@ class ResponseReports
         return $query->execute();
     }
 
+    /**
+     * @param QueryBuilder $query
+     *
+     * @return array
+     */
     public function getCompanyTypeReport(QueryBuilder $query)
     {
         $query->select('count(distinct response.id) as count');
@@ -60,5 +74,4 @@ class ResponseReports
 
         return $query->execute();
     }
-
 }
