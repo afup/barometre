@@ -74,5 +74,8 @@
             <argument type="service" id="router" />
             <tag name="twig.extension" />
         </service>
+
+        <service id="afup.barometre.reports.response" class="Afup\BarometreBundle\Service\Reports\ResponseReports" />
+
     </services>
 </container>

@@ -10,11 +10,7 @@ class ReportCompanyTypeController extends Controller
     {
         $query = $this->get('afup.barometre.query_builder_factory')->getResponse();
 
-        $query->select('count(distinct response.id) as count');
-        $query->addSelect('response.compagnyType as companyType');
-        $query->addGroupBy('response.compagnyType');
-
-        $results = $query->execute();
+        $results = $this->get('afup.barometre.reports.response')->getCompanyTypeReport($query);
 
         return $this->render('AfupBarometreBundle:Report:company_type.html.twig', array(
           'results' => $results,
