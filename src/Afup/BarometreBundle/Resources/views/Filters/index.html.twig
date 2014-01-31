@@ -1,5 +1,17 @@
 {{ form_start(form) }}
-    {{ form_errors(form) }}
+  {{ form_errors(form) }}
+
+  {% for child in form %}
+      <div class="filter-row">
+        <div class="filter-label">
+          {{ form_label(child) }}
+        </div>
+        <div class="filter-content">
+          {{ form_widget(child) }}
+        </div>
+      </div>
+  {% endfor %}
+
 {{ form_end(form) }}
 
 
