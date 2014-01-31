@@ -17,6 +17,8 @@ class FixturesLoader implements FixtureInterface
             array(
                 __DIR__ . '/../../Resources/fixtures/speciality.yml',
                 __DIR__ . '/../../Resources/fixtures/certification.yml',
+                __DIR__ . '/../../Resources/fixtures/response.yml',
+
             ),
             $manager
         );
