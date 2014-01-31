@@ -31,7 +31,11 @@ class PathExtension extends \Twig_Extension
     {
         $parameters = array_merge($parameters, ['q' => $this->context->getParameters()]);
 
-        return $this->generator->generate($name, $parameters, $relative ? UrlGeneratorInterface::RELATIVE_PATH : UrlGeneratorInterface::ABSOLUTE_PATH);
+        return $this->generator->generate(
+            $name,
+            $parameters,
+            $relative ? UrlGeneratorInterface::RELATIVE_PATH : UrlGeneratorInterface::ABSOLUTE_PATH
+        );
     }
 
     /**
