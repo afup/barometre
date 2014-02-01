@@ -3,25 +3,24 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services
                                http://symfony.com/schema/dic/services/services-1.0.xsd">
     <parameters>
-        <parameter key="afup.barometre.filter_collection.class">Afup\BarometreBundle\Filter\FilterCollection</parameter>
-        <parameter key="afup.barometre.filter.company_size.class">Afup\BarometreBundle\Filters\CompanySize</parameter>
-        <parameter key="afup.barometre.filter.company_type.class">Afup\BarometreBundle\Filters\CompanyType</parameter>
-        <parameter key="afup.barometre.filter.php_version.class">Afup\BarometreBundle\Filters\PhpVersion</parameter>
+        <parameter key="afup.barometre.filter.company_size.class">Afup\Barometre\Filter\CompanySizeFilter</parameter>
+        <parameter key="afup.barometre.filter.company_type.class">Afup\Barometre\Filter\CompanyTypeFilter</parameter>
+        <parameter key="afup.barometre.filter.php_version.class">Afup\Barometre\Filter\PHPVersionFilter</parameter>
     </parameters>
 
     <services>
-
-        <service id="afup.barometre.filter_collection" class="%afup.barometre.filter_collection.class%" />
-
         <service id="afup.barometre.filter.company_size" class="%afup.barometre.filter.company_size.class%">
+            <argument type="service" id="afup.barometre.enums.company_size" />
             <tag name="barometre.filter" alias="company_size"/>
         </service>
 
         <service id="afup.barometre.filter.company_type" class="%afup.barometre.filter.company_type.class%">
+            <argument type="service" id="afup.barometre.enums.company_type" />
             <tag name="barometre.filter" alias="company_type"/>
         </service>
 
         <service id="afup.barometre.filter.php_version" class="%afup.barometre.filter.php_version.class%">
+            <argument type="service" id="afup.barometre.enums.php_version" />
             <tag name="barometre.filter" alias="php_version" />
         </service>
 

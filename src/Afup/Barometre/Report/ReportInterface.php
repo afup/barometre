@@ -29,4 +29,11 @@ interface ReportInterface
      * @return string
      */
     public function getName();
+
+    /**
+     * The report label (used for title & menu)
+     *
+     * @return string
+     */
+    public function getLabel();
 }

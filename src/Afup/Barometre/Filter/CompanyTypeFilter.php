@@ -22,7 +22,7 @@ class CompanyTypeFilter implements FilterInterface
     public function buildForm(FormBuilderInterface $builder)
     {
         $builder->add($this->getName(), 'choice', [
-            'label'    => "Type d'entreprise"
+            'label'    => "Type d'entreprise",
             'choices'  => $this->companyTypes->getChoices(),
             'multiple' => true,
             'required' => false,
@@ -41,7 +41,7 @@ class CompanyTypeFilter implements FilterInterface
 
         $queryBuilder
             ->andWhere('response.compagnyType IN(:company_type)')
-            ->setParameter('company_type', $values[$this->getName()], \Doctrine\DBAL\Connection::PARAM_INT_ARRAY)
+            ->setParameter('company_type', $values[$this->getName()], \Doctrine\DBAL\Connection::PARAM_INT_ARRAY);
     }
 
     /**

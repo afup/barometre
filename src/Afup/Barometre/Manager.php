@@ -4,6 +4,7 @@ namespace Afup\Barometre;
 
 use Doctrine\DBAL\Connection;
 use Symfony\Component\Form\FormInterface;
+use Symfony\Component\HttpFoundation\Request;
 use Afup\Barometre\Filter\FilterCollection;
 use Afup\Barometre\Report\ReportCollection;
 
@@ -73,9 +74,16 @@ class Manager
 
         $queryBuilder = $this->connection->createQueryBuilder();
 
-        $this->filterCollection->buildQuery($queryBuilder, $this->form->getData());
+        $queryBuilder->from('response', 'response');
 
-        $report->setQueryBuilder($queryBuilder)
+        $this->filterCollection->buildQuery($queryBuilder, (array) $this->form->getData());
+
+        if (!$report) {
+            // exception
+            return;
+        }
+
+        $report->setQueryBuilder($queryBuilder);
 
         return $report;
     }

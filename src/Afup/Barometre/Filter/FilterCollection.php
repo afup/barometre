@@ -32,7 +32,7 @@ class FilterCollection implements FilterInterface
     public function buildForm(FormBuilderInterface $builder)
     {
         foreach ($this->filters as $filter) {
-            $filter->buildForm($formBuilder);
+            $filter->buildForm($builder);
         }
     }
 

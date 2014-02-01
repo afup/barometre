@@ -22,7 +22,7 @@ class PHPVersionFilter implements FilterInterface
     public function buildForm(FormBuilderInterface $builder)
     {
         $builder->add($this->getName(), 'choice', [
-            'label'    => 'Version de PHP'
+            'label'    => 'Version de PHP',
             'choices'  => $this->phpVersions->getChoices(),
             'multiple' => true,
             'required' => false,
@@ -41,7 +41,7 @@ class PHPVersionFilter implements FilterInterface
 
         $queryBuilder
             ->andWhere('response.phpVersion IN(:php_version)')
-            ->setParameter('php_version', $values[$this->getName()], \Doctrine\DBAL\Connection::PARAM_INT_ARRAY)
+            ->setParameter('php_version', $values[$this->getName()], \Doctrine\DBAL\Connection::PARAM_INT_ARRAY);
     }
 
     /**

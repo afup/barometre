@@ -2,10 +2,11 @@
 
 namespace Afup\BarometreBundle;
 
+use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Afup\BarometreBundle\DependencyInjection\Compiler\EnumsCollectionPass;
 use Afup\BarometreBundle\DependencyInjection\Compiler\FilterCollectionPass;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Afup\BarometreBundle\DependencyInjection\Compiler\ReportCollectionPass;
 
 class AfupBarometreBundle extends Bundle
 {
@@ -16,5 +17,6 @@ class AfupBarometreBundle extends Bundle
     {
         $container->addCompilerPass(new EnumsCollectionPass());
         $container->addCompilerPass(new FilterCollectionPass());
+        $container->addCompilerPass(new ReportCollectionPass());
     }
 }

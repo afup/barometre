@@ -16,7 +16,7 @@ class ReportCollection
      */
     public function addReport(ReportInterface $report)
     {
-        $this->reports[$report->getName()];
+        $this->reports[$report->getName()] = $report;
     }
 
     /**

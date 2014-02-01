@@ -2,6 +2,7 @@
 
 namespace Afup\Barometre\Report;
 
+use Doctrine\DBAL\Query\QueryBuilder;
 /**
  * Report on company size
  */
@@ -24,8 +25,8 @@ class CompanySizeReport implements ReportInterface
     {
         $this->queryBuilder
             ->select('count(distinct response.id) as count')
-            ->addSelect('response.compagnySize as companySize')
-            ->addGroupBy('response.compagnySize');
+            ->addSelect('response.companySize as companySize')
+            ->addGroupBy('response.companySize');
 
         return $this->queryBuilder->execute();
     }
@@ -35,6 +36,14 @@ class CompanySizeReport implements ReportInterface
      */
     public function getName()
     {
-        return 'company_size'
+        return 'company_size';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getLabel()
+    {
+        return "Distribution des tailles d'entreprises";
     }
 }

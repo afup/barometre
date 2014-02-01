@@ -5,20 +5,6 @@ afup_barometre_homepage:
         path: /report/company_type
         permanent: true
 
-afup_barometre_report_company_size:
-    pattern:  /report/company_size
-    defaults: { _controller: AfupBarometreBundle:ReportCompanySize:index }
-
-afup_barometre_report_company_type:
-    pattern:  /report/company_type
-    defaults: { _controller: AfupBarometreBundle:ReportCompanyType:index }
-
-afup_barometre_report_company_department:
-    pattern:  /report/company_department
-    defaults: { _controller: AfupBarometreBundle:ReportCompanyDepartment:index }
-
-afup_barometre_report_salary:
-    pattern:  /report/salary
-    defaults: { _controller: AfupBarometreBundle:ReportSalary:index }
-
-
+afup_barometre_report:
+    pattern:  /report/{reportName}
+    defaults: { _controller: AfupBarometreBundle:Default:index }

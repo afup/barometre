@@ -1,10 +1,3 @@
-{% extends '::base.html.twig' %}
-
-{% block title %}Distribution des tailles d'entreprises - Baromètre AFUP{% endblock %}
-
-{% block body %}
-{{ render(controller('AfupBarometreBundle:Filters:index')) }}
-
 <div class="report-title">Distribution des tailles d'entreprises.</div>
 
 <table class="bar-table">
@@ -23,5 +16,3 @@
 {% endfor %}
 </tbody>
 </table>
-
-{% endblock %}
