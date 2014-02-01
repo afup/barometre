@@ -71,3 +71,11 @@ ou
 php app/console doctrine:fixtures:load --append --fixtures=src/Afup/BarometreBundle/DataTest/ORM/
 ```
 si  un ```php app/console doctrine:fixtures:load ``` a déjà été effectué.
+
+
+Installation des hooks de précommit
+-----------------------------------
+
+```
+grunt githooks
+```
