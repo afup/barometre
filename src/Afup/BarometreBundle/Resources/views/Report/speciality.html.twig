@@ -1,0 +1,18 @@
+<div class="report-title">Distribution des spécialités.</div>
+
+<table class="bar-table">
+    <thead>
+        <tr>
+            <th>Spécialité</th>
+            <th>Nombre de réponses</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in results %}
+            <tr>
+                <td>{{ row.speciality }}</td>
+                <td>{{ row.count }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

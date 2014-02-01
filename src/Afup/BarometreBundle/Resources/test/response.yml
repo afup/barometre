@@ -18,5 +18,6 @@ Afup\BarometreBundle\Entity\Response:
         phpStrength: <enums('php_strength')>
         hasRecentTraining: <numberBetween(0, 1)>
         isRecentTrainingHadSalaryImpact: <numberBetween(0, 1)>
+        specialities: <arrayRandomValue(0, 7, 1, 17)>
 
 
