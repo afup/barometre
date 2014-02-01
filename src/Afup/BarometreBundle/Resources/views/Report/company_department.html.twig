@@ -1,0 +1,27 @@
+{% extends '::base.html.twig' %}
+
+{% block body %}
+{{ render(controller('AfupBarometreBundle:Filters:index')) }}
+
+<div class="report-title">Répartition géographique</div>
+
+<table class="bar-table">
+<thead>
+  <tr>
+    <td>Code département</td>
+    <td>Nom département</td>
+    <td>Nombre de réponses</td>
+  </tr>
+</thead>
+<tbody>
+{% for row in results %}
+  <tr>
+    <td>{{ row.companyDepartment }}</td>
+    <td>{{ row.companyDepartment|department_label }}</td>
+    <td>{{ row.count }}</td>
+  </tr>
+{% endfor %}
+</tbody>
+</table>
+
+{% endblock %}

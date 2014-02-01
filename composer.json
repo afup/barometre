@@ -18,7 +18,8 @@
         "sensio/generator-bundle": "~2.3",
         "incenteev/composer-parameter-handler": "~2.0",
         "doctrine/doctrine-fixtures-bundle": "2.2.*",
-        "nelmio/alice": "1.5.*"
+        "nelmio/alice": "1.5.*",
+        "agallou/departements": "0.1.0"
     },
     "require-dev": {
         "atoum/atoum": "0.0.1",
