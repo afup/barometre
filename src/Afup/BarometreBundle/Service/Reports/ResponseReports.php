@@ -74,4 +74,18 @@ class ResponseReports
 
         return $query->execute();
     }
+
+    /**
+     * @param QueryBuilder $query
+     *
+     * @return array
+     */
+    public function getCompanyDepartmentReport(QueryBuilder $query)
+    {
+        $query->select('count(distinct response.id) as count');
+        $query->addSelect('response.companyDepartment as companyDepartment');
+        $query->addGroupBy('response.companyDepartment');
+
+        return $query->execute();
+    }
 }

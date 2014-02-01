@@ -13,6 +13,12 @@ afup_barometre_report_company_type:
     pattern:  /report/company_type
     defaults: { _controller: AfupBarometreBundle:ReportCompanyType:index }
 
+afup_barometre_report_company_department:
+    pattern:  /report/company_department
+    defaults: { _controller: AfupBarometreBundle:ReportCompanyDepartment:index }
+
 afup_barometre_report_salary:
     pattern:  /report/salary
     defaults: { _controller: AfupBarometreBundle:ReportSalary:index }
+
+

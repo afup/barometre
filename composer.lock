@@ -3,8 +3,45 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "053744845747ac7d51f93237375fb7c8",
+    "hash": "d11806e4b4aafd0b9c427af6d51af324",
     "packages": [
+        {
+            "name": "agallou/departements",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/agallou/Departements.git",
+                "reference": "c6800cf527acb72e58061db868a27ada85218a27"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/agallou/Departements/zipball/c6800cf527acb72e58061db868a27ada85218a27",
+                "reference": "c6800cf527acb72e58061db868a27ada85218a27",
+                "shasum": ""
+            },
+            "require-dev": {
+                "atoum/atoum": "0.0.1",
+                "m6web/coke": "1.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Adrien Gallou",
+                    "email": "adriengallou@gmail.com"
+                }
+            ],
+            "description": "Liste des départements Français",
+            "time": "2014-02-01 12:31:39"
+        },
         {
             "name": "doctrine/annotations",
             "version": "v1.1.2",
