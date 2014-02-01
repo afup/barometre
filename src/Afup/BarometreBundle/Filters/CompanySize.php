@@ -16,7 +16,7 @@ class CompanySize implements FilterInterface
     public function alterQuery(\Doctrine\DBAL\Query\QueryBuilder $query, $values)
     {
         $key = $this->getIdentifier();
-        $query->andWhere(sprintf('response.compagnySize IN(:%s)', $key));
+        $query->andWhere(sprintf('response.companySize IN(:%s)', $key));
         $query->setParameter($key, $values, \Doctrine\DBAL\Connection::PARAM_INT_ARRAY);
     }
 

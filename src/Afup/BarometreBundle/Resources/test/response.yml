@@ -1,0 +1,22 @@
+Afup\BarometreBundle\Entity\Campaign:
+    campaign1:
+        name: "2013"
+        startDate: <dateTime()>
+        endDate: <dateTime()>
+
+Afup\BarometreBundle\Entity\Response:
+    response{1..1200}:
+        campaign: @campaign1
+        grossAnnualSalary: <numberBetween(20000, 45000)>
+        variableAnnualSalary: <numberBetween(0, 4500)>
+        initialTraining: <enums('initial_training')>
+        companyType: <enums('company_type')>
+        companySize: <enums('company_size')>
+        companyDepartment: <fr_FR:departmentNumber()>
+        jobInterest: <enums('job_interest')>
+        phpVersion: <enums('php_version')>
+        phpStrength: <enums('php_strength')>
+        hasRecentTraining: <numberBetween(0, 1)>
+        isRecentTrainingHadSalaryImpact: <numberBetween(0, 1)>
+
+

@@ -55,8 +55,8 @@ class ResponseReports
     public function getCompanySizeReport(QueryBuilder $query)
     {
         $query->select('count(distinct response.id) as count');
-        $query->addSelect('response.compagnySize as companySize');
-        $query->addGroupBy('response.compagnySize');
+        $query->addSelect('response.companySize as companySize');
+        $query->addGroupBy('response.companySize');
 
         return $query->execute();
     }
@@ -69,8 +69,8 @@ class ResponseReports
     public function getCompanyTypeReport(QueryBuilder $query)
     {
         $query->select('count(distinct response.id) as count');
-        $query->addSelect('response.compagnyType as companyType');
-        $query->addGroupBy('response.compagnyType');
+        $query->addSelect('response.companyType as companyType');
+        $query->addGroupBy('response.companyType');
 
         return $query->execute();
     }
@@ -83,8 +83,8 @@ class ResponseReports
     public function getCompanyDepartmentReport(QueryBuilder $query)
     {
         $query->select('count(distinct response.id) as count');
-        $query->addSelect('response.compagnyDepartment as companyDepartment');
-        $query->addGroupBy('response.compagnyDepartment');
+        $query->addSelect('response.companyDepartment as companyDepartment');
+        $query->addGroupBy('response.companyDepartment');
 
         return $query->execute();
     }

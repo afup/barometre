@@ -72,19 +72,19 @@ class Response
      * @ORM\Column(type="integer", nullable=true)
      * @var int
      */
-    protected $compagnyType;
+    protected $companyType;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      * @var int
      */
-    protected $compagnySize;
+    protected $companySize;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=3, nullable=true)
      * @var int
      */
-    protected $compagnyDepartment;
+    protected $companyDepartment;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -228,12 +228,12 @@ class Response
     }
 
     /**
-     * @param integer $compagnyType
+     * @param integer $companyType
      * @return Response
      */
-    public function setCompagnyType($compagnyType)
+    public function setCompanyType($companyType)
     {
-        $this->compagnyType = $compagnyType;
+        $this->companyType = $companyType;
 
         return $this;
     }
@@ -241,18 +241,18 @@ class Response
     /**
      * @return integer
      */
-    public function getCompagnyType()
+    public function getCompanyType()
     {
-        return $this->compagnyType;
+        return $this->companyType;
     }
 
     /**
-     * @param integer $compagnySize
+     * @param integer $companySize
      * @return Response
      */
-    public function setCompagnySize($compagnySize)
+    public function setCompanySize($companySize)
     {
-        $this->compagnySize = $compagnySize;
+        $this->companySize = $companySize;
 
         return $this;
     }
@@ -260,18 +260,18 @@ class Response
     /**
      * @return integer
      */
-    public function getCompagnySize()
+    public function getCompanySize()
     {
-        return $this->compagnySize;
+        return $this->companySize;
     }
 
     /**
-     * @param integer $compagnyDepartment
+     * @param integer $companyDepartment
      * @return Response
      */
-    public function setCompagnyDepartment($compagnyDepartment)
+    public function setCompanyDepartment($companyDepartment)
     {
-        $this->compagnyDepartment = $compagnyDepartment;
+        $this->companyDepartment = $companyDepartment;
 
         return $this;
     }
@@ -279,9 +279,9 @@ class Response
     /**
      * @return integer
      */
-    public function getCompagnyDepartment()
+    public function getCompanyDepartment()
     {
-        return $this->compagnyDepartment;
+        return $this->companyDepartment;
     }
 
     /**
@@ -399,30 +399,30 @@ class Response
     }
 
     /**
-     * @param Certification $certifiations
+     * @param Certification $certifications
      * @return Response
      */
-    public function addCertifiation(Certification $certifiations)
+    public function addCertification(Certification $certifications)
     {
-        $this->certifiations[] = $certifiations;
+        $this->certifications[] = $certifications;
 
         return $this;
     }
 
     /**
-     * @param Certification $certifiations
+     * @param Certification $certifications
      */
-    public function removeCertifiation(Certification $certifiations)
+    public function removeCertification(Certification $certifications)
     {
-        $this->certifiations->removeElement($certifiations);
+        $this->certifications->removeElement($certifications);
     }
 
     /**
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getCertifiations()
+    public function getCertifications()
     {
-        return $this->certifiations;
+        return $this->certifications;
     }
 
     /**
