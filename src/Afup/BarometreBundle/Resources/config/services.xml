@@ -15,8 +15,7 @@
         <service id="afup.barometre.context"
                  class="%afup.barometre.context.class%"
                  factory-service="afup.barometre.context_factory"
-                 factory-method="createFromRequestStack"
-        >
+                 factory-method="createFromRequestStack">
             <argument type="service" id="request_stack" />
         </service>
 
