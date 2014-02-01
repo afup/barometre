@@ -35,6 +35,13 @@ Pour les builder automatiquement à chaque modification :
 grunt watch
 ```
 
+Construction de la base de donnée
+---------------------------------
+
+```
+php app/console doctrine:schema:update --force
+```
+
 Chargement des données de test
 ------------------------------
 
