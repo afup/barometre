@@ -7,6 +7,9 @@ use Symfony\Component\Form\FormInterface;
 use Afup\Barometre\Filter\FilterCollection;
 use Afup\Barometre\Report\ReportCollection;
 
+/**
+ * The Report / Filter Manager
+ */
 class Manager
 {
     private $connection;
@@ -17,6 +20,14 @@ class Manager
 
     private $filterCollection;
 
+    /**
+     * __construct
+     *
+     * @param Connection       $connection
+     * @param FormInterface    $form
+     * @param ReportCollection $reportCollection
+     * @param FilterCollection $filterCollection
+     */
     public function __construct(
         Connection $connection,
         FormInterface $form,
@@ -29,16 +40,33 @@ class Manager
         $this->filterCollection = $filterCollection;
     }
 
+    /**
+     * Get the filter form
+     *
+     * @return FormInterface
+     */
     public function getForm()
     {
         return $this->form;
     }
 
+    /**
+     * Handle the request
+     *
+     * @param  Request $request
+     */
     public function handleRequest(Request $request)
     {
         $this->form->handleRequest($request);
     }
 
+    /**
+     * Find a report and set the querybuilder
+     *
+     * @param string $reportName
+     *
+     * @return ReportInterface
+     */
     public function getReport($reportName)
     {
         $report = $this->reportCollection->getReport($reportName);
