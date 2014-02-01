@@ -2,8 +2,6 @@
 
 namespace Afup\BarometreBundle\Filtering;
 
-use Symfony\Component\HttpFoundation\RequestStack;
-
 class Context
 {
     /**

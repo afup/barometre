@@ -6,17 +6,17 @@ use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 
-class FilterCollectionPass implements CompilerPassInterface
+class ReportCollectionPass implements CompilerPassInterface
 {
     /**
      * @param ContainerBuilder $container
      */
     public function process(ContainerBuilder $container)
     {
-        $definition = $container->getDefinition('afup.barometre.filter_collection');
+        $definition = $container->getDefinition('afup.barometre.report_collection');
 
-        foreach ($container->findTaggedServiceIds('barometre.filter') as $id => $attributes) {
-            $definition->addMethodCall('addFilter', array(new Reference($id)));
+        foreach ($container->findTaggedServiceIds('barometre.report') as $id => $attributes) {
+            $definition->addMethodCall('addReport', array(new Reference($id)));
         }
     }
 }

@@ -1,27 +1,18 @@
-{% extends '::base.html.twig' %}
-
-{% block title %}Distribution des types d'entreprise - Baromètre AFUP{% endblock %}
-
-{% block body %}
-{{ render(controller('AfupBarometreBundle:Filters:index')) }}
-
 <div class="report-title">Distribution des types d'entreprises.</div>
 
 <table class="bar-table">
-<thead>
-  <tr>
-    <td>Type d'entreprise</td>
-    <td>Nombre de réponses</td>
-  </tr>
-</thead>
-<tbody>
-{% for row in results %}
-  <tr>
-    <td>{{ row.companyType|enum_label('company_type') }}</td>
-    <td>{{ row.count }}</td>
-  </tr>
-{% endfor %}
-</tbody>
+    <thead>
+        <tr>
+            <td>Type d'entreprise</td>
+            <td>Nombre de réponses</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in results %}
+            <tr>
+                <td>{{ row.companyType|enum_label('company_type') }}</td>
+                <td>{{ row.count }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
 </table>
-
-{% endblock %}
