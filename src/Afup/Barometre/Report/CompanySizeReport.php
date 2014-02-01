@@ -3,6 +3,7 @@
 namespace Afup\Barometre\Report;
 
 use Doctrine\DBAL\Query\QueryBuilder;
+
 /**
  * Report on company size
  */
