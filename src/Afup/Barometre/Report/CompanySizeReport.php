@@ -2,15 +2,24 @@
 
 namespace Afup\Barometre\Report;
 
+/**
+ * Report on company size
+ */
 class CompanySizeReport implements ReportInterface
 {
     private $queryBuilder;
 
+    /**
+     * {@inheritdoc}
+     */
     public function setQueryBuilder(QueryBuilder $queryBuilder)
     {
         $this->queryBuilder = $queryBuilder;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getData()
     {
         $this->queryBuilder
@@ -21,6 +30,9 @@ class CompanySizeReport implements ReportInterface
         return $this->queryBuilder->execute();
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getName()
     {
         return 'company_size'

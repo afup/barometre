@@ -41,7 +41,7 @@ class Manager
 
     public function getReport($reportName)
     {
-        $report = $this->reportCollection->get($reportName);
+        $report = $this->reportCollection->getReport($reportName);
 
         $queryBuilder = $this->connection->createQueryBuilder();
 

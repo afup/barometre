@@ -8,7 +8,7 @@ class DefaultController
     {
         $manager = $this->getManager();
 
-        $manager->handleRequest();
+        $manager->handleRequest($request);
 
         $report = $manager->getReport($reportName);
 
