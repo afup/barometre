@@ -50,7 +50,7 @@ class ReportManager
     /**
      * Handle the request
      *
-     * @param  Request $request
+     * @param Request $request
      */
     public function handleRequest(Request $request)
     {

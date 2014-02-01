@@ -9,8 +9,8 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends Controller
 {
     /**
-     * @param  Request $request
-     * @param  string  $reportName
+     * @param Request $request
+     * @param string  $reportName
      *
      * @Template
      *
