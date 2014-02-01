@@ -25,7 +25,7 @@ module.exports = function(grunt) {
               return '/assets/images/select2/' + url.replace('bower_components/select2/', '');
             }
           }
-      },
+      }
     },
 
     sass: {
@@ -46,7 +46,7 @@ module.exports = function(grunt) {
         src: [
           'bower_components/jquery/jquery.js',
           'bower_components/select2/select2.js',
-          'src/Afup/BarometreBundle/Resources/assets/js/main.js',
+          'src/Afup/BarometreBundle/Resources/assets/js/main.js'
 
         ],
         dest: 'app/cache/grunt/main.js'
@@ -101,7 +101,7 @@ module.exports = function(grunt) {
 
     githooks: {
       all: {
-        'pre-commit': 'test lint',
+        'pre-commit': 'test lint'
       }
     },
 
@@ -109,14 +109,14 @@ module.exports = function(grunt) {
         atoum: {
             options: {
                 stdout: true,
-                failOnError: true,
+                failOnError: true
             },
             command: './bin/atoum'
         },
         coke: {
             options: {
                 stdout: true,
-                failOnError: true,
+                failOnError: true
             },
             command: './bin/coke'
         }
