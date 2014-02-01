@@ -11,7 +11,7 @@ use Afup\Barometre\Report\ReportCollection;
 /**
  * The Report / Filter Manager
  */
-class Manager
+class ReportManager
 {
     private $connection;
 
@@ -22,8 +22,6 @@ class Manager
     private $filterCollection;
 
     /**
-     * __construct
-     *
      * @param Connection       $connection
      * @param FormInterface    $form
      * @param ReportCollection $reportCollection
@@ -42,8 +40,6 @@ class Manager
     }
 
     /**
-     * Get the filter form
-     *
      * @return FormInterface
      */
     public function getForm()
