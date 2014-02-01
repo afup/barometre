@@ -97,6 +97,29 @@ module.exports = function(grunt) {
         ],
         tasks: ['dev']
       }
+    },
+
+    githooks: {
+      all: {
+        'pre-commit': 'test lint',
+      }
+    },
+
+    shell: {
+        atoum: {
+            options: {
+                stdout: true,
+                failOnError: true,
+            },
+            command: './bin/atoum'
+        },
+        coke: {
+            options: {
+                stdout: true,
+                failOnError: true,
+            },
+            command: './bin/coke'
+        }
     }
   });
   grunt.loadNpmTasks('grunt-contrib-concat');
@@ -108,7 +131,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-css-url-rewrite');
   grunt.loadNpmTasks('grunt-hash');
+  grunt.loadNpmTasks('grunt-githooks');
+  grunt.loadNpmTasks('grunt-shell');
 
+  grunt.registerTask('test', ['shell:atoum']);
+  grunt.registerTask('lint', ['shell:coke']);
   grunt.registerTask('dev', ['clean', 'copy', 'cssUrlRewrite', 'sass', 'concat', 'hash']);
   grunt.registerTask('default', ['dev', 'uglify', 'cssmin']);
 
