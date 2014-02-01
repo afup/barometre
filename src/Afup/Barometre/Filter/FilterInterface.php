@@ -7,9 +7,9 @@ use Doctrine\ORM\QueryBuilder;
 
 interface FilterInterface
 {
-    function buildForm(FormBuilderInterface $builder);
+    public function buildForm(FormBuilderInterface $builder);
 
-    function buildQuery(QueryBuilder $queryBuilder, array $values = array());
+    public function buildQuery(QueryBuilder $queryBuilder, array $values = array());
 
-    function getName();
+    public function getName();
 }

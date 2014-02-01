@@ -17,8 +17,12 @@ class Manager
 
     private $filterCollection;
 
-    public function __construct(Connection $connection, FormInterface $form, ReportCollection $reportCollection, FilterCollection $filterCollection)
-    {
+    public function __construct(
+        Connection $connection,
+        FormInterface $form,
+        ReportCollection $reportCollection,
+        FilterCollection $filterCollection
+    ) {
         $this->connection       = $connection;
         $this->form             = $form;
         $this->reportCollection = $reportCollection;

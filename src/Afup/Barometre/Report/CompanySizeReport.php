@@ -2,7 +2,7 @@
 
 namespace Afup\Barometre\Report;
 
-class CompanySizeReport implement ReportInterface
+class CompanySizeReport implements ReportInterface
 {
     private $queryBuilder;
 

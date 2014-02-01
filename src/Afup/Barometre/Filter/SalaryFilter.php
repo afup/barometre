@@ -20,18 +20,20 @@ class SalaryFilter implements FilterInterface
 
     public function buildQuery(QueryBuilder $queryBuilder, array $values = array())
     {
-        if (array_key_exists('salary', $values)) {
-            if ($values['min']) {
-                $queryBuilder
-                    ->andWhere('response.grossAnnualSalary >= :minSalary')
-                    ->setParameter('minSalary', $values['min']);
-            }
+        if (!array_key_exists('salary', $values)) {
+            return;
+        }
 
-            if ($values['max']) {
-                $queryBuilder
-                    ->andWhere('response.grossAnnualSalary <= :maxSalary')
-                    ->setParameter('maxSalary', $values['max']);
-            }
+        if ($values['min']) {
+            $queryBuilder
+                ->andWhere('response.grossAnnualSalary >= :minSalary')
+                ->setParameter('minSalary', $values['min']);
+        }
+
+        if ($values['max']) {
+            $queryBuilder
+                ->andWhere('response.grossAnnualSalary <= :maxSalary')
+                ->setParameter('maxSalary', $values['max']);
         }
     }
 

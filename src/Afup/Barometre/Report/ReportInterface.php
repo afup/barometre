@@ -6,9 +6,9 @@ use Doctrine\DBAL\Query\QueryBuilder;
 
 interface ReportInterface
 {
-    function setQueryBuilder(QueryBuilder $queryBuilder);
+    public function setQueryBuilder(QueryBuilder $queryBuilder);
 
-    function getData();
+    public function getData();
 
-    function getName();
+    public function getName();
 }
