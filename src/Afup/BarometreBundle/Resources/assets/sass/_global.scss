@@ -52,7 +52,7 @@
 .sidebar-nav > .sidebar-brand {
   height: 65px;
   line-height: 60px;
-  font-size: 18px;
+  font-size: 16px;
 }
 
 .sidebar-nav > .sidebar-brand a {
@@ -62,4 +62,16 @@
 .sidebar-nav > .sidebar-brand a:hover {
   color: #1EBDFF;
   background: none;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: bold;
+  margin: 10px 0px;
+}
+
+h2 {
+  font-size: 1.35em;
+  font-weight: bold;
+  margin: 10px 0px;
 }

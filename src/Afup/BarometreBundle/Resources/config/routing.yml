@@ -16,3 +16,7 @@ afup_barometre_report_company_type:
 afup_barometre_report_salary:
     pattern:  /report/salary
     defaults: { _controller: AfupBarometreBundle:ReportSalary:index }
+
+afup_barometre_about:
+    pattern: /about
+    defaults: {_controller: AfupBarometreBundle:About:index }
