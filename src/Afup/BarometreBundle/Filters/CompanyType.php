@@ -16,7 +16,7 @@ class CompanyType implements FilterInterface
     public function alterQuery(\Doctrine\DBAL\Query\QueryBuilder $query, $values)
     {
         $key = $this->getIdentifier();
-        $query->andWhere(sprintf('response.compagnyType IN(:%s)', $key));
+        $query->andWhere(sprintf('response.companyType IN(:%s)', $key));
         $query->setParameter($key, $values, \Doctrine\DBAL\Connection::PARAM_INT_ARRAY);
     }
 
