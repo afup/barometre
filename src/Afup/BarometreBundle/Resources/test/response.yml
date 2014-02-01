@@ -9,10 +9,14 @@ Afup\BarometreBundle\Entity\Response:
         campaign: @campaign1
         grossAnnualSalary: <numberBetween(20000, 45000)>
         variableAnnualSalary: <numberBetween(0, 4500)>
+        initialTraining: <enums('initial_training')>
+        compagnyType: <enums('company_type')>
+        compagnySize: <enums('company_size')>
+        compagnyDepartment: <fr_FR:departmentNumber()>
+        jobInterest: <enums('job_interest')>
+        phpVersion: <enums('php_version')>
+        phpStrength: <enums('php_strength')>
         hasRecentTraining: <numberBetween(0, 1)>
-        compagnyType: <numberBetween(1, 6)>
-        compagnySize: <numberBetween(0, 6)>
-        phpVersion: <numberBetween(0, 4)>
         isRecentTrainingHadSalaryImpact: <numberBetween(0, 1)>
 
 
