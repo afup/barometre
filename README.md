@@ -25,6 +25,20 @@ npm install
 Build des assets
 ----------------
 
+### Si grunt-cli est installé globalement
+
+```
+grunt
+```
+
+Pour les builder automatiquement à chaque modification :
+
+```
+grunt watch
+```
+
+### Si grunt-cli n'est pas installé globalement
+
 ```
 ./node_modules/.bin/grunt
 ```
