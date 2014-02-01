@@ -81,7 +81,7 @@ class Response
     protected $compagnySize;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\Column(type="string", length=3, nullable=true)
      * @var int
      */
     protected $compagnyDepartment;
