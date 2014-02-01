@@ -5,12 +5,12 @@ namespace Afup\Barometre\Report;
 /**
  * A collection of report
  */
-class ReportCollection
+class ReportCollection implements \IteratorAggregate
 {
     private $reports = array();
 
     /**
-     * Add a new reportn
+     * Add a new report
      *
      * @param ReportInterface $report
      */
@@ -33,5 +33,10 @@ class ReportCollection
         }
 
         return $this->reports[$name];
+    }
+
+    public function getIterator()
+    {
+        return new \ArrayIterator($this->reports);
     }
 }
