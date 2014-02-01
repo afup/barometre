@@ -22,12 +22,12 @@ Build des assets
 ----------------
 
 ```
-grunt
+./node_modules/.bin/grunt
 ```
 
 Pour les builder automatiquement à chaque modification :
 
 ```
-grunt watch
+./node_modules/.bin/grunt watch
 ```
 
