@@ -4,6 +4,7 @@ namespace Afup\Barometre\Filter;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use Doctrine\DBAL\Query\QueryBuilder;
+use Doctrine\DBAL\Connection;
 
 use Afup\BarometreBundle\Enums\CompanyTypeEnums;
 use Afup\Barometre\Form\Type\Select2MultipleFilterType;
@@ -44,7 +45,7 @@ class CompanyTypeFilter implements FilterInterface
 
         $queryBuilder
             ->andWhere('response.companyType IN(:company_type)')
-            ->setParameter('company_type', $values[$this->getName()], \Doctrine\DBAL\Connection::PARAM_INT_ARRAY);
+            ->setParameter('company_type', $values[$this->getName()], Connection::PARAM_INT_ARRAY);
     }
 
     /**

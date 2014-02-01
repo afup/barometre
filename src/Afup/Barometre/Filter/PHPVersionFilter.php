@@ -4,6 +4,7 @@ namespace Afup\Barometre\Filter;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use Doctrine\DBAL\Query\QueryBuilder;
+use Doctrine\DBAL\Connection;
 
 use Afup\BarometreBundle\Enums\PHPVersionEnums;
 use Afup\Barometre\Form\Type\Select2MultipleFilterType;
@@ -44,7 +45,7 @@ class PHPVersionFilter implements FilterInterface
 
         $queryBuilder
             ->andWhere('response.phpVersion IN(:php_version)')
-            ->setParameter('php_version', $values[$this->getName()], \Doctrine\DBAL\Connection::PARAM_INT_ARRAY);
+            ->setParameter('php_version', $values[$this->getName()], Connection::PARAM_INT_ARRAY);
     }
 
     /**
