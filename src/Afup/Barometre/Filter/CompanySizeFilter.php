@@ -11,6 +11,11 @@ class CompanySizeFilter implements FilterInterface
 {
     private $companySizes;
 
+    /**
+     * __construct
+     *
+     * @param CompanySizeEnums $companySizes
+     */
     public function __construct(CompanySizeEnums $companySizes)
     {
         $this->companySizes = $companySizes;

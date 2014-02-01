@@ -30,6 +30,13 @@ class DefaultController extends Controller
         ];
     }
 
+    public function reportsAction()
+    {
+        return [
+
+        ]
+    }
+
     private function getManager()
     {
         return $this->get('afup.barometre.manager');

@@ -11,6 +11,11 @@ class PHPVersionFilter implements FilterInterface
 {
     private $phpVersions;
 
+    /**
+     * __construct
+     *
+     * @param PHPVersionEnums $phpVersions
+     */
     public function __construct(PHPVersionEnums $phpVersions)
     {
         $this->phpVersions = $phpVersions;
