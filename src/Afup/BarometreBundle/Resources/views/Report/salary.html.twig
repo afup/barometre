@@ -1,9 +1,11 @@
 {% extends '::base.html.twig' %}
 
+{% block title %}Distribution des salaires - Baromètre AFUP{% endblock %}
+
 {% block body %}
 {{ render(controller('AfupBarometreBundle:Filters:index')) }}
 
-Distribution des salaires.
+<div class="report-title">Distribution des salaires.</div>
 
 <table class="table table-striped">
 <thead>
