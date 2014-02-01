@@ -6,6 +6,7 @@
         <parameter key="afup.barometre.filter.company_size.class">Afup\Barometre\Filter\CompanySizeFilter</parameter>
         <parameter key="afup.barometre.filter.company_type.class">Afup\Barometre\Filter\CompanyTypeFilter</parameter>
         <parameter key="afup.barometre.filter.php_version.class">Afup\Barometre\Filter\PHPVersionFilter</parameter>
+        <parameter key="afup.barometre.filter.salary.class">Afup\Barometre\Filter\SalaryFilter</parameter>
     </parameters>
 
     <services>
@@ -22,6 +23,10 @@
         <service id="afup.barometre.filter.php_version" class="%afup.barometre.filter.php_version.class%">
             <argument type="service" id="afup.barometre.enums.php_version" />
             <tag name="barometre.filter" alias="php_version" />
+        </service>
+
+        <service id="afup.barometre.filter.salary" class="%afup.barometre.filter.salary.class%">
+            <tag name="barometre.filter" alias="salary" />
         </service>
 
     </services>

@@ -35,12 +35,12 @@ class CompanySizeFilter implements FilterInterface
      */
     public function buildQuery(QueryBuilder $queryBuilder, array $values = array())
     {
-        if (!array_key_exists($this->getName(), $values)) {
+        if (!array_key_exists($this->getName(), $values) || 0 === count($values[$this->getName()])) {
             return;
         }
 
         $queryBuilder
-            ->andWhere('response.compagnyType IN(:company_size)')
+            ->andWhere('response.companySize IN(:company_size)')
             ->setParameter('company_size', $values[$this->getName()], \Doctrine\DBAL\Connection::PARAM_INT_ARRAY);
     }
 

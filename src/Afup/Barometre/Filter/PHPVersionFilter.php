@@ -35,7 +35,7 @@ class PHPVersionFilter implements FilterInterface
      */
     public function buildQuery(QueryBuilder $queryBuilder, array $values = array())
     {
-        if (!array_key_exists($this->getName(), $values)) {
+        if (!array_key_exists($this->getName(), $values) || 0 === count($values[$this->getName()])) {
             return;
         }
 
