@@ -6,6 +6,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Doctrine\DBAL\Query\QueryBuilder;
 
 use Afup\BarometreBundle\Enums\CompanySizeEnums;
+use Afup\Barometre\Form\Type\Select2MultipleFilterType;
 
 class CompanySizeFilter implements FilterInterface
 {
@@ -26,12 +27,9 @@ class CompanySizeFilter implements FilterInterface
      */
     public function buildForm(FormBuilderInterface $builder)
     {
-        $builder->add($this->getName(), 'choice', [
+        $builder->add($this->getName(), new Select2MultipleFilterType(), [
             'label'    => "Taille de l'entreprise",
-            'choices'  => $this->companySizes->getChoices(),
-            'multiple' => true,
-            'required' => false,
-            'attr'     => array('class' => 'select2')
+            'choices'  => $this->companySizes->getChoices()
         ]);
     }
 
