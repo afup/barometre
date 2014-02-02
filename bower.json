@@ -1,8 +1,9 @@
 {
-    "name" : "barometre/afup",
-    "dependencies": {
-        "jquery": "1.11.0",
-        "select2": "3.4.5",
-        "bootstrap-sass-official": "v3.0.3.0"
-    }
+  "name": "barometre/afup",
+  "dependencies": {
+    "jquery": "1.11.0",
+    "select2": "3.4.5",
+    "bootstrap-sass-official": "v3.0.3.0",
+    "highchartTable": "~1.0.3"
+  }
 }
