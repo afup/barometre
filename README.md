@@ -62,7 +62,7 @@ Chargement des données de test
 Pour charger les données de test, il faut effectuer un
 
 ```
-php app/console doctrine:fixtures:load --fixtures=src/Afup/BarometreBundle/DataFixtures/ORM --fixtures=src/Afup/BarometreBundle/DataTest/ORM/
+php app/console doctrine:fixtures:load --fixtures=src/Afup/BarometreBundle/DataTest/ORM/
 ```
 
 ou

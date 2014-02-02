@@ -19,5 +19,4 @@ Afup\BarometreBundle\Entity\Response:
         hasRecentTraining: <numberBetween(0, 1)>
         isRecentTrainingHadSalaryImpact: <numberBetween(0, 1)>
         specialities: <arrayRandomValue(0, 7, 1, 17)>
-
-
+        certifications: 50%? <numberBetween(1, 2)>x @certification*

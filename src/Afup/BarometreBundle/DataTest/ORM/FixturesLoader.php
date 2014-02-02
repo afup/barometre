@@ -19,6 +19,8 @@ class FixturesLoader extends ContainerAware implements FixtureInterface
         $enumsCollection = $this->container->get('afup.barometre.enums_collection');
         Fixtures::load(
             array(
+                __DIR__ . '/../../Resources/fixtures/speciality.yml',
+                __DIR__ . '/../../Resources/fixtures/certification.yml',
                 __DIR__ . '/../../Resources/test/response.yml',
             ),
             $manager,
