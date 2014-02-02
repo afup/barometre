@@ -32,7 +32,7 @@ class SpecialityFilter implements FilterInterface
         }
 
         $specialities = $values[$this->getName()]->toArray();
-        $specialities = array_map(function($item) {
+        $specialities = array_map(function ($item) {
             return $item->getId();
         }, $specialities);
 
