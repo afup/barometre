@@ -11,11 +11,12 @@ use Afup\Barometre\Form\Type\Select2MultipleFilterType;
 
 class CompanyTypeFilter implements FilterInterface
 {
+    /**
+     * @var CompanyTypeEnums
+     */
     private $companyTypes;
 
     /**
-     * __construct
-     *
      * @param CompanyTypeEnums $companyTypes
      */
     public function __construct(CompanyTypeEnums $companyTypes)
@@ -29,7 +30,7 @@ class CompanyTypeFilter implements FilterInterface
     public function buildForm(FormBuilderInterface $builder)
     {
         $builder->add($this->getName(), new Select2MultipleFilterType(), [
-            'label'    => "Type d'entreprise",
+            'label'    => 'filter.company_type',
             'choices'  => $this->companyTypes->getChoices()
         ]);
     }

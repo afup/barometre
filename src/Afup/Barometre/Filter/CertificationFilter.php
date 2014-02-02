@@ -14,7 +14,7 @@ class CertificationFilter implements FilterInterface
     public function buildForm(FormBuilderInterface $builder)
     {
         $builder->add($this->getName(), 'entity', [
-            'label'    => "Certification",
+            'label'    => 'filter.certification',
             'class'    => 'Afup\BarometreBundle\Entity\Certification',
             'attr'     => ['class' => 'select2'],
             'multiple' => true,
