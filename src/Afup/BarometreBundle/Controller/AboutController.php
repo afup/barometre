@@ -12,4 +12,4 @@ class AboutController extends Controller
     {
         return $this->render('AfupBarometreBundle:About:index.html.twig');
     }
-} 
+}
