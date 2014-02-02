@@ -30,20 +30,6 @@ class DefaultController extends Controller
         ];
     }
 
-    /**
-     * Render a list of report
-     *
-     * @Template
-     *
-     * @return array
-     */
-    public function reportsAction()
-    {
-        return [
-            'reports' => $this->get('afup.barometre.report_collection')
-        ];
-    }
-
     private function getManager()
     {
         return $this->get('afup.barometre.manager');

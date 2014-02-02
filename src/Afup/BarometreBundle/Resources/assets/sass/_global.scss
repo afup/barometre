@@ -19,8 +19,6 @@
 }
 
 .sidebar-nav {
-  position: absolute;
-  top: 0;
   width: 250px;
   list-style: none;
   margin: 0;
@@ -49,17 +47,19 @@
   text-decoration: none;
 }
 
-.sidebar-nav > .sidebar-brand {
+.sidebar-brand {
   height: 65px;
   line-height: 60px;
   font-size: 18px;
+  text-indent: 20px;
 }
 
-.sidebar-nav > .sidebar-brand a {
+.sidebar-brand a {
   color: #fff;
 }
 
-.sidebar-nav > .sidebar-brand a:hover {
+.sidebar-brand a:hover {
   color: #1EBDFF;
   background: none;
+  text-decoration: none;
 }

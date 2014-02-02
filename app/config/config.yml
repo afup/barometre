@@ -54,3 +54,7 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+knp_menu:
+    twig:
+        template: AfupBarometreBundle:Default:knp_menu.html.twig

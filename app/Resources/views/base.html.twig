@@ -9,10 +9,11 @@
     <body>
         <div id="wrapper">
             <div id="sidebar-wrapper">
-                <ul class="sidebar-nav">
-                  <li class="sidebar-brand"><a href="#">Baromètre AFUP</a></li>
-                  {{ render(controller('AfupBarometreBundle:Default:reports')) }}
-                </ul>
+                <div class="sidebar-brand">
+                    <a href="#">Baromètre AFUP</a>
+                </div>
+
+                {{ knp_menu_render('menu') }}
             </div>
 
             <div id="page-content-wrapper">
