@@ -8,6 +8,7 @@
         <parameter key="afup.barometre.filter.php_version.class">Afup\Barometre\Filter\PHPVersionFilter</parameter>
         <parameter key="afup.barometre.filter.salary.class">Afup\Barometre\Filter\SalaryFilter</parameter>
         <parameter key="afup.barometre.filter.certifications.class">Afup\Barometre\Filter\CertificationFilter</parameter>
+        <parameter key="afup.barometre.filter.specialities.class">Afup\Barometre\Filter\SpecialityFilter</parameter>
     </parameters>
 
     <services>
@@ -28,6 +29,10 @@
 
         <service id="afup.barometre.filter.certifications" class="%afup.barometre.filter.certifications.class%">
             <tag name="barometre.filter" alias="certifications" />
+        </service>
+
+        <service id="afup.barometre.filter.specialities" class="%afup.barometre.filter.specialities.class%">
+            <tag name="barometre.filter" alias="specialities" />
         </service>
 
         <service id="afup.barometre.filter.salary" class="%afup.barometre.filter.salary.class%">
