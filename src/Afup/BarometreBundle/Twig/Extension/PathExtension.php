@@ -29,7 +29,7 @@ class PathExtension extends \Twig_Extension
 
     public function contextPath($name, $parameters = [], $relative = false)
     {
-        $parameters = array_merge($parameters, ['q' => $this->context->getParameters()]);
+        $parameters = array_merge($parameters, ['filter' => $this->context->getParameters()]);
 
         return $this->generator->generate(
             $name,

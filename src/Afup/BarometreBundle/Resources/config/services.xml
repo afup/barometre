@@ -15,8 +15,7 @@
         <service id="afup.barometre.context"
                  class="%afup.barometre.context.class%"
                  factory-service="afup.barometre.context_factory"
-                 factory-method="createFromRequestStack"
-        >
+                 factory-method="createFromRequestStack">
             <argument type="service" id="request_stack" />
         </service>
 
@@ -75,7 +74,30 @@
             <tag name="twig.extension" />
         </service>
 
-        <service id="afup.barometre.reports.response" class="Afup\BarometreBundle\Service\Reports\ResponseReports" />
+        <service id="afup.barometre.twig.extension.department" class="Afup\BarometreBundle\Twig\Extension\DepartmentExtension">
+            <tag name="twig.extension" />
+        </service>
 
+        <service id="afup.barometre.manager" class="Afup\Barometre\ReportManager">
+            <argument type="service" id="doctrine.dbal.default_connection" />
+            <argument type="service" id="afup.barometre.filter_form" />
+            <argument type="service" id="afup.barometre.report_collection" />
+            <argument type="service" id="afup.barometre.filter_collection" />
+        </service>
+
+        <service id="afup.barometre.type.filter" class="Afup\Barometre\Form\Type\FilterType">
+            <argument type="service" id="afup.barometre.filter_collection" />
+            <tag name="form.type" alias="filter" />
+        </service>
+
+        <service id="afup.barometre.filter_form" class="Symfony\Component\Form\FormInterface" factory-service="form.factory" factory-method="create">
+            <argument>filter</argument>
+        </service>
+
+        <service id="afup.barometre.report_collection" class="Afup\Barometre\Report\ReportCollection">
+        </service>
+
+        <service id="afup.barometre.filter_collection" class="Afup\Barometre\Filter\FilterCollection">
+        </service>
     </services>
 </container>

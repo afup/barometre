@@ -26,5 +26,6 @@ class AfupBarometreExtension extends Extension
         $loader->load('services.xml');
         $loader->load('enums.xml');
         $loader->load('filters.xml');
+        $loader->load('reports.xml');
     }
 }

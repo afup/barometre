@@ -46,6 +46,8 @@ module.exports = function(grunt) {
         src: [
           'bower_components/jquery/jquery.js',
           'bower_components/select2/select2.js',
+          'bower_components/highcharts/highcharts.js',
+          'bower_components/highchartTable/jquery.highchartTable.js',
           'src/Afup/BarometreBundle/Resources/assets/js/main.js'
 
         ],

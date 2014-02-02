@@ -25,6 +25,8 @@ npm install
 Build des assets
 ----------------
 
+### Si grunt-cli est installé globalement
+
 ```
 grunt
 ```
@@ -33,6 +35,18 @@ Pour les builder automatiquement à chaque modification :
 
 ```
 grunt watch
+```
+
+### Si grunt-cli n'est pas installé globalement
+
+```
+./node_modules/.bin/grunt
+```
+
+Pour les builder automatiquement à chaque modification :
+
+```
+./node_modules/.bin/grunt watch
 ```
 
 Construction de la base de donnée
@@ -48,7 +62,7 @@ Chargement des données de test
 Pour charger les données de test, il faut effectuer un
 
 ```
-php app/console doctrine:fixtures:load --fixtures=src/Afup/BarometreBundle/DataFixtures/ORM --fixtures=src/Afup/BarometreBundle/DataTest/ORM/
+php app/console doctrine:fixtures:load --fixtures=src/Afup/BarometreBundle/DataTest/ORM/
 ```
 
 ou
@@ -57,3 +71,11 @@ ou
 php app/console doctrine:fixtures:load --append --fixtures=src/Afup/BarometreBundle/DataTest/ORM/
 ```
 si  un ```php app/console doctrine:fixtures:load ``` a déjà été effectué.
+
+
+Installation des hooks de précommit
+-----------------------------------
+
+```
+grunt githooks
+```

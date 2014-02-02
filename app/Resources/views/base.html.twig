@@ -7,22 +7,19 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-      <div id="wrapper">
 
-         <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                  <li class="sidebar-brand"><a href="#">Baromètre AFUP - Agence-e</a></li>
-                  <li><a href="{{ context_path('afup_barometre_report_company_type') }}">Voir par type d'entreprise</a></li>
-                  <li><a href="{{ context_path('afup_barometre_report_company_size') }}">Voir par taille d'entreprise</a></li>
-                  <li><a href="{{ context_path('afup_barometre_report_salary') }}">Voir par salaire</a></li>
+        <div id="wrapper">
+            <div id="sidebar-wrapper">
+                <ul class="sidebar-nav">
+                  <li class="sidebar-brand"><a href="#">Baromètre AFUP</a></li>
+                  {{ render(controller('AfupBarometreBundle:Default:reports')) }}
                   <li><a href="{{ context_path('afup_barometre_about') }}">A propos du Baromètre</a></li>
-            </ul>
-          </div>
+                </ul>
+            </div>
 
-          <div id="page-content-wrapper">
-           {% block body %}{% endblock %}
-          </div>
-
+            <div id="page-content-wrapper">
+                {% block body %}{% endblock %}
+            </div>
         </div>
 
         {% block javascripts %}

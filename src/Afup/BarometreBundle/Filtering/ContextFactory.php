@@ -9,8 +9,14 @@ class ContextFactory
     public function createFromRequestStack(RequestStack $requestStack)
     {
         $request = $requestStack->getMasterRequest();
+
         $context = new Context();
-        foreach ($request->get('q', array()) as $key => $parameter) {
+
+        if (null === $request) {
+            return $context;
+        }
+
+        foreach ($request->get('filter', array()) as $key => $parameter) {
             if ($key == 'submit') {
                 continue;
             }

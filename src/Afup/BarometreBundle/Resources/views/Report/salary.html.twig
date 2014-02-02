@@ -1,31 +1,28 @@
-{% extends '::base.html.twig' %}
-
-{% block title %}Distribution des salaires - Baromètre AFUP{% endblock %}
-
-{% block body %}
-{{ render(controller('AfupBarometreBundle:Filters:index')) }}
-
 <div class="report-title">Distribution des salaires.</div>
 
-<table class="table table-striped">
-<thead>
-  <tr>
-    <td>Salaire</td>
-    <td>Nombre de réponses</td>
-  </tr>
-</thead>
-<tbody>
-{% for row in results %}
-  <tr>
-    <td>
-      {{ row.salarySliceFrom|number_format }}
-     -
-      {{ row.salarySliceTo|number_format }}
-    </td>
-    <td>{{ row.count }}</td>
-  </tr>
-{% endfor %}
-</tbody>
+<table class="bar-table highchart highchart-align-xaxis-left-labels"
+       data-graph-container-before="1"
+       data-graph-type="column"
+       data-graph-legend-disabled="1"
+       data-graph-inverted="1"
+       data-graph-xaxis-labels-align="right"
+>
+    <thead>
+        <tr>
+            <th>Salaire</th>
+            <th>Nombre de réponses</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in results %}
+            <tr>
+                <td>
+                    {{ row.salarySliceFrom|number_format }}
+                    -
+                    {{ row.salarySliceTo|number_format }}
+                </td>
+                <td>{{ row.count }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
 </table>
-
-{% endblock %}

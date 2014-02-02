@@ -77,13 +77,13 @@ class ResponseFactory
         $response->setInitialTraining(
             $this->enums->getEnums('initial_training')->getIdByLabel($data["initial_training"])
         );
-        $response->setCompagnyType(
+        $response->setCompanyType(
             $this->enums->getEnums('company_type')->getIdByLabel($data["company_type"])
         );
-        $response->setCompagnySize(
+        $response->setCompanySize(
             $this->enums->getEnums('company_size')->getIdByLabel($data["company_size"])
         );
-        $response->setCompagnyDepartment(
+        $response->setCompanyDepartment(
             $data["company_department"]
         );
         $response->setJobInterest(
@@ -136,7 +136,7 @@ class ResponseFactory
             if (!$certification instanceof Certification) {
                 continue;
             }
-            $response->addCertifiation($certification);
+            $response->addCertification($certification);
         }
     }
 
