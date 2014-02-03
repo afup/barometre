@@ -13,11 +13,12 @@ use Afup\Barometre\Filter\FilterCollection;
  */
 class FilterType extends AbstractType
 {
+    /**
+     * @var FilterCollection
+     */
     private $filterCollection;
 
     /**
-     * __construct
-     *
      * @param FilterCollection $filterCollection
      */
     public function __construct(FilterCollection $filterCollection)
@@ -34,7 +35,7 @@ class FilterType extends AbstractType
 
         $builder
             ->setMethod('GET')
-            ->add('submit', 'submit');
+            ->add('submit', 'submit', ['label' => 'filter.submit']);
     }
 
     /**

@@ -11,11 +11,12 @@ use Afup\Barometre\Form\Type\Select2MultipleFilterType;
 
 class PHPVersionFilter implements FilterInterface
 {
+    /**
+     * @var PHPVersionEnums
+     */
     private $phpVersions;
 
     /**
-     * __construct
-     *
      * @param PHPVersionEnums $phpVersions
      */
     public function __construct(PHPVersionEnums $phpVersions)
@@ -29,7 +30,7 @@ class PHPVersionFilter implements FilterInterface
     public function buildForm(FormBuilderInterface $builder)
     {
         $builder->add($this->getName(), new Select2MultipleFilterType(), [
-            'label'    => 'Version de PHP',
+            'label'    => 'filter.php_version',
             'choices'  => $this->phpVersions->getChoices()
         ]);
     }

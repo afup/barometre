@@ -9,6 +9,9 @@ use Doctrine\DBAL\Query\QueryBuilder;
  */
 class CompanyDepartmentReport implements ReportInterface
 {
+    /**
+     * @var QueryBuilder
+     */
     private $queryBuilder;
 
     /**
@@ -45,6 +48,6 @@ class CompanyDepartmentReport implements ReportInterface
      */
     public function getLabel()
     {
-        return "Répartition géographique";
+        return "report.company_departement.label";
     }
 }

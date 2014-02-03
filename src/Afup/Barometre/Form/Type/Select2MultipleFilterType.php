@@ -32,6 +32,9 @@ class Select2MultipleFilterType extends AbstractType
         return 'select2_multiple_filter';
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getParent()
     {
         return 'choice';
