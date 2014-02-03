@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="messages.fr.xliff">
+        <body>
+            <trans-unit id="filter.company_size">
+                <source>filter.company_size</source>
+                <target>Taille de l'entreprise</target>
+            </trans-unit>
+            <trans-unit id="filter.company_type">
+                <source>filter.company_type</source>
+                <target>Type d'entreprise</target>
+            </trans-unit>
+            <trans-unit id="filter.php_version">
+                <source>filter.php_version</source>
+                <target>Version de PHP</target>
+            </trans-unit>
+            <trans-unit id="filter.salary">
+                <source>filter.salary</source>
+                <target>Salaire</target>
+            </trans-unit>
+            <trans-unit id="filter.certification">
+                <source>filter.certification</source>
+                <target>Certifications</target>
+            </trans-unit>
+            <trans-unit id="filter.speciality">
+                <source>filter.speciality</source>
+                <target>Spécialités</target>
+            </trans-unit>
+            <trans-unit id="filter.submit">
+                <source>filter.submit</source>
+                <target>Filtrer</target>
+            </trans-unit>
+            <trans-unit id="report.company_departement.label">
+                <source>report.company_departement.label</source>
+                <target>Répartition géographique</target>
+            </trans-unit>
+            <trans-unit id="report.company_size.label">
+                <source>report.company_size.label</source>
+                <target>Distribution des tailles d'entreprises</target>
+            </trans-unit>
+            <trans-unit id="report.company_type.label">
+                <source>report.company_type.label</source>
+                <target>Distribution des types d'entreprises</target>
+            </trans-unit>
+            <trans-unit id="report.salary.label">
+                <source>report.salary.label</source>
+                <target>Distribution des salaires</target>
+            </trans-unit>
+            <trans-unit id="report.speciality.label">
+                <source>report.speciality.label</source>
+                <target>Distribution des spécialités</target>
+            </trans-unit>
+            <trans-unit id="report.view.department_code">
+                <source>report.view.department_code</source>
+                <target>Code département</target>
+            </trans-unit>
+            <trans-unit id="report.view.department_label">
+                <source>report.view.department_label</source>
+                <target>Nom département</target>
+            </trans-unit>
+            <trans-unit id="report.view.response_number">
+                <source>report.view.response_number</source>
+                <target>Nombre de réponses</target>
+            </trans-unit>
+            <trans-unit id="report.view.company_size">
+                <source>report.view.company_size</source>
+                <target>Taille d'entreprise</target>
+            </trans-unit>
+            <trans-unit id="report.view.company_type">
+                <source>report.view.company_type</source>
+                <target>Type d'entreprise</target>
+            </trans-unit>
+            <trans-unit id="report.view.salary">
+                <source>report.view.salary</source>
+                <target>Salaire</target>
+            </trans-unit>
+            <trans-unit id="report.view.speciality">
+                <source>report.view.speciality</source>
+                <target>Spécialité</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

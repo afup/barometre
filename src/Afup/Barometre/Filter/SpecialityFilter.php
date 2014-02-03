@@ -14,7 +14,7 @@ class SpecialityFilter implements FilterInterface
     public function buildForm(FormBuilderInterface $builder)
     {
         $builder->add($this->getName(), 'entity', [
-            'label'    => "Spécialités",
+            'label'    => 'filter.speciality',
             'class'    => 'Afup\BarometreBundle\Entity\Speciality',
             'attr'     => ['class' => 'select2'],
             'multiple' => true,
@@ -32,7 +32,7 @@ class SpecialityFilter implements FilterInterface
         }
 
         $specialities = $values[$this->getName()]->toArray();
-        $specialities = array_map(function($item) {
+        $specialities = array_map(function ($item) {
             return $item->getId();
         }, $specialities);
 

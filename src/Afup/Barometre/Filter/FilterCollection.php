@@ -10,6 +10,9 @@ use Doctrine\DBAL\Query\QueryBuilder;
  */
 class FilterCollection implements FilterInterface
 {
+    /**
+     * @var FilterInterface[]
+     */
     private $filters = array();
 
     /**

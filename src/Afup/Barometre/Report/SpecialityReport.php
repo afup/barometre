@@ -67,6 +67,6 @@ class SpecialityReport implements ReportInterface
      */
     public function getLabel()
     {
-        return "Distribution des spécialités";
+        return "report.speciality.label";
     }
 }

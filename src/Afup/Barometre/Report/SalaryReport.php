@@ -9,6 +9,9 @@ use Doctrine\DBAL\Query\QueryBuilder;
  */
 class SalaryReport implements ReportInterface
 {
+    /**
+     * @var QueryBuilder
+     */
     private $queryBuilder;
 
     /**
@@ -71,6 +74,6 @@ class SalaryReport implements ReportInterface
      */
     public function getLabel()
     {
-        return "Distribution des salaires";
+        return "report.salary.label";
     }
 }

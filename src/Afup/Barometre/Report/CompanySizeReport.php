@@ -9,6 +9,9 @@ use Doctrine\DBAL\Query\QueryBuilder;
  */
 class CompanySizeReport implements ReportInterface
 {
+    /**
+     * @var QueryBuilder
+     */
     private $queryBuilder;
 
     /**
@@ -45,6 +48,6 @@ class CompanySizeReport implements ReportInterface
      */
     public function getLabel()
     {
-        return "Distribution des tailles d'entreprises";
+        return "report.company_size.label";
     }
 }

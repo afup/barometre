@@ -27,7 +27,6 @@ class FixturesLoader extends ContainerAware implements FixtureInterface
             array(
                 'providers' => array(
                     new EnumsProvider($enumsCollection),
-                    new ArrayRandomValueProvider(),
                 )
             )
         );
