@@ -68,11 +68,20 @@ class ResponseFactory
         $response->setVariableAnnualSalary(
             $this->numberFormatter->parse($data["variable_annual_salary"])
         );
+        $response->setAnnualSalary(
+            $this->numberFormatter->parse($data["annual_salary"])
+        );
         $response->setSalarySatisfaction(
             $this->numberFormatter->parse($data["salary_satisfaction"])
         );
         $response->setStatus(
             $this->enums->getEnums('status')->getIdByLabel($data["status"])
+        );
+        $response->setJobTitle(
+            $this->enums->getEnums('job_title')->getIdByLabel($data["job_title"])
+        );
+        $response->setExperience(
+            $this->enums->getEnums('experience')->getIdByLabel($data["experience"])
         );
         $response->setInitialTraining(
             $this->enums->getEnums('initial_training')->getIdByLabel($data["initial_training"])

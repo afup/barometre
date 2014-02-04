@@ -54,6 +54,12 @@ class Response
      * @ORM\Column(type="integer", nullable=true)
      * @var int
      */
+    protected $annualSalary;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @var int
+     */
     protected $salarySatisfaction;
 
     /**
@@ -67,6 +73,18 @@ class Response
      * @var int
      */
     protected $initialTraining;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @var int
+     */
+    protected $jobTitle;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @var int
+     */
+    protected $experience;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -171,6 +189,25 @@ class Response
     }
 
     /**
+     * @param integer $annualSalary
+     * @return Response
+     */
+    public function setAnnualSalary($annualSalary)
+    {
+        $this->annualSalary = $annualSalary;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getAnnualSalary()
+    {
+        return $this->annualSalary;
+    }
+
+    /**
      * @param integer $salarySatisfaction
      * @return Response
      */
@@ -225,6 +262,44 @@ class Response
     public function getInitialTraining()
     {
         return $this->initialTraining;
+    }
+
+    /**
+     * @param integer $jobTitle
+     * @return Response
+     */
+    public function setJobTitle($jobTitle)
+    {
+        $this->jobTitle = $jobTitle;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getJobTitle()
+    {
+        return $this->jobTitle;
+    }
+
+    /**
+     * @param integer $experience
+     * @return Response
+     */
+    public function setExperience($experience)
+    {
+        $this->experience = $experience;
+
+        return $this;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getExperience()
+    {
+        return $this->experience;
     }
 
     /**

@@ -66,6 +66,7 @@ class CampaignImporter
 
             $data = array_combine($columns, $line);
             $response = $this->responseFactory->createResponse($data, $campaign);
+
             $this->objectManager->persist($response);
         }
 

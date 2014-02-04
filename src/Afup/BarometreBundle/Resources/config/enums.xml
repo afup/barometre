@@ -12,6 +12,7 @@
         <parameter key="afup.barometre.enums.php_strength.class">Afup\BarometreBundle\Enums\PHPStrengthEnums</parameter>
         <parameter key="afup.barometre.enums.php_version.class">Afup\BarometreBundle\Enums\PHPVersionEnums</parameter>
         <parameter key="afup.barometre.enums.status.class">Afup\BarometreBundle\Enums\StatusEnums</parameter>
+        <parameter key="afup.barometre.enums.experience.class">Afup\BarometreBundle\Enums\ExperienceEnums</parameter>
     </parameters>
 
     <services>
@@ -48,6 +49,10 @@
 
         <service id="afup.barometre.enums.status" class="%afup.barometre.enums.status.class%">
             <tag name="barometre.enums" alias="status" />
+        </service>
+
+        <service id="afup.barometre.enums.experience" class="%afup.barometre.enums.experience.class%">
+            <tag name="barometre.enums" alias="experience" />
         </service>
     </services>
 </container>
