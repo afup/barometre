@@ -9,9 +9,10 @@ module.exports = function(grunt) {
         files: [
           {expand: true, cwd: 'bower_components/select2/', src: ['**.png'], dest: 'web/assets/images/select2/', filter: 'isFile'},
           {expand: true, cwd: 'bower_components/select2/', src: ['**.gif'], dest: 'web/assets/images/select2/', filter: 'isFile'},
-          {expand: true, cwd: 'bower_components/bootstrap/dist/fonts/', src: ['*'], dest: 'web/assets/fonts/', filter: 'isFile'},
+          {expand: true, cwd: 'bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/', src: ['*'], dest: 'web/assets/fonts/', filter: 'isFile'},
           {expand: true, cwd: 'bower_components/bootstrap-sass-official/vendor/assets/stylesheets/', src: ['**'], dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/'},
-          {expand: true, cwd: 'bower_components/select2/', src: ['select2-bootstrap.scss'], dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/'}
+          {expand: true, cwd: 'bower_components/select2/', src: ['select2-bootstrap.scss'], dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/'},
+          {expand: true, cwd: 'bower_components/jquery.tablesorter/css/', src: ['theme.bootstrap.css'], dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/', filter: 'isFile',  ext: ".scss"}
         ]
       }
     },
@@ -48,6 +49,9 @@ module.exports = function(grunt) {
           'bower_components/select2/select2.js',
           'bower_components/highcharts/highcharts.js',
           'bower_components/highchartTable/jquery.highchartTable.js',
+          'bower_components/jquery.tablesorter/js/jquery.tablesorter.js',
+          'bower_components/jquery.tablesorter/js/jquery.tablesorter.widgets.js',
+          'src/Afup/BarometreBundle/Resources/assets/js/tablesorter.js',
           'src/Afup/BarometreBundle/Resources/assets/js/main.js'
 
         ],
