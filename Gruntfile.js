@@ -142,7 +142,8 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', ['shell:atoum']);
   grunt.registerTask('lint', ['shell:coke']);
-  grunt.registerTask('dev', ['clean', 'copy', 'cssUrlRewrite', 'sass', 'concat', 'hash']);
-  grunt.registerTask('default', ['dev', 'uglify', 'cssmin']);
+  grunt.registerTask('common', ['clean', 'copy', 'cssUrlRewrite', 'sass', 'concat']);
+  grunt.registerTask('dev', ['common', 'hash']);
+  grunt.registerTask('default', ['common', 'uglify', 'cssmin', 'hash']);
 
 };
