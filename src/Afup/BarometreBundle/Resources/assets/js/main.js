@@ -12,5 +12,6 @@ $(document).ready(function() {
       }
     })
     .highchartTable();
+
 });
 
