@@ -23,11 +23,15 @@
         svg.insert("g", "#background")
             .attr("id", "data_layer");
 
-        var newLayer = svg.select('#data_layer');
-        newLayer.attr("class", 'Blues');
+        var dataLayer = svg.select('#data_layer');
+        dataLayer.attr("class", 'Blues');
 
         d3.json("/geofla/departement.json", function(json) {
-            newLayer.selectAll("path")
+            bg.selectAll("path")
+                .data(json.features)
+	        .enter().append("path")
+                .attr("d", path);
+            dataLayer.selectAll("path")
                 .data(json.features)
                 .enter().append("path")
                 .attr("d", path);
