@@ -1,22 +1,43 @@
 .select2 {
-  width:400px;
+  width:100%;
 }
 
 .filter-row {
   @extend .row;
+  min-height: 40px;
   margin-bottom: 2px;
 }
 
 .filter-label {
-  @extend .col-md-3;
+  @extend .col-md-12;
   text-align: right;
+  font-size: 0.7em;
+  height: 14px;
 }
 
 .filter-content {
-  @extend .col-md-9;
+  @extend .col-md-12;
 }
+
 
 #q_submit {
   margin-top: 4px;
 }
 
+.select2-container-multi .select2-choices .select2-search-choice {
+  background-color: #1ebdff;
+  border: 1px solid #4e71b2;
+  background-image: none;
+}
+
+#filter_submit {
+  background-color: #2e4279;
+  border: none;
+  color: #fff;
+  padding: 5px 15px;
+}
+
+#filter_submit:hover {
+  background-color: #3cc6ff;
+
+}
