@@ -12,7 +12,8 @@ module.exports = function(grunt) {
           {expand: true, cwd: 'bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/', src: ['*'], dest: 'web/assets/fonts/', filter: 'isFile'},
           {expand: true, cwd: 'bower_components/bootstrap-sass-official/vendor/assets/stylesheets/', src: ['**'], dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/'},
           {expand: true, cwd: 'bower_components/select2/', src: ['select2-bootstrap.scss'], dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/'},
-          {expand: false, src: 'bower_components/jquery.tablesorter/css/theme.bootstrap.css', dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/tablesorter.theme.bootstrap.scss'}
+          {expand: false, src: 'bower_components/jquery.tablesorter/css/theme.bootstrap.css', dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/tablesorter.theme.bootstrap.scss'},
+          {expand: false, src: 'bower_components/colorbrewer/colorbrewer.css', dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/colorbrewer.scss'}
         ]
       }
     },
@@ -51,9 +52,10 @@ module.exports = function(grunt) {
           'bower_components/highchartTable/jquery.highchartTable.js',
           'bower_components/jquery.tablesorter/js/jquery.tablesorter.js',
           'bower_components/jquery.tablesorter/js/jquery.tablesorter.widgets.js',
+          'bower_components/d3/d3.v2.js',
           'src/Afup/BarometreBundle/Resources/assets/js/tablesorter.js',
-          'src/Afup/BarometreBundle/Resources/assets/js/main.js'
-
+          'src/Afup/BarometreBundle/Resources/assets/js/main.js',
+          'src/Afup/BarometreBundle/Resources/assets/js/map.js'
         ],
         dest: 'app/cache/grunt/main.js'
       }
