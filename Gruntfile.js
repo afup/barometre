@@ -48,6 +48,7 @@ module.exports = function(grunt) {
         src: [
           'bower_components/jquery/jquery.js',
           'bower_components/select2/select2.js',
+          'bower_components/select2/select2_locale_fr.js',
           'bower_components/highcharts/highcharts.js',
           'bower_components/highchartTable/jquery.highchartTable.js',
           'bower_components/jquery.tablesorter/js/jquery.tablesorter.js',
