@@ -4,8 +4,7 @@ namespace Afup\Barometre\Filter;
 
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\FormBuilderInterface;
-use Doctrine\DBAL\Query\QueryBuilder;
-use Doctrine\DBAL\Connection;
+use Doctrine\ORM\QueryBuilder;
 
 class CertificationFilter implements FilterInterface
 {
@@ -43,9 +42,7 @@ class CertificationFilter implements FilterInterface
         }, $certifications);
 
         $queryBuilder
-            ->leftJoin('response', 'response_certification', 'rc', 'response.id = rc.response_id')
-            ->andWhere('rc.certification_id IN(:certifications)')
-            ->setParameter('certifications', $certifications, Connection::PARAM_INT_ARRAY);
+            ->andWhere($queryBuilder->expr()->in('certification.id', $certifications));
     }
 
     /**

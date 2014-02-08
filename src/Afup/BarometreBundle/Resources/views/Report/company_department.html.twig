@@ -2,7 +2,6 @@
     <svg></svg>
 </div>
 
-
 <table class="bar-table tablesorter tablesorter-bootstrap">
     <thead>
         <tr>
@@ -16,7 +15,7 @@
             <tr>
                 <td>{{ row.companyDepartment }}</td>
                 <td>{{ row.companyDepartment|department_label }}</td>
-                <td>{{ row.count }}</td>
+                <td>{{ row.nbResponse }}</td>
             </tr>
         {% endfor %}
     </tbody>

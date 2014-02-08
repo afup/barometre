@@ -73,7 +73,7 @@
         </service>
 
         <service id="afup.barometre.manager" class="Afup\Barometre\ReportManager">
-            <argument type="service" id="doctrine.dbal.default_connection" />
+            <argument type="service" id="doctrine.orm.entity_manager" />
             <argument type="service" id="afup.barometre.filter_form" />
             <argument type="service" id="afup.barometre.report_collection" />
             <argument type="service" id="afup.barometre.filter_collection" />

@@ -3,8 +3,7 @@
 namespace Afup\Barometre\Filter;
 
 use Symfony\Component\Form\FormBuilderInterface;
-use Doctrine\DBAL\Query\QueryBuilder;
-use Doctrine\DBAL\Connection;
+use Doctrine\ORM\QueryBuilder;
 
 use Afup\BarometreBundle\Enums\CompanySizeEnums;
 use Afup\Barometre\Form\Type\Select2MultipleFilterType;
@@ -45,8 +44,11 @@ class CompanySizeFilter implements FilterInterface
         }
 
         $queryBuilder
-            ->andWhere('response.companySize IN(:company_size)')
-            ->setParameter('company_size', $values[$this->getName()], Connection::PARAM_INT_ARRAY);
+            ->andWhere($queryBuilder->expr()->in('response.companySize', $values[$this->getName()]));
+
+        // $queryBuilder
+        //     ->andWhere('response.companySize IN(:company_size)')
+        //     ->setParameter('company_size', $values[$this->getName()], Connection::PARAM_INT_ARRAY);
     }
 
     /**
