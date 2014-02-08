@@ -1,7 +1,7 @@
 {% block salary_widget %}
-    <div class="">
-        <div class="col-md-6">{{ form_widget(form.min) }}</div>
-        <div class="col-md-6">{{ form_widget(form.max) }}</div>
+    <div class="filter-salary">
+        <div class="min">{{ form_widget(form.min, { attr: { "placeholder": "Minimum" } }) }}</div>
+        <div class="max">{{ form_widget(form.max, { attr: { "placeholder": "Maximum" } }) }}</div>
     </div>
 
 {% endblock %}

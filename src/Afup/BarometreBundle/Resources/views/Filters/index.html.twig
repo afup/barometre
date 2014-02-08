@@ -3,14 +3,14 @@
 
   {% for child in form %}
 {% if (loop.index0) is divisible by(3) %}
-<div class="row">
+<div class="filter-line">
 {% endif %}
 
-      <div class="filter-row col-md-4">
+      <div class="filter-row">
         <div class="filter-label">
           {{ form_label(child) }}
         </div>
-        <div class="filter-content" style="text-align:center">
+        <div class="filter-content">
           {{ form_widget(child) }}
         </div>
       </div>
