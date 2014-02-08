@@ -69,6 +69,9 @@ module.exports = function(grunt) {
     },
 
     cssmin: {
+      options: {
+        keepSpecialComments: 0
+      },
       css: {
         files: {
           '<%= sass.dist.dest %>': ['<%= sass.dist.dest %>']
