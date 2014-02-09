@@ -29,6 +29,7 @@
         </service>
 
         <service id="afup.barometre.report.speciality" class="%afup.barometre.report.speciality.class%">
+            <argument type="service" id="doctrine.orm.entity_manager" />
             <tag name="barometre.report" />
         </service>
 

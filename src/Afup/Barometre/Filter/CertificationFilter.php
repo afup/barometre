@@ -42,6 +42,7 @@ class CertificationFilter implements FilterInterface
         }, $certifications);
 
         $queryBuilder
+            ->leftJoin('response.certifications', 'certification')
             ->andWhere($queryBuilder->expr()->in('certification.id', $certifications));
     }
 

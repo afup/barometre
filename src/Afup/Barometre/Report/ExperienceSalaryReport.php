@@ -17,6 +17,9 @@ class ExperienceSalaryReport implements ReportInterface
      */
     private $queryBuilder;
 
+    /**
+     * @param EntityManagerInterface $entityManager
+     */
     public function __construct(EntityManagerInterface $entityManager)
     {
         $this->entityManager = $entityManager;

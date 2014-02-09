@@ -42,6 +42,7 @@ class SpecialityFilter implements FilterInterface
         }, $specialities);
 
         $queryBuilder
+            ->leftJoin('response.specialities', 'speciality')
             ->andWhere($queryBuilder->expr()->in('speciality.id', $specialities));
     }
 

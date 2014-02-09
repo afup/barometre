@@ -71,9 +71,7 @@ class ReportManager
         $queryBuilder = $this->objectManager->createQueryBuilder();
 
         $queryBuilder
-            ->from('AfupBarometreBundle:Response', 'response')
-            ->leftJoin('response.specialities', 'speciality')
-            ->leftJoin('response.certifications', 'certification');
+            ->from('AfupBarometreBundle:Response', 'response');
 
         $this->filterCollection->buildQuery($queryBuilder, (array) $this->form->getData());
 

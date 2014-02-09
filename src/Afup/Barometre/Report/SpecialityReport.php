@@ -3,17 +3,30 @@
 namespace Afup\Barometre\Report;
 
 use Doctrine\ORM\QueryBuilder;
+use Doctrine\ORM\EntityManagerInterface;
 
 /**
  * Report on Speciality
  */
 class SpecialityReport implements ReportInterface
 {
+    /**
+     * @var EntityManagerInterface
+     */
+    private $entityManager;
 
     /**
      * @var QueryBuilder
      */
     private $queryBuilder;
+
+    /**
+     * @param EntityManagerInterface $entityManager
+     */
+    public function __construct(EntityManagerInterface $entityManager)
+    {
+        $this->entityManager = $entityManager;
+    }
 
     /**
      * {@inheritdoc}
@@ -28,12 +41,21 @@ class SpecialityReport implements ReportInterface
      */
     public function getData()
     {
-        $this->queryBuilder
-            ->select('speciality.name as specialityName')
-            ->addSelect('COUNT(DISTINCT response.id) as nbResponse')
-            ->addGroupBy('speciality.name');
+        $queryBuilder = $this->queryBuilder->select('DISTINCT response.id');
 
-        return $this->queryBuilder->getQuery()->getArrayResult();
+        $reportQueryBuilder = $this->entityManager->createQueryBuilder();
+
+        $reportQueryBuilder
+            ->select('s.name as specialityName')
+            ->addSelect('COUNT(r.id) as nbResponse')
+            ->from('AfupBarometreBundle:Response', 'r')
+            ->leftJoin('r.specialities', 's')
+            ->where(
+                $reportQueryBuilder->expr()->in('r.id', $queryBuilder->getDQL())
+            )
+            ->groupBy('s.name');
+
+        return $reportQueryBuilder->getQuery()->getArrayResult();
     }
 
     /**
