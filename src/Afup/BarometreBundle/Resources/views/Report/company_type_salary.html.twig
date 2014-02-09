@@ -1,0 +1,23 @@
+<table class="bar-table highchart tablesorter tablesorter-bootstrap"
+       data-graph-container-before="1"
+       data-graph-type="column"
+    >
+    <thead>
+        <tr>
+            <th>{{ "report.view.experience" | trans }}</th>
+            {% for companyType in results.columns %}
+                <th>{{ companyType|enum_label('company_type') }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for experience, row in results.data %}
+            <tr>
+                <td>{{ experience|enum_label('experience') }}</td>
+                {% for companyType, result in row %}
+                    <td>{{ result.annualSalary|round(-2) }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

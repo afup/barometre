@@ -10,6 +10,7 @@
         <parameter key="afup.barometre.report.speciality.class">Afup\Barometre\Report\SpecialityReport</parameter>
         <parameter key="afup.barometre.report.experience_salary.class">Afup\Barometre\Report\ExperienceSalaryReport</parameter>
         <parameter key="afup.barometre.report.variable_salary.class">Afup\Barometre\Report\VariableSalaryReport</parameter>
+        <parameter key="afup.barometre.report.company_type_salary.class">Afup\Barometre\Report\CompanyTypeSalaryReport</parameter>
     </parameters>
 
     <services>
@@ -38,6 +39,10 @@
         </service>
 
         <service id="afup.barometre.report.variable_salary" class="%afup.barometre.report.variable_salary.class%">
+            <tag name="barometre.report" />
+        </service>
+
+        <service id="afup.barometre.report.company_type_salary" class="%afup.barometre.report.company_type_salary.class%">
             <tag name="barometre.report" />
         </service>
     </services>
