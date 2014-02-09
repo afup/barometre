@@ -5,10 +5,7 @@ namespace Afup\Barometre\Report;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\ORM\EntityManagerInterface;
 
-/**
- * Report on Speciality
- */
-class SpecialityReport implements ReportInterface
+class ExperienceSalaryReport implements ReportInterface
 {
     /**
      * @var EntityManagerInterface
@@ -37,7 +34,9 @@ class SpecialityReport implements ReportInterface
     }
 
     /**
-     * {@inheritdoc}
+     * Process the query
+     *
+     * @return array
      */
     public function getData()
     {
@@ -46,31 +45,35 @@ class SpecialityReport implements ReportInterface
         $reportQueryBuilder = $this->entityManager->createQueryBuilder();
 
         $reportQueryBuilder
-            ->select('s.name as specialityName')
-            ->addSelect('COUNT(r.id) as nbResponse')
             ->from('AfupBarometreBundle:Response', 'r')
-            ->leftJoin('r.specialities', 's')
             ->where(
                 $reportQueryBuilder->expr()->in('r.id', $queryBuilder->getDQL())
             )
-            ->groupBy('s.name');
+            ->select('r.experience')
+            ->addSelect('AVG(r.annualSalary) as annualSalary')
+            ->addSelect('COUNT(r.id) as nbResponse')
+            ->groupBy('r.experience');
 
         return $reportQueryBuilder->getQuery()->getArrayResult();
     }
 
     /**
-     * {@inheritdoc}
+     * The report name (used for url)
+     *
+     * @return string
      */
     public function getName()
     {
-        return "speciality";
+        return 'experience_salary';
     }
 
     /**
-     * {@inheritdoc}
+     * The report label (used for title & menu)
+     *
+     * @return string
      */
     public function getLabel()
     {
-        return "report.speciality.label";
+        return "report.experience_salary.label";
     }
 }

@@ -3,8 +3,8 @@
 namespace Afup\Barometre\Filter;
 
 use Symfony\Component\Form\FormBuilderInterface;
-use Doctrine\DBAL\Query\QueryBuilder;
-use Doctrine\DBAL\Connection;
+use Doctrine\ORM\QueryBuilder;
+
 use agallou\Departements\Collection as Departments;
 
 use Afup\Barometre\Form\Type\Select2MultipleFilterType;
@@ -36,8 +36,7 @@ class DepartmentFilter implements FilterInterface
         }
 
         $queryBuilder
-            ->andWhere('response.companyDepartment IN(:department)')
-            ->setParameter('department', $values[$this->getName()], Connection::PARAM_INT_ARRAY);
+            ->andWhere($queryBuilder->expr()->in('response.companyDepartment', $values[$this->getName()]));
     }
 
     /**

@@ -2,7 +2,7 @@
 
 namespace Afup\Barometre\Report;
 
-use Doctrine\DBAL\Query\QueryBuilder;
+use Doctrine\ORM\QueryBuilder;
 
 /**
  * Report on salary
@@ -27,15 +27,15 @@ class SalaryReport implements ReportInterface
      */
     public function getData()
     {
-        $this->queryBuilder->select('count(distinct response.id) as count');
-        $this->queryBuilder->addSelect('ROUND(grossAnnualSalary / 1000)  as salarySlice');
-        $this->queryBuilder->addGroupBy('salarySlice');
+        $this->queryBuilder->select('count(distinct response.id) as nbResponse');
+        $this->queryBuilder->addSelect('ROUND(response.annualSalary / 1000)  as salarySlice');
+        $this->queryBuilder->addGroupBy('response.salarySlice');
 
         $results = array();
-        foreach ($this->queryBuilder->execute() as $row) {
+        foreach ($this->queryBuilder->getQuery()->getArrayResult() as $row) {
             $slice = $row['salarySlice'];
             $results[$slice] = array(
-               'count' => $row['count']
+               'count' => $row['nbResponse']
             );
         }
 
