@@ -4,7 +4,7 @@ namespace Afup\Barometre\Filter;
 
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\FormBuilderInterface;
-use Doctrine\ORM\QueryBuilder;
+use Doctrine\DBAL\Query\QueryBuilder;
 
 class CertificationFilter implements FilterInterface
 {

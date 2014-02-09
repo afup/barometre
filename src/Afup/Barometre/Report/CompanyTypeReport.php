@@ -2,7 +2,7 @@
 
 namespace Afup\Barometre\Report;
 
-use Doctrine\ORM\QueryBuilder;
+use Doctrine\DBAL\Query\QueryBuilder;
 
 /**
  * Report on company Type
@@ -32,7 +32,7 @@ class CompanyTypeReport implements ReportInterface
             ->addSelect('COUNT(response.id) as nbResponse')
             ->addGroupBy('response.companyType');
 
-        return $this->queryBuilder->getQuery()->getArrayResult();
+        return $this->queryBuilder->execute();
     }
 
     /**

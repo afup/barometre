@@ -2,28 +2,15 @@
 
 namespace Afup\Barometre\Report;
 
-use Doctrine\ORM\QueryBuilder;
+use Doctrine\DBAL\Query\QueryBuilder;
 use Doctrine\ORM\EntityManagerInterface;
 
 class ExperienceSalaryReport implements ReportInterface
 {
     /**
-     * @var EntityManagerInterface
-     */
-    private $entityManager;
-
-    /**
      * @var QueryBuilder
      */
     private $queryBuilder;
-
-    /**
-     * @param EntityManagerInterface $entityManager
-     */
-    public function __construct(EntityManagerInterface $entityManager)
-    {
-        $this->entityManager = $entityManager;
-    }
 
     /**
      * {@inheritdoc}
@@ -40,21 +27,13 @@ class ExperienceSalaryReport implements ReportInterface
      */
     public function getData()
     {
-        $queryBuilder = $this->queryBuilder->select('DISTINCT response.id');
-
-        $reportQueryBuilder = $this->entityManager->createQueryBuilder();
-
-        $reportQueryBuilder
-            ->from('AfupBarometreBundle:Response', 'r')
-            ->where(
-                $reportQueryBuilder->expr()->in('r.id', $queryBuilder->getDQL())
-            )
-            ->select('r.experience')
-            ->addSelect('AVG(r.annualSalary) as annualSalary')
-            ->addSelect('COUNT(r.id) as nbResponse')
-            ->groupBy('r.experience');
-
-        return $reportQueryBuilder->getQuery()->getArrayResult();
+        return $this->queryBuilder
+            ->select('response.experience')
+            ->addSelect('AVG(response.annualSalary) as annualSalary')
+            ->addSelect('COUNT(response.id) as nbResponse')
+            ->groupBy('response.experience')
+            ->execute()
+        ;
     }
 
     /**

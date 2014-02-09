@@ -2,7 +2,7 @@
 
 namespace Afup\Barometre\Report;
 
-use Doctrine\ORM\QueryBuilder;
+use Doctrine\DBAL\Query\QueryBuilder;
 use Doctrine\ORM\EntityManagerInterface;
 
 /**
@@ -11,22 +11,9 @@ use Doctrine\ORM\EntityManagerInterface;
 class SpecialityReport implements ReportInterface
 {
     /**
-     * @var EntityManagerInterface
-     */
-    private $entityManager;
-
-    /**
      * @var QueryBuilder
      */
     private $queryBuilder;
-
-    /**
-     * @param EntityManagerInterface $entityManager
-     */
-    public function __construct(EntityManagerInterface $entityManager)
-    {
-        $this->entityManager = $entityManager;
-    }
 
     /**
      * {@inheritdoc}
@@ -41,21 +28,24 @@ class SpecialityReport implements ReportInterface
      */
     public function getData()
     {
-        $queryBuilder = $this->queryBuilder->select('DISTINCT response.id');
-
-        $reportQueryBuilder = $this->entityManager->createQueryBuilder();
-
-        $reportQueryBuilder
-            ->select('s.name as specialityName')
-            ->addSelect('COUNT(r.id) as nbResponse')
-            ->from('AfupBarometreBundle:Response', 'r')
-            ->leftJoin('r.specialities', 's')
-            ->where(
-                $reportQueryBuilder->expr()->in('r.id', $queryBuilder->getDQL())
+        $this->queryBuilder
+            ->select('count(distinct response.id) as nbResponse')
+            ->join(
+                'response',
+                'response_speciality',
+                'response_speciality',
+                'response.id = response_speciality.response_id'
             )
-            ->groupBy('s.name');
+            ->join(
+                'response_speciality',
+                'speciality',
+                'speciality',
+                'response_speciality.speciality_id = speciality.id'
+            )
+            ->addSelect('speciality.name as specialityName')
+            ->addGroupBy('specialityName');
 
-        return $reportQueryBuilder->getQuery()->getArrayResult();
+        return $this->queryBuilder->execute();
     }
 
     /**

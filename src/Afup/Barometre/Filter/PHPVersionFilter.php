@@ -3,7 +3,7 @@
 namespace Afup\Barometre\Filter;
 
 use Symfony\Component\Form\FormBuilderInterface;
-use Doctrine\ORM\QueryBuilder;
+use Doctrine\DBAL\Query\QueryBuilder;
 
 use Afup\BarometreBundle\Enums\PHPVersionEnums;
 use Afup\Barometre\Form\Type\Select2MultipleFilterType;

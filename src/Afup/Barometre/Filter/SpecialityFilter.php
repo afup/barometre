@@ -4,7 +4,7 @@ namespace Afup\Barometre\Filter;
 
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\FormBuilderInterface;
-use Doctrine\ORM\QueryBuilder;
+use Doctrine\DBAL\Query\QueryBuilder;
 
 class SpecialityFilter implements FilterInterface
 {
@@ -42,7 +42,18 @@ class SpecialityFilter implements FilterInterface
         }, $specialities);
 
         $queryBuilder
-            ->leftJoin('response.specialities', 'speciality')
+            ->join(
+                'response',
+                'response_speciality',
+                'response_speciality',
+                'response.id = response_speciality.response_id'
+            )
+            ->join(
+                'response_speciality',
+                'speciality',
+                'speciality',
+                'response_speciality.speciality_id = speciality.id'
+            )
             ->andWhere($queryBuilder->expr()->in('speciality.id', $specialities));
     }
 
