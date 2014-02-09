@@ -108,7 +108,8 @@ module.exports = function(grunt) {
           'src/Afup/BarometreBundle/Resources/assets/sass/ui/*'
         ],
         tasks: ['dev']
-      }
+      },
+      gruntfile: { files: ['Gruntfile.js'], tasks: ['dev']  }
     },
 
     githooks: {
