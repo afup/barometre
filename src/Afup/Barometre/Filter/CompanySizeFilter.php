@@ -45,10 +45,6 @@ class CompanySizeFilter implements FilterInterface
 
         $queryBuilder
             ->andWhere($queryBuilder->expr()->in('response.companySize', $values[$this->getName()]));
-
-        // $queryBuilder
-        //     ->andWhere('response.companySize IN(:company_size)')
-        //     ->setParameter('company_size', $values[$this->getName()], Connection::PARAM_INT_ARRAY);
     }
 
     /**
