@@ -105,7 +105,7 @@ module.exports = function(grunt) {
         ],
         tasks: ['dev']
       },
-      gruntfile: { files: ['Gruntfile.js'], tasks: ['default']  }
+      gruntfile: { files: ['Gruntfile.js'], tasks: ['dev']  }
     },
 
     githooks: {
