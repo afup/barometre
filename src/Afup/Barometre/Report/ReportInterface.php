@@ -2,7 +2,7 @@
 
 namespace Afup\Barometre\Report;
 
-use Doctrine\ORM\QueryBuilder;
+use Doctrine\DBAL\Query\QueryBuilder;
 
 /**
  * A report

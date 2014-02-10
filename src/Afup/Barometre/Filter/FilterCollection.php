@@ -3,7 +3,7 @@
 namespace Afup\Barometre\Filter;
 
 use Symfony\Component\Form\FormBuilderInterface;
-use Doctrine\ORM\QueryBuilder;
+use Doctrine\DBAL\Query\QueryBuilder;
 
 /**
  * A collection of filter

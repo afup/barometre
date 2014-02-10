@@ -13,7 +13,7 @@
     <tbody>
         {% for row in results %}
             <tr>
-                <td>{{ row.specialityName|default('report.speciliaty.none'|trans) }}</td>
+                <td>{{ row.specialityName }}</td>
                 <td>{{ row.nbResponse }}</td>
             </tr>
         {% endfor %}
