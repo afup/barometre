@@ -2,7 +2,7 @@
 
 namespace Afup\Barometre;
 
-use Doctrine\DBAL\Connection;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Afup\Barometre\Filter\FilterCollection;
@@ -13,7 +13,7 @@ use Afup\Barometre\Report\ReportCollection;
  */
 class ReportManager
 {
-    private $connection;
+    private $objectManager;
 
     private $form;
 
@@ -22,18 +22,18 @@ class ReportManager
     private $filterCollection;
 
     /**
-     * @param Connection       $connection
-     * @param FormInterface    $form
-     * @param ReportCollection $reportCollection
-     * @param FilterCollection $filterCollection
+     * @param EntityManagerInterface $objectManager
+     * @param FormInterface          $form
+     * @param ReportCollection       $reportCollection
+     * @param FilterCollection       $filterCollection
      */
     public function __construct(
-        Connection $connection,
+        EntityManagerInterface $objectManager,
         FormInterface $form,
         ReportCollection $reportCollection,
         FilterCollection $filterCollection
     ) {
-        $this->connection       = $connection;
+        $this->objectManager    = $objectManager;
         $this->form             = $form;
         $this->reportCollection = $reportCollection;
         $this->filterCollection = $filterCollection;
@@ -68,9 +68,10 @@ class ReportManager
     {
         $report = $this->reportCollection->getReport($reportName);
 
-        $queryBuilder = $this->connection->createQueryBuilder();
+        $queryBuilder = $this->objectManager->createQueryBuilder();
 
-        $queryBuilder->from('response', 'response');
+        $queryBuilder
+            ->from('AfupBarometreBundle:Response', 'response');
 
         $this->filterCollection->buildQuery($queryBuilder, (array) $this->form->getData());
 

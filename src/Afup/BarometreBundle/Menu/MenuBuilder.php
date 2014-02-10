@@ -49,15 +49,21 @@ class MenuBuilder
             ]
         );
 
+        $filters = $this->context->getParameters();
+
         foreach ($this->reports as $report) {
+
+            $routeParameters = ['reportName' => $report->getName()];
+
+            if (count($filters) > 0) {
+                $routeParameters['filter'] = $filters;
+            }
+
             $menu->addChild(
                 $report->getLabel(),
                 [
                     'route'           => 'afup_barometre_report',
-                    'routeParameters' => array_merge(
-                        ['reportName' => $report->getName()],
-                        ['filter' => $this->context->getParameters()]
-                    ),
+                    'routeParameters' => $routeParameters,
                 ]
             );
         }

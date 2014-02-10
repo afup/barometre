@@ -3,7 +3,7 @@
 namespace Afup\Barometre\Filter;
 
 use Symfony\Component\Form\FormBuilderInterface;
-use Doctrine\DBAL\Query\QueryBuilder;
+use Doctrine\ORM\QueryBuilder;
 
 use Afup\Barometre\Form\Type\SalaryFilterType;
 
@@ -35,13 +35,13 @@ class SalaryFilter implements FilterInterface
             return;
         }
 
-        if ($values['salary']['min']) {
+        if (isset($values['salary']['min'])) {
             $queryBuilder
                 ->andWhere('response.grossAnnualSalary >= :minSalary')
                 ->setParameter('minSalary', $values['salary']['min']);
         }
 
-        if ($values['salary']['max']) {
+        if (isset($values['salary']['max'])) {
             $queryBuilder
                 ->andWhere('response.grossAnnualSalary <= :maxSalary')
                 ->setParameter('maxSalary', $values['salary']['max']);
