@@ -26,10 +26,10 @@ class ReportManager
     private $connection;
 
     /**
-     * @param EntityManagerInterface $objectManager
-     * @param FormInterface          $form
-     * @param ReportCollection       $reportCollection
-     * @param FilterCollection       $filterCollection
+     * @param Connection       $connection
+     * @param FormInterface    $form
+     * @param ReportCollection $reportCollection
+     * @param FilterCollection $filterCollection
      */
     public function __construct(
         Connection $connection,
