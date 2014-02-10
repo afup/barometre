@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     $.extend($.tablesorter.themes.bootstrap, {
         // these classes are added to the table. To see other table classes available,
         // look here: http://twitter.github.com/bootstrap/base-css.html#tables
