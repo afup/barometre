@@ -108,7 +108,15 @@ module.exports = function(grunt) {
           'src/Afup/BarometreBundle/Resources/assets/sass/ui/*'
         ],
         tasks: ['dev']
-      }
+      },
+      gruntfile: { files: ['Gruntfile.js'], tasks: ['dev']  }
+    },
+
+    jshint: {
+      options: {
+        jshintrc: true
+      },
+      src: ['src/Afup/BarometreBundle/Resources/assets/js/*']
     },
 
     githooks: {
@@ -145,9 +153,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-hash');
   grunt.loadNpmTasks('grunt-githooks');
   grunt.loadNpmTasks('grunt-shell');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
 
   grunt.registerTask('test', ['shell:atoum']);
-  grunt.registerTask('lint', ['shell:coke']);
+  grunt.registerTask('lint', ['shell:coke', 'jshint']);
   grunt.registerTask('common', ['clean', 'copy', 'cssUrlRewrite', 'sass', 'concat']);
   grunt.registerTask('dev', ['common', 'hash']);
   grunt.registerTask('default', ['common', 'uglify', 'cssmin', 'hash']);
