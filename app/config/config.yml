@@ -28,6 +28,10 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    form:
+        resources:
+            - 'AfupBarometreBundle:Form:types.html.twig'
+
 
 # Doctrine Configuration
 doctrine:
