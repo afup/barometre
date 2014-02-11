@@ -28,8 +28,8 @@ class CompanySizeReport implements ReportInterface
     public function getData()
     {
         $this->queryBuilder
-            ->select('count(distinct response.id) as count')
-            ->addSelect('response.companySize as companySize')
+            ->select('response.companySize as companySize')
+            ->addSelect('COUNT(response.id) as nbResponse')
             ->addGroupBy('response.companySize');
 
         return $this->queryBuilder->execute();

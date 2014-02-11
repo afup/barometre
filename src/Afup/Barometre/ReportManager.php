@@ -3,23 +3,27 @@
 namespace Afup\Barometre;
 
 use Doctrine\DBAL\Connection;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Afup\Barometre\Filter\FilterCollection;
 use Afup\Barometre\Report\ReportCollection;
+use Afup\Barometre\Query\QueryBuilder as AfupQueryBuilder;
 
 /**
  * The Report / Filter Manager
  */
 class ReportManager
 {
-    private $connection;
+    private $objectManager;
 
     private $form;
 
     private $reportCollection;
 
     private $filterCollection;
+
+    private $connection;
 
     /**
      * @param Connection       $connection
@@ -33,7 +37,7 @@ class ReportManager
         ReportCollection $reportCollection,
         FilterCollection $filterCollection
     ) {
-        $this->connection       = $connection;
+        $this->connection = $connection;
         $this->form             = $form;
         $this->reportCollection = $reportCollection;
         $this->filterCollection = $filterCollection;
@@ -68,18 +72,34 @@ class ReportManager
     {
         $report = $this->reportCollection->getReport($reportName);
 
-        $queryBuilder = $this->connection->createQueryBuilder();
-
-        $queryBuilder->from('response', 'response');
-
-        $this->filterCollection->buildQuery($queryBuilder, (array) $this->form->getData());
-
         if (!$report) {
             // exception
             return;
         }
 
-        $report->setQueryBuilder($queryBuilder);
+        $data = (array) $this->form->getData();
+
+        $filterTableBuilder = new AfupQueryBuilder($this->connection);
+
+        $filterTableBuilder
+            ->from('response', 'response')
+            ->select('response.id as response_id')
+            ->groupBy('response_id')
+        ;
+
+        $this->filterCollection->buildQuery($filterTableBuilder, $data);
+
+        $temporaryTablename = sprintf('tmp_%s', md5(serialize($data)));
+        $filterTableBuilder->dropTemporaryTable($temporaryTablename);
+        $filterTableBuilder->createTemporaryTable($temporaryTablename);
+
+        $reportQueryBuilder = $this->connection->createQueryBuilder();
+        $reportQueryBuilder
+            ->from('response', 'response')
+            ->join('response', $temporaryTablename, 'filter_table', 'response.id = filter_table.response_id')
+        ;
+
+        $report->setQueryBuilder($reportQueryBuilder);
 
         return $report;
     }

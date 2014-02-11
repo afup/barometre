@@ -9,6 +9,7 @@
         <parameter key="afup.barometre.filter.salary.class">Afup\Barometre\Filter\SalaryFilter</parameter>
         <parameter key="afup.barometre.filter.certifications.class">Afup\Barometre\Filter\CertificationFilter</parameter>
         <parameter key="afup.barometre.filter.specialities.class">Afup\Barometre\Filter\SpecialityFilter</parameter>
+        <parameter key="afup.barometre.filter.departement.class">Afup\Barometre\Filter\DepartmentFilter</parameter>
     </parameters>
 
     <services>
@@ -37,6 +38,10 @@
 
         <service id="afup.barometre.filter.salary" class="%afup.barometre.filter.salary.class%">
             <tag name="barometre.filter" alias="salary" />
+        </service>
+
+        <service id="afup.barometre.filter.departement" class="%afup.barometre.filter.departement.class%">
+            <tag name="barometre.filter" alias="departement" />
         </service>
 
     </services>

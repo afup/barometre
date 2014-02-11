@@ -1,4 +1,4 @@
-<table class="bar-table highchart"
+<table class="bar-table highchart tablesorter tablesorter-bootstrap"
        data-graph-container-before="1"
        data-graph-type="column"
        data-graph-legend-disabled="1">
@@ -12,7 +12,7 @@
         {% for row in results %}
             <tr>
                 <td>{{ row.companySize|enum_label('company_size') }}</td>
-                <td>{{ row.count }}</td>
+                <td>{{ row.nbResponse }}</td>
             </tr>
         {% endfor %}
     </tbody>

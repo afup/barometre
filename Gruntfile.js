@@ -9,9 +9,11 @@ module.exports = function(grunt) {
         files: [
           {expand: true, cwd: 'bower_components/select2/', src: ['**.png'], dest: 'web/assets/images/select2/', filter: 'isFile'},
           {expand: true, cwd: 'bower_components/select2/', src: ['**.gif'], dest: 'web/assets/images/select2/', filter: 'isFile'},
-          {expand: true, cwd: 'bower_components/bootstrap/dist/fonts/', src: ['*'], dest: 'web/assets/fonts/', filter: 'isFile'},
+          {expand: true, cwd: 'bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/', src: ['*'], dest: 'web/assets/fonts/', filter: 'isFile'},
           {expand: true, cwd: 'bower_components/bootstrap-sass-official/vendor/assets/stylesheets/', src: ['**'], dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/'},
-          {expand: true, cwd: 'bower_components/select2/', src: ['select2-bootstrap.scss'], dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/'}
+          {expand: true, cwd: 'bower_components/select2/', src: ['select2-bootstrap.scss'], dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/'},
+          {expand: false, src: 'bower_components/jquery.tablesorter/css/theme.bootstrap.css', dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/tablesorter.theme.bootstrap.scss'},
+          {expand: false, src: 'bower_components/colorbrewer/colorbrewer.css', dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/colorbrewer.scss'}
         ]
       }
     },
@@ -46,10 +48,15 @@ module.exports = function(grunt) {
         src: [
           'bower_components/jquery/jquery.js',
           'bower_components/select2/select2.js',
+          'bower_components/select2/select2_locale_fr.js',
           'bower_components/highcharts/highcharts.js',
           'bower_components/highchartTable/jquery.highchartTable.js',
-          'src/Afup/BarometreBundle/Resources/assets/js/main.js'
-
+          'bower_components/jquery.tablesorter/js/jquery.tablesorter.js',
+          'bower_components/jquery.tablesorter/js/jquery.tablesorter.widgets.js',
+          'bower_components/d3/d3.v2.js',
+          'src/Afup/BarometreBundle/Resources/assets/js/tablesorter.js',
+          'src/Afup/BarometreBundle/Resources/assets/js/main.js',
+          'src/Afup/BarometreBundle/Resources/assets/js/map.js'
         ],
         dest: 'app/cache/grunt/main.js'
       }
@@ -63,6 +70,9 @@ module.exports = function(grunt) {
     },
 
     cssmin: {
+      options: {
+        keepSpecialComments: 0
+      },
       css: {
         files: {
           '<%= sass.dist.dest %>': ['<%= sass.dist.dest %>']
@@ -98,7 +108,15 @@ module.exports = function(grunt) {
           'src/Afup/BarometreBundle/Resources/assets/sass/ui/*'
         ],
         tasks: ['dev']
-      }
+      },
+      gruntfile: { files: ['Gruntfile.js'], tasks: ['dev']  }
+    },
+
+    jshint: {
+      options: {
+        jshintrc: true
+      },
+      src: ['src/Afup/BarometreBundle/Resources/assets/js/*']
     },
 
     githooks: {
@@ -135,10 +153,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-hash');
   grunt.loadNpmTasks('grunt-githooks');
   grunt.loadNpmTasks('grunt-shell');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
 
   grunt.registerTask('test', ['shell:atoum']);
-  grunt.registerTask('lint', ['shell:coke']);
-  grunt.registerTask('dev', ['clean', 'copy', 'cssUrlRewrite', 'sass', 'concat', 'hash']);
-  grunt.registerTask('default', ['dev', 'uglify', 'cssmin']);
+  grunt.registerTask('lint', ['shell:coke', 'jshint']);
+  grunt.registerTask('common', ['clean', 'copy', 'cssUrlRewrite', 'sass', 'concat']);
+  grunt.registerTask('dev', ['common', 'hash']);
+  grunt.registerTask('default', ['common', 'uglify', 'cssmin', 'hash']);
 
 };

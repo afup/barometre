@@ -3,13 +3,13 @@
 namespace Afup\Barometre\Report;
 
 use Doctrine\DBAL\Query\QueryBuilder;
+use Doctrine\ORM\EntityManagerInterface;
 
 /**
  * Report on Speciality
  */
 class SpecialityReport implements ReportInterface
 {
-
     /**
      * @var QueryBuilder
      */
@@ -29,7 +29,7 @@ class SpecialityReport implements ReportInterface
     public function getData()
     {
         $this->queryBuilder
-            ->select('count(distinct response.id) as count')
+            ->select('count(distinct response.id) as nbResponse')
             ->join(
                 'response',
                 'response_speciality',
@@ -42,16 +42,10 @@ class SpecialityReport implements ReportInterface
                 'speciality',
                 'response_speciality.speciality_id = speciality.id'
             )
-            ->addSelect('speciality.name as speciality')
-            ->addGroupBy('speciality.name');
+            ->addSelect('speciality.name as specialityName')
+            ->addGroupBy('specialityName');
 
-        $results = array();
-
-        foreach ($this->queryBuilder->execute() as $row) {
-            $results[] = $row;
-        }
-
-        return $results;
+        return $this->queryBuilder->execute();
     }
 
     /**

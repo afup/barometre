@@ -28,8 +28,8 @@ class CompanyDepartmentReport implements ReportInterface
     public function getData()
     {
         $this->queryBuilder
-            ->select('count(distinct response.id) as count')
-            ->addSelect('response.companyDepartment as companyDepartment')
+            ->select('response.companyDepartment as companyDepartment')
+            ->addSelect('COUNT(response.id) as nbResponse')
             ->addGroupBy('response.companyDepartment');
 
         return $this->queryBuilder->execute();

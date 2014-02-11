@@ -1,7 +1,0 @@
-{% for report in reports %}
-    <li>
-        <a href="{{ context_path('afup_barometre_report', {reportName: report.name}) }}">
-            {{ report.label | trans }}
-        </a>
-    </li>
-{% endfor %}

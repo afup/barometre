@@ -11,6 +11,8 @@ use Afup\BarometreBundle\Enums\CompanySizeEnums;
 use Afup\BarometreBundle\Enums\JobInterestEnums;
 use Afup\BarometreBundle\Enums\PHPVersionEnums;
 use Afup\BarometreBundle\Enums\PHPStrengthEnums;
+use Afup\BarometreBundle\Enums\JobTitleEnums;
+use Afup\BarometreBundle\Enums\ExperienceEnums;
 
 class ResponseFactory extends atoum
 {
@@ -26,6 +28,9 @@ class ResponseFactory extends atoum
         $enumCollection->addEnums(new JobInterestEnums(), 'job_interest');
         $enumCollection->addEnums(new PHPVersionEnums(), 'php_version');
         $enumCollection->addEnums(new PHPStrengthEnums(), 'php_strength');
+        $enumCollection->addEnums(new JobTitleEnums(), 'job_title');
+        $enumCollection->addEnums(new ExperienceEnums(), 'experience');
+
 
         $certificationRepository = new \mock\Doctrine\Common\Persistence\ObjectRepository();
         $specialityRepository = new \mock\Doctrine\Common\Persistence\ObjectRepository();
@@ -40,7 +45,7 @@ class ResponseFactory extends atoum
         $data = array (
             'gross_annual_salary' => '42 000',
             'variable_annual_salary' => '',
-            'AnnualSalary' => '42 000',
+            'annual_salary' => '42 000',
             'salary_satisfaction' => '4',
             'status' => 'Contrat à durée indéterminée',
             'initial_training' => 'Niveau Master2  ou ingénieur',
@@ -57,6 +62,8 @@ class ResponseFactory extends atoum
             'has_formation' => '',
             'formation_subject' => '',
             'formation_impact' => '',
+            'job_title' => '',
+            'experience' => '',
         );
 
         $campaign = new \Afup\BarometreBundle\Entity\Campaign();

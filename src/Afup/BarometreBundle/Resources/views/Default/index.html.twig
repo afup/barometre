@@ -3,9 +3,7 @@
 {% block title %}{{ report.label | trans }} - {{ parent() }}{% endblock %}
 
 {% block body %}
-    {{ include("AfupBarometreBundle:Filters:index.html.twig", {form: form}) }}
-
-    <div class="report-title">{{ report.label | trans }}</div>
+    <h1>{{ report.label | trans }}</h1>
 
     {{ include("AfupBarometreBundle:Report:" ~ report.name ~ ".html.twig", { results: report.data }) }}
 {% endblock %}

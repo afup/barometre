@@ -1,4 +1,4 @@
-<table class="bar-table highchart highchart-align-xaxis-left-labels"
+<table class="bar-table highchart highchart-align-xaxis-left-labels tablesorter tablesorter-bootstrap"
        data-graph-container-before="1"
        data-graph-type="column"
        data-graph-legend-disabled="1"
@@ -13,8 +13,8 @@
     <tbody>
         {% for row in results %}
             <tr>
-                <td>{{ row.speciality }}</td>
-                <td>{{ row.count }}</td>
+                <td>{{ row.specialityName }}</td>
+                <td>{{ row.nbResponse }}</td>
             </tr>
         {% endfor %}
     </tbody>

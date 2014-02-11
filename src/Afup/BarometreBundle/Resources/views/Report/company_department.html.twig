@@ -1,4 +1,8 @@
-<table class="bar-table">
+<div id="map">
+    <svg></svg>
+</div>
+
+<table class="bar-table tablesorter tablesorter-bootstrap">
     <thead>
         <tr>
             <th>{{ "report.view.department_code" | trans }}</th>
@@ -11,7 +15,7 @@
             <tr>
                 <td>{{ row.companyDepartment }}</td>
                 <td>{{ row.companyDepartment|department_label }}</td>
-                <td>{{ row.count }}</td>
+                <td>{{ row.nbResponse }}</td>
             </tr>
         {% endfor %}
     </tbody>

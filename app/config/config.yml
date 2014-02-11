@@ -28,6 +28,10 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
+    form:
+        resources:
+            - 'AfupBarometreBundle:Form:types.html.twig'
+
 
 # Doctrine Configuration
 doctrine:
@@ -54,3 +58,7 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+
+knp_menu:
+    twig:
+        template: AfupBarometreBundle:Default:knp_menu.html.twig
