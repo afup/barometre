@@ -15,8 +15,8 @@
         {% for row in results %}
             <tr>
                 <td>{{ row.experience|enum_label('experience') }}</td>
-                <td>{{ row.variableAnnualSalary|round(-2) }}</td>
-                <td>{{ row.grossAnnualSalary|round(-2) }}</td>
+                <td>{{ row.variableAnnualSalary|round(-2)|number_format_decimal }}</td>
+                <td>{{ row.grossAnnualSalary|round(-2)|number_format_decimal }}</td>
              </tr>
         {% endfor %}
     </tbody>

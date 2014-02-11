@@ -12,7 +12,7 @@
         {% for row in results %}
             <tr>
                 <td>{{ row.experience|enum_label('experience') }}</td>
-                <td>{{ row.annualSalary|round(-2) }}</td>
+                <td>{{ row.annualSalary|round(-2)|number_format_decimal }}</td>
              </tr>
         {% endfor %}
     </tbody>
