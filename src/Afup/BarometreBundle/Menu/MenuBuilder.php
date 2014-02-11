@@ -51,6 +51,13 @@ class MenuBuilder
 
         $filters = $this->context->getParameters();
 
+        $menu->addChild(
+            'A propos du baromètre',
+            [
+                'route' => 'afup_barometre_about',
+            ]
+        );
+
         foreach ($this->reports as $report) {
 
             $routeParameters = ['reportName' => $report->getName()];
