@@ -43,3 +43,11 @@ body {
 .mg-top {
     margin-top: 20px;
 }
+
+/* Select 2 */
+
+.select2-container-multi .select2-choices .select2-search-choice {
+    background: $afup-blue;
+    color: white;
+    border: 1px solid darken($afup-blue, 25%);
+}
