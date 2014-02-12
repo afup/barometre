@@ -1,38 +1,17 @@
-// Bootstrap - Core variables and mixins
-@import "vendor/bootstrap/variables";
-@import "vendor/bootstrap/mixins";
-
-// Bootstrap - Reset
-@import "vendor/bootstrap/normalize";
-
-// Bootstrap - Core CSS
-@import "vendor/bootstrap/scaffolding";
-@import "vendor/bootstrap/type";
-@import "vendor/bootstrap/grid";
-@import "vendor/bootstrap/tables";
-@import "vendor/bootstrap/forms";
-@import "vendor/bootstrap/buttons";
-
 // Icons
 @import "variables";
-@import "vendor/bootstrap/glyphicons";
 
-// Bootstrap - Utility classes
-@import "vendor/bootstrap/utilities";
-@import "vendor/bootstrap/responsive-utilities";
+// Bootstrap
+@import "bootstrap";
 
 // Select2
-@import "vendor/select2";
+//@import "vendor/select2";
 
 // Table Sorter
-@import "vendor/tablesorter.theme.bootstrap";
+//@import "vendor/tablesorter.theme.bootstrap";
 
 // Colorbrewer
-@import "vendor/colorbrewer";
-
-// Barometre - ui
-@import "ui/table";
-@import "ui/typo";
+//@import "vendor/colorbrewer";
 
 // Barometre
 @import "global";

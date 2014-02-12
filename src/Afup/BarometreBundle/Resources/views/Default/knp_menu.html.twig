@@ -1,5 +1,13 @@
 {% extends 'knp_menu.html.twig' %}
 
-{% block label %}
-    {{ item.label | trans }}
+{% block list %}
+    {% set listAttributes = listAttributes|merge({class: 'nav nav-pills nav-stacked'}) %}
+    {{ parent() }}
 {% endblock %}
+
+{% block item %}
+    {% set options = options|merge({currentClass: 'active'}) %}
+    {{ parent() }}
+{% endblock %}
+
+{% block label item.label|trans %}

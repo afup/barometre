@@ -1,31 +1,32 @@
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Baromètre AFUP{% endblock %}</title>
-        <link rel='stylesheet' href='{{ compiled_css_file }}' type='text/css' />
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <meta charset="utf-8">
+
+        <title>{% block title 'Baromètre AFUP' %}</title>
+
+        {% block meta %}
+        <meta name="description" content="{% block meta_description '' %}">
+        <meta name="viewport" content="width=device-width">
+        {% endblock meta %}
+
+        {% block stylesheets %}
+        <link rel="stylesheet" href="{{ compiled_css_file }}" />
+        {% endblock stylesheets %}
+
+        {% block head_javascript %}
+            {#<script src="js/vendor/modernizr-2.6.2.min.js"></script>#}
+        {% endblock head_javascript %}
     </head>
     <body>
-        <div id="header">
-          <div id="title">Baromètre <img src="/logos/logo-afup.png" id="logo-afup" /><img src="/logos/logo-agencee.png" id="logo-agencee" /></div>
-          <div id="filters">
-              {{ render(controller('AfupBarometreBundle:Form:index')) }}
-          </div>
-          <div id="filters-footer"></div>
-        </div>
-        <div id="wrapper">
-            <div id="sidebar-wrapper">
-                {{ knp_menu_render('menu') }}
-            </div>
-
-            <div id="page-content-wrapper">
-                {% block body %}{% endblock %}
-            </div>
-        </div>
-
-        {% block javascripts %}
-            <script type="text/javascript" src="{{ compiled_js_file }}"></script>
-        {% endblock %}
+        {% block body '' %}
+        {% block body_javascript %}
+            <script src="{{ compiled_js_file }}"></script>
+            {% block analytics '' %}
+            {% block inline_javascript '' %}
+        {% endblock body_javascript %}
     </body>
 </html>

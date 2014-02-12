@@ -1,0 +1,37 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    {% block header %}
+    <header class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                {% block brand %}
+                    <a class="navbar-brand" href="#">Baromètre</a>
+                    <img src="/logos/logo-afup.png" id="logo-afup" />
+                    <img src="/logos/logo-agencee.png" id="logo-agencee" />
+                {% endblock %}
+            </div>
+        </div>
+    </header>
+    {% endblock header %}
+
+    {% block main %}
+    <div class="container-fluid">
+
+        <aside class="menu col-sm-3 col-md-2">
+            {% block menu knp_menu_render('menu') %}
+        </aside>
+
+        <section class="content col-sm-9 col-md-10">
+            {% block content '' %}
+        </section>
+
+    </div>
+    {% endblock main %}
+
+    {% block footer %}
+    <footer></footer>
+    {% endblock footer %}
+
+{% endblock body %}
