@@ -1,25 +1,35 @@
+{% form_theme form "AfupBarometreBundle:Filters:theme.html.twig" %}
+
+{#{ form(form) }#}
+
 {{ form_start(form) }}
-  {{ form_errors(form) }}
+    {{ form_errors(form) }}
 
-  {% for child in form %}
-{% if (loop.index0) is divisible by(3) %}
-<div class="filter-line">
-{% endif %}
+    <div class="row">
+        {% for child in [form.company_size, form.company_type, form.departement] %}
+            <div class="col-md-4">
+                {{ form_row(child) }}
+            </div>
+        {% endfor %}
+    </div>
 
-      <div class="filter-row">
-        <div class="filter-label">
-          {{ form_label(child) }}
+    <div class="row">
+        {% for child in [form.php_version, form.specialities, form.certifications] %}
+            <div class="col-md-4">
+                {{ form_row(child) }}
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            {{ form_row(form.salary) }}
         </div>
-        <div class="filter-content">
-          {{ form_widget(child) }}
+        <div class="col-md-offset-4 col-md-4">
+            {{ form_row(form.submit, {attr: {class: 'mg-top'}}) }}
         </div>
-      </div>
+    </div>
 
-
-{% if (loop.index ) is divisible by(3) %}
-</div>
-{% endif %}
-  {% endfor %}
-</div>
+    {{ form_rest(form) }}
 
 {{ form_end(form) }}

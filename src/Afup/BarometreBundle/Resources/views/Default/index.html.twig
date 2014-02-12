@@ -5,5 +5,9 @@
 {% block content %}
     <h1 class="page-header">{{ report.label | trans }}</h1>
 
+    {% block filters render(controller('AfupBarometreBundle:Form:index')) %}
+
+    <hr/>
+
     {{ include("AfupBarometreBundle:Report:" ~ report.name ~ ".html.twig", { results: report.data }) }}
 {% endblock %}

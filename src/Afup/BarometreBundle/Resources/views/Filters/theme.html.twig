@@ -1,0 +1,33 @@
+{% extends 'form_div_layout.html.twig' %}
+
+{% block form_start %}
+    {% set attr = attr|merge({class: (attr.class|default('') ~ ' form')|trim}) %}
+    {{ parent() }}
+{% endblock %}
+
+{% block form_row %}
+    <div class="form-group">
+        {{ form_label(form) }}
+        {{ form_errors(form) }}
+        {{ form_widget(form) }}
+    </div>
+{% endblock %}
+
+{% block widget_attributes %}
+    {% set attr = attr|merge({class: (attr.class|default('') ~ ' form-control')|trim}) %}
+    {{ parent() }}
+{% endblock %}
+
+{% block button_attributes %}
+    {% set btn_class = "btn btn-block " ~ (type == 'submit' ? 'btn-primary' : 'btn-default') %}
+    {% set attr = attr|merge({class: (attr.class|default('') ~ ' ' ~ btn_class)|trim}) %}
+    {{ parent() }}
+{% endblock %}
+
+{% block salary_widget %}
+    <div class="row">
+        <div class="col-md-6">{{ form_widget(form.min, { attr: { "placeholder": "Minimum" } }) }}</div>
+        <div class="col-md-6">{{ form_widget(form.max, { attr: { "placeholder": "Maximum" } }) }}</div>
+    </div>
+{% endblock %}
+

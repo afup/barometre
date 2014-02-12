@@ -27,6 +27,10 @@ module.exports = function(grunt) {
               return '/assets/images/select2/' + url.replace('bower_components/select2/', '');
             }
           }
+      },
+      select2bootstrap: {
+          src: 'bower_components/select2-bootstrap3-css/lib/select2-bootstrap.scss',
+          dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/select2-bootstrap.scss',
       }
     },
 

@@ -1,8 +1,45 @@
 body {
-  padding-top: 50px;
+    padding-top: $navbar-height;
 }
 
+/* Menu */
+
 .menu {
-  padding-top: $grid-gutter-width/2;
-  padding-bottom: $grid-gutter-width/2;
+    padding-top: $grid-gutter-width/2;
+    padding-bottom: $grid-gutter-width/2;
+}
+
+/* Header */
+
+.navbar-brand {
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.logo {
+
+    display: block;
+    float: left;
+
+    &.afup {
+        height: 50px;
+        margin: 5px 20px;
+    }
+
+    &.agencee {
+        height: 38px;
+        margin: 11px 20px;
+    }
+}
+
+/* Main */
+
+.main {
+    margin: 0 $grid-gutter-width/2;
+}
+
+/* Common */
+
+.mg-top {
+    margin-top: 20px;
 }

@@ -7,9 +7,9 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 {% block brand %}
-                    <a class="navbar-brand" href="#">Baromètre</a>
-                    <img src="/logos/logo-afup.png" id="logo-afup" />
-                    <img src="/logos/logo-agencee.png" id="logo-agencee" />
+                    <a class="navbar-brand" href="{{ path('afup_barometre_homepage') }}">Baromètre</a>
+                    <img src="/logos/logo-afup.png" alt="AFUP" class="logo afup" />
+                    <img src="/logos/logo-agencee.png" alt="Agence E" class="logo agencee" />
                 {% endblock %}
             </div>
         </div>
@@ -17,16 +17,16 @@
     {% endblock header %}
 
     {% block main %}
-    <div class="container-fluid">
+    <div class="container-fluid main">
+        <div class="row">
+            <aside class="menu col-sm-3 col-md-3 col-lg-2">
+                {% block menu knp_menu_render('menu') %}
+            </aside>
 
-        <aside class="menu col-sm-3 col-md-2">
-            {% block menu knp_menu_render('menu') %}
-        </aside>
-
-        <section class="content col-sm-9 col-md-10">
-            {% block content '' %}
-        </section>
-
+            <section class="content col-sm-9 col-md-9 col-lg-10">
+                {% block content '' %}
+            </section>
+        </div>
     </div>
     {% endblock main %}
 
