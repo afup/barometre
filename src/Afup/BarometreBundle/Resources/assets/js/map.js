@@ -68,7 +68,7 @@
 
     function getValues() {
         var values = {};
-        $('table.bar-table tbody tr').each(function () {
+        $('#map-table').find('tr').each(function () {
             var dep = $('td', this).first().html();
             var nb = $('td', this).last().html();
             values[parseInt(dep)] = nb;
