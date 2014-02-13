@@ -8,9 +8,15 @@
             <div class="navbar-header">
                 {% block brand %}
                     <a class="navbar-brand" href="{{ path('afup_barometre_homepage') }}">Baromètre</a>
-                    <img src="/logos/logo-afup.png" alt="AFUP" class="logo afup" />
-                    <img src="/logos/logo-agencee.png" alt="Agence E" class="logo agencee" />
                 {% endblock %}
+            </div>
+            <div class="navbar-right">
+                <a href="http://www.afup.org" target="_blank">
+                    <img src="/logos/logo-afup.png" alt="AFUP" class="logo afup" />
+                </a>
+                <a href="http://www.agence-e.fr" target="_blank">
+                    <img src="/logos/logo-agencee.png" alt="Agence E" class="logo agencee mg-right" />
+                </a>
             </div>
         </div>
     </header>
