@@ -76,3 +76,7 @@ body {
     color: white;
     border: 1px solid darken($afup-blue, 25%);
 }
+
+.select2-drop {
+    z-index: $zindex-navbar - 50;
+}
