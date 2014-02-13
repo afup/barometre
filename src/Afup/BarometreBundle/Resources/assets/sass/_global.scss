@@ -84,7 +84,7 @@ body {
 .select2-container-multi .select2-choices .select2-search-choice {
     background: $afup-blue;
     color: white;
-    border: 1px solid darken($afup-blue, 25%);
+    border: 1px solid $afup-blue;
 }
 
 .select2-drop {
@@ -111,5 +111,11 @@ body {
         color: #ffffff;
         text-decoration: none;
         opacity: 1;
+    }
+}
+
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    .main .menu {
+        position: static;
     }
 }
