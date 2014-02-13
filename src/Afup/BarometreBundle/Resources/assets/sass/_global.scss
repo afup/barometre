@@ -69,6 +69,12 @@ body {
     margin-left: $grid-gutter-width/2;
 }
 
+/* Table sorter */
+
+.icon-unsorted {
+    opacity: 0.2;
+}
+
 /* Select 2 */
 
 .select2-container-multi .select2-choices .select2-search-choice {
