@@ -83,3 +83,21 @@ body {
 .select2-drop-mask {
     z-index: $zindex-navbar - 60;
 }
+
+.select2-search-choice-close {
+    background: none;
+    @extend .glyphicon;
+    @extend .glyphicon-remove;
+    color: #ffffff;
+    width: 12px;
+    height: 12px;
+    font-size: 11px;
+    margin-top: -5px;
+    opacity: 0.8;
+
+    &:hover {
+        color: #ffffff;
+        text-decoration: none;
+        opacity: 1;
+    }
+}
