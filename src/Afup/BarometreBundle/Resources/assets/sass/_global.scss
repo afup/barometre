@@ -80,3 +80,6 @@ body {
 .select2-drop {
     z-index: $zindex-navbar - 50;
 }
+.select2-drop-mask {
+    z-index: $zindex-navbar - 60;
+}
