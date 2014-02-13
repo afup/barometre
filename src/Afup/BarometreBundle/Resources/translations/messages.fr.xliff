@@ -110,6 +110,14 @@
                 <source>report.view.variable_annual_salary</source>
                 <target>Salaire annuel variable</target>
             </trans-unit>
+            <trans-unit id="report.view.other_framework">
+                <source>report.view.other_framework</source>
+                <target>Autre Framework ou CMS du marché</target>
+            </trans-unit>
+            <trans-unit id="report.speciality_salary.label">
+                <source>report.speciality_salary.label</source>
+                <target>Répartition du salaire par spécialité</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
