@@ -33,6 +33,21 @@ body {
     }
 }
 
+/* Footer */
+
+.page-footer {
+
+    text-align: center;
+    margin-top: $grid-gutter-width;
+
+    > .content {
+        padding: $grid-gutter-width/2;
+        padding-top: $grid-gutter-width;
+        border-top: 1px solid $gray-lighter;
+        margin-bottom: 0;
+    }
+}
+
 /* Main */
 
 .main {
