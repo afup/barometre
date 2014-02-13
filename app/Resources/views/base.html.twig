@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html>
     <head>
         <meta charset="utf-8">
 
@@ -17,10 +14,6 @@
         <link href='http://fonts.googleapis.com/css?family=Glegoo' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{{ compiled_css_file }}" />
         {% endblock stylesheets %}
-
-        {% block head_javascript %}
-            {#<script src="js/vendor/modernizr-2.6.2.min.js"></script>#}
-        {% endblock head_javascript %}
     </head>
     <body>
         {% block body '' %}
