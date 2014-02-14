@@ -22,6 +22,6 @@ class CompanySizeEnums extends AbstractEnums
         self::DE_50_A_199  => 'De 50 à 199 salariés',
         self::DE_200_A_499 => 'De 200 à 499 salariés',
         self::DE_500_A_999 => 'De 500 à 999 salariés',
-        self::PLUS_DE_1000 => '1000 salariés et plus',
+        self::PLUS_DE_1000 => 'Plus de 1000 salariés',
     );
 }
