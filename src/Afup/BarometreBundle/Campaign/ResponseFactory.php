@@ -105,13 +105,13 @@ class ResponseFactory
             $this->enums->getEnums('php_strength')->getIdByLabel($data["php_strength"])
         );
         $response->setHasRecentTraining(
-            "oui" === $data["has_formation"]
+            "oui" === strtolower($data["has_formation"])
         );
         $response->setIsRecentTrainingHadSalaryImpact(
-            "oui" === $data["formation_impact"]
+            "oui" === strtolower($data["formation_impact"])
         );
 
-        if ("oui" === $data['has_certification']) {
+        if ("oui" === strtolower($data['has_certification'])) {
             $this->addCertification(
                 $response,
                 explode(', ', $data['certification_list'])

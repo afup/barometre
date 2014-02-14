@@ -65,6 +65,11 @@ class CampaignImporter
             }
 
             $data = array_combine($columns, $line);
+
+            array_walk($data, function (&$item) {
+                $item = utf8_encode($item);
+            });
+
             $response = $this->responseFactory->createResponse($data, $campaign);
 
             $this->objectManager->persist($response);
