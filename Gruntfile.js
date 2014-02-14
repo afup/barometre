@@ -49,6 +49,7 @@ module.exports = function(grunt) {
         options: {
           separator: ';'
         },
+        nonull: true,
         src: [
           'bower_components/jquery/jquery.js',
           'bower_components/select2/select2.js',
