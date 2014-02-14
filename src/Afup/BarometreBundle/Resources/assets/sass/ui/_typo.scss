@@ -6,21 +6,20 @@ h1, h2 {
   font-weight: bold;
   margin: 10px 0px;
   font-variant: small-caps;
-  color: #fff;
 }
 
-h1 {
-  background-color: #3cc6ff;
+h1.page-header {
+  border-bottom: 1px solid #4e71b2;
   font-size: 1.35em;
   padding: 5px 0 5px 5px;
-  width: 45%;
+  width: 100%;
 }
 
 h2 {
-  background-color: #4e71b2;
+  border-bottom: 1px solid #4e71b2;
   font-size: 1.25em;
   padding: 2px 0 2px 5px;
-  width: 35%;
+  width: 45%;
 }
 
 p {
