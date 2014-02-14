@@ -58,6 +58,18 @@
                 <source>report.experience_salary.label</source>
                 <target>Salaire en fonction de l'éxperience</target>
             </trans-unit>
+            <trans-unit id="report.variable_salary.label">
+                <source>report.variable_salary.label</source>
+                <target>Le variable, fréquent et incitatif ?</target>
+            </trans-unit>
+            <trans-unit id="report.company_type_salary.label">
+                <source>report.company_type_salary.label</source>
+                <target>Rémunération par secteur d'activité</target>
+            </trans-unit>
+            <trans-unit id="report.company_size_salary.label">
+                <source>report.company_size_salary.label</source>
+                <target>Rémunération par taille d'entreprise</target>
+            </trans-unit>
             <trans-unit id="report.view.department_code">
                 <source>report.view.department_code</source>
                 <target>Code département</target>
@@ -93,6 +105,18 @@
             <trans-unit id="report.view.speciality">
                 <source>report.view.speciality</source>
                 <target>Spécialité</target>
+            </trans-unit>
+            <trans-unit id="report.view.variable_annual_salary">
+                <source>report.view.variable_annual_salary</source>
+                <target>Salaire annuel variable</target>
+            </trans-unit>
+            <trans-unit id="report.view.other_framework">
+                <source>report.view.other_framework</source>
+                <target>Autre Framework ou CMS du marché</target>
+            </trans-unit>
+            <trans-unit id="report.speciality_salary.label">
+                <source>report.speciality_salary.label</source>
+                <target>Répartition du salaire par spécialité</target>
             </trans-unit>
         </body>
     </file>

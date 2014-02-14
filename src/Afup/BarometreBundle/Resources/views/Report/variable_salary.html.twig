@@ -1,0 +1,23 @@
+<table class="table table-striped highchart tablesorter"
+       data-graph-container-before="1"
+       data-graph-type="column"
+       data-graph-legend-disabled="1"
+       data-graph-color-1="#2C598E"
+       data-graph-color-2="#5F8CC1">
+    <thead>
+        <tr>
+            <th>{{ 'report.view.experience' | trans }}</th>
+            <th data-graph-stack-group="1">{{ "report.view.variable_annual_salary" | trans }}</th>
+            <th data-graph-stack-group="1">{{ "report.view.annual_salary" | trans }}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for row in results %}
+            <tr>
+                <td>{{ row.experience|enum_label('experience') }}</td>
+                <td class="text-right">{{ row.variableAnnualSalary|round(-2)|number_format_decimal }}</td>
+                <td class="text-right">{{ row.grossAnnualSalary|round(-2)|number_format_decimal }}</td>
+             </tr>
+        {% endfor %}
+    </tbody>
+</table>

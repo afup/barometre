@@ -21,7 +21,8 @@
         "nelmio/alice": "1.5.*",
         "agallou/departements": "0.1.0",
         "knplabs/knp-menu-bundle": "2.0.*@dev",
-        "knplabs/knp-menu": "2.0.*@dev"
+        "knplabs/knp-menu": "2.0.*@dev",
+        "sonata-project/intl-bundle": "2.2.*"
     },
     "require-dev": {
         "atoum/atoum": "0.0.1",
