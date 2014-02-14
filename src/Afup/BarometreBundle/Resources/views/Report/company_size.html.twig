@@ -12,7 +12,7 @@
         {% for row in results %}
             <tr>
                 <td>{{ row.companySize|enum_label('company_size') }}</td>
-                <td>{{ row.nbResponse }}</td>
+                <td class="text-right">{{ row.nbResponse }}</td>
             </tr>
         {% endfor %}
     </tbody>

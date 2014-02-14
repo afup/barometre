@@ -17,7 +17,7 @@
                 <td>{{ row.companyDepartment }}</td>
                 <td>{{ row.companyDepartment|department_label }}</td>
                 <td>{{ row.nbResponse }}</td>
-                <td>{{ row.annualSalary|round(-2)|number_format_decimal }}</td>
+                <td class="text-right">{{ row.annualSalary|round(-2)|number_format_decimal }}</td>
             </tr>
         {% endfor %}
     </tbody>
