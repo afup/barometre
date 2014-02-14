@@ -16,6 +16,7 @@ body {
     font-weight: 500;
     font-family: $font-family-title;
     text-transform: uppercase;
+    padding: 20px;
 }
 
 .logo {
@@ -24,8 +25,8 @@ body {
     float: left;
 
     &.afup {
-        height: 50px;
-        margin: 5px 20px;
+        height: 40px;
+        margin: 10px 20px;
     }
 
     &.agencee {
