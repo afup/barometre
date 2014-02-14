@@ -1,6 +1,7 @@
 <table class="bar-table highchart tablesorter tablesorter-bootstrap"
        data-graph-container-before="1"
        data-graph-type="column"
+       data-graph-group-padding="0.2"
     >
     <thead>
         <tr>
@@ -13,7 +14,7 @@
     <tbody>
         {% for experience, row in results.data %}
             <tr>
-                <td>{{ experience|enum_label('experience') }}</td>
+                <th>{{ experience|enum_label('experience') }}</th>
                 {% for framework, annualSalary in row %}
                     <td>{{ annualSalary|round(-2)|number_format_decimal }}</td>
                 {% endfor %}
