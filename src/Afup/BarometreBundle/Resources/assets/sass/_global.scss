@@ -100,16 +100,14 @@ body {
 
 .select2-search-choice-close {
     background: none;
+    @extend .glyphicon;
+    @extend .glyphicon-remove;
     color: #ffffff;
     width: 12px;
     height: 12px;
-    font-size: 20px;
-    margin-top: -7px;
+    font-size: 11px;
+    margin-top: -5px;
     opacity: 0.8;
-
-    &:before {
-        content: "×";
-    }
 
     &:hover {
         color: #ffffff;
