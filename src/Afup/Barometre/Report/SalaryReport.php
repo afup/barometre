@@ -9,6 +9,9 @@ use Doctrine\DBAL\Query\QueryBuilder;
  */
 class SalaryReport implements ReportInterface
 {
+
+    const SLICE = 5000;
+
     /**
      * @var QueryBuilder
      */
@@ -28,7 +31,7 @@ class SalaryReport implements ReportInterface
     public function getData()
     {
         $this->queryBuilder->select('count(distinct response.id) as nbResponse');
-        $this->queryBuilder->addSelect('ROUND(response.grossAnnualSalary / 1000)  as salarySlice');
+        $this->queryBuilder->addSelect(sprintf('ROUND(response.grossAnnualSalary / %s)  as salarySlice', self::SLICE));
         $this->queryBuilder->addGroupBy('salarySlice');
 
         $results = array();
@@ -54,8 +57,8 @@ class SalaryReport implements ReportInterface
         ksort($results);
 
         foreach ($results as $key => &$result) {
-            $result['salarySliceFrom'] = $key * 1000;
-            $result['salarySliceTo'] = ($key + 1) * 1000;
+            $result['salarySliceFrom'] = $key * self::SLICE;
+            $result['salarySliceTo'] = ($key + 1) * self::SLICE;
         }
 
         return $results;
