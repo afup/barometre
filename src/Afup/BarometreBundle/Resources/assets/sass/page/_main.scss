@@ -1,0 +1,13 @@
+.main {
+    margin: 0 $grid-gutter-width/2;
+
+    .content h1.page-header {
+        margin-top: 20px;
+    }
+}
+
+@media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
+    .main {
+        position: static;
+    }
+}

@@ -9,12 +9,21 @@
 @import "vendor/select2";
 @import "vendor/select2-bootstrap";
 
-// Table Sorter
-//@import "vendor/tablesorter.theme.bootstrap";
-
 // Colorbrewer
 @import "vendor/colorbrewer";
 
+
 // Barometre
 @import "global";
+
+@import "page/menu";
+@import "page/header";
+@import "page/footer";
+@import "page/main";
+
+@import "ui/typo";
+@import "ui/margins";
+
+@import "tablesorter";
+@import "select2";
 @import "map";
