@@ -14,6 +14,7 @@ body {
 
 .navbar-brand {
     font-weight: 500;
+    font-family: $font-family-title;
     text-transform: uppercase;
 }
 
@@ -71,6 +72,10 @@ body {
 }
 .mg-left {
     margin-left: $grid-gutter-width/2;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font-family-title;
 }
 
 /* Table sorter */
