@@ -14,7 +14,7 @@
     <tbody>
         {% for experience, row in results.data %}
             <tr>
-                <th>{{ experience|enum_label('experience') }}</th>
+                <td>{{ experience|enum_label('experience') }}</td>
                 {% for framework, annualSalary in row %}
                     <td class="text-right">{{ annualSalary|round(-2)|number_format_decimal }}</td>
                 {% endfor %}
