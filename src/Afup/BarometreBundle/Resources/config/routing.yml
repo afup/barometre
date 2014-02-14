@@ -5,7 +5,6 @@ afup_barometre_homepage:
         path: /about
         permanent: true
 
-
 afup_barometre_about:
     pattern: /about
     defaults: {_controller: AfupBarometreBundle:About:index }

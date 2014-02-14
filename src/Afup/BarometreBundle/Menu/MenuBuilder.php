@@ -42,12 +42,7 @@ class MenuBuilder
      */
     public function createMenu()
     {
-        $menu = $this->factory->createItem(
-            'menu',
-            [
-                'childrenAttributes' => ['class' => 'sidebar-nav']
-            ]
-        );
+        $menu = $this->factory->createItem('menu');
 
         $filters = $this->context->getParameters();
 
