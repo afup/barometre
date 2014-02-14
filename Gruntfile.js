@@ -60,7 +60,8 @@ module.exports = function(grunt) {
           'bower_components/jquery.tablesorter/js/jquery.tablesorter.widgets.js',
           'bower_components/d3/d3.v2.js',
           'src/Afup/BarometreBundle/Resources/assets/js/tablesorter.js',
-          'src/Afup/BarometreBundle/Resources/assets/js/main.js',
+          'src/Afup/BarometreBundle/Resources/assets/js/select2.js',
+          'src/Afup/BarometreBundle/Resources/assets/js/charts.js',
           'src/Afup/BarometreBundle/Resources/assets/js/map.js'
         ],
         dest: 'app/cache/grunt/main.js'

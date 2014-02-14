@@ -1,8 +1,4 @@
 $(document).ready(function () {
-    $(".select2").select2({
-        closeOnSelect: false
-    });
-
     $('table.highchart')
         .bind('highchartTable.beforeRender', function (event, highChartConfig) {
             highChartConfig.colors[0] = '#4C6EAF';
@@ -12,6 +8,5 @@ $(document).ready(function () {
             }
         })
         .highchartTable();
-
 });
 
