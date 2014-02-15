@@ -74,3 +74,20 @@ Installation des hooks de précommit
 ```
 grunt githooks
 ```
+
+Installation de données réelles
+-------------------------------
+
+re installation des fixtures
+
+```
+php app/console doctrine:fixtures:load
+```
+
+chargement des données
+
+```
+php app/console barometre:imports  2013 01/05/2013 01/11/2013  ~/Downloads/test.csv
+```
+
+pour créer une campagne du 01/05/2013 01/11/2013.
