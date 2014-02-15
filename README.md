@@ -97,3 +97,21 @@ php app/console barometre:imports  2013 01/05/2013 01/11/2013  ~/Downloads/test.
 ```
 
 pour créer une campagne du 01/05/2013 01/11/2013.
+
+Installation d'une machine virtuelle avec vagrant
+-----------------------------------
+
+
+Télécharge une machine prête à l'emploi et configure cette machine
+
+```
+`vagrant up
+```
+
+La configuration de la machine virtuelle s'effectue par l'intermédiaire du `provisioning shell` natif de `vagrant`
+
+ * Installation de `pip`,
+ * Installation de `fabric`,
+ * Installation de `ruby 1.9.3`,
+ * Installation de `node.js`,
+ * Affichage des commandes disponibles d'un script `fabric` *TODO*

@@ -1,0 +1,6 @@
+network:
+    ip_address: 10.9.5.12
+
+virtual_machine:
+    memory: 512
+    name: afup_barometre

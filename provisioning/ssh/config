@@ -1,0 +1,4 @@
+Host barometre_vagrant
+Hostname 127.0.0.1
+IdentityFile ~/.ssh/rsa_vagrant
+User vagrant
