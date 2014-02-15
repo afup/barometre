@@ -38,6 +38,10 @@
                 <source>filter.salary_satisfaction</source>
                 <target>Satisfaction de la rémunération</target>
             </trans-unit>
+            <trans-unit id="filter.job_title">
+                <source>filter.job_title</source>
+                <target>Intitulé du poste</target>
+            </trans-unit>
             <trans-unit id="filter.submit">
                 <source>filter.submit</source>
                 <target>Filtrer</target>
