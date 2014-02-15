@@ -20,7 +20,7 @@ class CompanyTypeEnums extends AbstractEnums
         self::AGENCE_COMM  => "Agence de communication",
         self::CLIENT_FINAL => "Service informatique d'un client final",
         self::STARTUP      => "Startup",
-        self::EDITEUR      => "Editeur de logiciel",
+        self::EDITEUR      => "Editeur",
         self::AUTRE        => "Autre",
     );
 }
