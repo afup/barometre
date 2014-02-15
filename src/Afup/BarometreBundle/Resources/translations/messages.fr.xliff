@@ -42,6 +42,10 @@
                 <source>filter.job_title</source>
                 <target>Intitulé du poste</target>
             </trans-unit>
+            <trans-unit id="filter.status">
+                <source>filter.status</source>
+                <target>Statut</target>
+            </trans-unit>
             <trans-unit id="filter.submit">
                 <source>filter.submit</source>
                 <target>Filtrer</target>
