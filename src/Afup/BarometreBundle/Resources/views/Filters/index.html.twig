@@ -20,6 +20,13 @@
     </div>
 
     <div class="row">
+        {% for child in [form.experience] %}
+            <div class="col-md-4">
+                {{ form_row(child) }}
+            </div>
+        {% endfor %}
+    </div>
+    <div class="row">
         <div class="col-md-4">
             {{ form_row(form.salary) }}
         </div>
