@@ -11,6 +11,7 @@
         <parameter key="afup.barometre.filter.specialities.class">Afup\Barometre\Filter\SpecialityFilter</parameter>
         <parameter key="afup.barometre.filter.departement.class">Afup\Barometre\Filter\DepartmentFilter</parameter>
         <parameter key="afup.barometre.filter.experience.class">Afup\Barometre\Filter\ExperienceFilter</parameter>
+        <parameter key="afup.barometre.filter.salary_satisfaction.class">Afup\Barometre\Filter\SalarySatisfactionFilter</parameter>
     </parameters>
 
     <services>
@@ -48,6 +49,11 @@
         <service id="afup.barometre.filter.experience" class="%afup.barometre.filter.experience.class%">
             <argument type="service" id="afup.barometre.enums.experience" />
             <tag name="barometre.filter" alias="experience" />
+        </service>
+
+        <service id="afup.barometre.filter.salary_satisfaction" class="%afup.barometre.filter.salary_satisfaction.class%">
+            <argument type="service" id="afup.barometre.enums.salary_satisfaction" />
+            <tag name="barometre.filter" alias="salary_satisfaction" />
         </service>
     </services>
 </container>

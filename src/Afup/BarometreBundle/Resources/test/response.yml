@@ -10,6 +10,7 @@ Afup\BarometreBundle\Entity\Response:
         grossAnnualSalary: <numberBetween(20000, 45000)>
         variableAnnualSalary: <numberBetween(0, 4500)>
         annualSalary: <numberBetween(20000, 45000)>
+        salarySatisfaction: <numberBetween(1, 5)>
         initialTraining: <enums('initial_training')>
         jobTitle: <enums('job_title')>
         experience: <enums('experience')>
