@@ -132,7 +132,7 @@ class ResponseFactory
      * @param Response $response
      * @param array    $certificationList
      */
-    protected function addCertification(Response & $response, array $certificationList)
+    protected function addCertification(Response $response, array $certificationList)
     {
         foreach ($certificationList as $certification) {
 
@@ -145,6 +145,7 @@ class ResponseFactory
             if (!$certification instanceof Certification) {
                 continue;
             }
+
             $response->addCertification($certification);
         }
     }
@@ -153,7 +154,7 @@ class ResponseFactory
      * @param Response $response
      * @param array    $specialityList
      */
-    protected function addSpeciality(Response & $response, array $specialityList)
+    protected function addSpeciality(Response $response, array $specialityList)
     {
         foreach ($specialityList as $speciality) {
             $speciality = $this->specialityRepository->findOneBy(array('name' => trim($speciality)));
