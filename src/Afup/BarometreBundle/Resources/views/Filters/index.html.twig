@@ -20,7 +20,7 @@
     </div>
 
     <div class="row">
-        {% for child in [form.experience, form.salary_satisfaction] %}
+        {% for child in [form.experience, form.job_title, form.salary_satisfaction ] %}
             <div class="col-md-4">
                 {{ form_row(child) }}
             </div>

@@ -34,6 +34,10 @@
                 <source>filter.experience</source>
                 <target>Expérience</target>
             </trans-unit>
+            <trans-unit id="filter.job_title">
+                <source>filter.job_title</source>
+                <target>Fonction</target>
+            </trans-unit>
             <trans-unit id="filter.salary_satisfaction">
                 <source>filter.salary_satisfaction</source>
                 <target>Satisfaction de la rémunération</target>
