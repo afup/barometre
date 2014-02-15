@@ -1,29 +1,12 @@
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6, label {
     font-family: $font-family-title;
 }
 
 h1, h2 {
-  font-weight: bold;
-  margin: 10px 0px;
-  font-variant: small-caps;
+    @extend .page-header;
+    border-color: $afup-blue-light;
 }
 
-h1.page-header {
-  border-bottom: 3px solid #4e71b2;
-  font-size: 1.35em;
-  padding: 5px 0 5px 5px;
-  width: 100%;
-}
-
-h2 {
-  border-bottom: 2px solid #4e71b2;
-  font-size: 1.25em;
-  padding: 2px 0 2px 5px;
-  width: 45%;
-}
-
-p {
-  text-indent: 5%;
-  text-align: justify;
-  padding: 15px;
+hr {
+    border-color: $afup-blue-light;
 }
