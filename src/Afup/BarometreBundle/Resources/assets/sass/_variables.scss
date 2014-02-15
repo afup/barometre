@@ -3,5 +3,4 @@ $icon-font-path: "../fonts/";
 
 // Colors:
 $afup-blue: #4C6EAF;
-$dark-blue: #4e5a7d;
-$light-blue: #1EBDFF;
+$afup-blue-light: lighten($afup-blue, 33%);

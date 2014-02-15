@@ -3,7 +3,7 @@
 {% block title %}{{ report.label|trans }} | {{ parent() }}{% endblock %}
 
 {% block content %}
-    <h1 class="page-header">{{ report.label | trans }}</h1>
+    <h1>{{ report.label | trans }}</h1>
 
     {% block filters render(controller('AfupBarometreBundle:Form:index')) %}
 
