@@ -54,6 +54,12 @@ Pour les builder automatiquement à chaque modification :
 Construction de la base de donnée
 ---------------------------------
 
+Création de la base
+```
+php app/console doctrine:database:create
+```
+
+Mise à jour/création du schema
 ```
 php app/console doctrine:schema:update --force
 ```
@@ -63,7 +69,7 @@ Chargement des données de test
 
 Pour charger les données de test, il faut effectuer un
 
-```
+```
 php app/console doctrine:fixtures:load --fixtures=src/Afup/BarometreBundle/DataTest/ORM/
 ```
 
