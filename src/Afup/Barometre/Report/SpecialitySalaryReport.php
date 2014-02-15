@@ -80,7 +80,7 @@ class SpecialitySalaryReport implements ReportInterface
         }
 
         foreach ($data['data'] as $experience => $line) {
-            if ($line[$otherFramework]['nbResponse']) {
+            if (0 !== $line[$otherFramework]['nbResponse']) {
                 $salary = $line[$otherFramework]['annualSalary'] / $line[$otherFramework]['nbResponse'];
                 $data['data'][$experience][$otherFramework] = $salary;
             } else {
