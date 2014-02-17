@@ -26,6 +26,13 @@ interface FilterInterface
     public function buildQuery(QueryBuilder $queryBuilder, array $values = array());
 
     /**
+     * Convert the given values to the corresponding labels
+     *
+     * @param array $values
+     */
+    public function convertValuesToLabels($value);
+
+    /**
      * The filter name
      *
      * @return string

@@ -50,6 +50,16 @@ class CompanySizeFilter implements FilterInterface
     /**
      * {@inheritdoc}
      */
+    public function convertValuesToLabels($value)
+    {
+        return array_map(function ($value) {
+            return $this->companySizes->getLabelById($value);
+        }, $value);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getName()
     {
         return 'company_size';

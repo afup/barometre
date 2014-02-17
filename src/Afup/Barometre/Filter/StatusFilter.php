@@ -51,6 +51,16 @@ class StatusFilter implements FilterInterface
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function convertValuesToLabels($value)
+    {
+        return array_map(function ($value) {
+            return $this->status->getLabelById($value);
+        }, $value);
+    }
+
+    /**
      * The filter name
      *
      * @return string

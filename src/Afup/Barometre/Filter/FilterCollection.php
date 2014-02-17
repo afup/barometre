@@ -26,6 +26,16 @@ class FilterCollection implements FilterInterface
     }
 
     /**
+     * Get a filter by its name
+     *
+     * @param string $name
+     */
+    public function getFilter($name)
+    {
+        return isset($this->filters[$name]) ? $this->filters[$name] : null;
+    }
+
+    /**
      * Build Form
      *
      * @param FormBuilderInterface $builder
@@ -50,6 +60,22 @@ class FilterCollection implements FilterInterface
         foreach ($this->filters as $filter) {
             $filter->buildQuery($queryBuilder, $values);
         }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function convertValuesToLabels($value)
+    {
+        $labels = array();
+
+        foreach ($this->filters as $name => $filter) {
+            if (isset($value[$name])) {
+                $labels[$name] = $filter->convertValuesToLabels($value[$name]);
+            }
+        }
+
+        return $labels;
     }
 
     /**

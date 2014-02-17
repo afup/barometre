@@ -60,6 +60,14 @@ class SpecialityFilter implements FilterInterface
     /**
      * {@inheritdoc}
      */
+    public function convertValuesToLabels($value)
+    {
+        return $value;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getName()
     {
         return 'specialities';
