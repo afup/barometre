@@ -52,6 +52,7 @@ module.exports = function(grunt) {
         nonull: true,
         src: [
           'bower_components/jquery/dist/jquery.js',
+          'bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/dropdown.js',
           'bower_components/select2/select2.js',
           'bower_components/select2/select2_locale_fr.js',
           'bower_components/highcharts/highcharts.js',

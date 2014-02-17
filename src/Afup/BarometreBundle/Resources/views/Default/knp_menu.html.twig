@@ -1,7 +1,7 @@
 {% extends 'knp_menu.html.twig' %}
 
 {% block list %}
-    {% set listAttributes = listAttributes|merge({class: 'nav nav-pills nav-stacked'}) %}
+    {% set listAttributes = listAttributes|merge({class: 'nav navbar-nav'}) %}
     {{ parent() }}
 {% endblock %}
 

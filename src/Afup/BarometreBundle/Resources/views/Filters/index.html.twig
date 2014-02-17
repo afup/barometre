@@ -3,47 +3,9 @@
 {{ form_start(form) }}
     {{ form_errors(form) }}
 
-    <div class="row">
-        {% for child in [form.company_size, form.company_type, form.departement] %}
-            <div class="col-md-4">
-                {{ form_row(child) }}
-            </div>
-        {% endfor %}
-    </div>
-
-    <div class="row">
-        {% for child in [form.php_version, form.specialities, form.certifications] %}
-            <div class="col-md-4">
-                {{ form_row(child) }}
-            </div>
-        {% endfor %}
-    </div>
-
-    <div class="row">
-        {% for child in [form.experience, form.salary_satisfaction, form.job_title] %}
-            <div class="col-md-4">
-                {{ form_row(child) }}
-            </div>
-        {% endfor %}
-    </div>
-
-    <div class="row">
-        {% for child in [form.status] %}
-            <div class="col-md-4">
-                {{ form_row(child) }}
-            </div>
-        {% endfor %}
-    </div>
-
-    <div class="row">
-        <div class="col-md-4">
-            {{ form_row(form.salary) }}
-        </div>
-        <div class="col-md-offset-4 col-md-4">
-            {{ form_row(form.submit, {attr: {class: 'mg-top'}}) }}
-        </div>
-    </div>
+    {% for child in form %}
+        {{ form_row(child, { 'widget_attr': {'class' : 'hide'}}) }}
+    {% endfor %}
 
     {{ form_rest(form) }}
-
 {{ form_end(form) }}
