@@ -15,8 +15,10 @@
         {% for experience, row in results.data %}
             <tr>
                 <td>{{ experience|enum_label('experience') }}</td>
-                {% for companyType, result in row %}
-                    <td class="text-right">{{ result.annualSalary|round(-2)|number_format_decimal }}</td>
+                {% for companyType in results.columns %}
+                    <td class="text-right">
+                        {{ row[companyType].annualSalary|default(0)|round(-2)|number_format_decimal }}
+                    </td>
                 {% endfor %}
             </tr>
         {% endfor %}
