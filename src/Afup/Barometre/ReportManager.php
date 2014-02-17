@@ -65,7 +65,7 @@ class ReportManager
     public function getSelectedFilters()
     {
         $filters = $this->form->getData();
-        $filters = array_filter($filters, array($this, 'filterValues'));
+        $filters = array_filter((array) $filters, array($this, 'filterValues'));
         $filters = $this->filterCollection->convertValuesToLabels($filters);
 
         return $filters;
