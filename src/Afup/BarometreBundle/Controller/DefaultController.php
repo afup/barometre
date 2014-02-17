@@ -25,8 +25,10 @@ class DefaultController extends Controller
         $report = $manager->getReport($reportName);
 
         return [
-            'form'   => $manager->getForm()->createView(),
-            'report' => $report
+            'form' => $manager->getForm()->createView(),
+            'filters' => $manager->getSelectedFilters(),
+            'report' => $report,
+            'minResults' => $this->container->getParameter('afup.barometre.min_results_for_display'),
         ];
     }
 

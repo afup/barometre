@@ -15,9 +15,11 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('afup_barometre');
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+        $rootNode
+            ->children()
+                ->scalarNode('min_results_for_display')->defaultValue(100)->end()
+            ->end()
+        ;
 
         return $treeBuilder;
     }

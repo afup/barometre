@@ -28,5 +28,8 @@ class AfupBarometreExtension extends Extension
         $loader->load('filters.xml');
         $loader->load('reports.xml');
         $loader->load('menu.xml');
+
+        $container->setParameter('afup.barometre.min_results_for_display', $config['min_results_for_display']);
+
     }
 }
