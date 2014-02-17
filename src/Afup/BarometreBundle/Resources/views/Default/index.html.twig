@@ -9,5 +9,9 @@
 
     <hr/>
 
-    {{ include("AfupBarometreBundle:Report:" ~ report.name ~ ".html.twig", { results: report.data }) }}
+    {% if report.data|length > minResults %}
+        {{ include("AfupBarometreBundle:Report:" ~ report.name ~ ".html.twig", { results: report.data }) }}
+    {% else %}
+        <div class="alert alert-warning"><strong>Pas de résultat !</strong> Nous n'avons pas assez de données pour construire ce rapport.</div>
+    {% endif %}
 {% endblock %}

@@ -13,3 +13,5 @@ parameters:
 
     locale:            fr
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    min_results_for_display: ~
