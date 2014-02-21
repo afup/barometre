@@ -66,4 +66,14 @@ class CertificationFilter implements FilterInterface
     {
         return 'certifications';
     }
+
+    /**
+     * Filter weight
+     *
+     * @return int
+     */
+    public function getWeight()
+    {
+        return 8;
+    }
 }

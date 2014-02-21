@@ -64,4 +64,14 @@ class PHPVersionFilter implements FilterInterface
     {
         return 'php_version';
     }
+
+    /**
+     * Filter weight
+     *
+     * @return int
+     */
+    public function getWeight()
+    {
+        return 9;
+    }
 }

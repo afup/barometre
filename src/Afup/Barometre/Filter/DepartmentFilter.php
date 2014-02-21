@@ -58,4 +58,14 @@ class DepartmentFilter implements FilterInterface
     {
         return 'departement';
     }
+
+    /**
+     * Filter weight
+     *
+     * @return int
+     */
+    public function getWeight()
+    {
+        return 2;
+    }
 }

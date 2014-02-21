@@ -69,4 +69,14 @@ class StatusFilter implements FilterInterface
     {
         return 'status';
     }
+
+    /**
+     * Filter weight
+     *
+     * @return int
+     */
+    public function getWeight()
+    {
+        return 4;
+    }
 }

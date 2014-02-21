@@ -71,4 +71,14 @@ class SalaryFilter implements FilterInterface
     {
         return 'salary';
     }
+
+    /**
+     * Filter weight
+     *
+     * @return int
+     */
+    public function getWeight()
+    {
+        return 3;
+    }
 }

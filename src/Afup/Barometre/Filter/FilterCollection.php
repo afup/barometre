@@ -8,7 +8,7 @@ use Doctrine\DBAL\Query\QueryBuilder;
 /**
  * A collection of filter
  */
-class FilterCollection implements FilterInterface
+class FilterCollection
 {
     /**
      * @var FilterInterface[]
@@ -22,7 +22,10 @@ class FilterCollection implements FilterInterface
      */
     public function addFilter(FilterInterface $filter)
     {
-        $this->filters[$filter->getName()] = $filter;
+        if (isset($this->filters[$filter->getWeight()])) {
+            throw new \LogicException('filter of same weight already added');
+        }
+        $this->filters[$filter->getWeight()] = $filter;
     }
 
     /**
@@ -44,6 +47,7 @@ class FilterCollection implements FilterInterface
      */
     public function buildForm(FormBuilderInterface $builder)
     {
+        ksort($this->filters);
         foreach ($this->filters as $filter) {
             $filter->buildForm($builder);
         }

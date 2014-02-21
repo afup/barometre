@@ -69,4 +69,14 @@ class JobTitleFilter implements FilterInterface
     {
         return 'job_title';
     }
+
+    /**
+     * Filter weight
+     *
+     * @return int
+     */
+    public function getWeight()
+    {
+        return 0;
+    }
 }

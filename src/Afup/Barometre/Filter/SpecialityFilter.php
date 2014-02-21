@@ -72,4 +72,14 @@ class SpecialityFilter implements FilterInterface
     {
         return 'specialities';
     }
+
+    /**
+     * Filter weight
+     *
+     * @return int
+     */
+    public function getWeight()
+    {
+        return 5;
+    }
 }
