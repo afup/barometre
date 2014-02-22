@@ -72,8 +72,8 @@ class FilterCollection
     public function convertValuesToLabels($value)
     {
         $labels = array();
-
-        foreach ($this->filters as $name => $filter) {
+        foreach ($this->filters as $filter) {
+            $name = $filter->getName();
             if (isset($value[$name])) {
                 $labels[$name] = $filter->convertValuesToLabels($value[$name]);
             }
