@@ -64,4 +64,14 @@ class CompanySizeFilter implements FilterInterface
     {
         return 'company_size';
     }
+
+    /**
+     * Filter weight
+     *
+     * @return int
+     */
+    public function getWeight()
+    {
+        return 7;
+    }
 }

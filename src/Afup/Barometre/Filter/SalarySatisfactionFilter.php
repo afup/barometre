@@ -64,4 +64,14 @@ class SalarySatisfactionFilter implements FilterInterface
     {
         return 'salary_satisfaction';
     }
+
+    /**
+     * Filter weight
+     *
+     * @return int
+     */
+    public function getWeight()
+    {
+        return 10;
+    }
 }

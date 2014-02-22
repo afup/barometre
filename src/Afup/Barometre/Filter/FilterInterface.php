@@ -38,4 +38,11 @@ interface FilterInterface
      * @return string
      */
     public function getName();
+
+    /**
+     * The filter weight - minimum mean on top of the list
+     *
+     * @return mixed
+     */
+    public function getWeight();
 }

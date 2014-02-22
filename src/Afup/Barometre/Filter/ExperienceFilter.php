@@ -64,4 +64,14 @@ class ExperienceFilter implements FilterInterface
     {
         return 'experience';
     }
+
+    /**
+     * Filter weight
+     *
+     * @return int
+     */
+    public function getWeight()
+    {
+        return 1;
+    }
 }
