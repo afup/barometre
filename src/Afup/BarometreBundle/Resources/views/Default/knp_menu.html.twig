@@ -5,9 +5,14 @@
     {{ parent() }}
 {% endblock %}
 
+{% block label %}
+    {{ item.label|trans }}
+    {% if item.hasChildren %}
+        <span class="caret"></span>
+    {% endif %}
+{% endblock %}
+
 {% block item %}
     {% set options = options|merge({currentClass: 'active'}) %}
     {{ parent() }}
 {% endblock %}
-
-{% block label item.label|trans %}
