@@ -43,7 +43,7 @@
         var values = getValues();
         d3.selectAll("#data_layer path")
         .on("mouseover", function (d) {
-            var value = parseInt(values[parseInt(d.properties.CODE_DEPT)]);
+            var value = parseInt(values[d.properties.CODE_DEPT]);
             if (isNaN(value)) {
                 value = 0;
             }
@@ -57,7 +57,7 @@
             return tooltip.style("visibility", "hidden");
         })
         .datum(function (d) {
-            d.value = parseInt(values[parseInt(d.properties.CODE_DEPT)]);
+            d.value = parseInt(values[d.properties.CODE_DEPT]);
             if (isNaN(d.value)) {
                 d.value = 0;
             }
@@ -69,9 +69,12 @@
     function getValues() {
         var values = {};
         $('#map-table').find('tr').each(function () {
-            var dep = $('td', this).first().html();
-            var nb = $('td', this).last().html();
-            values[parseInt(dep)] = nb;
+            var dep = $('td', this).first().text();
+            var nb = $('td', this).last().text();
+            if (0 === dep.length) {
+                return;
+            }
+            values[dep] = nb.replace(/\s/g, '');
         });
         return values;
     }
