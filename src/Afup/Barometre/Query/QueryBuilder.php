@@ -49,6 +49,11 @@ class QueryBuilder extends BaseQueryBuilder
      * paramTypes is private, we need to redefine setParameter
      * to access it
      *
+     * @param string $key
+     * @param string $value
+     * @param string $type
+     *
+     * @return $this
      */
     public function setParameter($key, $value, $type = null)
     {
@@ -63,6 +68,10 @@ class QueryBuilder extends BaseQueryBuilder
      * paramTypes is private, we need to redefine setParameters
      * to access it
      *
+     * @param array $params
+     * @param array $types
+     *
+     * @return $this
      */
     public function setParameters(array $params, array $types = array())
     {
