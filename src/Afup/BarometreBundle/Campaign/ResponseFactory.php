@@ -92,9 +92,12 @@ class ResponseFactory
         $response->setCompanySize(
             $this->enums->getEnums('company_size')->getIdByLabel($data["company_size"])
         );
-        $response->setCompanyDepartment(
-            $data["company_department"]
-        );
+
+        if (intval($data["company_department"])) {
+            $response->setCompanyDepartment(
+                $data["company_department"]
+            );
+        }
         $response->setJobInterest(
             $this->enums->getEnums('job_interest')->getIdByLabel($data["job_interest"])
         );
