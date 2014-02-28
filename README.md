@@ -11,17 +11,17 @@ Ce site a pour vocation de présenter les résultats de cette enquête en permet
 Dépendances
 -----------
 
-* [bower](http://bower.io/)
-* [grunt](http://gruntjs.com/)
-* [sass](http://sass-lang.com/)
+* node / npm
+* ruby > 1.9.3 / bundler
 
 Installation
 ------------
 
 ```
 php composer.phar install
-bower install
 npm install
+bundle install
+./node_modules/bower/bin/bower install
 ```
 
 Build des assets

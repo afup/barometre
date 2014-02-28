@@ -7,11 +7,11 @@ build:
   - apt-get install -y nodejs
   - npm install -g grunt-cli
   - npm install -g bower
-  - gem install sass
   - composer install --no-interaction --ansi --no-progress
   - php app/console doctrine:database:create
   - php app/console doctrine:schema:update --force
   - npm install 
+  - bundle install
   - bower install --allow-root
   - php app/console doctrine:fixtures:load --fixtures=src/Afup/BarometreBundle/DataTest/ORM/ -n
   - grunt
