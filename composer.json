@@ -25,6 +25,7 @@
         "sonata-project/intl-bundle": "2.2.*"
     },
     "require-dev": {
+        "raulfraile/ladybug-bundle": "v1.0.2",
         "atoum/atoum": "0.0.1",
         "m6web/coke": "1.0.0"
     },

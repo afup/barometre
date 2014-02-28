@@ -50,8 +50,28 @@ class SalarySatisfactionFilter implements FilterInterface
     /**
      * {@inheritdoc}
      */
+    public function convertValuesToLabels($value)
+    {
+        return array_map(function ($value) {
+            return $this->salarySatisfaction->getLabelById($value);
+        }, $value);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getName()
     {
         return 'salary_satisfaction';
+    }
+
+    /**
+     * Filter weight
+     *
+     * @return int
+     */
+    public function getWeight()
+    {
+        return 10;
     }
 }

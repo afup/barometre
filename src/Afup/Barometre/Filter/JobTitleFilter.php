@@ -51,6 +51,16 @@ class JobTitleFilter implements FilterInterface
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function convertValuesToLabels($value)
+    {
+        return array_map(function ($value) {
+            return $this->jobTitles->getLabelById($value);
+        }, $value);
+    }
+
+    /**
      * The filter name
      *
      * @return string
@@ -58,5 +68,15 @@ class JobTitleFilter implements FilterInterface
     public function getName()
     {
         return 'job_title';
+    }
+
+    /**
+     * Filter weight
+     *
+     * @return int
+     */
+    public function getWeight()
+    {
+        return 0;
     }
 }

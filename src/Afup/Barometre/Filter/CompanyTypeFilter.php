@@ -50,8 +50,28 @@ class CompanyTypeFilter implements FilterInterface
     /**
      * {@inheritdoc}
      */
+    public function convertValuesToLabels($value)
+    {
+        return array_map(function ($value) {
+            return $this->companyTypes->getLabelById($value);
+        }, $value);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getName()
     {
         return 'company_type';
+    }
+
+    /**
+     * Filter weight
+     *
+     * @return int
+     */
+    public function getWeight()
+    {
+        return 6;
     }
 }

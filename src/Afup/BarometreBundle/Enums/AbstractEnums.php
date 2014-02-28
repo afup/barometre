@@ -25,4 +25,12 @@ abstract class AbstractEnums implements EnumsInterface
 
         return false === $key ? null : $key;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getLabelById($id)
+    {
+        return isset($this->choices[$id])? $this->choices[$id] : null;
+    }
 }

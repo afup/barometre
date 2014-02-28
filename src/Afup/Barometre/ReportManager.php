@@ -2,21 +2,19 @@
 
 namespace Afup\Barometre;
 
+use Afup\Barometre\Filter\FilterCollection;
+use Afup\Barometre\Query\QueryBuilder as AfupQueryBuilder;
+use Afup\Barometre\Report\ReportCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Connection;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Afup\Barometre\Filter\FilterCollection;
-use Afup\Barometre\Report\ReportCollection;
-use Afup\Barometre\Query\QueryBuilder as AfupQueryBuilder;
 
 /**
  * The Report / Filter Manager
  */
 class ReportManager
 {
-    private $objectManager;
-
     private $form;
 
     private $reportCollection;
@@ -59,6 +57,40 @@ class ReportManager
     public function handleRequest(Request $request)
     {
         $this->form->handleRequest($request);
+    }
+
+    /**
+     * Get current selected filters
+     */
+    public function getSelectedFilters()
+    {
+        $filters = $this->form->getData();
+        $filters = array_filter((array) $filters, array($this, 'filterValues'));
+        $filters = $this->filterCollection->convertValuesToLabels($filters);
+
+        return $filters;
+    }
+
+    /**
+     * Internal cleaning function for form filter data
+     *
+     * @param mixed $value
+     *
+     * @return boolean
+     */
+    protected function filterValues($value)
+    {
+        if (is_array($value)) {
+            $value = array_filter($value, array($this, 'filterValues'));
+
+            $keepValue = count($value) > 0;
+        } elseif ($value instanceof Collection) {
+            $keepValue = !$value->isEmpty();
+        } else {
+            $keepValue = null !== $value;
+        }
+
+        return $keepValue;
     }
 
     /**

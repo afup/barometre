@@ -15,4 +15,11 @@ interface EnumsInterface
      * @return int|null
      */
     public function getIdByLabel($label);
+
+    /**
+     * @param string $id
+     *
+     * @return string|null
+     */
+    public function getLabelById($id);
 }

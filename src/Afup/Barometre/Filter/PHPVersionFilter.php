@@ -50,8 +50,28 @@ class PHPVersionFilter implements FilterInterface
     /**
      * {@inheritdoc}
      */
+    public function convertValuesToLabels($value)
+    {
+        return array_map(function ($value) {
+            return $this->phpVersions->getLabelById($value);
+        }, $value);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getName()
     {
         return 'php_version';
+    }
+
+    /**
+     * Filter weight
+     *
+     * @return int
+     */
+    public function getWeight()
+    {
+        return 9;
     }
 }

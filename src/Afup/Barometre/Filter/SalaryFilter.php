@@ -51,8 +51,34 @@ class SalaryFilter implements FilterInterface
     /**
      * {@inheritdoc}
      */
+    public function convertValuesToLabels($value)
+    {
+        if (null !== $value['min']) {
+            $value['min'] = '>= '.$value['min'];
+        }
+
+        if (null !== $value['max']) {
+            $value['max'] = '<= '.$value['max'];
+        }
+
+        return $value;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getName()
     {
         return 'salary';
+    }
+
+    /**
+     * Filter weight
+     *
+     * @return int
+     */
+    public function getWeight()
+    {
+        return 3;
     }
 }

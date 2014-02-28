@@ -53,6 +53,21 @@ class MenuBuilder
             ]
         );
 
+        $menu->addChild('Rapports', [
+            'attributes' => [
+                'class' => 'dropdown'
+            ],
+            'uri' => '#',
+            'children_attributes' => [
+                'class' => 'dropdown-menu',
+            ]
+        ]);
+        $menu['Rapports']->setLinkAttributes([
+            'class' => 'dropdown-toggle',
+            'data-toggle' => 'dropdown'
+        ]);
+        $menu['Rapports']->setChildrenAttribute('class', 'dropdown-menu');
+
         foreach ($this->reports as $report) {
 
             $routeParameters = ['reportName' => $report->getName()];
@@ -61,7 +76,7 @@ class MenuBuilder
                 $routeParameters['filter'] = $filters;
             }
 
-            $menu->addChild(
+            $menu['Rapports']->addChild(
                 $report->getLabel(),
                 [
                     'route'           => 'afup_barometre_report',

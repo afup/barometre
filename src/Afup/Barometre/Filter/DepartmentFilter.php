@@ -44,8 +44,30 @@ class DepartmentFilter implements FilterInterface
     /**
      * {@inheritdoc}
      */
+    public function convertValuesToLabels($value)
+    {
+        $departements = new Departments();
+
+        return array_map(function ($code) use ($departements) {
+            return $departements->getLabel($code);
+        }, $value);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getName()
     {
         return 'departement';
+    }
+
+    /**
+     * Filter weight
+     *
+     * @return int
+     */
+    public function getWeight()
+    {
+        return 2;
     }
 }

@@ -7,6 +7,7 @@ $font-size-base: 14px;
 $navbar-height: 60px;
 $navbar-inverse-bg: $afup-blue;
 $navbar-inverse-link-color: lighten(#000, 93.5%);
+$navbar-margin-bottom: 0;
 
 // Titles
 $font-size-h1: floor($font-size-base * 2.4); // ~36px
