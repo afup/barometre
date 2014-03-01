@@ -8,12 +8,12 @@
         <div class="col-md-9">
             <h1>{{ report.label | trans }}</h1>
             {% if filters is not empty %}
-                <div>
+                <div class="filters-summary">
                 {% for name, filter in filters %}
                     {% set title = attribute(form, name).vars.label|trans %}
                     {% if filter is iterable %}
                         {% for filterValue in filter %}
-                            <span title="{{ title }}" class="label label-primary">{{ filterValue }}</span>
+                            <span class="label label-primary">{{ title }} : {{ filterValue }}</span>
                         {% endfor %}
                     {% else %}
                         <span title="{{ title }}" class="label label-primary">{{ filter }}</span>
