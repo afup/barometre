@@ -11,19 +11,32 @@ use Afup\Barometre\Form\Type\Select2MultipleFilterType;
 
 class DepartmentFilter implements FilterInterface
 {
+    const ALL_BUT_PARIS = 'all_but_paris';
+
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder)
     {
+        $builder->add($this->getName(), new Select2MultipleFilterType(), [
+            'label'    => 'filter.department',
+            'choices'  => $this->getChoices(),
+        ]);
+    }
+
+    /**
+     * @return array
+     */
+    protected function getChoices()
+    {
         $choices = array();
+        $choices[self::ALL_BUT_PARIS] = 'Tous sauf Paris';
+
         foreach (new Departments() as $number => $label) {
             $choices[$number] = sprintf('%s - %s', $number, $label);
         }
-        $builder->add($this->getName(), new Select2MultipleFilterType(), [
-            'label'    => 'filter.department',
-            'choices'  => $choices,
-        ]);
+
+        return $choices;
     }
 
     /**
@@ -35,10 +48,29 @@ class DepartmentFilter implements FilterInterface
             return;
         }
 
-        $queryBuilder
-            ->setParameter('department', $values[$this->getName()], Connection::PARAM_STR_ARRAY)
-            ->andWhere('response.companyDepartment IN(:department)')
-        ;
+        $codes = $values[$this->getName()];
+
+        if (in_array('all_but_paris', $codes)) {
+            $departements = new Departments();
+            $parisDepartements = array("75");
+
+            unset($codes[array_search('all_but_paris', $codes)]);
+
+            foreach (array_keys($departements->getArrayCopy()) as $code) {
+                if (in_array($code, $parisDepartements)) {
+                    continue;
+                }
+                $codes[] = $code;
+            }
+            $codes = array_unique($codes);
+        }
+
+        if (count($codes)) {
+            $queryBuilder
+                ->setParameter('department', $codes, Connection::PARAM_STR_ARRAY)
+                ->andWhere('response.companyDepartment IN(:department)')
+            ;
+        }
     }
 
     /**
@@ -46,10 +78,9 @@ class DepartmentFilter implements FilterInterface
      */
     public function convertValuesToLabels($value)
     {
-        $departements = new Departments();
-
-        return array_map(function ($code) use ($departements) {
-            return $departements->getLabel($code);
+        $choices = $this->getChoices();
+        return array_map(function ($code) use ($choices) {
+            return $choices[$code];
         }, $value);
     }
 
