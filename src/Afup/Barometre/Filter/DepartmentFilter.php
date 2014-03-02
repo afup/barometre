@@ -56,13 +56,7 @@ class DepartmentFilter implements FilterInterface
 
             unset($codes[array_search('all_but_paris', $codes)]);
 
-            foreach (array_keys($departements->getArrayCopy()) as $code) {
-                if (in_array($code, $parisDepartements)) {
-                    continue;
-                }
-                $codes[] = $code;
-            }
-            $codes = array_unique($codes);
+            $codes = array_merge($codes, array_diff(array_keys($departements->getArrayCopy()), $parisDepartements));
         }
 
         if (count($codes)) {
