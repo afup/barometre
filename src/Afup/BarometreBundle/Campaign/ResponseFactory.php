@@ -8,6 +8,7 @@ use Afup\BarometreBundle\Entity\Response;
 use Afup\BarometreBundle\Entity\Speciality;
 use Afup\BarometreBundle\Enums\EnumsCollection;
 use Doctrine\Common\Persistence\ObjectRepository;
+use agallou\Departements\Collection as Departments;
 use NumberFormatter;
 
 class ResponseFactory
@@ -92,9 +93,13 @@ class ResponseFactory
         $response->setCompanySize(
             $this->enums->getEnums('company_size')->getIdByLabel($data["company_size"])
         );
-        $response->setCompanyDepartment(
-            $data["company_department"]
-        );
+
+        $department = new Departments();
+        if (in_array($data["company_department"], array_keys($department->getAll()))) {
+            $response->setCompanyDepartment(
+                $data["company_department"]
+            );
+        }
         $response->setJobInterest(
             $this->enums->getEnums('job_interest')->getIdByLabel($data["job_interest"])
         );

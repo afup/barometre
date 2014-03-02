@@ -69,6 +69,7 @@
         </service>
 
         <service id="afup.barometre.twig.extension.department" class="Afup\BarometreBundle\Twig\Extension\DepartmentExtension">
+            <argument type="service" id="translator" />
             <tag name="twig.extension" />
         </service>
 
