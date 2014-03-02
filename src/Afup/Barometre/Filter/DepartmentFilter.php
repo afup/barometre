@@ -30,7 +30,7 @@ class DepartmentFilter implements FilterInterface
     protected function getChoices()
     {
         $choices = array();
-        $choices[self::ALL_BUT_PARIS] = 'Tous sauf Paris';
+        $choices[self::ALL_BUT_PARIS] = 'Tous sauf île-de-France';
 
         foreach (new Departments() as $number => $label) {
             $choices[$number] = sprintf('%s - %s', $number, $label);
@@ -52,7 +52,7 @@ class DepartmentFilter implements FilterInterface
 
         if (in_array('all_but_paris', $codes)) {
             $departements = new Departments();
-            $parisDepartements = array("75");
+            $parisDepartements = array("75", "77","78", "91", "92", "93", "94", "95");
 
             unset($codes[array_search('all_but_paris', $codes)]);
 
