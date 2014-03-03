@@ -28,6 +28,7 @@ class DefaultController extends Controller
             'form'   => $manager->getForm()->createView(),
             'filters' => $manager->getSelectedFilters(),
             'report' => $report,
+            'has_result' => $manager->hasResults(),
         ];
     }
 

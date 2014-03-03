@@ -22,7 +22,14 @@
                 </div>
             {% endif %}
 
-            {{ include("AfupBarometreBundle:Report:" ~ report.name ~ ".html.twig", { results: report.data }) }}
+            {% if has_result %}
+                {{ include("AfupBarometreBundle:Report:" ~ report.name ~ ".html.twig", { results: report.data }) }}
+            {% else %}
+                <div id="no-results">
+                    Aucune donnée à afficher pour votre filtrage. Essayez de supprimer des filtres.
+                </div>
+            {% endif %}
+
         </div>
         <div class="col-md-3">
             <h1>Filtres</h1>
