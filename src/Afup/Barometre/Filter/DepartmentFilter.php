@@ -6,12 +6,14 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Doctrine\DBAL\Query\QueryBuilder;
 use Doctrine\DBAL\Connection;
 use agallou\Departements\Collection as Departments;
+use agallou\Regions\Collection as Regions;
 
 use Afup\Barometre\Form\Type\Select2MultipleFilterType;
 
 class DepartmentFilter implements FilterInterface
 {
     const ALL_BUT_PARIS = 'all_but_paris';
+    const ALL_BUT_PARIS_REGION_CODE = '11';
 
     /**
      * {@inheritdoc}
@@ -52,11 +54,17 @@ class DepartmentFilter implements FilterInterface
 
         if (in_array('all_but_paris', $codes)) {
             $departements = new Departments();
-            $parisDepartements = array("75", "77","78", "91", "92", "93", "94", "95");
+            $regions = new Regions();
 
             unset($codes[array_search('all_but_paris', $codes)]);
 
-            $codes = array_merge($codes, array_diff(array_keys($departements->getArrayCopy()), $parisDepartements));
+            $codes = array_merge(
+                $codes,
+                array_diff(
+                    array_keys($departements->getArrayCopy()),
+                    $regions->get(self::ALL_BUT_PARIS_REGION_CODE)->getCodesDepartements()
+                )
+            );
         }
 
         if (count($codes)) {
