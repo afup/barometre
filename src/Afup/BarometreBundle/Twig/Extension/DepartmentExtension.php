@@ -12,11 +12,18 @@ class DepartmentExtension extends \Twig_Extension
     protected $departements;
 
     /**
+     * @var \Symfony\Bundle\FrameworkBundle\Translation\Translator
+     */
+    protected $translator;
+
+    /**
      *
      */
-    public function __construct()
+    public function __construct($translator)
     {
+
         $this->departements = new Collection();
+        $this->translator   = $translator;
     }
 
     /**
@@ -34,7 +41,7 @@ class DepartmentExtension extends \Twig_Extension
         try {
             return $this->departements->getLabel($code, true);
         } catch (\InvalidArgumentException $e) {
-            return $code;
+            return $this->translator->trans('report.company_departement.unknown');
         }
     }
 

@@ -134,6 +134,10 @@
                 <source>report.speciality_salary.label</source>
                 <target>Répartition du salaire par spécialité</target>
             </trans-unit>
+            <trans-unit id="report.company_departement.unknown">
+                <source>report.company_departement.unknown</source>
+                <target>département inconnu</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
