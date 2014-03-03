@@ -109,6 +109,32 @@ class ReportManager
             return;
         }
 
+        $reportQueryBuilder = $this->createBaseQueryBuilder();
+
+        $report->setQueryBuilder($reportQueryBuilder);
+
+        return $report;
+    }
+
+    /**
+     * @return int
+     */
+    public function hasResults()
+    {
+        $reportQueryBuilder = $this->createBaseQueryBuilder();
+
+        $reportQueryBuilder->addSelect('count(response.id) as nb_results');
+
+        $row = $reportQueryBuilder->execute()->fetch();
+
+        return $row['nb_results'];
+    }
+
+    /**
+     * @return \Doctrine\DBAL\Query\QueryBuilder
+     */
+    protected function createBaseQueryBuilder()
+    {
         $data = (array) $this->form->getData();
 
         $filterTableBuilder = new AfupQueryBuilder($this->connection);
@@ -131,8 +157,6 @@ class ReportManager
             ->join('response', $temporaryTablename, 'filter_table', 'response.id = filter_table.response_id')
         ;
 
-        $report->setQueryBuilder($reportQueryBuilder);
-
-        return $report;
+        return $reportQueryBuilder;
     }
 }
