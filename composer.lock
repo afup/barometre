@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "4cf9993f0a99574964857f87a18df87f",
+    "hash": "4474580a8184d8a36b2891a371b807e8",
     "packages": [
         {
             "name": "agallou/departements",
@@ -41,6 +41,43 @@
             ],
             "description": "Liste des départements Français",
             "time": "2014-02-01 12:31:39"
+        },
+        {
+            "name": "agallou/regions",
+            "version": "v0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/agallou/Regions.git",
+                "reference": "01b68cf183bfbe9e690412e1767d17a803e7693b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/agallou/Regions/zipball/01b68cf183bfbe9e690412e1767d17a803e7693b",
+                "reference": "01b68cf183bfbe9e690412e1767d17a803e7693b",
+                "shasum": ""
+            },
+            "require-dev": {
+                "atoum/atoum": "0.0.1",
+                "m6web/coke": "1.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Adrien Gallou",
+                    "email": "adriengallou@gmail.com"
+                }
+            ],
+            "description": "Liste des régions Françaises",
+            "time": "2014-03-03 21:08:51"
         },
         {
             "name": "doctrine/annotations",
