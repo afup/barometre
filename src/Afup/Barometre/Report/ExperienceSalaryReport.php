@@ -31,6 +31,7 @@ class ExperienceSalaryReport implements ReportInterface
             ->select('response.experience')
             ->addSelect('AVG(response.annualSalary) as annualSalary')
             ->addSelect('COUNT(response.id) as nbResponse')
+            ->having('nbResponse >= 10')
             ->groupBy('response.experience')
             ->execute()
         ;

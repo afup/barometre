@@ -31,6 +31,7 @@ class CompanyTypeSalaryReport implements ReportInterface
             ->addSelect('response.companyType as companyType')
             ->addSelect('AVG(response.annualSalary) as annualSalary')
             ->addSelect('COUNT(response.id) as nbResponse')
+            ->having('nbResponse >= 10')
             ->groupBy('response.experience, response.companyType')
             ->execute();
 

@@ -31,6 +31,7 @@ class CompanyDepartmentReport implements ReportInterface
             ->select('response.companyDepartment as companyDepartment')
             ->addSelect('COUNT(response.id) as nbResponse')
             ->addSelect('AVG(response.annualSalary) as annualSalary')
+            ->having('nbResponse >= 10')
             ->addGroupBy('response.companyDepartment');
 
         return $this->queryBuilder->execute();

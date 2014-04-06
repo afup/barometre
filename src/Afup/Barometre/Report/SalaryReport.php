@@ -32,6 +32,7 @@ class SalaryReport implements ReportInterface
     {
         $this->queryBuilder->select('count(distinct response.id) as nbResponse');
         $this->queryBuilder->addSelect(sprintf('ROUND(response.grossAnnualSalary / %s)  as salarySlice', self::SLICE));
+        $this->queryBuilder->having('nbResponse >= 10');
         $this->queryBuilder->addGroupBy('salarySlice');
 
         $results = array();

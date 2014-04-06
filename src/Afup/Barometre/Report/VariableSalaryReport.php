@@ -31,6 +31,7 @@ class VariableSalaryReport implements ReportInterface
             ->addSelect('AVG(response.grossAnnualSalary) as grossAnnualSalary')
             ->addSelect('AVG(response.variableAnnualSalary) as variableAnnualSalary')
             ->addSelect('COUNT(response.id) as nbResponse')
+            ->having('nbResponse >= 10')
             ->groupBy('response.experience')
             ->execute();
     }
