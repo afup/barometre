@@ -28,7 +28,8 @@ framework:
 twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
-
+    globals:
+        ga_enabled: %ga_enabled%
 
 # Doctrine Configuration
 doctrine:
