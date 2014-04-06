@@ -14,12 +14,12 @@
         <link href='http://fonts.googleapis.com/css?family=Glegoo' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{{ compiled_css_file }}" />
         {% endblock stylesheets %}
+        {% block ga '' %}
     </head>
     <body>
         {% block body '' %}
         {% block body_javascript %}
             <script src="{{ compiled_js_file }}"></script>
         {% endblock body_javascript %}
-        {% block ga '' %}
     </body>
 </html>
