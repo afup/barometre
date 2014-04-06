@@ -63,4 +63,12 @@ class CompanyDepartmentReport implements ReportInterface
     {
         return "report.company_departement.label";
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasResults()
+    {
+        return count($this->getData());
+    }
 }

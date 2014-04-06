@@ -86,4 +86,14 @@ class CompanySizeSalaryReport implements ReportInterface
     {
         return "report.company_size_salary.label";
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasResults()
+    {
+        $data = $this->getData();
+
+        return count($data['data']);
+    }
 }

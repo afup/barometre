@@ -85,4 +85,14 @@ class CompanyTypeSalaryReport implements ReportInterface
     {
         return "report.company_type_salary.label";
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasResults()
+    {
+        $data = $this->getData();
+
+        return count($data['data']);
+    }
 }

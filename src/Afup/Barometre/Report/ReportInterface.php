@@ -36,4 +36,11 @@ interface ReportInterface
      * @return string
      */
     public function getLabel();
+
+    /**
+     * The report has results
+     *
+     * @return boolean
+     */
+    public function hasResults();
 }

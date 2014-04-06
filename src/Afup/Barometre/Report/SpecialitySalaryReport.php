@@ -16,6 +16,21 @@ class SpecialitySalaryReport implements ReportInterface
     private $queryBuilder;
 
     /**
+     * @var array
+     */
+    private $data = null;
+
+    /**
+     * @var integer
+     */
+    private $minResult;
+
+    public function __construct($minResult = 10)
+    {
+        $this->minResult = $minResult;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function setQueryBuilder(QueryBuilder $queryBuilder)
@@ -28,6 +43,10 @@ class SpecialitySalaryReport implements ReportInterface
      */
     public function getData()
     {
+        if ($this->data != null) {
+            return $this->data;
+        }
+
         $this->queryBuilder
             ->join(
                 'response',
@@ -72,7 +91,9 @@ class SpecialitySalaryReport implements ReportInterface
             }
 
             if (in_array($specialityName, $framework)) {
-                $data['data'][$experience][$specialityName] = $result['annualSalary'] / $result['nbResponse'];
+                if ($result['nbResponse'] >= $this->minResult) {
+                    $data['data'][$experience][$specialityName] = $result['annualSalary'] / $result['nbResponse'];
+                }
             } else {
                 $data['data'][$experience][$otherFramework]['annualSalary'] += $result['annualSalary'];
                 $data['data'][$experience][$otherFramework]['nbResponse'] += $result['nbResponse'];
@@ -80,7 +101,7 @@ class SpecialitySalaryReport implements ReportInterface
         }
 
         foreach ($data['data'] as $experience => $line) {
-            if (0 !== $line[$otherFramework]['nbResponse']) {
+            if ($line[$otherFramework]['nbResponse'] >= $this->minResult) {
                 $salary = $line[$otherFramework]['annualSalary'] / $line[$otherFramework]['nbResponse'];
                 $data['data'][$experience][$otherFramework] = $salary;
             } else {
@@ -88,7 +109,9 @@ class SpecialitySalaryReport implements ReportInterface
             }
         }
 
-        return $data;
+        $this->data = $data;
+
+        return $this->data;
     }
 
     /**
@@ -105,5 +128,15 @@ class SpecialitySalaryReport implements ReportInterface
     public function getLabel()
     {
         return "report.speciality_salary.label";
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasResults()
+    {
+        $data = $this->getData();
+
+        return count($data['data']);
     }
 }

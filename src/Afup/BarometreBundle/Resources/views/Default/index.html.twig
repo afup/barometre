@@ -22,7 +22,7 @@
                 </div>
             {% endif %}
 
-            {% if has_result %}
+            {% if report.hasResults %}
                 {{ include("AfupBarometreBundle:Report:" ~ report.name ~ ".html.twig", { results: report.data }) }}
             {% else %}
                 <div id="no-results">

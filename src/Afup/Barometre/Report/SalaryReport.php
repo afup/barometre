@@ -50,7 +50,7 @@ class SalaryReport implements ReportInterface
         foreach ($this->queryBuilder->execute() as $row) {
             $slice = $row['salarySlice'];
             $results[$slice] = array(
-               'count' => $row['nbResponse']
+                'count' => $row['nbResponse']
             );
         }
 
@@ -59,11 +59,18 @@ class SalaryReport implements ReportInterface
         }
 
         $baseResult = array(
-          'count' => 0,
+            'count' => 0,
         );
+
         $min = min(array_keys($results));
         $max = max(array_keys($results));
-        $baseResults = array_fill($min, $max - $min, $baseResult);
+
+
+        if ($max != $min) {
+            $baseResults = array_fill($min, $max - $min, $baseResult);
+        } else {
+            $baseResults = array();
+        }
 
         $results = $results + $baseResults;
         ksort($results);
@@ -90,5 +97,13 @@ class SalaryReport implements ReportInterface
     public function getLabel()
     {
         return "report.salary.label";
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasResults()
+    {
+        return count($this->getData());
     }
 }

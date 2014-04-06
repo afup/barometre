@@ -66,4 +66,12 @@ class VariableSalaryReport implements ReportInterface
     {
         return "report.variable_salary.label";
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasResults()
+    {
+        return count($this->getData());
+    }
 }

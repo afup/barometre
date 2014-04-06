@@ -50,4 +50,12 @@ class CompanyTypeReport implements ReportInterface
     {
         return "report.company_type.label";
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasResults()
+    {
+        return count($this->getData());
+    }
 }

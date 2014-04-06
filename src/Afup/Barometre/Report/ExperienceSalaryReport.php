@@ -67,4 +67,12 @@ class ExperienceSalaryReport implements ReportInterface
     {
         return "report.experience_salary.label";
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasResults()
+    {
+        return count($this->getData());
+    }
 }

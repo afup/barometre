@@ -50,4 +50,12 @@ class CompanySizeReport implements ReportInterface
     {
         return "report.company_size.label";
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasResults()
+    {
+        return count($this->getData());
+    }
 }

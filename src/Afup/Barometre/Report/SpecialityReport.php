@@ -63,4 +63,12 @@ class SpecialityReport implements ReportInterface
     {
         return "report.speciality.label";
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function hasResults()
+    {
+        return count($this->getData());
+    }
 }
