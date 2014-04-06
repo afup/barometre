@@ -18,6 +18,16 @@ class SalaryReport implements ReportInterface
     private $queryBuilder;
 
     /**
+     * @var integer
+     */
+    private $minResult;
+
+    public function __construct($minResult = 10)
+    {
+        $this->minResult = $minResult;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function setQueryBuilder(QueryBuilder $queryBuilder)
@@ -32,7 +42,8 @@ class SalaryReport implements ReportInterface
     {
         $this->queryBuilder->select('count(distinct response.id) as nbResponse');
         $this->queryBuilder->addSelect(sprintf('ROUND(response.grossAnnualSalary / %s)  as salarySlice', self::SLICE));
-        $this->queryBuilder->having('nbResponse >= 10');
+        $this->queryBuilder->having('nbResponse >= :minResult');
+        $this->queryBuilder->setParameter(':minResult', $this->minResult);
         $this->queryBuilder->addGroupBy('salarySlice');
 
         $results = array();

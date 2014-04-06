@@ -15,6 +15,16 @@ class CompanyDepartmentReport implements ReportInterface
     private $queryBuilder;
 
     /**
+     * @var integer
+     */
+    private $minResult;
+
+    public function __construct($minResult = 10)
+    {
+        $this->minResult = $minResult;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function setQueryBuilder(QueryBuilder $queryBuilder)
@@ -31,7 +41,8 @@ class CompanyDepartmentReport implements ReportInterface
             ->select('response.companyDepartment as companyDepartment')
             ->addSelect('COUNT(response.id) as nbResponse')
             ->addSelect('AVG(response.annualSalary) as annualSalary')
-            ->having('nbResponse >= 10')
+            ->having('nbResponse >= :minResult')
+            ->setParameter(':minResult', $this->minResult)
             ->addGroupBy('response.companyDepartment');
 
         return $this->queryBuilder->execute();

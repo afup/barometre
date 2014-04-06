@@ -13,6 +13,16 @@ class ExperienceSalaryReport implements ReportInterface
     private $queryBuilder;
 
     /**
+     * @var integer
+     */
+    private $minResult;
+
+    public function __construct($minResult = 10)
+    {
+        $this->minResult = $minResult;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function setQueryBuilder(QueryBuilder $queryBuilder)
@@ -31,7 +41,8 @@ class ExperienceSalaryReport implements ReportInterface
             ->select('response.experience')
             ->addSelect('AVG(response.annualSalary) as annualSalary')
             ->addSelect('COUNT(response.id) as nbResponse')
-            ->having('nbResponse >= 10')
+            ->having('nbResponse >= :minResult')
+            ->setParameter(':minResult', $this->minResult)
             ->groupBy('response.experience')
             ->execute()
         ;

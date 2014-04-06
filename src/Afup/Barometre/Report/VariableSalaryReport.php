@@ -12,6 +12,16 @@ class VariableSalaryReport implements ReportInterface
     private $queryBuilder;
 
     /**
+     * @var integer
+     */
+    private $minResult;
+
+    public function __construct($minResult = 10)
+    {
+        $this->minResult = $minResult;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function setQueryBuilder(QueryBuilder $queryBuilder)
@@ -31,7 +41,8 @@ class VariableSalaryReport implements ReportInterface
             ->addSelect('AVG(response.grossAnnualSalary) as grossAnnualSalary')
             ->addSelect('AVG(response.variableAnnualSalary) as variableAnnualSalary')
             ->addSelect('COUNT(response.id) as nbResponse')
-            ->having('nbResponse >= 10')
+            ->having('nbResponse >= :minResult')
+            ->setParameter(':minResult', $minResult)
             ->groupBy('response.experience')
             ->execute();
     }
