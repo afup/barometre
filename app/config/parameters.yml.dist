@@ -13,3 +13,5 @@ parameters:
 
     locale:            fr
     secret:            ThisTokenIsNotSoSecretChangeIt
+
+    ga_enabled: false
