@@ -16,4 +16,4 @@ parameters:
 
     ga_enabled: false
 
-    min_result:        10
+    min_result:        5
