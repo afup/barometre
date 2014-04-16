@@ -63,6 +63,7 @@ module.exports = function(grunt) {
           'src/Afup/BarometreBundle/Resources/assets/js/tablesorter.js',
           'src/Afup/BarometreBundle/Resources/assets/js/select2.js',
           'src/Afup/BarometreBundle/Resources/assets/js/charts.js',
+          'src/Afup/BarometreBundle/Resources/assets/js/filters.js',
           'src/Afup/BarometreBundle/Resources/assets/js/map.js'
         ],
         dest: 'app/cache/grunt/main.js'

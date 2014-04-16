@@ -7,9 +7,14 @@
 
 {% block form_row %}
     <div class="form-group">
-        {{ form_label(form) }}
+        <a href="#" class="filter-toggler">
+            {{ label|trans({}, translation_domain) }}
+            <i class="glyphicon {% if value is empty %}glyphicon-chevron-down{% else %}glyphicon-chevron-up{% endif %}"></i>
+        </a>
         {{ form_errors(form) }}
-        {{ form_widget(form) }}
+        <div class="form-row-content" {% if value is empty %}style="display: none"{% endif %}>
+            {{ form_widget(form) }}
+        </div>
     </div>
 {% endblock %}
 
@@ -31,3 +36,16 @@
     </div>
 {% endblock %}
 
+
+{% block salary_row %}
+    <div class="form-group">
+        <a href="#" class="filter-toggler">
+            {{ label|trans({}, translation_domain) }}
+            <i class="glyphicon {% if form.min.vars.value is empty and form.max.vars.value is empty %}glyphicon-chevron-down{% else %}glyphicon-chevron-up{% endif %}"></i>
+        </a>
+        {{ form_errors(form) }}
+        <div class="form-row-content" {% if form.min.vars.value is empty and form.max.vars.value is empty %}style="display: none"{% endif %}>
+            {{ form_widget(form) }}
+        </div>
+    </div>
+{% endblock %}
