@@ -37,7 +37,8 @@ module.exports = function(grunt) {
     sass: {
        dist: {
           options: {
-            style: 'expanded'
+            style: 'expanded',
+            bundleExec: true
           },
           src: 'src/Afup/BarometreBundle/Resources/assets/sass/main.scss',
           dest : 'app/cache/grunt/main.css'
