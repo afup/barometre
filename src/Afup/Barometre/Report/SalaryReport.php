@@ -2,43 +2,13 @@
 
 namespace Afup\Barometre\Report;
 
-use Doctrine\DBAL\Query\QueryBuilder;
-
 /**
  * Report on salary
  */
-class SalaryReport implements ReportInterface
+class SalaryReport extends AbstractReport
 {
 
     const SLICE = 5000;
-
-    /**
-     * @var array|null
-     */
-    private $data;
-
-    /**
-     * @var QueryBuilder
-     */
-    private $queryBuilder;
-
-    /**
-     * @var integer
-     */
-    private $minResult;
-
-    public function __construct($minResult = 10)
-    {
-        $this->minResult = $minResult;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setQueryBuilder(QueryBuilder $queryBuilder)
-    {
-        $this->queryBuilder = $queryBuilder;
-    }
 
     /**
      * {@inheritdoc}
@@ -91,32 +61,8 @@ class SalaryReport implements ReportInterface
     /**
      * {@inheritdoc}
      */
-    public function getData()
-    {
-        return $this->data;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function getName()
     {
         return 'salary';
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getLabel()
-    {
-        return "report.salary.label";
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function hasResults()
-    {
-        return count($this->getData());
     }
 }

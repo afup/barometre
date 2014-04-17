@@ -2,39 +2,8 @@
 
 namespace Afup\Barometre\Report;
 
-use Doctrine\DBAL\Query\QueryBuilder;
-use Doctrine\ORM\EntityManagerInterface;
-
-class ExperienceSalaryReport implements ReportInterface
+class ExperienceSalaryReport extends AbstractReport
 {
-    /**
-     * @var array|null
-     */
-    private $data;
-
-    /**
-     * @var QueryBuilder
-     */
-    private $queryBuilder;
-
-    /**
-     * @var integer
-     */
-    private $minResult;
-
-    public function __construct($minResult = 10)
-    {
-        $this->minResult = $minResult;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setQueryBuilder(QueryBuilder $queryBuilder)
-    {
-        $this->queryBuilder = $queryBuilder;
-    }
-
     /**
      * {@inheritdoc}
      */
@@ -52,14 +21,6 @@ class ExperienceSalaryReport implements ReportInterface
     }
 
     /**
-     * {@inheritdoc}
-     */
-    public function getData()
-    {
-        return $this->data;
-    }
-
-    /**
      * The report name (used for url)
      *
      * @return string
@@ -67,23 +28,5 @@ class ExperienceSalaryReport implements ReportInterface
     public function getName()
     {
         return 'experience_salary';
-    }
-
-    /**
-     * The report label (used for title & menu)
-     *
-     * @return string
-     */
-    public function getLabel()
-    {
-        return "report.experience_salary.label";
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function hasResults()
-    {
-        return count($this->getData());
     }
 }

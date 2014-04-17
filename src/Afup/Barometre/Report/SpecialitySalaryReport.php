@@ -2,42 +2,11 @@
 
 namespace Afup\Barometre\Report;
 
-use Doctrine\DBAL\Query\QueryBuilder;
-use Doctrine\ORM\EntityManagerInterface;
-
 /**
  * Report on Speciality Salary
  */
-class SpecialitySalaryReport implements ReportInterface
+class SpecialitySalaryReport extends AbstractReport
 {
-    /**
-     * @var array|null
-     */
-    private $data;
-
-    /**
-     * @var QueryBuilder
-     */
-    private $queryBuilder;
-
-    /**
-     * @var integer
-     */
-    private $minResult;
-
-    public function __construct($minResult = 10)
-    {
-        $this->minResult = $minResult;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setQueryBuilder(QueryBuilder $queryBuilder)
-    {
-        $this->queryBuilder = $queryBuilder;
-    }
-
     /**
      * {@inheritdoc}
      */
@@ -111,25 +80,9 @@ class SpecialitySalaryReport implements ReportInterface
     /**
      * {@inheritdoc}
      */
-    public function getData()
-    {
-        return $this->data;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function getName()
     {
         return "speciality_salary";
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getLabel()
-    {
-        return "report.speciality_salary.label";
     }
 
     /**

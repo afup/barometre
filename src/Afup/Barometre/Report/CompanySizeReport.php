@@ -2,31 +2,11 @@
 
 namespace Afup\Barometre\Report;
 
-use Doctrine\DBAL\Query\QueryBuilder;
-
 /**
  * Report on company size
  */
-class CompanySizeReport implements ReportInterface
+class CompanySizeReport extends AbstractReport
 {
-    /**
-     * @var array|null
-     */
-    private $data;
-
-    /**
-     * @var QueryBuilder
-     */
-    private $queryBuilder;
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setQueryBuilder(QueryBuilder $queryBuilder)
-    {
-        $this->queryBuilder = $queryBuilder;
-    }
-
     /**
      * {@inheritdoc}
      */
@@ -43,32 +23,8 @@ class CompanySizeReport implements ReportInterface
     /**
      * {@inheritdoc}
      */
-    public function getData()
-    {
-        return $this->data;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function getName()
     {
         return 'company_size';
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getLabel()
-    {
-        return "report.company_size.label";
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function hasResults()
-    {
-        return count($this->getData());
     }
 }

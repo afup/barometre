@@ -8,26 +8,8 @@ use Doctrine\ORM\EntityManagerInterface;
 /**
  * Report on Speciality
  */
-class SpecialityReport implements ReportInterface
+class SpecialityReport extends AbstractReport
 {
-    /**
-     * @var QueryBuilder
-     */
-    private $queryBuilder;
-
-    /**
-     * @var array|null
-     */
-    private $data;
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setQueryBuilder(QueryBuilder $queryBuilder)
-    {
-        $this->queryBuilder = $queryBuilder;
-    }
-
     /**
      * {@inheritdoc}
      */
@@ -56,32 +38,8 @@ class SpecialityReport implements ReportInterface
     /**
      * {@inheritdoc}
      */
-    public function getData()
-    {
-        return $this->data;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function getName()
     {
         return "speciality";
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getLabel()
-    {
-        return "report.speciality.label";
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function hasResults()
-    {
-        return count($this->getData());
     }
 }

@@ -2,40 +2,8 @@
 
 namespace Afup\Barometre\Report;
 
-use Doctrine\DBAL\Query\QueryBuilder;
-
-class VariableSalaryReport implements ReportInterface
+class VariableSalaryReport extends AbstractReport
 {
-    /**
-     * @var array|null
-     */
-    private $data;
-
-    /**
-     * @var QueryBuilder
-     */
-    private $queryBuilder;
-
-    /**
-     * @var integer
-     */
-    private $minResult;
-
-    /**
-     * @param integer $minResult
-     */
-    public function __construct($minResult = 10)
-    {
-        $this->minResult = $minResult;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setQueryBuilder(QueryBuilder $queryBuilder)
-    {
-        $this->queryBuilder = $queryBuilder;
-    }
 
     /**
      * {@inheritdoc}
@@ -55,14 +23,6 @@ class VariableSalaryReport implements ReportInterface
     }
 
     /**
-     * {@inheritdoc}
-     */
-    public function getData()
-    {
-        return $this->data;
-    }
-
-    /**
      * The report name (used for url)
      *
      * @return string
@@ -70,23 +30,5 @@ class VariableSalaryReport implements ReportInterface
     public function getName()
     {
         return 'variable_salary';
-    }
-
-    /**
-     * The report label (used for title & menu)
-     *
-     * @return string
-     */
-    public function getLabel()
-    {
-        return "report.variable_salary.label";
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function hasResults()
-    {
-        return count($this->getData());
     }
 }
