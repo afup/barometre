@@ -10,6 +10,11 @@ use Doctrine\DBAL\Query\QueryBuilder;
 class CompanyTypeReport implements ReportInterface
 {
     /**
+     * @var array|null
+     */
+    private $data;
+
+    /**
      * @var QueryBuilder
      */
     private $queryBuilder;
@@ -25,14 +30,22 @@ class CompanyTypeReport implements ReportInterface
     /**
      * {@inheritdoc}
      */
-    public function getData()
+    public function execute()
     {
         $this->queryBuilder
             ->select('response.companyType as companyType')
             ->addSelect('COUNT(response.id) as nbResponse')
             ->addGroupBy('response.companyType');
 
-        return $this->queryBuilder->execute();
+        $this->data = $this->queryBuilder->execute();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getData()
+    {
+        return $this->data;
     }
 
     /**

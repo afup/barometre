@@ -11,14 +11,14 @@ use Doctrine\ORM\EntityManagerInterface;
 class SpecialitySalaryReport implements ReportInterface
 {
     /**
+     * @var array|null
+     */
+    private $data;
+
+    /**
      * @var QueryBuilder
      */
     private $queryBuilder;
-
-    /**
-     * @var array
-     */
-    private $data = null;
 
     /**
      * @var integer
@@ -41,12 +41,8 @@ class SpecialitySalaryReport implements ReportInterface
     /**
      * {@inheritdoc}
      */
-    public function getData()
+    public function execute()
     {
-        if ($this->data != null) {
-            return $this->data;
-        }
-
         $this->queryBuilder
             ->join(
                 'response',
@@ -110,7 +106,13 @@ class SpecialitySalaryReport implements ReportInterface
         }
 
         $this->data = $data;
+    }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function getData()
+    {
         return $this->data;
     }
 

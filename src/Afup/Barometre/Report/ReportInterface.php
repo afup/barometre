@@ -43,4 +43,9 @@ interface ReportInterface
      * @return boolean
      */
     public function hasResults();
+
+    /**
+     * Execute the report
+     */
+    public function execute();
 }

@@ -13,6 +13,11 @@ class SalaryReport implements ReportInterface
     const SLICE = 5000;
 
     /**
+     * @var array|null
+     */
+    private $data;
+
+    /**
      * @var QueryBuilder
      */
     private $queryBuilder;
@@ -38,7 +43,7 @@ class SalaryReport implements ReportInterface
     /**
      * {@inheritdoc}
      */
-    public function getData()
+    public function execute()
     {
         $this->queryBuilder->select('count(distinct response.id) as nbResponse');
         $this->queryBuilder->addSelect(sprintf('ROUND(response.grossAnnualSalary / %s)  as salarySlice', self::SLICE));
@@ -80,7 +85,15 @@ class SalaryReport implements ReportInterface
             $result['salarySliceTo'] = ($key + 1) * self::SLICE;
         }
 
-        return $results;
+        $this->data = $results;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getData()
+    {
+        return $this->data;
     }
 
     /**

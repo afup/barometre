@@ -24,6 +24,8 @@ class DefaultController extends Controller
 
         $report = $manager->getReport($reportName);
 
+        $report->execute();
+
         return [
             'form'    => $manager->getForm()->createView(),
             'filters' => $manager->getSelectedFilters(),

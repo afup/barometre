@@ -7,6 +7,11 @@ use Doctrine\DBAL\Query\QueryBuilder;
 class CompanyTypeSalaryReport implements ReportInterface
 {
     /**
+     * @var array|null
+     */
+    private $data;
+
+    /**
      * @var QueryBuilder
      */
     private $queryBuilder;
@@ -30,11 +35,9 @@ class CompanyTypeSalaryReport implements ReportInterface
     }
 
     /**
-     * Process the query
-     *
-     * @return array
+     * {@inheritdoc}
      */
-    public function getData()
+    public function execute()
     {
         $results =  $this->queryBuilder
             ->select('response.experience')
@@ -63,7 +66,15 @@ class CompanyTypeSalaryReport implements ReportInterface
             $data['data'][$result['experience']][$result['companyType']] = $result;
         }
 
-        return $data;
+        $this->data = $data;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getData()
+    {
+        return $this->data;
     }
 
     /**

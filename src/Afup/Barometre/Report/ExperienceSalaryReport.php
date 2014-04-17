@@ -8,6 +8,11 @@ use Doctrine\ORM\EntityManagerInterface;
 class ExperienceSalaryReport implements ReportInterface
 {
     /**
+     * @var array|null
+     */
+    private $data;
+
+    /**
      * @var QueryBuilder
      */
     private $queryBuilder;
@@ -31,21 +36,27 @@ class ExperienceSalaryReport implements ReportInterface
     }
 
     /**
-     * Process the query
-     *
-     * @return array
+     * {@inheritdoc}
      */
-    public function getData()
+    public function execute()
     {
-        return $this->queryBuilder
+        $this->queryBuilder
             ->select('response.experience')
             ->addSelect('AVG(response.annualSalary) as annualSalary')
             ->addSelect('COUNT(response.id) as nbResponse')
             ->having('nbResponse >= :minResult')
             ->setParameter(':minResult', $this->minResult)
-            ->groupBy('response.experience')
-            ->execute()
-        ;
+            ->groupBy('response.experience');
+
+        $this->data = $this->queryBuilder->execute();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getData()
+    {
+        return $this->data;
     }
 
     /**

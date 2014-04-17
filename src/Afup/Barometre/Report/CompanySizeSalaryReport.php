@@ -8,6 +8,11 @@ use Doctrine\ORM\EntityManagerInterface;
 class CompanySizeSalaryReport implements ReportInterface
 {
     /**
+     * @var array|null
+     */
+    private $data;
+
+    /**
      * @var QueryBuilder
      */
     private $queryBuilder;
@@ -31,11 +36,9 @@ class CompanySizeSalaryReport implements ReportInterface
     }
 
     /**
-     * Process the query
-     *
-     * @return array
+     * {@inheritdoc}
      */
-    public function getData()
+    public function execute()
     {
         $results =  $this->queryBuilder
             ->select('response.experience')
@@ -64,7 +67,15 @@ class CompanySizeSalaryReport implements ReportInterface
             $data['data'][$result['experience']][$result['companySize']] = $result;
         }
 
-        return $data;
+        $this->data = $data;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getData()
+    {
+        return $this->data;
     }
 
     /**

@@ -16,6 +16,11 @@ class SpecialityReport implements ReportInterface
     private $queryBuilder;
 
     /**
+     * @var array|null
+     */
+    private $data;
+
+    /**
      * {@inheritdoc}
      */
     public function setQueryBuilder(QueryBuilder $queryBuilder)
@@ -26,7 +31,7 @@ class SpecialityReport implements ReportInterface
     /**
      * {@inheritdoc}
      */
-    public function getData()
+    public function execute()
     {
         $this->queryBuilder
             ->select('count(distinct response.id) as nbResponse')
@@ -45,7 +50,15 @@ class SpecialityReport implements ReportInterface
             ->addSelect('speciality.name as specialityName')
             ->addGroupBy('specialityName');
 
-        return $this->queryBuilder->execute();
+        $this->data = $this->queryBuilder->execute();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getData()
+    {
+        return $this->data;
     }
 
     /**

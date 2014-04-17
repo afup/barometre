@@ -10,6 +10,11 @@ use Doctrine\DBAL\Query\QueryBuilder;
 class CompanyDepartmentReport implements ReportInterface
 {
     /**
+     * @var array|null
+     */
+    private $data;
+
+    /**
      * @var QueryBuilder
      */
     private $queryBuilder;
@@ -35,7 +40,7 @@ class CompanyDepartmentReport implements ReportInterface
     /**
      * {@inheritdoc}
      */
-    public function getData()
+    public function execute()
     {
         $this->queryBuilder
             ->select('response.companyDepartment as companyDepartment')
@@ -45,7 +50,15 @@ class CompanyDepartmentReport implements ReportInterface
             ->setParameter(':minResult', $this->minResult)
             ->addGroupBy('response.companyDepartment');
 
-        return $this->queryBuilder->execute();
+        $this->data = $this->queryBuilder->execute();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getData()
+    {
+        return $this->data;
     }
 
     /**
