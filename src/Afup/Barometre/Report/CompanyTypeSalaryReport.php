@@ -2,35 +2,20 @@
 
 namespace Afup\Barometre\Report;
 
-use Doctrine\DBAL\Query\QueryBuilder;
-
-class CompanyTypeSalaryReport implements ReportInterface
+class CompanyTypeSalaryReport extends AbstractReport
 {
-    /**
-     * @var QueryBuilder
-     */
-    private $queryBuilder;
-
     /**
      * {@inheritdoc}
      */
-    public function setQueryBuilder(QueryBuilder $queryBuilder)
-    {
-        $this->queryBuilder = $queryBuilder;
-    }
-
-    /**
-     * Process the query
-     *
-     * @return array
-     */
-    public function getData()
+    public function execute()
     {
         $results =  $this->queryBuilder
             ->select('response.experience')
             ->addSelect('response.companyType as companyType')
             ->addSelect('AVG(response.annualSalary) as annualSalary')
             ->addSelect('COUNT(response.id) as nbResponse')
+            ->having('nbResponse >= :minResult')
+            ->setParameter(':minResult', $this->minResult)
             ->groupBy('response.experience, response.companyType')
             ->execute();
 
@@ -51,7 +36,7 @@ class CompanyTypeSalaryReport implements ReportInterface
             $data['data'][$result['experience']][$result['companyType']] = $result;
         }
 
-        return $data;
+        $this->data = $data;
     }
 
     /**
@@ -65,12 +50,12 @@ class CompanyTypeSalaryReport implements ReportInterface
     }
 
     /**
-     * The report label (used for title & menu)
-     *
-     * @return string
+     * {@inheritdoc}
      */
-    public function getLabel()
+    public function hasResults()
     {
-        return "report.company_type_salary.label";
+        $data = $this->getData();
+
+        return count($data['data']);
     }
 }

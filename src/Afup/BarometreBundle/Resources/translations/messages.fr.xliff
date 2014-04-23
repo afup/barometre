@@ -51,7 +51,7 @@
                 <target>Filtrer</target>
             </trans-unit>
             <trans-unit id="report.company_departement.label">
-                <source>report.company_departement.label</source>
+                <source>report.company_department.label</source>
                 <target>Répartition géographique</target>
             </trans-unit>
             <trans-unit id="report.company_size.label">

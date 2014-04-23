@@ -2,38 +2,22 @@
 
 namespace Afup\Barometre\Report;
 
-use Doctrine\DBAL\Query\QueryBuilder;
-use Doctrine\ORM\EntityManagerInterface;
-
-class ExperienceSalaryReport implements ReportInterface
+class ExperienceSalaryReport extends AbstractReport
 {
-    /**
-     * @var QueryBuilder
-     */
-    private $queryBuilder;
-
     /**
      * {@inheritdoc}
      */
-    public function setQueryBuilder(QueryBuilder $queryBuilder)
+    public function execute()
     {
-        $this->queryBuilder = $queryBuilder;
-    }
-
-    /**
-     * Process the query
-     *
-     * @return array
-     */
-    public function getData()
-    {
-        return $this->queryBuilder
+        $this->queryBuilder
             ->select('response.experience')
             ->addSelect('AVG(response.annualSalary) as annualSalary')
             ->addSelect('COUNT(response.id) as nbResponse')
-            ->groupBy('response.experience')
-            ->execute()
-        ;
+            ->having('nbResponse >= :minResult')
+            ->setParameter(':minResult', $this->minResult)
+            ->groupBy('response.experience');
+
+        $this->data = $this->queryBuilder->execute();
     }
 
     /**
@@ -44,15 +28,5 @@ class ExperienceSalaryReport implements ReportInterface
     public function getName()
     {
         return 'experience_salary';
-    }
-
-    /**
-     * The report label (used for title & menu)
-     *
-     * @return string
-     */
-    public function getLabel()
-    {
-        return "report.experience_salary.label";
     }
 }

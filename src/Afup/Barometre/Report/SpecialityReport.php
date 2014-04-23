@@ -8,25 +8,12 @@ use Doctrine\ORM\EntityManagerInterface;
 /**
  * Report on Speciality
  */
-class SpecialityReport implements ReportInterface
+class SpecialityReport extends AbstractReport
 {
     /**
-     * @var QueryBuilder
-     */
-    private $queryBuilder;
-
-    /**
      * {@inheritdoc}
      */
-    public function setQueryBuilder(QueryBuilder $queryBuilder)
-    {
-        $this->queryBuilder = $queryBuilder;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getData()
+    public function execute()
     {
         $this->queryBuilder
             ->select('count(distinct response.id) as nbResponse')
@@ -45,7 +32,7 @@ class SpecialityReport implements ReportInterface
             ->addSelect('speciality.name as specialityName')
             ->addGroupBy('specialityName');
 
-        return $this->queryBuilder->execute();
+        $this->data = $this->queryBuilder->execute();
     }
 
     /**
@@ -54,13 +41,5 @@ class SpecialityReport implements ReportInterface
     public function getName()
     {
         return "speciality";
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getLabel()
-    {
-        return "report.speciality.label";
     }
 }

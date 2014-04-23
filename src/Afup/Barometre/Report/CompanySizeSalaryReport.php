@@ -2,36 +2,20 @@
 
 namespace Afup\Barometre\Report;
 
-use Doctrine\DBAL\Query\QueryBuilder;
-use Doctrine\ORM\EntityManagerInterface;
-
-class CompanySizeSalaryReport implements ReportInterface
+class CompanySizeSalaryReport extends AbstractReport
 {
-    /**
-     * @var QueryBuilder
-     */
-    private $queryBuilder;
-
     /**
      * {@inheritdoc}
      */
-    public function setQueryBuilder(QueryBuilder $queryBuilder)
-    {
-        $this->queryBuilder = $queryBuilder;
-    }
-
-    /**
-     * Process the query
-     *
-     * @return array
-     */
-    public function getData()
+    public function execute()
     {
         $results =  $this->queryBuilder
             ->select('response.experience')
             ->addSelect('response.companySize as companySize')
             ->addSelect('AVG(response.annualSalary) as annualSalary')
             ->addSelect('COUNT(response.id) as nbResponse')
+            ->having('nbResponse >= :minResult')
+            ->setParameter(':minResult', $this->minResult)
             ->groupBy('response.experience, response.companySize')
             ->execute();
 
@@ -52,7 +36,7 @@ class CompanySizeSalaryReport implements ReportInterface
             $data['data'][$result['experience']][$result['companySize']] = $result;
         }
 
-        return $data;
+        $this->data = $data;
     }
 
     /**
@@ -66,12 +50,12 @@ class CompanySizeSalaryReport implements ReportInterface
     }
 
     /**
-     * The report label (used for title & menu)
-     *
-     * @return string
+     * {@inheritdoc}
      */
-    public function getLabel()
+    public function hasResults()
     {
-        return "report.company_size_salary.label";
+        $data = $this->getData();
+
+        return count($data['data']);
     }
 }

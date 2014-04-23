@@ -2,43 +2,30 @@
 
 namespace Afup\Barometre\Report;
 
-use Doctrine\DBAL\Query\QueryBuilder;
-
 /**
  * Report on salary
  */
-class SalaryReport implements ReportInterface
+class SalaryReport extends AbstractReport
 {
 
     const SLICE = 5000;
 
     /**
-     * @var QueryBuilder
-     */
-    private $queryBuilder;
-
-    /**
      * {@inheritdoc}
      */
-    public function setQueryBuilder(QueryBuilder $queryBuilder)
-    {
-        $this->queryBuilder = $queryBuilder;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getData()
+    public function execute()
     {
         $this->queryBuilder->select('count(distinct response.id) as nbResponse');
         $this->queryBuilder->addSelect(sprintf('ROUND(response.grossAnnualSalary / %s)  as salarySlice', self::SLICE));
+        $this->queryBuilder->having('nbResponse >= :minResult');
+        $this->queryBuilder->setParameter(':minResult', $this->minResult);
         $this->queryBuilder->addGroupBy('salarySlice');
 
         $results = array();
         foreach ($this->queryBuilder->execute() as $row) {
             $slice = $row['salarySlice'];
             $results[$slice] = array(
-               'count' => $row['nbResponse']
+                'count' => $row['nbResponse']
             );
         }
 
@@ -47,11 +34,18 @@ class SalaryReport implements ReportInterface
         }
 
         $baseResult = array(
-          'count' => 0,
+            'count' => 0,
         );
+
         $min = min(array_keys($results));
         $max = max(array_keys($results));
-        $baseResults = array_fill($min, $max - $min, $baseResult);
+
+
+        if ($max != $min) {
+            $baseResults = array_fill($min, $max - $min, $baseResult);
+        } else {
+            $baseResults = array();
+        }
 
         $results = $results + $baseResults;
         ksort($results);
@@ -61,7 +55,7 @@ class SalaryReport implements ReportInterface
             $result['salarySliceTo'] = ($key + 1) * self::SLICE;
         }
 
-        return $results;
+        $this->data = $results;
     }
 
     /**
@@ -70,13 +64,5 @@ class SalaryReport implements ReportInterface
     public function getName()
     {
         return 'salary';
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getLabel()
-    {
-        return "report.salary.label";
     }
 }

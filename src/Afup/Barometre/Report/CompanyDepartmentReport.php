@@ -2,38 +2,25 @@
 
 namespace Afup\Barometre\Report;
 
-use Doctrine\DBAL\Query\QueryBuilder;
-
 /**
  * Report on company department
  */
-class CompanyDepartmentReport implements ReportInterface
+class CompanyDepartmentReport extends AbstractReport
 {
     /**
-     * @var QueryBuilder
-     */
-    private $queryBuilder;
-
-    /**
      * {@inheritdoc}
      */
-    public function setQueryBuilder(QueryBuilder $queryBuilder)
-    {
-        $this->queryBuilder = $queryBuilder;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getData()
+    public function execute()
     {
         $this->queryBuilder
             ->select('response.companyDepartment as companyDepartment')
             ->addSelect('COUNT(response.id) as nbResponse')
             ->addSelect('AVG(response.annualSalary) as annualSalary')
+            ->having('nbResponse >= :minResult')
+            ->setParameter(':minResult', $this->minResult)
             ->addGroupBy('response.companyDepartment');
 
-        return $this->queryBuilder->execute();
+        $this->data = $this->queryBuilder->execute();
     }
 
     /**
@@ -42,13 +29,5 @@ class CompanyDepartmentReport implements ReportInterface
     public function getName()
     {
         return 'company_department';
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getLabel()
-    {
-        return "report.company_departement.label";
     }
 }

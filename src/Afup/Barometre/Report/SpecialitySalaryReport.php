@@ -2,31 +2,15 @@
 
 namespace Afup\Barometre\Report;
 
-use Doctrine\DBAL\Query\QueryBuilder;
-use Doctrine\ORM\EntityManagerInterface;
-
 /**
  * Report on Speciality Salary
  */
-class SpecialitySalaryReport implements ReportInterface
+class SpecialitySalaryReport extends AbstractReport
 {
     /**
-     * @var QueryBuilder
-     */
-    private $queryBuilder;
-
-    /**
      * {@inheritdoc}
      */
-    public function setQueryBuilder(QueryBuilder $queryBuilder)
-    {
-        $this->queryBuilder = $queryBuilder;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getData()
+    public function execute()
     {
         $this->queryBuilder
             ->join(
@@ -72,7 +56,9 @@ class SpecialitySalaryReport implements ReportInterface
             }
 
             if (in_array($specialityName, $framework)) {
-                $data['data'][$experience][$specialityName] = $result['annualSalary'] / $result['nbResponse'];
+                if ($result['nbResponse'] >= $this->minResult) {
+                    $data['data'][$experience][$specialityName] = $result['annualSalary'] / $result['nbResponse'];
+                }
             } else {
                 $data['data'][$experience][$otherFramework]['annualSalary'] += $result['annualSalary'];
                 $data['data'][$experience][$otherFramework]['nbResponse'] += $result['nbResponse'];
@@ -80,7 +66,7 @@ class SpecialitySalaryReport implements ReportInterface
         }
 
         foreach ($data['data'] as $experience => $line) {
-            if (0 !== $line[$otherFramework]['nbResponse']) {
+            if ($line[$otherFramework]['nbResponse'] >= $this->minResult) {
                 $salary = $line[$otherFramework]['annualSalary'] / $line[$otherFramework]['nbResponse'];
                 $data['data'][$experience][$otherFramework] = $salary;
             } else {
@@ -88,7 +74,7 @@ class SpecialitySalaryReport implements ReportInterface
             }
         }
 
-        return $data;
+        $this->data = $data;
     }
 
     /**
@@ -102,8 +88,10 @@ class SpecialitySalaryReport implements ReportInterface
     /**
      * {@inheritdoc}
      */
-    public function getLabel()
+    public function hasResults()
     {
-        return "report.speciality_salary.label";
+        $data = $this->getData();
+
+        return count($data['data']);
     }
 }

@@ -60,3 +60,6 @@ swiftmailer:
 knp_menu:
     twig:
         template: AfupBarometreBundle:Default:knp_menu.html.twig
+
+afup_barometre:
+    min_result: %min_result%
