@@ -11,7 +11,7 @@ set :shared_children,       [app_path + "/logs", web_path + "/uploads"]
 set :model_manager, "doctrine"
 set :default_shell, '/bin/bash -l'
 
-set :bundler_bin, "/home/barometre/.rvm/gems/ruby-1.9.3-p545@global/bin/bundle"
+set :bundler_bin, "/usr/local/bin/bundler"
 
 set :use_sudo,              false
 set :keep_releases,         3
