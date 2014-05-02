@@ -55,11 +55,11 @@ namespace :barometre do
       capifony_puts_ok
 
       capifony_pretty_print "--> Installing Bower dependencies"
-      invoke_command "cd #{latest_release} && ./node_modules/.bin/bower install", :via => run_method
+      invoke_command "cd #{latest_release} && bower install", :via => run_method
       capifony_puts_ok
 
       capifony_pretty_print "--> Launching grunt to compile assets"
-      invoke_command "cd #{latest_release} && ./node_modules/.bin/grunt", :via => run_method
+      invoke_command "cd #{latest_release} && grunt", :via => run_method
       capifony_puts_ok
   end
 end
