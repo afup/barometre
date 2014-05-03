@@ -28,7 +28,7 @@ default_run_options[:pty]   = true
 ssh_options[:forward_agent] = true
 
 logger.level = Logger::IMPORTANT
-set :domain,                "afup.org"
+set :domain,                "barometre.afup.org"
 set :deploy_to,             "/home/barometre/barometre.afup.org"
 set :group_writable,        true
 set :writable_dirs,         [app_path + "/cache", app_path + "/logs"]
