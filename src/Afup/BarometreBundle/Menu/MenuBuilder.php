@@ -85,6 +85,14 @@ class MenuBuilder
             );
         }
 
+
+        $menu->addChild(
+            'Campagne 2014',
+            [
+                'uri' => 'http://afup.org/ask/barometre/2014.html',
+            ]
+        );
+
         return $menu;
     }
 }
