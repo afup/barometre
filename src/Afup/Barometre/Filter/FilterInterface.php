@@ -28,7 +28,7 @@ interface FilterInterface
     /**
      * Convert the given values to the corresponding labels
      *
-     * @param array $values
+     * @param array $value
      */
     public function convertValuesToLabels($value);
 
