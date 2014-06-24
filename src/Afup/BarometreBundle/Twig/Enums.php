@@ -31,7 +31,7 @@ class Enums extends \Twig_Extension
 
     /**
      * @param int $enumId
-     * @param string $enumLabel
+     * @param string $enumName
      *
      * @return string
      */
