@@ -16,8 +16,16 @@
         <service id="afup.barometre.menu"
                  class="Knp\Menu\MenuItem"
                  factory-service="afup.barometre.menu.menu_builder"
-                 factory-method="createMenu">
+                 factory-method="createSimpleMenu">
             <tag name="knp_menu.menu" alias="menu" />
+        </service>
+
+
+        <service id="afup.barometre.complete_menu"
+                 class="Knp\Menu\MenuItem"
+                 factory-service="afup.barometre.menu.menu_builder"
+                 factory-method="createMenu">
+            <tag name="knp_menu.menu" alias="complete_menu" />
         </service>
     </services>
 </container>
