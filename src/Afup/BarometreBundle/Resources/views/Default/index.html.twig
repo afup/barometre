@@ -26,7 +26,7 @@
                 {{ include("AfupBarometreBundle:Report:" ~ report.name ~ ".html.twig", { results: report.data }) }}
             {% else %}
                 <div id="no-results">
-                    Aucune donnée à afficher pour votre filtrage. Essayez de supprimer des filtres.
+                    Aucune ou trop peu de données à afficher pour votre filtrage. Essayez de supprimer des filtres.
                 </div>
             {% endif %}
 
