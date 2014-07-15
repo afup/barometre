@@ -5,22 +5,40 @@
     {% block header %}
     <header class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container-fluid">
+
+
+
             <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
                 {% block brand %}
-                    <a class="navbar-brand" href="{{ path('afup_barometre_homepage') }}">Baromètre des salaires du PHP</a>
+                    <a class="navbar-brand hidden-xs" href="{{ path('afup_barometre_homepage') }}">Baromètre des salaires du PHP</a>
+                    <a class="navbar-brand visible-xs" href="{{ path('afup_barometre_homepage') }}">Baromètre AFUP</a>
                 {% endblock %}
             </div>
-            <div class="collapse navbar">
-                {% block menu knp_menu_render('menu') %}
-            <div class="navbar-right">
-                <a href="http://www.afup.org" target="_blank">
-                    <img src="/logos/logo-afup.png" alt="AFUP" class="logo afup" />
-                </a>
-                <a href="http://www.agence-e.fr" target="_blank">
-                    <img src="/logos/logo-agencee.png" alt="Agence E" class="logo agencee mg-right" />
-                </a>
+
+            <div class="navbar-collapse bs-navbar-collapse collapse" id="navbar-collapse">
+                <div class="hidden-xs">
+                    {% block menu knp_menu_render('complete_menu') %}
+                </div>
+                <div class="visible-xs">
+                    {% block menu2 knp_menu_render('menu') %}
+                </div>
+
+                <div class="navbar-right hidden-xs">
+                    <a href="http://www.afup.org" target="_blank">
+                        <img src="/logos/logo-afup.png" alt="AFUP" class="logo afup" />
+                    </a>
+                    <a href="http://www.agence-e.fr" target="_blank">
+                        <img src="/logos/logo-agencee.png" alt="Agence E" class="logo agencee mg-right" />
+                    </a>
+                </div>
             </div>
-            </div>
+
         </div>
     </header>
     {% endblock header %}

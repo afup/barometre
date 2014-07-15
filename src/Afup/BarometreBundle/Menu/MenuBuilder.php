@@ -40,11 +40,9 @@ class MenuBuilder
     /**
      * @return ItemInterface
      */
-    public function createMenu()
+    protected function getBaseMenu()
     {
         $menu = $this->factory->createItem('menu');
-
-        $filters = $this->context->getParameters();
 
         $menu->addChild(
             'A propos du baromètre',
@@ -52,6 +50,16 @@ class MenuBuilder
                 'route' => 'afup_barometre_about',
             ]
         );
+
+        return $menu;
+    }
+
+    /**
+     * @return ItemInterface
+     */
+    public function createMenu()
+    {
+        $menu = $this->getBaseMenu();
 
         $menu->addChild('Rapports', [
             'attributes' => [
@@ -62,29 +70,14 @@ class MenuBuilder
                 'class' => 'dropdown-menu',
             ]
         ]);
+
         $menu['Rapports']->setLinkAttributes([
             'class' => 'dropdown-toggle',
             'data-toggle' => 'dropdown'
         ]);
         $menu['Rapports']->setChildrenAttribute('class', 'dropdown-menu');
 
-        foreach ($this->reports as $report) {
-
-            $routeParameters = ['reportName' => $report->getName()];
-
-            if (count($filters) > 0) {
-                $routeParameters['filter'] = $filters;
-            }
-
-            $menu['Rapports']->addChild(
-                $report->getLabel(),
-                [
-                    'route'           => 'afup_barometre_report',
-                    'routeParameters' => $routeParameters,
-                ]
-            );
-        }
-
+        $this->addReportsMenuItems($menu['Rapports']);
 
         $menu->addChild(
             'Campagne 2014',
@@ -94,5 +87,43 @@ class MenuBuilder
         );
 
         return $menu;
+    }
+
+    /**
+     * @return ItemInterface
+     */
+    public function createSimpleMenu()
+    {
+        $menu = $this->getBaseMenu();
+
+        $this->addReportsMenuItems($menu);
+
+        return $menu;
+    }
+
+    /**
+     * @param ItemInterface $menu
+     */
+    protected function addReportsMenuItems(ItemInterface $menu)
+    {
+        $filters = $this->context->getParameters();
+
+        foreach ($this->reports as $report) {
+
+            $routeParameters = ['reportName' => $report->getName()];
+
+            if (count($filters) > 0) {
+                $routeParameters['filter'] = $filters;
+            }
+
+            $menu->addChild(
+                $report->getLabel(),
+                [
+                    'route'           => 'afup_barometre_report',
+                    'routeParameters' => $routeParameters,
+                ]
+            );
+        }
+
     }
 }
