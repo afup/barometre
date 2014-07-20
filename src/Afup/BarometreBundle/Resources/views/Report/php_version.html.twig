@@ -1,4 +1,5 @@
 <table class="highchart highchart-align-xaxis-left-labels table table-striped tablesorter"
+       data-graph-datalabels-enabled="1"
        data-graph-container-before="1"
        data-graph-type="pie"
        data-graph-legend-disabled="1"
@@ -14,7 +15,7 @@
     {% for row in results %}
         <tr>
             <td>{{ row.phpVersion|enum_label('php_version') }}</td>
-            <td class="text-right">{{ row.nbResponse }}</td>
+            <td data-graph-name="{{ row.phpVersion|enum_label('php_version') }}" class="text-right">{{ row.nbResponse }}</td>
         </tr>
     {% endfor %}
     </tbody>
