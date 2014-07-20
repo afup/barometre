@@ -13,8 +13,8 @@
         <parameter key="afup.barometre.report.company_type_salary.class">Afup\Barometre\Report\CompanyTypeSalaryReport</parameter>
         <parameter key="afup.barometre.report.company_size_salary.class">Afup\Barometre\Report\CompanySizeSalaryReport</parameter>
         <parameter key="afup.barometre.report.speciality_salary.class">Afup\Barometre\Report\SpecialitySalaryReport</parameter>
+        <parameter key="afup.barometre.report.salary_satisfaction.class">Afup\Barometre\Report\salarySatisfactionReport</parameter>
         <parameter key="afup.barometre.report.php_version.class">Afup\Barometre\Report\PhpVersionReport</parameter>
-
         <parameter key="afup.barometre.parameters.report.min_result">10</parameter>
     </parameters>
 
@@ -65,6 +65,10 @@
             <tag name="barometre.report" />
         </service>
 
+        <service id="afup.barometre.report.salary_satisfaction" class="%afup.barometre.report.salary_satisfaction.class%">
+            <argument>%afup.barometre.parameters.report.min_result%</argument>
+            <tag name="barometre.report" />
+        </service>
         <service id="afup.barometre.report.php_version" class="%afup.barometre.report.php_version.class%">
             <argument>%afup.barometre.parameters.report.min_result%</argument>
             <tag name="barometre.report" />

@@ -138,6 +138,14 @@
                 <source>report.company_departement.unknown</source>
                 <target>département inconnu</target>
             </trans-unit>
+            <trans-unit id="report.view.salary_satisfaction">
+                <source>report.view.salary_satisfaction</source>
+                <target>Satisfaction de la rémunération</target>
+            </trans-unit>
+            <trans-unit id="report.salary_satisfaction.label">
+                <source>report.salary_satisfaction.label</source>
+                <target>Satisfaction de la rémunération</target>
+            </trans-unit>
             <trans-unit id="report.php-version.label">
                 <source>report.php_version.label</source>
                 <target>Versions de PHP utilisées</target>
