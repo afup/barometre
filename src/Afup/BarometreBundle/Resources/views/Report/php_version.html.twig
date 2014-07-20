@@ -1,0 +1,21 @@
+<table class="highchart highchart-align-xaxis-left-labels table table-striped tablesorter"
+       data-graph-container-before="1"
+       data-graph-type="column"
+       data-graph-legend-disabled="1"
+       data-graph-inverted="1"
+       data-graph-xaxis-labels-align="right">
+    <thead>
+    <tr>
+        <th>{{ "report.view.php_version" | trans }}</th>
+        <th>{{ "report.view.response_number" | trans }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in results %}
+        <tr>
+            <td>{{ row.phpVersion|enum_label('php_version') }}</td>
+            <td class="text-right">{{ row.nbResponse }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
