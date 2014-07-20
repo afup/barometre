@@ -8,7 +8,6 @@ namespace Afup\Barometre\Report;
 
 class PhpVersionReport extends AbstractReport
 {
-
     /**
      * {@inheritdoc}
      */
@@ -33,4 +32,4 @@ class PhpVersionReport extends AbstractReport
     {
         return 'php_version';
     }
-} 
+}
