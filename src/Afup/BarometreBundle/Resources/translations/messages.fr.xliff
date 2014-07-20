@@ -146,7 +146,14 @@
                 <source>report.salary_satisfaction.label</source>
                 <target>Satisfaction de la rémunération</target>
             </trans-unit>
-
+            <trans-unit id="report.php-version.label">
+                <source>report.php_version.label</source>
+                <target>Versions de PHP utilisées</target>
+            </trans-unit>
+            <trans-unit id="report.view.php_version">
+                <source>report.view.php_version</source>
+                <target>Version de PHP utilisée</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
