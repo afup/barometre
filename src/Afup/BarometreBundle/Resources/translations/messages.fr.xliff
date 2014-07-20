@@ -138,6 +138,15 @@
                 <source>report.company_departement.unknown</source>
                 <target>département inconnu</target>
             </trans-unit>
+            <trans-unit id="report.view.salary_satisfaction">
+                <source>report.view.salary_satisfaction</source>
+                <target>Satisfaction liée à la rémunération</target>
+            </trans-unit>
+            <trans-unit id="report.salary_satisfaction.label">
+                <source>report.salary_satisfaction.label</source>
+                <target>Satisfaction liée à la rémunération</target>
+            </trans-unit>
+
         </body>
     </file>
 </xliff>
