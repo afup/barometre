@@ -1,11 +1,11 @@
 .menu {
-    position: fixed;
-    padding-top: $grid-gutter-width/2;
-    padding-bottom: $grid-gutter-width/2;
+  padding-bottom: $grid-gutter-width/2;
+  padding-top: $grid-gutter-width/2;
+  position: fixed;
 }
 
 @media (min-width: $screen-sm-min) and (max-width: $screen-sm-max) {
-    .menu {
-        position: static;
-    }
+  .menu {
+    position: static;
+  }
 }
