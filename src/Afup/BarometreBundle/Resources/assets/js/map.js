@@ -8,6 +8,11 @@
       .style("visibility", "hidden");
 
     function init() {
+
+        if (1 !== $('#map').length) {
+            return;
+        }
+
         var xy = d3.geo.albers()
             .origin([2.6, 46.5])
             .parallels([44, 49])
