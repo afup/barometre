@@ -120,6 +120,13 @@ module.exports = function(grunt) {
         ],
         tasks: ['dev']
       },
+      sasslint : {
+        files: [
+            'src/Afup/BarometreBundle/Resources/assets/sass/*',
+            'src/Afup/BarometreBundle/Resources/assets/sass/ui/*'
+        ],
+        tasks: ['scsslint']
+      },
       gruntfile: { files: ['Gruntfile.js'], tasks: ['dev']  }
     },
 
@@ -128,6 +135,16 @@ module.exports = function(grunt) {
         jshintrc: true
       },
       src: ['src/Afup/BarometreBundle/Resources/assets/js/*']
+    },
+
+    scsslint: {
+      options: {
+        bundleExec: true,
+        config: ".scss-lint.yml"
+      },
+      main: {
+          src: ['src/Afup/BarometreBundle/Resources/assets/sass/**']
+      }
     },
 
     githooks: {
@@ -165,9 +182,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-githooks');
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-scss-lint');
 
   grunt.registerTask('test', ['shell:atoum']);
-  grunt.registerTask('lint', ['shell:coke', 'jshint']);
+  grunt.registerTask('lint', ['shell:coke', 'jshint', 'scsslint']);
   grunt.registerTask('common', ['clean', 'copy', 'cssUrlRewrite', 'sass', 'concat']);
   grunt.registerTask('dev', ['common', 'hash']);
   grunt.registerTask('default', ['common', 'uglify', 'cssmin', 'hash']);

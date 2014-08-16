@@ -1,12 +1,19 @@
-h1, h2, h3, h4, h5, h6, label {
-    font-family: $font-family-title;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+label {
+  font-family: $font-family-title;
 }
 
-h1, h2 {
-    @extend .page-header;
-    border-color: $afup-blue-light;
+h1,
+h2 {
+  @extend .page-header;
+  border-color: $afup-blue-light;
 }
 
 hr {
-    border-color: $afup-blue-light;
+  border-color: $afup-blue-light;
 }

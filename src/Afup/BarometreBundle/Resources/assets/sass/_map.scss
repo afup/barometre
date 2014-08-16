@@ -1,30 +1,29 @@
 #map {
   float: left;
   margin-right: 1ex;
-  text-align:center;
-  width:100%;
+  text-align: center;
+  width: 100%;
 
   svg {
-    width: 500px;
     height: 500px;
+    width: 500px;
   }
 }
 
 #background path {
-  stroke-width: 0.2px;
-  stroke: black;
   fill: none;
+  stroke: #000;
+  stroke-width: .2px;
 }
 
 
 div.tooltip {
-  position: absolute;
-  text-align: center;
+  background: #b0c4de;
+  border: 0;
+  border-radius: 8px;
+  font: .78em;
   height: 28px;
   padding: 2px;
-  font: 0.78em;
-  background: lightsteelblue;
-  border: 0px;
-  border-radius: 8px;
+  position: absolute;
+  text-align: center;
 }
-

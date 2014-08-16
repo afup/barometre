@@ -1,13 +1,13 @@
 .page-footer {
 
-    text-align: center;
-    margin-top: $grid-gutter-width;
+  margin-top: $grid-gutter-width;
+  text-align: center;
 
-    > .content {
-        padding: $grid-gutter-width/2;
-        padding-top: $grid-gutter-width;
-        border-top: 1px solid $gray-lighter;
-        margin-bottom: 0;
-    }
+  > .content {
+    border-top: 1px solid $gray-lighter;
+    margin-bottom: 0;
+    padding: $grid-gutter-width/2;
+    padding-top: $grid-gutter-width;
+  }
 }
 

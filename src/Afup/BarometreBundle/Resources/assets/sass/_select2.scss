@@ -1,31 +1,32 @@
 .select2-container-multi .select2-choices .select2-search-choice {
-    background: $afup-blue;
-    color: white;
-    border: 1px solid $afup-blue;
+  background: $afup-blue;
+  border: 1px solid $afup-blue;
+  color: #fff;
 }
 
 .select2-drop {
-    z-index: $zindex-navbar - 50;
+  z-index: $zindex-navbar - 50;
 }
+
 .select2-drop-mask {
-    z-index: $zindex-navbar - 60;
+  z-index: $zindex-navbar - 60;
 }
 
 .select2-search-choice-close {
-    background: none;
-    @extend .glyphicon;
-    @extend .glyphicon-remove;
-    color: #ffffff;
-    width: 12px;
-    height: 12px;
-    font-size: 11px;
-    margin-top: -5px;
-    opacity: 0.8;
+  @extend .glyphicon;
+  @extend .glyphicon-remove;
+  background: none;
+  color: #fff;
+  font-size: 11px;
+  height: 12px;
+  margin-top: -5px;
+  opacity: .8;
+  width: 12px;
 
-    &:hover {
-        color: #ffffff;
-        text-decoration: none;
-        opacity: 1;
-    }
+  &:hover {
+    color: #fff;
+    opacity: 1;
+    text-decoration: none;
+  }
 }
 
