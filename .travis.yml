@@ -4,7 +4,16 @@ php:
   - 5.4
 
 before_script:
+  - sudo -E su root -c 'apt-get update'
+  - sudo -E su root -c 'apt-get install -y software-properties-common'
+  - sudo -E su root -c 'apt-get install -y python-software-properties python g++ make'
+  - sudo -E su root -c 'apt-add-repository -y ppa:chris-lea/node.js'
+  - sudo -E su root -c 'apt-get update'
+  - sudo -E su root -c 'apt-get install -y nodejs'
+  - sudo -E su root -c 'npm install -g grunt-cli'
+  - npm install
+  - bundle install
   - composer self-update
   - composer install --dev --no-interaction
 
-script: ./bin/atoum
+script: ./bin/atoum && grunt lint
