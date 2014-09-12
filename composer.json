@@ -23,7 +23,8 @@
         "agallou/regions": "0.1.0",
         "knplabs/knp-menu-bundle": "2.0.*@dev",
         "knplabs/knp-menu": "2.0.*@dev",
-        "sonata-project/intl-bundle": "2.2.*"
+        "sonata-project/intl-bundle": "2.2.*",
+        "agallou/grunt-hash-assets-bundle": "0.1.0"
     },
     "require-dev": {
         "raulfraile/ladybug-bundle": "v1.0.2",

@@ -11,14 +11,14 @@
         {% endblock meta %}
 
         {% block stylesheets %}
-        <link rel="stylesheet" href="{{ compiled_css_file }}" />
+        <link rel="stylesheet" href="{{ grunt_asset('css/main.css') }}" />
         {% endblock stylesheets %}
         {% block ga '' %}
     </head>
     <body>
         {% block body '' %}
         {% block body_javascript %}
-            <script src="{{ compiled_js_file }}"></script>
+            <script src="{{ grunt_asset('js/main.js') }}"></script>
         {% endblock body_javascript %}
     </body>
 </html>
