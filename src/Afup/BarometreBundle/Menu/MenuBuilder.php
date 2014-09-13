@@ -102,6 +102,18 @@ class MenuBuilder
     }
 
     /**
+     * @return ItemInterface
+     */
+    public function createReportsMenu()
+    {
+        $menu = $this->factory->createItem('menu');
+
+        $this->addReportsMenuItems($menu);
+
+        return $menu;
+    }
+
+    /**
      * @param ItemInterface $menu
      */
     protected function addReportsMenuItems(ItemInterface $menu)
