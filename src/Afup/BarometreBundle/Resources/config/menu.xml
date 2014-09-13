@@ -20,14 +20,12 @@
             <tag name="knp_menu.menu" alias="menu" />
         </service>
 
-
         <service id="afup.barometre.complete_menu"
                  class="Knp\Menu\MenuItem"
                  factory-service="afup.barometre.menu.menu_builder"
                  factory-method="createMenu">
             <tag name="knp_menu.menu" alias="complete_menu" />
         </service>
-
 
         <service id="afup.barometre.reports_menu"
                  class="Knp\Menu\MenuItem"
@@ -36,7 +34,6 @@
             <tag name="knp_menu.menu" alias="reports_menu" />
         </service>
 
-
         <service id="afup.barometre.reports_menu.renderer" class="%knp_menu.renderer.twig.class%">
             <tag name="knp_menu.renderer" alias="reports" />
             <argument type="service" id="twig" />
@@ -44,7 +41,6 @@
             <argument type="service" id="knp_menu.matcher" />
             <argument>%knp_menu.renderer.twig.options%</argument>
         </service>
-
 
     </services>
 </container>
