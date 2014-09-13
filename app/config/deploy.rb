@@ -11,7 +11,7 @@ set :shared_children,       [app_path + "/logs", web_path + "/uploads"]
 set :model_manager, "doctrine"
 set :default_shell, '/bin/bash -l'
 
-set :bundler_bin, "/usr/local/bin/bundler"
+set :bundler_bin, "/usr/local/bin/bundle"
 
 set :use_sudo,              false
 set :keep_releases,         3
@@ -47,7 +47,7 @@ after :deploy, 'deploy:cleanup'
 namespace :barometre do
   task :assets_build do
       capifony_pretty_print "--> Installing Ruby dependencies"
-      invoke_command "cd #{latest_release} && #{bundler_bin} install", :via => run_method
+      invoke_command "cd #{latest_release} && #{bundler_bin} install --path ./bundle/", :via => run_method
       capifony_puts_ok
 
       capifony_pretty_print "--> Installing Node dependencies"
