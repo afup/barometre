@@ -1,0 +1,15 @@
+{% extends 'knp_menu.html.twig' %}
+
+{% block list %}
+    {% set listAttributes = listAttributes|merge({class: 'list-group'}) %}
+    {{ parent() }}
+{% endblock %}
+
+{% block label %}
+    {{ item.label|trans }}
+{% endblock %}
+
+{% block item %}
+    {% set item = item.setAttribute('class', 'list-group-item') %}
+    {{ parent() }}
+{% endblock %}
