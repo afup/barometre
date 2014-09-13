@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "4474580a8184d8a36b2891a371b807e8",
+    "hash": "3981f6a16df9e53bbb72408b87800310",
     "packages": [
         {
             "name": "agallou/departements",
@@ -41,6 +41,42 @@
             ],
             "description": "Liste des départements Français",
             "time": "2014-02-01 12:31:39"
+        },
+        {
+            "name": "agallou/grunt-hash-assets-bundle",
+            "version": "v0.1.0",
+            "target-dir": "Agallou/GruntHashAssetsBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/agallou/GruntHashAssetsBundle.git",
+                "reference": "b2d5edddeb1f5c030cce2922bcb9b7d5d928f2b6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/agallou/GruntHashAssetsBundle/zipball/b2d5edddeb1f5c030cce2922bcb9b7d5d928f2b6",
+                "reference": "b2d5edddeb1f5c030cce2922bcb9b7d5d928f2b6",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/finder": "*",
+                "symfony/framework-bundle": "*",
+                "twig/twig": "*"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Agallou\\GruntHashAssetsBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "keywords": [
+                "assets",
+                "grunt"
+            ],
+            "time": "2014-09-12 19:08:30"
         },
         {
             "name": "agallou/regions",

@@ -32,11 +32,6 @@
             <argument type="service" id="afup.barometre.campaign.response_factory" />
         </service>
 
-        <service id="afup.barometre.twig.assets" class="Afup\BarometreBundle\Twig\Assets">
-            <argument>%kernel.root_dir%/../web/assets/</argument>
-            <tag name="twig.extension" />
-        </service>
-
         <service id="afup.barometre.twig.enums" class="Afup\BarometreBundle\Twig\Enums">
             <argument type="service" id="afup.barometre.enums_collection" />
             <tag name="twig.extension" />

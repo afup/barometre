@@ -105,6 +105,10 @@ module.exports = function(grunt) {
       css: {
           src: 'app/cache/grunt/main.css',
           dest: 'web/assets/css/'
+      },
+      logos: {
+        src: 'src/Afup/BarometreBundle/Resources/assets/logos/*',
+        dest: 'web/assets/logos/'
       }
     },
 
