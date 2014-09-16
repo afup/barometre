@@ -13,4 +13,7 @@
 /node_modules/
 /web/assets/
 /src/Afup/BarometreBundle/Resources/assets/sass/vendor/
+/.vagrant
+*.pyc
 /.sass-cache/
+provisioning/node_js_src
