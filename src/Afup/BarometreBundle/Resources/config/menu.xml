@@ -10,7 +10,7 @@
         <service id="afup.barometre.menu.menu_builder" class="%afup.barometre.menu.menu_builder.class%">
             <argument type="service" id="knp_menu.factory" />
             <argument type="service" id="afup.barometre.report_collection" />
-            <argument type="service" id="afup.barometre.context" />
+            <argument type="service" id="afup.barometre.default_context" />
         </service>
 
         <service id="afup.barometre.menu"
