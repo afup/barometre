@@ -1,8 +1,10 @@
 <?php
 
-namespace Afup\BarometreBundle\Campaign;
+namespace Afup\BarometreBundle\Campaign\Format\Formats;
 
-class ResponseFormat
+use Afup\BarometreBundle\Campaign\Format\FormatInterface;
+
+class Format2013 implements FormatInterface
 {
     /**
      * @return array
@@ -36,5 +38,19 @@ class ResponseFormat
             "formation_subject",
             "formation_impact",
         );
+    }
+
+    /**
+     * @param array $data
+     *
+     * @return array
+     */
+    public function alterData(array $data)
+    {
+        array_walk($data, function (&$item) {
+            $item = utf8_encode($item);
+        });
+
+        return $data;
     }
 }
