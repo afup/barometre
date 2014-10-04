@@ -2,6 +2,7 @@
 
 namespace Afup\BarometreBundle\Campaign\Importer;
 
+use Afup\BarometreBundle\Campaign\Format\FormatInterface;
 use Afup\BarometreBundle\Campaign\ResponseFactory;
 use Afup\BarometreBundle\Campaign\ResponseFormat;
 use Afup\BarometreBundle\Entity\Campaign;
@@ -31,12 +32,13 @@ class CampaignImporter
     }
 
     /**
+     * @param FormatInterface $format
      * @param string $name
      * @param \DateTime $startDate
      * @param \DateTime $endDate
      * @param string $filename
      */
-    public function import($name, \DateTime $startDate, \DateTime $endDate, $filename)
+    public function import(FormatInterface $format, $name, \DateTime $startDate, \DateTime $endDate, $filename)
     {
         $campaign = new Campaign();
         $campaign
@@ -55,7 +57,6 @@ class CampaignImporter
             | SplFileObject::DROP_NEW_LINE
         );
 
-        $format = new ResponseFormat();
         $columns = $format->getColumns();
 
         foreach ($file as $lineNumber => $line) {
@@ -64,11 +65,11 @@ class CampaignImporter
                 continue;
             }
 
-            $data = array_combine($columns, $line);
+            if (count($columns) !== count($line)) {
+                throw new \LogicException('Invalid column count. Incorrect format ?');
+            }
 
-            array_walk($data, function (&$item) {
-                $item = utf8_encode($item);
-            });
+            $data = $format->alterData(array_combine($columns, $line));
 
             $response = $this->responseFactory->createResponse($data, $campaign);
 
