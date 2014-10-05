@@ -30,7 +30,7 @@ class DefaultContextFactory extends ContextFactory
         $context = parent::createFromRequestStack($requestStack);
 
         if (0 === count($context->getParameters())) {
-            $lastCampaign = $this->campaignRepository->getLast();
+            $lastCampaign = $this->campaignRepository->findLast();
             if (null !== $lastCampaign) {
                 $context->setParameter('campaign', array($lastCampaign->getId()));
             }

@@ -9,7 +9,7 @@ class CampaignRepository extends EntityRepository
     /**
      * @return Campaign|null
      */
-    public function getLast()
+    public function findLast()
     {
         return $this->findOneBy(array(), array('endDate' => 'desc'));
     }
