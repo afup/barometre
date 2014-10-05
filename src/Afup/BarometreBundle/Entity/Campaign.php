@@ -103,7 +103,7 @@ class Campaign
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function __toString()
     {
