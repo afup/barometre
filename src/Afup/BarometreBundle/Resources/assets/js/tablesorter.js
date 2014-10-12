@@ -8,9 +8,9 @@ $(document).ready(function () {
         footerRow  : '',
         footerCells: '',
         icons      : '', // add "icon-white" to make them white; this icon class is added to the <i> in the header
-        sortNone   : 'icon-unsorted glyphicon glyphicon-chevron-up',
-        sortAsc    : 'icon-sorted glyphicon glyphicon-chevron-up ',     // includes classes for Bootstrap v2 & v3
-        sortDesc   : 'icon-sorted glyphicon glyphicon-chevron-down ', // includes classes for Bootstrap v2 & v3
+        sortNone   : 'icon-unsorted icon icon-chevron-up',
+        sortAsc    : 'icon-sorted icon icon-chevron-up ',     // includes classes for Bootstrap v2 & v3
+        sortDesc   : 'icon-sorted icon icon-chevron-down ', // includes classes for Bootstrap v2 & v3
         active     : '', // applied when column is sorted
         hover      : '', // use custom css here - bootstrap class may not override it
         filterRow  : '', // filter row class
