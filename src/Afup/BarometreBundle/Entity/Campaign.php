@@ -5,7 +5,7 @@ namespace Afup\BarometreBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Afup\BarometreBundle\Entity\CampaignRepository")
  * @ORM\Table(name="campaign")
  */
 class Campaign
@@ -100,5 +100,13 @@ class Campaign
     public function getEndDate()
     {
         return $this->endDate;
+    }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return $this->getName();
     }
 }
