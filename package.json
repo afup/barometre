@@ -17,6 +17,8 @@
     "grunt-githooks": "~0.3.1",
     "grunt-shell": "~0.6.4",
     "grunt-contrib-jshint": "~0.8.0",
-    "grunt-scss-lint": "~0.3.2"
+    "grunt-scss-lint": "~0.3.2",
+    "grunt-webfont": "~0.4.8",
+    "grunt-webfont-svg-extractor": "0.0.2"
   }
 }

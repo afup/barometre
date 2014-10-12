@@ -13,4 +13,5 @@
 /node_modules/
 /web/assets/
 /src/Afup/BarometreBundle/Resources/assets/sass/vendor/
+/src/Afup/BarometreBundle/Resources/assets/sass/generated/
 /.sass-cache/

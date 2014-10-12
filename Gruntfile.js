@@ -9,7 +9,6 @@ module.exports = function(grunt) {
         files: [
           {expand: true, cwd: 'bower_components/select2/', src: ['**.png'], dest: 'web/assets/images/select2/', filter: 'isFile'},
           {expand: true, cwd: 'bower_components/select2/', src: ['**.gif'], dest: 'web/assets/images/select2/', filter: 'isFile'},
-          {expand: true, cwd: 'bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/', src: ['*'], dest: 'web/assets/fonts/', filter: 'isFile'},
           {expand: true, cwd: 'bower_components/bootstrap-sass-official/vendor/assets/stylesheets/', src: ['**'], dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/'},
           {expand: true, cwd: 'bower_components/select2/', src: ['select2-bootstrap.scss'], dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/'},
           {expand: false, src: 'bower_components/jquery.tablesorter/css/theme.bootstrap.css', dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/tablesorter.theme.bootstrap.scss'},
@@ -33,6 +32,53 @@ module.exports = function(grunt) {
           dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/select2-bootstrap.scss',
       }
     },
+
+    webfont_svg_extractor: {
+        glyphicon: {
+            options: {
+                fontPath: "bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.svg",
+                cssPath: "bower_components/bootstrap/dist/css/bootstrap.css",
+                outputDir: "app/cache/grunt/font/",
+                preset: "glyphicon",
+                icons: [
+                    "remove",
+                    "chevron-up",
+                    "chevron-down"
+                ]
+            }
+        },
+        fontawesome: {
+            options: {
+                fontPath: "bower_components/fontawesome/fonts/fontawesome-webfont.svg",
+                cssPath: "bower_components/fontawesome/css/font-awesome.css",
+                outputDir: "app/cache/grunt/font/",
+                preset: "fontawesome",
+                icons: [
+                    "smile-o",
+                    "frown-o"
+                ]
+            }
+        }
+    },
+
+    webfont: {
+        icons: {
+            src: 'app/cache/grunt/font/*.svg',
+            dest: 'web/assets/fonts',
+            destCss: 'src/Afup/BarometreBundle/Resources/assets/sass/generated',
+            options: {
+                templateOptions: {
+                    baseClass: 'icon',
+                    classPrefix: 'icon-'
+                },
+                relativeFontPath: '/assets/fonts/',
+                htmlDemo: false,
+                engine: 'node',
+                stylesheet: 'scss'
+            }
+        }
+    },
+
 
     sass: {
        dist: {
@@ -187,10 +233,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-scss-lint');
+  grunt.loadNpmTasks('grunt-webfont');
+  grunt.loadNpmTasks('grunt-webfont-svg-extractor');
 
   grunt.registerTask('test', ['shell:atoum']);
   grunt.registerTask('lint', ['shell:coke', 'jshint', 'scsslint']);
-  grunt.registerTask('common', ['clean', 'copy', 'cssUrlRewrite', 'sass', 'concat']);
+  grunt.registerTask('common', ['clean', 'copy', 'cssUrlRewrite', 'webfont_svg_extractor', 'webfont', 'sass', 'concat']);
   grunt.registerTask('dev', ['common', 'hash']);
   grunt.registerTask('default', ['common', 'uglify', 'cssmin', 'hash']);
 

@@ -17,7 +17,7 @@ class BarometreImportCommand extends ContainerAwareCommand
         $this
             ->setName("barometre:imports")
             ->setDescription("Importe une nouvelle campagne")
-            ->addOption('format', 'f', InputOption::VALUE_REQUIRED, 'Format du fichier ("2013" ou "2013")')
+            ->addOption('format', 'f', InputOption::VALUE_REQUIRED, 'Format du fichier ("2013" ou "2014")')
             ->addArgument('name', InputArgument::REQUIRED, 'Nom de la campagne')
             ->addArgument('startDate', InputArgument::REQUIRED, 'Date de début de la campagne (format: dd/mm/yyyy)')
             ->addArgument('endDate', InputArgument::REQUIRED, 'Date de fin de la campagne (format: dd/mm/yyyy)')
