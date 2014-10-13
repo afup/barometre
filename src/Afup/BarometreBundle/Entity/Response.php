@@ -138,7 +138,7 @@ class Response
      * @ORM\Column(type="integer", nullable=true)
      * @var int
      */
-    protected $sexe;
+    protected $gender;
 
     /**
      */
@@ -536,19 +536,19 @@ class Response
     /**
      * @return int
      */
-    public function getSexe()
+    public function getGender()
     {
-        return $this->sexe;
+        return $this->gender;
     }
 
     /**
-     * @param int $sexe
+     * @param int $gender
      *
      * @return $this
      */
-    public function setSexe($sexe)
+    public function setGender($gender)
     {
-        $this->sexe = $sexe;
+        $this->gender = $gender;
 
         return $this;
     }
