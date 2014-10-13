@@ -4,6 +4,7 @@ namespace Afup\BarometreBundle\Campaign\Format\Formats;
 
 use Afup\BarometreBundle\Campaign\Format\FormatInterface;
 use Afup\BarometreBundle\Enums\ExperienceEnums;
+use Afup\BarometreBundle\Enums\SalarySatisfactionEnums;
 
 class Format2014 implements FormatInterface
 {
