@@ -4,6 +4,7 @@ namespace Afup\BarometreBundle\Enums;
 
 class GenderEnums extends AbstractEnums
 {
+    const NONE = null;
     const MALE = 1;
     const FEMALE = 2;
 
@@ -11,7 +12,8 @@ class GenderEnums extends AbstractEnums
      * @var array
      */
     protected $choices = array(
-        self::MALE => 'Homme',
-        self::FEMALE => 'Femme',
+        self::MALE => 'Hommes',
+        self::FEMALE => 'Femmes',
+        self::NONE => 'Non précisé',
     );
 }
