@@ -53,6 +53,10 @@ class Format2014 implements FormatInterface
 
         $data['annual_salary'] = $data['gross_annual_salary'] + $data['variable_annual_salary'];
 
+        if (0 == $data['salary_satisfaction']) {
+            $data['salary_satisfaction'] = SalarySatisfactionEnums::SANS_OPINION;
+        }
+
         return $data;
     }
 }
