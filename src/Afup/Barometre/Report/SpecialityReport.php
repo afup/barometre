@@ -30,7 +30,8 @@ class SpecialityReport extends AbstractReport
                 'response_speciality.speciality_id = speciality.id'
             )
             ->addSelect('speciality.name as specialityName')
-            ->addGroupBy('specialityName');
+            ->addGroupBy('specialityName')
+            ->addOrderBy('nbResponse', 'desc');
 
         $this->data = $this->queryBuilder->execute();
     }
