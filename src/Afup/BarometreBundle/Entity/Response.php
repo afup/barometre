@@ -135,6 +135,12 @@ class Response
     protected $isRecentTrainingHadSalaryImpact;
 
     /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @var int
+     */
+    protected $gender;
+
+    /**
      */
     public function __construct()
     {
@@ -525,5 +531,25 @@ class Response
     public function getSpecialities()
     {
         return $this->specialities;
+    }
+
+    /**
+     * @return int
+     */
+    public function getGender()
+    {
+        return $this->gender;
+    }
+
+    /**
+     * @param int $gender
+     *
+     * @return $this
+     */
+    public function setGender($gender)
+    {
+        $this->gender = $gender;
+
+        return $this;
     }
 }

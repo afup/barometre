@@ -51,6 +51,8 @@ class Format2013 implements FormatInterface
             $item = utf8_encode($item);
         });
 
+        $data['gender'] = '';
+
         return $data;
     }
 }

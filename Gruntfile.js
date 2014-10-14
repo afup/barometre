@@ -55,7 +55,9 @@ module.exports = function(grunt) {
                 preset: "fontawesome",
                 icons: [
                     "smile-o",
-                    "frown-o"
+                    "frown-o",
+                    "male",
+                    "female"
                 ]
             }
         }
