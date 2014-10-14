@@ -4,6 +4,7 @@ namespace Afup\BarometreBundle\Campaign\Tests\Units;
 
 use atoum;
 use Afup\BarometreBundle\Campaign\ResponseFactory as TestedClass;
+use Afup\BarometreBundle\Enums\GenderEnums;
 use Afup\BarometreBundle\Enums\StatusEnums;
 use Afup\BarometreBundle\Enums\InitialTrainingEnums;
 use Afup\BarometreBundle\Enums\CompanyTypeEnums;
@@ -30,6 +31,7 @@ class ResponseFactory extends atoum
         $enumCollection->addEnums(new PHPStrengthEnums(), 'php_strength');
         $enumCollection->addEnums(new JobTitleEnums(), 'job_title');
         $enumCollection->addEnums(new ExperienceEnums(), 'experience');
+        $enumCollection->addEnums(new GenderEnums(), 'gender');
 
 
         $certificationRepository = new \mock\Doctrine\Common\Persistence\ObjectRepository();
@@ -64,6 +66,7 @@ class ResponseFactory extends atoum
             'formation_impact' => '',
             'job_title' => '',
             'experience' => '',
+            'gender' => '',
         );
 
         $campaign = new \Afup\BarometreBundle\Entity\Campaign();

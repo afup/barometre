@@ -34,7 +34,7 @@ class Format2014 implements FormatInterface
             "formation_subject",
             "formation_impact",
             "email",
-            "",
+            "gender",
         );
     }
 
@@ -52,6 +52,12 @@ class Format2014 implements FormatInterface
         }
 
         $data['annual_salary'] = $data['gross_annual_salary'] + $data['variable_annual_salary'];
+
+        if ($data['gender'] == 'Un homme') {
+            $data['gender'] = 'Homme';
+        } elseif ($data['gender'] == 'Une femme') {
+            $data['gender'] = 'Femme';
+        }
 
         return $data;
     }

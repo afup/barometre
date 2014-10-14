@@ -130,6 +130,10 @@ class ResponseFactory
             );
         }
 
+        $response->setGender(
+            $this->enums->getEnums('gender')->getIdByLabel($data["gender"])
+        );
+
         return $response;
     }
 
