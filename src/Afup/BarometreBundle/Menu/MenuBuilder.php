@@ -79,12 +79,12 @@ class MenuBuilder
 
         $this->addReportsMenuItems($menu['Rapports']);
 
-        $menu->addChild(
-            'Campagne 2014',
-            [
-                'uri' => 'http://afup.org/ask/barometre/2014.html',
-            ]
-        );
+//        $menu->addChild(
+//            'Campagne 2014',
+//            [
+//                'uri' => 'http://afup.org/ask/barometre/2014.html',
+//            ]
+//        );
 
         return $menu;
     }
