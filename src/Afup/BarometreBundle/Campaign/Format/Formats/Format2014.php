@@ -4,6 +4,7 @@ namespace Afup\BarometreBundle\Campaign\Format\Formats;
 
 use Afup\BarometreBundle\Campaign\Format\FormatInterface;
 use Afup\BarometreBundle\Enums\ExperienceEnums;
+use Afup\BarometreBundle\Enums\SalarySatisfactionEnums;
 
 class Format2014 implements FormatInterface
 {
@@ -57,6 +58,10 @@ class Format2014 implements FormatInterface
             $data['gender'] = 'Homme';
         } elseif ($data['gender'] == 'Une femme') {
             $data['gender'] = 'Femme';
+        }
+
+        if (0 == $data['salary_satisfaction']) {
+            $data['salary_satisfaction'] = SalarySatisfactionEnums::SANS_OPINION;
         }
 
         return $data;
