@@ -64,6 +64,18 @@ class Format2014 implements FormatInterface
             $data['salary_satisfaction'] = SalarySatisfactionEnums::SANS_OPINION;
         }
 
+        $status = explode(',', $data['status']);
+
+        $data['status'] = isset($status[0]) ? ucfirst($status[0]) : '';
+
+        if ($data['initial_training'] === 'Niveau Master2  ou ingénieur') {
+            $data['initial_training'] = 'Niveau Master2 ou ingénieur';
+        }
+
+        if ($data['initial_training'] === 'Maitrise ou équivalent') {
+            $data['initial_training'] = 'Autre';
+        }
+
         return $data;
     }
 }

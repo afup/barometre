@@ -50,7 +50,7 @@ class ResponseFactory extends atoum
             'annual_salary' => '42 000',
             'salary_satisfaction' => '4',
             'status' => 'Contrat à durée indéterminée',
-            'initial_training' => 'Niveau Master2  ou ingénieur',
+            'initial_training' => 'Niveau Master2 ou ingénieur',
             'company_type' => 'Agence de communication',
             'company_size' => 'De 50 à 199 salariés',
             'company_department' => '59',
