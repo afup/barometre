@@ -41,7 +41,7 @@
     <div class="form-group">
         <a href="#" class="filter-toggler">
             {{ label|trans({}, translation_domain) }}
-            <i class="glyphicon {% if form.min.vars.value is empty and form.max.vars.value is empty %}glyphicon-chevron-down{% else %}glyphicon-chevron-up{% endif %}"></i>
+            <i class="icon {% if form.min.vars.value is empty and form.max.vars.value is empty %}icon-chevron-down{% else %}icon-chevron-up{% endif %}"></i>
         </a>
         {{ form_errors(form) }}
         <div class="form-row-content" {% if form.min.vars.value is empty and form.max.vars.value is empty %}style="display: none"{% endif %}>
