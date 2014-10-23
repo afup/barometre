@@ -54,10 +54,10 @@ class Format2014 implements FormatInterface
 
         $data['annual_salary'] = $data['gross_annual_salary'] + $data['variable_annual_salary'];
 
-        if ($data['gender'] == 'Un homme') {
-            $data['gender'] = 'Homme';
-        } elseif ($data['gender'] == 'Une femme') {
-            $data['gender'] = 'Femme';
+        if ($data['gender'] == 'Un homme' || $data['gender'] == 'Homme') {
+            $data['gender'] = 'Hommes';
+        } elseif ($data['gender'] == 'Une femme' || $data['gender'] == 'Femme') {
+            $data['gender'] = 'Femmes';
         }
 
         if (0 == $data['salary_satisfaction']) {
