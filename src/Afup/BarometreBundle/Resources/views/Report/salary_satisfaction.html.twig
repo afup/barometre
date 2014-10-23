@@ -29,7 +29,7 @@
                 {% endif %}
                 {{ row.salarySatisfaction|enum_label('salary_satisfaction') }}
             </td>
-            <td {% if row.salarySatisfaction == 3 %}data-graph-item-highlight="1"{% endif %} {% if icons[row.salarySatisfaction|enum_label('salary_satisfaction')].color %}data-graph-item-color="{{ icons[row.salarySatisfaction|enum_label('salary_satisfaction')].color }}"{% endif %} data-graph-name='{{ row.salarySatisfaction|enum_label('salary_satisfaction') }}' data-icon-class="fa fa-smile-o" class="text-right">{{ row.nbResponse }}</td>
+            <td {% if row.salarySatisfaction == 3 %}data-graph-item-highlight="1"{% endif %} {% if icons[row.salarySatisfaction|enum_label('salary_satisfaction')].color %}data-graph-item-color="{{ icons[row.salarySatisfaction|enum_label('salary_satisfaction')].color }}"{% endif %} data-graph-name='{{ row.salarySatisfaction|enum_label('salary_satisfaction') }}' class="text-right">{{ row.nbResponse }}</td>
         </tr>
     {% endfor %}
     </tbody>

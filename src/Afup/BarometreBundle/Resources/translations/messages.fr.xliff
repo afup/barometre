@@ -34,6 +34,10 @@
                 <source>filter.experience</source>
                 <target>Expérience</target>
             </trans-unit>
+            <trans-unit id="filter.campaign">
+                <source>filter.campaign</source>
+                <target>Année</target>
+            </trans-unit>
             <trans-unit id="filter.salary_satisfaction">
                 <source>filter.salary_satisfaction</source>
                 <target>Satisfaction de la rémunération</target>
@@ -81,6 +85,10 @@
             <trans-unit id="report.company_type_salary.label">
                 <source>report.company_type_salary.label</source>
                 <target>Rémunération par secteur d'activité</target>
+            </trans-unit>
+            <trans-unit id="report.gender.label">
+                <source>report.gender.label</source>
+                <target>Salaire moyen par sexe</target>
             </trans-unit>
             <trans-unit id="report.company_size_salary.label">
                 <source>report.company_size_salary.label</source>
@@ -153,6 +161,10 @@
             <trans-unit id="report.view.php_version">
                 <source>report.view.php_version</source>
                 <target>Version de PHP utilisée</target>
+            </trans-unit>
+            <trans-unit id="report.view.average_salary">
+                <source>report.view.average_salary</source>
+                <target>Salaire moyen</target>
             </trans-unit>
         </body>
     </file>
