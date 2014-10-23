@@ -18,7 +18,7 @@ class InitialTrainingEnums extends AbstractEnums
         self::BAC         => 'Bac',
         self::BTS_DUT     => 'BTS - DUT - DEUST ou équivalent',
         self::LICENCE     => 'Licence ou équivalent',
-        self::MASTER      => 'Niveau Master2  ou ingénieur',
+        self::MASTER      => 'Niveau Master2 ou ingénieur',
         self::AUTRE       => 'Autre',
     );
 }
