@@ -28,7 +28,6 @@ default_run_options[:pty]   = true
 ssh_options[:forward_agent] = true
 
 logger.level = Logger::IMPORTANT
-set :domain,                "barometre.afup.org"
 set :deploy_to,             "/home/barometre/barometre.afup.org"
 set :group_writable,        true
 set :writable_dirs,         [app_path + "/cache", app_path + "/logs"]
@@ -36,12 +35,10 @@ set :webserver_user,        "www-data"
 set :permission_method,     :acl
 set :use_set_permissions,   true
 
-role :web,                  domain                         # Your HTTP server, Apache/etc
-role :app,                  domain                         # This may be the same as your `Web` server
-role :db,                   domain, :primary => true       # This is where Symfony2 migrations will run
+server "barometre.afup.org", :web, :app, :db, :primary => true
 
 after 'symfony:cache:warmup', 'barometre:assets_build'
-after :deploy, 'symfony:doctrine:schema:update'
+after :deploy, 'symfony:doctrine:migrations:migrate'
 after :deploy, 'deploy:cleanup'
 
 namespace :barometre do
