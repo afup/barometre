@@ -30,4 +30,15 @@ class CompanyDepartmentReport extends AbstractReport
     {
         return 'company_department';
     }
+
+
+    /**
+     * report weight
+     *
+     * @return int
+     */
+    public function getWeight()
+    {
+        return 3;
+    }
 }

@@ -94,4 +94,15 @@ class SpecialitySalaryReport extends AbstractReport
 
         return count($data['data']);
     }
+
+
+    /**
+     * report weight
+     *
+     * @return int
+     */
+    public function getWeight()
+    {
+        return 6;
+    }
 }

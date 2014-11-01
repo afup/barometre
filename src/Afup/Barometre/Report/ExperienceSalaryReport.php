@@ -29,4 +29,15 @@ class ExperienceSalaryReport extends AbstractReport
     {
         return 'experience_salary';
     }
+
+
+    /**
+     * report weight
+     *
+     * @return int
+     */
+    public function getWeight()
+    {
+        return 4;
+    }
 }

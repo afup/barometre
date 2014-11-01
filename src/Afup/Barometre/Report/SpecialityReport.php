@@ -43,4 +43,15 @@ class SpecialityReport extends AbstractReport
     {
         return "speciality";
     }
+
+
+    /**
+     * report weight
+     *
+     * @return int
+     */
+    public function getWeight()
+    {
+        return 2;
+    }
 }

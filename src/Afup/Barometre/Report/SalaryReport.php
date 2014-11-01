@@ -65,4 +65,14 @@ class SalaryReport extends AbstractReport
     {
         return 'salary';
     }
+
+    /**
+     * report weight
+     *
+     * @return int
+     */
+    public function getWeight()
+    {
+        return 1;
+    }
 }
