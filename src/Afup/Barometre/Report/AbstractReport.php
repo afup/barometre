@@ -60,4 +60,15 @@ abstract class AbstractReport implements ReportInterface
     {
         return count($this->getData());
     }
+
+
+    /**
+     * report weight
+     *
+     * @return null
+     */
+    public function getWeight()
+    {
+        return null;
+    }
 }
