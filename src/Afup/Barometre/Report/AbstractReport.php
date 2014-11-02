@@ -82,7 +82,11 @@ abstract class AbstractReport implements ReportInterface
      */
     public static function cmpReport($report1, $report2)
     {
-        if ($report1->getWeight() == $report2->getWeight()) return 0;
+        if ($report1->getWeight() == $report2->getWeight()) {
+
+            return 0;
+        }
+
         return ($report1->getWeight() < $report2->getWeight()) ? 1 : -1;
     }
 }
