@@ -16,11 +16,7 @@ class ReportCollection implements \IteratorAggregate
      */
     public function addReport(ReportInterface $report)
     {
-        $keyName = $report->getName();
-        if (null !== $report->getWeight()) {
-            $keyName = sprintf('%04d'.$keyName, $report->getWeight());
-        }
-        $this->reports[$keyName] = $report;
+        $this->reports[$report->getName()] = $report;
     }
 
     /**
@@ -29,7 +25,7 @@ class ReportCollection implements \IteratorAggregate
      */
     public function sortReports()
     {
-        ksort($this->reports);
+        uasort($this->reports, array(get_class(array_values($this->reports)[0]), 'cmpReport'));
     }
 
     /**

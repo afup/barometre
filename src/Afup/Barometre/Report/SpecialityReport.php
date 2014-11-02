@@ -52,6 +52,6 @@ class SpecialityReport extends AbstractReport
      */
     public function getWeight()
     {
-        return 2;
+        return 50;
     }
 }

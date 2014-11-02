@@ -39,6 +39,6 @@ class CompanyDepartmentReport extends AbstractReport
      */
     public function getWeight()
     {
-        return 3;
+        return 40;
     }
 }

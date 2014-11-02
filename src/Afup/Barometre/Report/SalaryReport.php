@@ -73,6 +73,6 @@ class SalaryReport extends AbstractReport
      */
     public function getWeight()
     {
-        return 1;
+        return 100;
     }
 }

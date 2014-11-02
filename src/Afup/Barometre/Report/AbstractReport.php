@@ -69,6 +69,20 @@ abstract class AbstractReport implements ReportInterface
      */
     public function getWeight()
     {
-        return null;
+        return 0;
+    }
+
+    /**
+     * comparaison function for reports
+     *
+     * @param AbstractReport $report1
+     * @param AbstractReport $report2
+     *
+     * @return int
+     */
+    public static function cmpReport($report1, $report2)
+    {
+        if ($report1->getWeight() == $report2->getWeight()) return 0;
+        return ($report1->getWeight() < $report2->getWeight()) ? 1 : -1;
     }
 }
