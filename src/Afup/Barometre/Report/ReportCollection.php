@@ -25,7 +25,7 @@ class ReportCollection implements \IteratorAggregate
      */
     public function sortReports()
     {
-        uasort($this->reports, array(get_class(array_values($this->reports)[0]), 'cmpReport'));
+        uasort($this->reports, array('Afup\Barometre\Report\AbstractReport', 'cmpReport'));
     }
 
     /**
