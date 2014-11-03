@@ -11,6 +11,17 @@ class CampaignRepository extends EntityRepository
      */
     public function findLast()
     {
-        return $this->findOneBy(array(), array('endDate' => 'desc'));
+        return $this->findOneBy([], ['endDate' => 'desc']);
+    }
+
+    /**
+     * @return array
+     */
+    public function findAllOrderedByDate()
+    {
+        return $this->createQueryBuilder('campaign')
+            ->addOrderBy('campaign.name', 'ASC')
+            ->getQuery()
+            ->getResult();
     }
 }

@@ -14,7 +14,14 @@
             <p>
                 Ce site a pour vocation de présenter <a href="{{ path('afup_barometre_report', {'reportName': 'salary'}) }}">les résultats de cette enquête</a> en permettant de filtrer sur différents critères (le département, la rémunération, le type d'entreprise...) pour ainsi présenter des résultats plus en accord avec la situation du développeur les consultant.
             </p><p>
-                Le site présente des données collectées en <a href="{{ path('afup_barometre_report', {'reportName': 'salary', 'filter': { campaign: [3]} }) }}">2013</a> et <a href="{{ path('afup_barometre_report', {'reportName': 'salary', 'filter': { campaign: [4]} }) }}">2014</a>.
+                Le site présente des données collectées en
+                {% for campaign in campaigns %}
+                    {% spaceless %}
+                        <a href="{{ path('afup_barometre_report', {'reportName': 'salary', 'filter': { 'campaign': [campaign.id] } }) }}">{{- campaign.name -}}</a>
+                        {%- if loop.revindex0 == 1 %} et {% elseif not loop.last %}, {% endif -%}
+                    {% endspaceless %}
+                {%- endfor -%}
+                .
             </p><p>
                 Il sera enrichi d'années en années avec les résultats des prochain baromètres.
             </p>
