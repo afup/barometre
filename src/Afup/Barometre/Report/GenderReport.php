@@ -29,4 +29,14 @@ class GenderReport extends AbstractReport
     {
         return 'gender';
     }
+
+    /**
+     * report weight
+     *
+     * @return int
+     */
+    public function getWeight()
+    {
+        return -20;
+    }
 }

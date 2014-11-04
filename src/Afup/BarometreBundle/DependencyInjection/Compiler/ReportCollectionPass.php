@@ -18,5 +18,6 @@ class ReportCollectionPass implements CompilerPassInterface
         foreach ($container->findTaggedServiceIds('barometre.report') as $id => $attributes) {
             $definition->addMethodCall('addReport', array(new Reference($id)));
         }
+        $definition->addMethodCall('sortReports');
     }
 }

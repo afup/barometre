@@ -76,7 +76,7 @@
             </trans-unit>
             <trans-unit id="report.experience_salary.label">
                 <source>report.experience_salary.label</source>
-                <target>Salaire en fonction de l'éxperience</target>
+                <target>Salaire en fonction de l'expérience</target>
             </trans-unit>
             <trans-unit id="report.variable_salary.label">
                 <source>report.variable_salary.label</source>

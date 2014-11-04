@@ -20,6 +20,15 @@ class ReportCollection implements \IteratorAggregate
     }
 
     /**
+     * sort all reports by theirs keys
+     *
+     */
+    public function sortReports()
+    {
+        uasort($this->reports, array('Afup\Barometre\Report\AbstractReport', 'cmpReport'));
+    }
+
+    /**
      * Find a report by his name
      *
      * @param string $name

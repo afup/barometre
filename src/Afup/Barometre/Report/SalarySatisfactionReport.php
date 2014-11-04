@@ -31,4 +31,15 @@ class SalarySatisfactionReport extends AbstractReport
     {
         return 'salary_satisfaction';
     }
+
+
+    /**
+     * report weight
+     *
+     * @return int
+     */
+    public function getWeight()
+    {
+        return 5;
+    }
 }
