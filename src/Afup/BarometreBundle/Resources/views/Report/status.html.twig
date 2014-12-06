@@ -1,0 +1,21 @@
+<table class="table table-striped highchart tablesorter"
+       data-graph-container-before="1"
+       data-graph-type="column"
+       data-graph-legend-disabled="1">
+    <thead>
+    <tr>
+        <th>{{ "report.view.status" | trans }}</th>
+        <th>{{ "report.view.response_number" | trans }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in results %}
+        <tr>
+            <td>
+                {{ row.status|enum_label('status') }}
+            </td>
+            <td class="text-right">{{ row.nbResponse }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

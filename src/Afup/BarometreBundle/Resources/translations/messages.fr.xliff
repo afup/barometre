@@ -66,6 +66,10 @@
                 <source>report.company_type.label</source>
                 <target>Distribution des types d'entreprises</target>
             </trans-unit>
+            <trans-unit id="report.status.label">
+                <source>report.status.label</source>
+                <target>Distribution des statuts</target>
+            </trans-unit>
             <trans-unit id="report.salary.label">
                 <source>report.salary.label</source>
                 <target>Distribution des salaires</target>
@@ -113,6 +117,10 @@
             <trans-unit id="report.view.company_type">
                 <source>report.view.company_type</source>
                 <target>Type d'entreprise</target>
+            </trans-unit>
+            <trans-unit id="report.view.status">
+                <source>report.view.status</source>
+                <target>Statut</target>
             </trans-unit>
             <trans-unit id="report.view.experience">
                 <source>report.view.experience</source>
