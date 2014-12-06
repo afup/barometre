@@ -46,6 +46,10 @@
                 <source>filter.job_title</source>
                 <target>Intitulé du poste</target>
             </trans-unit>
+            <trans-unit id="filter.gender">
+                <source>filter.gender</source>
+                <target>Sexe</target>
+            </trans-unit>
             <trans-unit id="filter.status">
                 <source>filter.status</source>
                 <target>Statut</target>
