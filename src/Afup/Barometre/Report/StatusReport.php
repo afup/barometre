@@ -5,7 +5,7 @@ namespace Afup\Barometre\Report;
 /*
  * Report on status
  */
-class StatusReport  extends AbstractReport
+class StatusReport extends AbstractReport
 {
 
     /**
@@ -26,6 +26,7 @@ class StatusReport  extends AbstractReport
      */
     public function getName()
     {
+
         return 'status';
     }
-} 
+}
