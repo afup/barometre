@@ -10,7 +10,6 @@ use Afup\BarometreBundle\Enums\GenderEnums;
 use Doctrine\DBAL\Query\QueryBuilder;
 use Symfony\Component\Form\FormBuilderInterface;
 
-
 /**
  * Class GenderFilter
  * @package Afup\Barometre\Filter
@@ -39,8 +38,7 @@ class GenderFilter implements FilterInterface
      */
     public function buildQuery(QueryBuilder $queryBuilder, array $values = [])
     {
-        $values[$this->getName()] = array_filter($values[$this->getName()], 'strlen' );
-
+        $values[$this->getName()] = array_filter($values[$this->getName()], 'strlen');
         if (!array_key_exists($this->getName(), $values) || 0 === count($values[$this->getName()])) {
             return;
         }
@@ -66,9 +64,10 @@ class GenderFilter implements FilterInterface
      */
     public function convertValuesToLabels($value)
     {
+
         return array_map(function ($value) {
                 return $this->gender->getLabelById($value);
-            }, $value);
+        }, $value);
     }
 
     /**
@@ -91,4 +90,4 @@ class GenderFilter implements FilterInterface
     {
         return 'gender';
     }
-} 
+}
