@@ -77,6 +77,8 @@ class MenuBuilder
         ]);
         $menu['Résultats détaillés']->setChildrenAttribute('class', 'dropdown-menu');
 
+        $menu->setChildrenAttribute('class', 'nav navbar-nav');
+
         $this->addReportsMenuItems($menu['Résultats détaillés']);
 
         return $menu;
