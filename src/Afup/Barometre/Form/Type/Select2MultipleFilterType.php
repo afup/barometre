@@ -15,13 +15,15 @@ class Select2MultipleFilterType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->replaceDefaults([
-            'multiple' => true,
-            'required' => false,
-            'attr'     => [
-                'class' => 'select2'
-            ],
-        ]);
+        $resolver->setDefaults(
+            [
+                'multiple' => true,
+                'required' => false,
+                'attr'     => [
+                    'class' => 'select2'
+                ],
+            ]
+        );
     }
 
     /**
