@@ -13,6 +13,7 @@
         <parameter key="afup.barometre.filter.experience.class">Afup\Barometre\Filter\ExperienceFilter</parameter>
         <parameter key="afup.barometre.filter.salary_satisfaction.class">Afup\Barometre\Filter\SalarySatisfactionFilter</parameter>
         <parameter key="afup.barometre.filter.job_title.class">Afup\Barometre\Filter\JobTitleFilter</parameter>
+        <parameter key="afup.barometre.filter.gender.class">Afup\Barometre\Filter\GenderFilter</parameter>
         <parameter key="afup.barometre.filter.status.class">Afup\Barometre\Filter\StatusFilter</parameter>
         <parameter key="afup.barometre.filter.campaign.class">Afup\Barometre\Filter\CampaignFilter</parameter>
     </parameters>
@@ -62,6 +63,11 @@
         <service id="afup.barometre.filter.job_title" class="%afup.barometre.filter.job_title.class%">
             <argument type="service" id="afup.barometre.enums.job_title" />
             <tag name="barometre.filter" alias="job_title" />
+        </service>
+
+        <service id="afup.barometre.filter.gender" class="%afup.barometre.filter.gender.class%">
+            <argument type="service" id="afup.barometre.enums.gender" />
+            <tag name="barometre.filter" alias="gender" />
         </service>
 
         <service id="afup.barometre.filter.campaign" class="%afup.barometre.filter.campaign.class%">
