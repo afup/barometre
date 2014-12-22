@@ -1,5 +1,6 @@
 {
     "name": "afup/barometre",
+    "description": "Baromètre des salaires du PHP",
     "license": "MIT",
     "type": "project",
     "autoload": {
