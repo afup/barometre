@@ -4,7 +4,6 @@ namespace Afup\BarometreBundle\Campaign\Importer;
 
 use Afup\BarometreBundle\Campaign\Format\FormatInterface;
 use Afup\BarometreBundle\Campaign\ResponseFactory;
-use Afup\BarometreBundle\Campaign\ResponseFormat;
 use Afup\BarometreBundle\Entity\Campaign;
 use Doctrine\Common\Persistence\ObjectManager;
 use SplFileObject;

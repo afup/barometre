@@ -2,7 +2,6 @@
 
 namespace Afup\BarometreBundle\DataTest\ORM;
 
-use Afup\BarometreBundle\DataTest\ArrayRandomValueProvider;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Nelmio\Alice\Fixtures;
