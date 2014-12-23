@@ -2,6 +2,7 @@
 
 namespace Afup\Barometre\Filter;
 
+use Afup\BarometreBundle\Entity\Campaign;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\FormBuilderInterface;
 use Doctrine\DBAL\Query\QueryBuilder;
@@ -30,13 +31,13 @@ class CampaignFilter implements FilterInterface
     /**
      * {@inheritdoc}
      */
-    public function buildQuery(QueryBuilder $queryBuilder, array $values = array())
+    public function buildQuery(QueryBuilder $queryBuilder, array $values = [])
     {
         if (!array_key_exists($this->getName(), $values) || 0 === count($values[$this->getName()])) {
             return;
         }
 
-        $campaigns = array_map(function ($item) {
+        $campaigns = array_map(function (Campaign $item) {
             return $item->getId();
         }, $values[$this->getName()]->toArray());
 
