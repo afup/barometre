@@ -17,3 +17,5 @@ parameters:
     ga_enabled: false
 
     min_result:        5
+
+    doctrine.server_version: "5.6"
