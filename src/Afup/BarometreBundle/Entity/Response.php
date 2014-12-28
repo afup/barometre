@@ -442,12 +442,12 @@ class Response
     }
 
     /**
-     * @param boolean $isRecentTrainingHadSalaryImpact
+     * @param boolean $recentTrainingHadSalaryImpact
      * @return Response
      */
-    public function setIsRecentTrainingHadSalaryImpact($isRecentTrainingHadSalaryImpact)
+    public function setRecentTrainingHadSalaryImpact($recentTrainingHadSalaryImpact)
     {
-        $this->isRecentTrainingHadSalaryImpact = $isRecentTrainingHadSalaryImpact;
+        $this->isRecentTrainingHadSalaryImpact = $recentTrainingHadSalaryImpact;
 
         return $this;
     }
@@ -455,7 +455,7 @@ class Response
     /**
      * @return boolean
      */
-    public function getIsRecentTrainingHadSalaryImpact()
+    public function getRecentTrainingHadSalaryImpact()
     {
         return $this->isRecentTrainingHadSalaryImpact;
     }

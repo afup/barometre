@@ -25,6 +25,6 @@ Afup\BarometreBundle\Entity\Response:
         phpVersion: <enums('php_version')>
         phpStrength: <enums('php_strength')>
         hasRecentTraining: <numberBetween(0, 1)>
-        isRecentTrainingHadSalaryImpact: <numberBetween(0, 1)>
+        recentTrainingHadSalaryImpact: <numberBetween(0, 1)>
         specialities: 50%? <numberBetween(1, 7)>x @speciality*
         certifications: 50%? <numberBetween(1, 2)>x @certification*

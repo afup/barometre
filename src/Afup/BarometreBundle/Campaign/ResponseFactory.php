@@ -112,7 +112,7 @@ class ResponseFactory
         $response->setHasRecentTraining(
             "oui" === strtolower($data["has_formation"])
         );
-        $response->setIsRecentTrainingHadSalaryImpact(
+        $response->setRecentTrainingHadSalaryImpact(
             "oui" === strtolower($data["formation_impact"])
         );
 
