@@ -38,7 +38,6 @@ class GenderFilter implements FilterInterface
      */
     public function buildQuery(QueryBuilder $queryBuilder, array $values = [])
     {
-        $values[$this->getName()] = array_filter($values[$this->getName()], 'strlen');
         if (!array_key_exists($this->getName(), $values) || 0 === count($values[$this->getName()])) {
             return;
         }
