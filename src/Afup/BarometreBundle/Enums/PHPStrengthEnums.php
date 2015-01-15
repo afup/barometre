@@ -20,4 +20,12 @@ class PHPStrengthEnums extends AbstractEnums
         self::PERFORMANCE          => "Sa performance",
         self::FACILITE_UTILISATION => "Sa facilité d'utilisation",
     );
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getDefaultValue()
+    {
+        return null;
+    }
 }

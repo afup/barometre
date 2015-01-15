@@ -23,4 +23,12 @@ class CompanyTypeEnums extends AbstractEnums
         self::EDITEUR      => "Editeur",
         self::AUTRE        => "Autre",
     );
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getDefaultValue()
+    {
+        return null;
+    }
 }

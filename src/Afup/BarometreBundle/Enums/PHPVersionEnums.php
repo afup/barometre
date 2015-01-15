@@ -22,4 +22,12 @@ class PHPVersionEnums extends AbstractEnums
         self::PHP_55 => 'PHP 5.5',
         self::PHP_56 => 'PHP 5.6',
     );
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getDefaultValue()
+    {
+        return null;
+    }
 }

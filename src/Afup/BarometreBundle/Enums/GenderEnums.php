@@ -16,4 +16,12 @@ class GenderEnums extends AbstractEnums
         self::FEMALE => 'Femmes',
         self::NONE => 'Non précisé',
     );
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getDefaultValue()
+    {
+        return self::NONE;
+    }
 }

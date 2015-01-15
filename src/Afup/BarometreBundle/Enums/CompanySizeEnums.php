@@ -15,7 +15,7 @@ class CompanySizeEnums extends AbstractEnums
     /**
      * @var array
      */
-    protected $choices = array(
+    protected $choices = [
         self::FREELANCE    => 'Freelance ou entreprise individuelle',
         self::DE_2_A_9     => 'De 2 à 9 salariés',
         self::DE_10_A_49   => 'De 10 à 49 salariés',
@@ -23,5 +23,13 @@ class CompanySizeEnums extends AbstractEnums
         self::DE_200_A_499 => 'De 200 à 499 salariés',
         self::DE_500_A_999 => 'De 500 à 999 salariés',
         self::PLUS_DE_1000 => 'Plus de 1000 salariés',
-    );
+    ];
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getDefaultValue()
+    {
+        return null;
+    }
 }

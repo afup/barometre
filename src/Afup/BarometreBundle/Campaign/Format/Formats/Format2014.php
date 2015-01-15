@@ -3,7 +3,6 @@
 namespace Afup\BarometreBundle\Campaign\Format\Formats;
 
 use Afup\BarometreBundle\Campaign\Format\FormatInterface;
-use Afup\BarometreBundle\Enums\ExperienceEnums;
 use Afup\BarometreBundle\Enums\SalarySatisfactionEnums;
 
 class Format2014 implements FormatInterface
@@ -66,7 +65,7 @@ class Format2014 implements FormatInterface
 
         $status = explode(',', $data['status']);
 
-        $data['status'] = isset($status[0]) ? ucfirst($status[0]) : '';
+        $data['status'] = isset($status[0]) ? ucfirst($status[0]) : 'Autre';
 
         if ($data['initial_training'] === 'Niveau Master2  ou ingénieur') {
             $data['initial_training'] = 'Niveau Master2 ou ingénieur';

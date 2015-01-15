@@ -6,7 +6,7 @@ abstract class AbstractEnums implements EnumsInterface
 {
     const AUTRE = 0;
 
-    protected $choices = array();
+    protected $choices = [];
 
     /**
      * {@inheritdoc}
@@ -23,7 +23,7 @@ abstract class AbstractEnums implements EnumsInterface
     {
         $key = array_search(trim($label), $this->choices);
 
-        return false === $key ? null : $key;
+        return false === $key ? $this->getDefaultValue() : $key;
     }
 
     /**
@@ -32,5 +32,13 @@ abstract class AbstractEnums implements EnumsInterface
     public function getLabelById($id)
     {
         return isset($this->choices[$id])? $this->choices[$id] : null;
+    }
+
+    /**
+     * @return int
+     */
+    protected function getDefaultValue()
+    {
+        return self::AUTRE;
     }
 }

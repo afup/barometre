@@ -21,4 +21,12 @@ class InitialTrainingEnums extends AbstractEnums
         self::MASTER      => 'Niveau Master2 ou ingénieur',
         self::AUTRE       => 'Autre',
     );
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function getDefaultValue()
+    {
+        return null;
+    }
 }
