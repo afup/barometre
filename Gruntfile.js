@@ -255,7 +255,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('test', ['shell:atoum']);
   grunt.registerTask('lint', ['shell:coke', 'jshint', 'scsslint']);
-  grunt.registerTask('common', ['clean', 'copy', 'cssUrlRewrite', 'webfont_svg_extractor', 'webfont', 'sass', 'concat']);
+  grunt.registerTask('common', ['clean', 'copy', 'cssUrlRewrite', 'webfont_svg_extractor', 'webfont', 'sass', 'concat', 'favicons']);
   grunt.registerTask('dev', ['common', 'hash']);
   grunt.registerTask('default', ['common', 'uglify', 'cssmin', 'hash']);
 
