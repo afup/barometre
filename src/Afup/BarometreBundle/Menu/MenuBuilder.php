@@ -61,7 +61,7 @@ class MenuBuilder
     {
         $menu = $this->getBaseMenu();
 
-        $menu->addChild('Rapports', [
+        $menu->addChild('Résultats détaillés', [
             'attributes' => [
                 'class' => 'dropdown'
             ],
@@ -71,13 +71,13 @@ class MenuBuilder
             ]
         ]);
 
-        $menu['Rapports']->setLinkAttributes([
+        $menu['Résultats détaillés']->setLinkAttributes([
             'class' => 'dropdown-toggle',
             'data-toggle' => 'dropdown'
         ]);
-        $menu['Rapports']->setChildrenAttribute('class', 'dropdown-menu');
+        $menu['Résultats détaillés']->setChildrenAttribute('class', 'dropdown-menu');
 
-        $this->addReportsMenuItems($menu['Rapports']);
+        $this->addReportsMenuItems($menu['Résultats détaillés']);
 
         return $menu;
     }
