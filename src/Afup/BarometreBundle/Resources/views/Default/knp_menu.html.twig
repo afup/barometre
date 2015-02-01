@@ -1,10 +1,5 @@
 {% extends 'knp_menu.html.twig' %}
 
-{% block list %}
-    {% set listAttributes = listAttributes|merge({class: 'nav navbar-nav'}) %}
-    {{ parent() }}
-{% endblock %}
-
 {% block label %}
     {{ item.label|trans }}
     {% if item.hasChildren %}

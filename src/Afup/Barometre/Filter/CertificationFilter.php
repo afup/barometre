@@ -2,6 +2,7 @@
 
 namespace Afup\Barometre\Filter;
 
+use Afup\BarometreBundle\Entity\Certification;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\FormBuilderInterface;
 use Doctrine\DBAL\Query\QueryBuilder;
@@ -30,14 +31,14 @@ class CertificationFilter implements FilterInterface
     /**
      * {@inheritdoc}
      */
-    public function buildQuery(QueryBuilder $queryBuilder, array $values = array())
+    public function buildQuery(QueryBuilder $queryBuilder, array $values = [])
     {
         if (!array_key_exists($this->getName(), $values) || 0 === count($values[$this->getName()])) {
             return;
         }
 
         $certifications = $values[$this->getName()]->toArray();
-        $certifications = array_map(function ($item) {
+        $certifications = array_map(function (Certification $item) {
             return $item->getId();
         }, $certifications);
 

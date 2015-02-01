@@ -2,6 +2,7 @@
 
 namespace Afup\Barometre\Filter;
 
+use Afup\BarometreBundle\Entity\Speciality;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\FormBuilderInterface;
 use Doctrine\DBAL\Query\QueryBuilder;
@@ -30,14 +31,14 @@ class SpecialityFilter implements FilterInterface
     /**
      * {@inheritdoc}
      */
-    public function buildQuery(QueryBuilder $queryBuilder, array $values = array())
+    public function buildQuery(QueryBuilder $queryBuilder, array $values = [])
     {
         if (!array_key_exists($this->getName(), $values) || 0 === count($values[$this->getName()])) {
             return;
         }
 
         $specialities = $values[$this->getName()]->toArray();
-        $specialities = array_map(function ($item) {
+        $specialities = array_map(function (Speciality $item) {
             return $item->getId();
         }, $specialities);
 
