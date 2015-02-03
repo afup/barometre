@@ -11,7 +11,7 @@ afup_barometre_about:
 
 afup_barometre_2015form:
     pattern: /campaigns/2015
-    defaults: {_controller: AfupBarometreBundle:Campaign:Form2015 }
+    defaults: {_controller: AfupBarometreBundle:Campaign:form2015 }
 
 
 afup_barometre_report:
