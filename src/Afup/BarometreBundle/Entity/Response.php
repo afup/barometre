@@ -352,7 +352,7 @@ class Response
      */
     public function setCompanyDepartment($companyDepartment)
     {
-        $this->companyDepartment = $companyDepartment;
+        $this->companyDepartment = str_pad($companyDepartment, 2, "0", STR_PAD_LEFT);
 
         return $this;
     }
