@@ -9,6 +9,10 @@ afup_barometre_about:
     pattern: /about
     defaults: {_controller: AfupBarometreBundle:About:index }
 
+afup_barometre_2015form:
+    pattern: /campaigns/2015
+    defaults: {_controller: AfupBarometreBundle:Campaign:form2015 }
+
 afup_barometre_report:
     pattern:  /report/{reportName}
     defaults: { _controller: AfupBarometreBundle:Default:index }

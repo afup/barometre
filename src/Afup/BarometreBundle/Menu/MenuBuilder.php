@@ -52,6 +52,13 @@ class MenuBuilder
             ]
         );
 
+        $menu->addChild(
+            'Questionnaire 2015',
+            [
+                'route' => 'afup_barometre_2015form',
+            ]
+        );
+
         return $menu;
     }
 
