@@ -43,6 +43,7 @@ class MenuBuilder
     protected function getBaseMenu()
     {
         $menu = $this->factory->createItem('menu');
+        $menu->setChildrenAttribute('class', 'nav navbar-nav');
 
         $menu->addChild(
             'A propos du baromètre',
@@ -77,7 +78,6 @@ class MenuBuilder
         ]);
         $menu['Résultats détaillés']->setChildrenAttribute('class', 'dropdown-menu');
 
-        $menu->setChildrenAttribute('class', 'nav navbar-nav');
 
         $this->addReportsMenuItems($menu['Résultats détaillés']);
 
