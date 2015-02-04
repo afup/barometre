@@ -10,6 +10,7 @@
     "colorbrewer": "~1.0.0",
     "d3": "~2.10.3",
     "bootstrap": "v3.2.0",
-    "fontawesome": "v4.2.0"
+    "fontawesome": "v4.2.0",
+    "github-fork-ribbon-css": "0.1.1"
   }
 }

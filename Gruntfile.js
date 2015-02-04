@@ -12,7 +12,8 @@ module.exports = function(grunt) {
           {expand: true, cwd: 'bower_components/bootstrap-sass-official/vendor/assets/stylesheets/', src: ['**'], dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/'},
           {expand: true, cwd: 'bower_components/select2/', src: ['select2-bootstrap.scss'], dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/'},
           {expand: false, src: 'bower_components/jquery.tablesorter/css/theme.bootstrap.css', dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/tablesorter.theme.bootstrap.scss'},
-          {expand: false, src: 'bower_components/colorbrewer/colorbrewer.css', dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/colorbrewer.scss'}
+          {expand: false, src: 'bower_components/colorbrewer/colorbrewer.css', dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/colorbrewer.scss'},
+          {expand: false, src: 'bower_components/github-fork-ribbon-css/gh-fork-ribbon.css',  dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/github-fork-ribbon/gh-fork-ribbon.scss'}
         ]
       }
     },
