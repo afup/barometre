@@ -33,10 +33,12 @@ class SpecialitySalaryReport extends AbstractReport
 
         $results = $this->queryBuilder->execute();
 
+        // top 4 technos
         $framework = [
             'Symfony',
             'Zend Framework',
-            'Framework propriétaire'
+            'Wordpress',
+            'Drupal'
         ];
 
         $otherFramework = 'report.view.other_framework';
