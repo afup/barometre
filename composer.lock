@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d2629973c09b85c67f495629b8dec055",
+    "hash": "1f9b06b2bfc11e132e2f45eed20acdd5",
     "packages": [
         {
             "name": "agallou/departements",
@@ -2566,7 +2566,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.3.3"
+        "php": ">=5.5"
     },
     "platform-dev": []
 }
