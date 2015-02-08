@@ -53,11 +53,11 @@ class SalaryFilter implements FilterInterface
      */
     public function convertValuesToLabels($value)
     {
-        if (null !== $value['min']) {
+        if (isset($value['min'])) {
             $value['min'] = '>= '.$value['min'];
         }
 
-        if (null !== $value['max']) {
+        if (isset($value['max'])) {
             $value['max'] = '<= '.$value['max'];
         }
 
