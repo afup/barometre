@@ -19,3 +19,5 @@ parameters:
     min_result:        5
 
     doctrine.server_version: "5.6"
+
+    web_root: ''
