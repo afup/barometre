@@ -35,6 +35,15 @@ class SalaryFilter implements FilterInterface
             return;
         }
 
+        //Switch min and max salary if user has inverted the fields
+        if (isset($values['salary']['min'])
+            && isset($values['salary']['max'])
+            && $values['salary']['max'] < $values['salary']['min']
+            ) {
+            list($values['salary']['min'], $values['salary']['max']) =
+                [$values['salary']['max'], $values['salary']['min']];
+        }
+
         if (isset($values['salary']['min'])) {
             $queryBuilder
                 ->andWhere('response.grossAnnualSalary >= :minSalary')
@@ -53,6 +62,11 @@ class SalaryFilter implements FilterInterface
      */
     public function convertValuesToLabels($value)
     {
+        //Switch min and max if user has inverted the fields
+        if (isset($value['min']) && isset($value['max']) && $value['max'] < $value['min']) {
+            list($value['max'], $value['min']) = [$value['min'], $value['max']];
+        }
+
         if (isset($value['min'])) {
             $value['min'] = '>= '.$value['min'];
         }
