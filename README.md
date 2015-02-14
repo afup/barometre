@@ -53,6 +53,17 @@ Pour les builder automatiquement à chaque modification :
 ./node_modules/.bin/grunt watch
 ```
 
+### Si vous avez une erreur `Cannot find module './build/Release/shell'`
+
+Il peut être necessaire de rebuilder execSync. Pour se faire :
+
+1. Une version non 'pre' de node est necessaire
+2. Installer node-gyp (globalement : `sudo npm install -g node-gyp`)
+3. Se placer dans le bon répertoire `cd node_modules/grunt-favicons/node_modules/execSync`
+4. Executer `node-gyp rebuild`
+
+Vous pouvez retourner dans le répertoire racine et relancer la commande grunt.
+
 Construction de la base de donnée
 ---------------------------------
 
