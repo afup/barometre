@@ -21,6 +21,17 @@ $(document).ready(function () {
                 };
             }
 
+            if ($(this).hasClass('highchart-value-and-percent')) {
+                highChartConfig.plotOptions.series = {
+                    dataLabels: {
+                        useHTML: true,
+                        formatter : function () {
+                            return '<b>' + this.point.name + '</b> : ' + this.y + ' (' + this.percentage.toFixed(2) + '%)';
+                        }
+                    }
+                };
+            }
+
             highChartConfig.colors[0] = '#4C6EAF';
             var align = $(this).data('graph-xaxis-labels-align');
             if (align !== undefined) {
