@@ -1,4 +1,14 @@
-<table class="highchart highchart-align-xaxis-left-labels table table-striped tablesorter"
+{%  set phpVersionColors = {
+    (constant('Afup\\BarometreBundle\\Enums\\PHPVersionEnums::PHP_4')):'#4C6EAF',
+    (constant('Afup\\BarometreBundle\\Enums\\PHPVersionEnums::PHP_52')):'#89A54E',
+    (constant('Afup\\BarometreBundle\\Enums\\PHPVersionEnums::PHP_53')):'#80699B',
+    (constant('Afup\\BarometreBundle\\Enums\\PHPVersionEnums::PHP_54')):'#3D96AE',
+    (constant('Afup\\BarometreBundle\\Enums\\PHPVersionEnums::PHP_55')):'#DB843D',
+    (constant('Afup\\BarometreBundle\\Enums\\PHPVersionEnums::PHP_56')):'#AA4643',
+}
+%}
+
+<table class="highchart highchart-align-xaxis-left-labels highchart-value-and-percent table table-striped tablesorter"
        data-graph-datalabels-enabled="1"
        data-graph-container-before="1"
        data-graph-type="pie"
@@ -15,7 +25,10 @@
     {% for row in results %}
         <tr>
             <td>{{ row.phpVersion|enum_label('php_version') }}</td>
-            <td data-graph-name="{{ row.phpVersion|enum_label('php_version') }}" class="text-right">{{ row.nbResponse }}</td>
+            <td data-graph-item-color="{{ phpVersionColors[row.phpVersion] }}"
+                data-graph-name="{{ row.phpVersion|enum_label('php_version') }}"
+                class="text-right">{{ row.nbResponse }}
+            </td>
         </tr>
     {% endfor %}
     </tbody>
