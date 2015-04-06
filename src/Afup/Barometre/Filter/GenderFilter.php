@@ -7,6 +7,7 @@ namespace Afup\Barometre\Filter;
 
 use Afup\Barometre\Form\Type\Select2MultipleFilterType;
 use Afup\BarometreBundle\Enums\GenderEnums;
+use Doctrine\DBAL\Query\Expression\CompositeExpression;
 use Doctrine\DBAL\Query\QueryBuilder;
 use Symfony\Component\Form\FormBuilderInterface;
 
@@ -42,7 +43,20 @@ class GenderFilter implements FilterInterface
             return;
         }
 
-        $queryBuilder->andWhere($queryBuilder->expr()->in('response.gender', $values[$this->getName()]));
+        $condition = array_map(
+            function ($value) use ($queryBuilder) {
+                if ($value === '') {
+                    return $queryBuilder->expr()->isNull('response.gender');
+                }
+
+                return $queryBuilder->expr()->eq('response.gender', $value);
+            },
+            $values[$this->getName()]
+        );
+
+        $queryBuilder->andWhere(
+            new CompositeExpression(CompositeExpression::TYPE_OR, $condition)
+        );
     }
 
     /**
