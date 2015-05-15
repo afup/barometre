@@ -45,7 +45,9 @@ class Format2014 implements FormatInterface
      */
     public function alterData(array $data)
     {
-        if ($data['experience'] == '2 à 5 ans') {
+        if (trim($data['experience']) == '') {
+            $data['experience'] = "0 à 2 ans";
+        } elseif ($data['experience'] == '2 à 5 ans') {
             $data['experience'] = "3 à 5 ans";
         } elseif ($data['experience'] == '5 à 10 ans') {
             $data['experience'] = "6 à 10 ans";
