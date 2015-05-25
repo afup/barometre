@@ -2,7 +2,7 @@ afup_barometre_homepage:
     pattern: /
     defaults:
         _controller: FrameworkBundle:Redirect:urlRedirect
-        path: /about
+        path: /campaigns/2015
         permanent: true
 
 afup_barometre_about:
