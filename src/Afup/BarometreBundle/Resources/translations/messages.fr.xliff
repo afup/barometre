@@ -134,17 +134,29 @@
                 <source>report.view.salary</source>
                 <target>Salaire</target>
             </trans-unit>
+            <trans-unit id="report.view.gross_annual_salary">
+                <source>report.view.gross_annual_salary</source>
+                <target>Salaire fixe annuel</target>
+            </trans-unit>
+
+            <trans-unit id="report.view.variable_annual_salary">
+                <source>report.view.variable_annual_salary</source>
+                <target>Salaire variable annuel</target>
+            </trans-unit>
+
             <trans-unit id="report.view.annual_salary">
                 <source>report.view.annual_salary</source>
-                <target>Salaire annuel</target>
+                <target>Salaire annuel (fixe + variable)</target>
             </trans-unit>
+
+            <trans-unit id="report.view.info_annual_salary">
+                <source>report.view.info_annual_salary</source>
+                <target>Le salaire indiqué est le salaire fixe et variable</target>
+            </trans-unit>
+
             <trans-unit id="report.view.speciality">
                 <source>report.view.speciality</source>
                 <target>Spécialité</target>
-            </trans-unit>
-            <trans-unit id="report.view.variable_annual_salary">
-                <source>report.view.variable_annual_salary</source>
-                <target>Salaire annuel variable</target>
             </trans-unit>
             <trans-unit id="report.view.other_framework">
                 <source>report.view.other_framework</source>
