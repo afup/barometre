@@ -16,3 +16,4 @@
 /src/Afup/BarometreBundle/Resources/assets/sass/generated/
 /.sass-cache/
 /app/Resources/views/favicons/
+/.vagrant/
