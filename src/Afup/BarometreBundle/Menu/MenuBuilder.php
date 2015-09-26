@@ -78,7 +78,6 @@ class MenuBuilder
         ]);
         $menu['menu.results']->setChildrenAttribute('class', 'dropdown-menu');
 
-
         $this->addReportsMenuItems($menu['menu.results']);
 
         return $menu;
@@ -116,7 +115,6 @@ class MenuBuilder
         $filters = $this->context->getParameters();
 
         foreach ($this->reports as $report) {
-
             $routeParameters = ['reportName' => $report->getName()];
 
             if (count($filters) > 0) {

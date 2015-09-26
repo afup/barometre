@@ -1,10 +1,6 @@
 <?php
-/**
- * PHP version report
- */
 
 namespace Afup\Barometre\Report;
-
 
 class PhpVersionReport extends AbstractReport
 {
@@ -22,7 +18,6 @@ class PhpVersionReport extends AbstractReport
             ->groupBy('response.phpVersion');
 
         $this->data = $this->queryBuilder->execute();
-
     }
 
     /**

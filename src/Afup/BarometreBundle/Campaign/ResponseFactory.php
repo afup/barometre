@@ -144,7 +144,6 @@ class ResponseFactory
     protected function addCertification(Response $response, array $certificationList)
     {
         foreach ($certificationList as $certification) {
-
             $certification = $this->certificationRepository->findOneBy(
                 array(
                     'name' => trim($certification)

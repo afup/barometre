@@ -2,66 +2,51 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services
                                http://symfony.com/schema/dic/services/services-1.0.xsd">
-    <parameters>
-        <parameter key="afup.barometre.enums_collection.class">Afup\BarometreBundle\Enums\EnumsCollection</parameter>
-        <parameter key="afup.barometre.enums.company_size.class">Afup\BarometreBundle\Enums\CompanySizeEnums</parameter>
-        <parameter key="afup.barometre.enums.company_type.class">Afup\BarometreBundle\Enums\CompanyTypeEnums</parameter>
-        <parameter key="afup.barometre.enums.initial_training.class">Afup\BarometreBundle\Enums\InitialTrainingEnums</parameter>
-        <parameter key="afup.barometre.enums.job_interest.class">Afup\BarometreBundle\Enums\JobInterestEnums</parameter>
-        <parameter key="afup.barometre.enums.job_title.class">Afup\BarometreBundle\Enums\JobTitleEnums</parameter>
-        <parameter key="afup.barometre.enums.php_strength.class">Afup\BarometreBundle\Enums\PHPStrengthEnums</parameter>
-        <parameter key="afup.barometre.enums.php_version.class">Afup\BarometreBundle\Enums\PHPVersionEnums</parameter>
-        <parameter key="afup.barometre.enums.status.class">Afup\BarometreBundle\Enums\StatusEnums</parameter>
-        <parameter key="afup.barometre.enums.experience.class">Afup\BarometreBundle\Enums\ExperienceEnums</parameter>
-        <parameter key="afup.barometre.enums.gender.class">Afup\BarometreBundle\Enums\GenderEnums</parameter>
-        <parameter key="afup.barometre.enums.salary_satisfaction.class">Afup\BarometreBundle\Enums\SalarySatisfactionEnums</parameter>
-    </parameters>
-
     <services>
 
-        <service id="afup.barometre.enums_collection" class="%afup.barometre.enums_collection.class%" />
+        <service id="afup.barometre.enums_collection" class="Afup\BarometreBundle\Enums\EnumsCollection" />
 
-        <service id="afup.barometre.enums.company_size" class="%afup.barometre.enums.company_size.class%">
+        <service id="afup.barometre.enums.company_size" class="Afup\BarometreBundle\Enums\CompanySizeEnums">
             <tag name="barometre.enums" alias="company_size"/>
         </service>
 
-        <service id="afup.barometre.enums.company_type" class="%afup.barometre.enums.company_type.class%">
+        <service id="afup.barometre.enums.company_type" class="Afup\BarometreBundle\Enums\CompanyTypeEnums">
             <tag name="barometre.enums" alias="company_type"/>
         </service>
 
-        <service id="afup.barometre.enums.initial_training" class="%afup.barometre.enums.initial_training.class%">
+        <service id="afup.barometre.enums.initial_training" class="Afup\BarometreBundle\Enums\InitialTrainingEnums">
             <tag name="barometre.enums" alias="initial_training"/>
         </service>
 
-        <service id="afup.barometre.enums.job_interest" class="%afup.barometre.enums.job_interest.class%">
+        <service id="afup.barometre.enums.job_interest" class="Afup\BarometreBundle\Enums\JobInterestEnums">
             <tag name="barometre.enums" alias="job_interest"/>
         </service>
 
-        <service id="afup.barometre.enums.job_title" class="%afup.barometre.enums.job_title.class%">
+        <service id="afup.barometre.enums.job_title" class="Afup\BarometreBundle\Enums\JobTitleEnums">
             <tag name="barometre.enums" alias="job_title"/>
         </service>
 
-        <service id="afup.barometre.enums.php_strength" class="%afup.barometre.enums.php_strength.class%">
+        <service id="afup.barometre.enums.php_strength" class="Afup\BarometreBundle\Enums\PHPStrengthEnums">
             <tag name="barometre.enums" alias="php_strength" />
         </service>
 
-        <service id="afup.barometre.enums.php_version" class="%afup.barometre.enums.php_version.class%">
+        <service id="afup.barometre.enums.php_version" class="Afup\BarometreBundle\Enums\PHPVersionEnums">
             <tag name="barometre.enums" alias="php_version" />
         </service>
 
-        <service id="afup.barometre.enums.status" class="%afup.barometre.enums.status.class%">
+        <service id="afup.barometre.enums.status" class="Afup\BarometreBundle\Enums\StatusEnums">
             <tag name="barometre.enums" alias="status" />
         </service>
 
-        <service id="afup.barometre.enums.experience" class="%afup.barometre.enums.experience.class%">
+        <service id="afup.barometre.enums.experience" class="Afup\BarometreBundle\Enums\ExperienceEnums">
             <tag name="barometre.enums" alias="experience" />
         </service>
 
-        <service id="afup.barometre.enums.gender" class="%afup.barometre.enums.gender.class%">
+        <service id="afup.barometre.enums.gender" class="Afup\BarometreBundle\Enums\GenderEnums">
             <tag name="barometre.enums" alias="gender" />
         </service>
 
-        <service id="afup.barometre.enums.salary_satisfaction" class="%afup.barometre.enums.salary_satisfaction.class%">
+        <service id="afup.barometre.enums.salary_satisfaction" class="Afup\BarometreBundle\Enums\SalarySatisfactionEnums">
             <tag name="barometre.enums" alias="salary_satisfaction" />
         </service>
     </services>

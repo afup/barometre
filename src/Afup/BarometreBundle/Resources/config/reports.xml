@@ -2,87 +2,64 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services
                                http://symfony.com/schema/dic/services/services-1.0.xsd">
-    <parameters>
-        <parameter key="afup.barometre.report.company_size.class">Afup\Barometre\Report\CompanySizeReport</parameter>
-        <parameter key="afup.barometre.report.salary.class">Afup\Barometre\Report\SalaryReport</parameter>
-        <parameter key="afup.barometre.report.company_type.class">Afup\Barometre\Report\CompanyTypeReport</parameter>
-        <parameter key="afup.barometre.report.status.class">Afup\Barometre\Report\StatusReport</parameter>
-        <parameter key="afup.barometre.report.company_department.class">Afup\Barometre\Report\CompanyDepartmentReport</parameter>
-        <parameter key="afup.barometre.report.speciality.class">Afup\Barometre\Report\SpecialityReport</parameter>
-        <parameter key="afup.barometre.report.experience_salary.class">Afup\Barometre\Report\ExperienceSalaryReport</parameter>
-        <parameter key="afup.barometre.report.variable_salary.class">Afup\Barometre\Report\VariableSalaryReport</parameter>
-        <parameter key="afup.barometre.report.company_type_salary.class">Afup\Barometre\Report\CompanyTypeSalaryReport</parameter>
-        <parameter key="afup.barometre.report.company_size_salary.class">Afup\Barometre\Report\CompanySizeSalaryReport</parameter>
-        <parameter key="afup.barometre.report.speciality_salary.class">Afup\Barometre\Report\SpecialitySalaryReport</parameter>
-        <parameter key="afup.barometre.report.salary_satisfaction.class">Afup\Barometre\Report\SalarySatisfactionReport</parameter>
-        <parameter key="afup.barometre.report.gender.class">Afup\Barometre\Report\GenderReport</parameter>
-        <parameter key="afup.barometre.report.php_version.class">Afup\Barometre\Report\PhpVersionReport</parameter>
-        <parameter key="afup.barometre.parameters.report.min_result">10</parameter>
-    </parameters>
-
     <services>
-        <service id="afup.barometre.report.company_size" class="%afup.barometre.report.company_size.class%">
+        <service id="afup.barometre.report.abstract" abstract="true" public="false">
+            <argument>%min_result%</argument>
+        </service>
+
+        <service id="afup.barometre.report.company_size" class="Afup\Barometre\Report\CompanySizeReport" parent="afup.barometre.report.abstract">
             <tag name="barometre.report" />
         </service>
 
-        <service id="afup.barometre.report.salary" class="%afup.barometre.report.salary.class%">
-            <argument>%afup.barometre.parameters.report.min_result%</argument>
+        <service id="afup.barometre.report.salary" class="Afup\Barometre\Report\SalaryReport"  parent="afup.barometre.report.abstract">
             <tag name="barometre.report" />
         </service>
 
-        <service id="afup.barometre.report.company_type" class="%afup.barometre.report.company_type.class%">
+        <service id="afup.barometre.report.company_type" class="Afup\Barometre\Report\CompanyTypeReport" parent="afup.barometre.report.abstract">
             <tag name="barometre.report" />
         </service>
 
-        <service id="afup.barometre.report.status" class="%afup.barometre.report.status.class%">
+        <service id="afup.barometre.report.status" class="Afup\Barometre\Report\StatusReport" parent="afup.barometre.report.abstract">
             <tag name="barometre.report" />
         </service>
 
-        <service id="afup.barometre.report.company_department" class="%afup.barometre.report.company_department.class%">
+        <service id="afup.barometre.report.company_department" class="Afup\Barometre\Report\CompanyDepartmentReport" parent="afup.barometre.report.abstract">
             <tag name="barometre.report" />
         </service>
 
-        <service id="afup.barometre.report.speciality" class="%afup.barometre.report.speciality.class%">
+        <service id="afup.barometre.report.speciality" class="Afup\Barometre\Report\SpecialityReport" parent="afup.barometre.report.abstract">
             <tag name="barometre.report" />
         </service>
 
-        <service id="afup.barometre.report.experience_salary" class="%afup.barometre.report.experience_salary.class%">
-            <argument>%afup.barometre.parameters.report.min_result%</argument>
+        <service id="afup.barometre.report.experience_salary" class="Afup\Barometre\Report\ExperienceSalaryReport" parent="afup.barometre.report.abstract">
             <tag name="barometre.report" />
         </service>
 
-        <service id="afup.barometre.report.variable_salary" class="%afup.barometre.report.variable_salary.class%">
-            <argument>%afup.barometre.parameters.report.min_result%</argument>
+        <service id="afup.barometre.report.variable_salary" class="Afup\Barometre\Report\VariableSalaryReport" parent="afup.barometre.report.abstract">
             <tag name="barometre.report" />
         </service>
 
-        <service id="afup.barometre.report.company_type_salary" class="%afup.barometre.report.company_type_salary.class%">
-            <argument>%afup.barometre.parameters.report.min_result%</argument>
+        <service id="afup.barometre.report.company_type_salary" class="Afup\Barometre\Report\CompanyTypeReport" parent="afup.barometre.report.abstract">
             <tag name="barometre.report" />
         </service>
 
-        <service id="afup.barometre.report.company_size_salary" class="%afup.barometre.report.company_size_salary.class%">
-            <argument>%afup.barometre.parameters.report.min_result%</argument>
+        <service id="afup.barometre.report.company_size_salary" class="Afup\Barometre\Report\CompanySizeSalaryReport" parent="afup.barometre.report.abstract">
             <tag name="barometre.report" />
         </service>
 
-        <service id="afup.barometre.report.speciality_salary" class="%afup.barometre.report.speciality_salary.class%">
-            <argument>%afup.barometre.parameters.report.min_result%</argument>
+        <service id="afup.barometre.report.speciality_salary" class="Afup\Barometre\Report\SpecialitySalaryReport" parent="afup.barometre.report.abstract">
             <tag name="barometre.report" />
         </service>
 
-        <service id="afup.barometre.report.salary_satisfaction" class="%afup.barometre.report.salary_satisfaction.class%">
-            <argument>%afup.barometre.parameters.report.min_result%</argument>
+        <service id="afup.barometre.report.salary_satisfaction" class="Afup\Barometre\Report\SalarySatisfactionReport" parent="afup.barometre.report.abstract">
             <tag name="barometre.report" />
         </service>
 
-        <service id="afup.barometre.report.php_version" class="%afup.barometre.report.php_version.class%">
-            <argument>%afup.barometre.parameters.report.min_result%</argument>
+        <service id="afup.barometre.report.php_version" class="Afup\Barometre\Report\PhpVersionReport" parent="afup.barometre.report.abstract">
             <tag name="barometre.report" />
         </service>
 
-        <service id="afup.barometre.report.gender" class="%afup.barometre.report.gender.class%">
-            <argument>%afup.barometre.parameters.report.min_result%</argument>
+        <service id="afup.barometre.report.gender" class="Afup\Barometre\Report\GenderReport" parent="afup.barometre.report.abstract">
             <tag name="barometre.report" />
         </service>
     </services>

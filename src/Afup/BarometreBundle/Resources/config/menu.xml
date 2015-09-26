@@ -2,35 +2,25 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xsi:schemaLocation="http://symfony.com/schema/dic/services
                                http://symfony.com/schema/dic/services/services-1.0.xsd">
-    <parameters>
-        <parameter key="afup.barometre.menu.menu_builder.class">Afup\BarometreBundle\Menu\MenuBuilder</parameter>
-    </parameters>
-
     <services>
-        <service id="afup.barometre.menu.menu_builder" class="%afup.barometre.menu.menu_builder.class%">
+        <service id="afup.barometre.menu.menu_builder" class="Afup\BarometreBundle\Menu\MenuBuilder">
             <argument type="service" id="knp_menu.factory" />
             <argument type="service" id="afup.barometre.report_collection" />
             <argument type="service" id="afup.barometre.default_context" />
         </service>
 
-        <service id="afup.barometre.menu"
-                 class="Knp\Menu\MenuItem"
-                 factory-service="afup.barometre.menu.menu_builder"
-                 factory-method="createSimpleMenu">
+        <service id="afup.barometre.menu" class="Knp\Menu\MenuItem">
+            <factory service="afup.barometre.menu.menu_builder" method="createSimpleMenu" />
             <tag name="knp_menu.menu" alias="menu" />
         </service>
 
-        <service id="afup.barometre.complete_menu"
-                 class="Knp\Menu\MenuItem"
-                 factory-service="afup.barometre.menu.menu_builder"
-                 factory-method="createMenu">
+        <service id="afup.barometre.complete_menu" class="Knp\Menu\MenuItem">
+            <factory service="afup.barometre.menu.menu_builder" method="createMenu" />
             <tag name="knp_menu.menu" alias="complete_menu" />
         </service>
 
-        <service id="afup.barometre.reports_menu"
-                 class="Knp\Menu\MenuItem"
-                 factory-service="afup.barometre.menu.menu_builder"
-                 factory-method="createReportsMenu">
+        <service id="afup.barometre.reports_menu" class="Knp\Menu\MenuItem">
+            <factory service="afup.barometre.menu.menu_builder" method="createReportsMenu" />
             <tag name="knp_menu.menu" alias="reports_menu" />
         </service>
 
