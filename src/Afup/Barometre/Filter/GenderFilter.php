@@ -17,7 +17,6 @@ use Symfony\Component\Form\FormBuilderInterface;
  */
 class GenderFilter implements FilterInterface
 {
-
     /**
      * @var GenderEnums
      */

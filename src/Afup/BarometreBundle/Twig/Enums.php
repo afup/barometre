@@ -24,9 +24,9 @@ class Enums extends \Twig_Extension
      */
     public function getFilters()
     {
-        return array(
-            'enum_label' => new \Twig_Filter_Method($this, 'enumLabel'),
-        );
+        return [
+            new \Twig_SimpleFilter('enum_label', [$this, 'enumLabel']),
+        ];
     }
 
     /**

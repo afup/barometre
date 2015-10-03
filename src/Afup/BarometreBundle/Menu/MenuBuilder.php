@@ -46,7 +46,7 @@ class MenuBuilder
         $menu->setChildrenAttribute('class', 'nav navbar-nav');
 
         $menu->addChild(
-            'A propos du baromètre',
+            'menu.about',
             [
                 'route' => 'afup_barometre_about',
             ]
@@ -62,7 +62,7 @@ class MenuBuilder
     {
         $menu = $this->getBaseMenu();
 
-        $menu->addChild('Résultats détaillés', [
+        $menu->addChild('menu.results', [
             'attributes' => [
                 'class' => 'dropdown'
             ],
@@ -72,14 +72,13 @@ class MenuBuilder
             ]
         ]);
 
-        $menu['Résultats détaillés']->setLinkAttributes([
+        $menu['menu.results']->setLinkAttributes([
             'class' => 'dropdown-toggle',
             'data-toggle' => 'dropdown'
         ]);
-        $menu['Résultats détaillés']->setChildrenAttribute('class', 'dropdown-menu');
+        $menu['menu.results']->setChildrenAttribute('class', 'dropdown-menu');
 
-
-        $this->addReportsMenuItems($menu['Résultats détaillés']);
+        $this->addReportsMenuItems($menu['menu.results']);
 
         return $menu;
     }
@@ -116,7 +115,6 @@ class MenuBuilder
         $filters = $this->context->getParameters();
 
         foreach ($this->reports as $report) {
-
             $routeParameters = ['reportName' => $report->getName()];
 
             if (count($filters) > 0) {

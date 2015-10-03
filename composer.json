@@ -4,34 +4,33 @@
     "license": "MIT",
     "type": "project",
     "autoload": {
-        "psr-0": { "": "src/" }
+        "psr-4": { "": "src/" }
     },
     "require": {
         "php": ">=5.5",
         "symfony/symfony": "~2.6",
-        "doctrine/orm": "~2.2,>=2.2.3",
+        "doctrine/orm": "^2.4.8",
         "doctrine/doctrine-bundle": "~1.2",
         "twig/extensions": "~1.0",
         "symfony/monolog-bundle": "~2.6",
-        "sensio/distribution-bundle": "~3.0",
-        "sensio/framework-extra-bundle": "~3.0",
+        "sensio/distribution-bundle": "~4.0",
+        "sensio/framework-extra-bundle": "^3.0.2",
         "sensio/generator-bundle": "~2.3",
         "incenteev/composer-parameter-handler": "~2.1",
-        "doctrine/doctrine-fixtures-bundle": "2.2.*",
+        "doctrine/doctrine-fixtures-bundle": "~2.2",
         "nelmio/alice": "1.7",
         "agallou/departements": "0.1.0",
         "agallou/regions": "0.1.0",
-        "knplabs/knp-menu-bundle": "2.0.*@dev",
-        "knplabs/knp-menu": "2.0.*@dev",
-        "sonata-project/intl-bundle": "2.2.*",
+        "knplabs/knp-menu-bundle": "~2.0",
+        "knplabs/knp-menu": "~2.1",
+        "sonata-project/intl-bundle": "~2.2",
         "agallou/grunt-hash-assets-bundle": "0.1.0",
-        "doctrine/migrations": "1.0.*@dev",
-        "doctrine/doctrine-migrations-bundle": "2.1.*@dev"
+        "doctrine/migrations": "~1.0",
+        "doctrine/doctrine-migrations-bundle": "~1.0"
     },
     "require-dev": {
-        "raulfraile/ladybug-bundle": "v1.0.2",
         "atoum/atoum": "~1.1",
-        "m6web/coke": "1.0.0"
+        "m6web/coke": "~2.1"
     },
     "scripts": {
         "post-install-cmd": [
@@ -55,6 +54,7 @@
     "extra": {
         "symfony-app-dir": "app",
         "symfony-web-dir": "web",
+        "symfony-assets-install": "relative",
         "incenteev-parameters": {
             "file": "app/config/parameters.yml"
         },

@@ -15,12 +15,24 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class ReportManager
 {
+    /**
+     * @var FormInterface
+     */
     private $form;
 
+    /**
+     * @var ReportCollection
+     */
     private $reportCollection;
 
+    /**
+     * @var FilterCollection
+     */
     private $filterCollection;
 
+    /**
+     * @var Connection
+     */
     private $connection;
 
     /**
