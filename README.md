@@ -19,12 +19,24 @@ Dépendances
 Installation
 ------------
 
+### En local
+
 ```
 php composer.phar install
 npm install
 bundle install
 ./node_modules/bower/bin/bower install
 ```
+
+### Avec [Vagrant](https://docs.vagrantup.com)
+
+```
+vagrant up
+```
+
+* Consultez le site via `localhost:8080`
+* Éxecutez des commandes via [`vagrant ssh`](https://docs.vagrantup.com/v2/cli/ssh.html) depuis le dossier `/vagrant`
+
 
 Build des assets
 ----------------
