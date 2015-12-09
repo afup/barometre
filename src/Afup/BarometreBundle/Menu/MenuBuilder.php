@@ -46,6 +46,13 @@ class MenuBuilder
         $menu->setChildrenAttribute('class', 'nav navbar-nav');
 
         $menu->addChild(
+            'menu.result2015',
+            [
+                'route' => 'afup_barometre_2015form',
+            ]
+        );
+
+        $menu->addChild(
             'menu.about',
             [
                 'route' => 'afup_barometre_about',
