@@ -7,6 +7,7 @@ use Afup\Barometre\Report\ReportInterface;
 use Afup\BarometreBundle\Filtering\Context;
 use Knp\Menu\FactoryInterface;
 use Knp\Menu\ItemInterface;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class MenuBuilder
 {
@@ -46,9 +47,18 @@ class MenuBuilder
         $menu->setChildrenAttribute('class', 'nav navbar-nav');
 
         $menu->addChild(
+            'menu.result2015',
+            [
+                'route' => 'afup_barometre_2015form',
+                'routeAbsolute' => UrlGeneratorInterface::ABSOLUTE_URL,
+            ]
+        );
+
+        $menu->addChild(
             'menu.about',
             [
                 'route' => 'afup_barometre_about',
+                'routeAbsolute' => UrlGeneratorInterface::ABSOLUTE_URL,
             ]
         );
 
