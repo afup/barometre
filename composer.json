@@ -4,7 +4,8 @@
     "license": "MIT",
     "type": "project",
     "autoload": {
-        "psr-4": { "": "src/" }
+        "psr-4": { "": "src/" },
+        "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },
     "require": {
         "php": ">=5.5",
@@ -13,9 +14,8 @@
         "doctrine/doctrine-bundle": "~1.2",
         "twig/extensions": "~1.0",
         "symfony/monolog-bundle": "~2.6",
-        "sensio/distribution-bundle": "~4.0",
+        "sensio/distribution-bundle": "~5.0",
         "sensio/framework-extra-bundle": "^3.0.2",
-        "sensio/generator-bundle": "~2.3",
         "incenteev/composer-parameter-handler": "~2.1",
         "doctrine/doctrine-fixtures-bundle": "~2.2",
         "nelmio/alice": "1.7",
@@ -29,6 +29,7 @@
         "doctrine/doctrine-migrations-bundle": "~1.0"
     },
     "require-dev": {
+        "sensio/generator-bundle": "^3.0",
         "atoum/atoum": "~1.1",
         "m6web/coke": "~2.1"
     },
