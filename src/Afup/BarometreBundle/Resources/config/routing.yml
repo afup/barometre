@@ -7,6 +7,9 @@ afup_barometre_homepage:
 afup_barometre_2015form:
     pattern: /report/2015
     defaults: {_controller: AfupBarometreBundle:Campaign:report2015 }
+afup_barometre_2015form_slash:
+    pattern: /report/2015/
+    defaults: {_controller: AfupBarometreBundle:Campaign:report2015 }
 
 afup_barometre_about:
     path: /about
