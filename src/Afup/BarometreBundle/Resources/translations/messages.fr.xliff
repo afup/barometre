@@ -74,6 +74,10 @@
                 <source>report.company_department.label</source>
                 <target>Répartition géographique</target>
             </trans-unit>
+            <trans-unit id="report.company_county.label">
+                <source>report.company_county.label</source>
+                <target>Répartition géographique</target>
+            </trans-unit>
             <trans-unit id="report.company_size.label">
                 <source>report.company_size.label</source>
                 <target>Distribution des tailles d'entreprises</target>
@@ -121,6 +125,14 @@
             <trans-unit id="report.view.department_label">
                 <source>report.view.department_label</source>
                 <target>Nom département</target>
+            </trans-unit>
+            <trans-unit id="report.view.county_code">
+                <source>report.view.county_code</source>
+                <target>Code région</target>
+            </trans-unit>
+            <trans-unit id="report.view.county_label">
+                <source>report.view.county_label</source>
+                <target>Nom région</target>
             </trans-unit>
             <trans-unit id="report.view.response_number">
                 <source>report.view.response_number</source>
@@ -181,6 +193,10 @@
             <trans-unit id="report.company_departement.unknown">
                 <source>report.company_departement.unknown</source>
                 <target>département inconnu</target>
+            </trans-unit>
+            <trans-unit id="report.company_county.unknown">
+                <source>report.company_county.unknown</source>
+                <target>région inconnue</target>
             </trans-unit>
             <trans-unit id="report.view.salary_satisfaction">
                 <source>report.view.salary_satisfaction</source>

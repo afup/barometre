@@ -48,4 +48,9 @@ interface ReportInterface
      * Execute the report
      */
     public function execute();
+
+    /**
+     * @return null|int
+     */
+    public function getWeight();
 }

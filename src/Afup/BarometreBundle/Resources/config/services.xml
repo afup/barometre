@@ -66,6 +66,11 @@
             <tag name="twig.extension" />
         </service>
 
+        <service id="afup.barometre.twig.extension.county" class="Afup\BarometreBundle\Twig\Extension\CountyExtension">
+            <argument type="service" id="translator" />
+            <tag name="twig.extension" />
+        </service>
+
         <service id="afup.barometre.manager" class="Afup\Barometre\ReportManager">
             <argument type="service" id="doctrine.dbal.default_connection" />
             <argument type="service" id="afup.barometre.filter_form" />

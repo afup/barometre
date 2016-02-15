@@ -1,14 +1,10 @@
-{% include "AfupBarometreBundle:Report:_geo_reports_menu.html.twig"  with { "selected": "department" } only %}
+{% include "AfupBarometreBundle:Report:_geo_reports_menu.html.twig"  with { "selected": "county" } only %}
 
-<div id="map">
-    <svg></svg>
-</div>
-
-<table id="map-table" class="table table-striped tablesorter">
+<table class="table table-striped tablesorter">
     <thead>
         <tr>
-            <th>{{ "report.view.department_code" | trans }}</th>
-            <th>{{ "report.view.department_label" | trans }}</th>
+            <th>{{ "report.view.county_code" | trans }}</th>
+            <th>{{ "report.view.county_label" | trans }}</th>
             <th>{{ "report.view.response_number" | trans }}</th>
             <th>{{ "report.view.annual_salary" | trans }}</th>
         </tr>
@@ -17,7 +13,7 @@
         {% for row in results %}
             <tr>
                 <td>{{ row.companyDepartment }}</td>
-                <td>{{ row.companyDepartment|department_label }}</td>
+                <td>{{ row.companyDepartment|county_label }}</td>
                 <td>{{ row.nbResponse }}</td>
                 <td class="text-right">{{ row.annualSalary|round(-2)|number_format_decimal }}</td>
             </tr>

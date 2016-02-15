@@ -27,6 +27,10 @@
             <tag name="barometre.report" />
         </service>
 
+        <service id="afup.barometre.report.company_county" class="Afup\Barometre\Report\CompanyCountyReport" parent="afup.barometre.report.abstract">
+            <tag name="barometre.report" />
+        </service>
+
         <service id="afup.barometre.report.speciality" class="Afup\Barometre\Report\SpecialityReport" parent="afup.barometre.report.abstract">
             <tag name="barometre.report" />
         </service>
