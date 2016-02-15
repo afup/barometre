@@ -1,6 +1,10 @@
 {% include "AfupBarometreBundle:Report:_geo_reports_menu.html.twig"  with { "selected": "county" } only %}
 
-<table class="table table-striped tablesorter">
+<div id="map">
+    <svg></svg>
+</div>
+
+<table id="map-table" class="table table-striped tablesorter" data-map-type="region">
     <thead>
         <tr>
             <th>{{ "report.view.county_code" | trans }}</th>

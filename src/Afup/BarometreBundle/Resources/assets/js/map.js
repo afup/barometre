@@ -32,10 +32,12 @@
         var dataLayer = svg.select('#data_layer');
         dataLayer.attr("class", 'Blues');
 
-        d3.json("/geofla/departement.json", function (json) {
+
+
+        d3.json(getTypeInfos().file, function (json) {
             bg.selectAll("path")
                 .data(json.features)
-	        .enter().append("path")
+                .enter().append("path")
                 .attr("d", path);
             dataLayer.selectAll("path")
                 .data(json.features)
@@ -45,15 +47,39 @@
         });
     }
 
+    function getTypeInfos()
+    {
+        var mapType = $('#map-table').data("map-type");
+        switch (mapType) {
+            case 'region':
+                return {
+                    file: "/geofla/regions.geojson",
+                    keyCode: "code",
+                    keyNom: "nom"
+                };
+                break;
+            case 'departement':
+                return {
+                    file: "/geofla/departement.json",
+                    keyCode: "CODE_DEPT",
+                    keyNom: "NOM_DEPT"
+                };
+                break;
+            default:
+                throw "unknown map type";
+        }
+    }
+
     function recomputeValues() {
         var values = getValues();
+        var typeInfos = getTypeInfos();
         d3.selectAll("#data_layer path")
         .on("mouseover", function (d) {
-            var value = parseInt(values[d.properties.CODE_DEPT]);
+            var value = parseInt(values[d.properties[typeInfos.keyCode]]);
             if (isNaN(value)) {
                 value = 0;
             }
-            tooltip.text(d.properties.NOM_DEPT + " / " + value);
+            tooltip.text(d.properties[typeInfos.keyNom] + " / " + value);
             return tooltip.style("visibility", "visible");
         })
         .on("mousemove", function () {
@@ -63,7 +89,7 @@
             return tooltip.style("visibility", "hidden");
         })
         .datum(function (d) {
-            d.value = parseInt(values[d.properties.CODE_DEPT]);
+            d.value = parseInt(values[d.properties[typeInfos.keyCode]]);
             if (isNaN(d.value)) {
                 d.value = 0;
             }
