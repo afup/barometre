@@ -125,6 +125,10 @@ class MenuBuilder
         $filters = $this->context->getParameters();
 
         foreach ($this->reports as $report) {
+            if (null === $report->getWeight()) {
+                continue;
+            }
+
             $routeParameters = ['reportName' => $report->getName()];
 
             if (count($filters) > 0) {

@@ -1,0 +1,8 @@
+<div class="btn-group btn-group-justified" role="group">
+    <div class="btn-group" role="group">
+        <a href="{{ path('afup_barometre_report', app.request.query.all + {'reportName' : 'company_department'}) }}" class="btn btn-default {% if selected == "department" %}btn-info{% endif %}">Par département</a>
+    </div>
+    <div class="btn-group" role="group">
+        <a href="{{ path('afup_barometre_report', app.request.query.all + {'reportName' : 'company_county'}) }}" class="btn btn-default {% if selected == "county" %}btn-info{% endif %}">Par région</a>
+    </div>
+</div>
