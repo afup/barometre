@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "25cf80b8a36332134bc3904e8653b953",
-    "content-hash": "e47f9d58f21ba560b305eac6ab43a7ee",
+    "hash": "aafb78e424dd9cba56e23d9e638b577f",
+    "content-hash": "aec5e11acc57bec4adbeb9d92aa6688e",
     "packages": [
         {
             "name": "agallou/departements",
@@ -82,16 +82,16 @@
         },
         {
             "name": "agallou/regions",
-            "version": "v0.1.1",
+            "version": "v0.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/agallou/Regions.git",
-                "reference": "e693295e63cf301179d28f9020e529e0d18a603f"
+                "reference": "1d5cd4380d5bf1287d67a40e296f0325744f60e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/agallou/Regions/zipball/e693295e63cf301179d28f9020e529e0d18a603f",
-                "reference": "e693295e63cf301179d28f9020e529e0d18a603f",
+                "url": "https://api.github.com/repos/agallou/Regions/zipball/1d5cd4380d5bf1287d67a40e296f0325744f60e2",
+                "reference": "1d5cd4380d5bf1287d67a40e296f0325744f60e2",
                 "shasum": ""
             },
             "require-dev": {
@@ -115,7 +115,7 @@
                 }
             ],
             "description": "Liste des régions Françaises",
-            "time": "2016-02-16 20:34:59"
+            "time": "2016-04-24 20:52:53"
         },
         {
             "name": "doctrine/annotations",

@@ -53,7 +53,8 @@
         switch (mapType) {
             case 'region':
                 return {
-                    file: "/geofla/regions.geojson",
+                    file: "/geofla/regions_2016.geojson",
+
                     keyCode: "code",
                     keyNom: "nom"
                 };

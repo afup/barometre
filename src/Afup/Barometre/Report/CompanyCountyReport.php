@@ -2,7 +2,7 @@
 
 namespace Afup\Barometre\Report;
 
-use agallou\Regions\Collection;
+use agallou\Regions\Collection2016 as Collection;
 use agallou\Regions\Region;
 
 class CompanyCountyReport extends AbstractReport

@@ -20,7 +20,7 @@
         "doctrine/doctrine-fixtures-bundle": "~2.2",
         "nelmio/alice": "1.7",
         "agallou/departements": "0.1.0",
-        "agallou/regions": "0.1.1",
+        "agallou/regions": "0.2.0",
         "knplabs/knp-menu-bundle": "~2.0",
         "knplabs/knp-menu": "~2.1",
         "sonata-project/intl-bundle": "~2.2",
