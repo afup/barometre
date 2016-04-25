@@ -2,7 +2,7 @@
 
 namespace Afup\BarometreBundle\Twig\Extension;
 
-use agallou\Regions\Collection;
+use agallou\Regions\Collection2016 as Collection;
 use Symfony\Component\Translation\TranslatorInterface;
 
 class CountyExtension extends \Twig_Extension
