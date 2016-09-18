@@ -65,5 +65,9 @@
         <service id="afup.barometre.enums.remote_usage" class="Afup\BarometreBundle\Enums\RemoteUsageEnums">
             <tag name="barometre.enums" alias="remote_usage" />
         </service>
+
+        <service id="afup.barometre.enums.meetup_participation" class="Afup\BarometreBundle\Enums\MeetupParticipationEnums">
+            <tag name="barometre.enums" alias="meetup_participation" />
+        </service>
     </services>
 </container>
