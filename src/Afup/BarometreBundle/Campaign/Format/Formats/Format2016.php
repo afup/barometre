@@ -36,7 +36,7 @@ class Format2016 extends Format2014
             "remote_usage",
             "meetup_participation",
             "technological_watch",
-            "os_developpement"
+            "os_developpment"
         );
 
     }
