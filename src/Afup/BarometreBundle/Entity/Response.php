@@ -114,6 +114,12 @@ class Response
      * @ORM\Column(type="integer", nullable=true)
      * @var int
      */
+    protected $otherLanguage;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @var int
+     */
     protected $phpVersion;
 
     /**
@@ -603,6 +609,26 @@ class Response
     public function setOsDeveloppment($osDeveloppment)
     {
         $this->osDeveloppment = $osDeveloppment;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getOtherLanguage()
+    {
+        return $this->otherLanguage;
+    }
+
+    /**
+     * @param int $otherLanguage
+     *
+     * @return $this
+     */
+    public function setOtherLanguage($otherLanguage)
+    {
+        $this->otherLanguage = $otherLanguage;
 
         return $this;
     }

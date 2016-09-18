@@ -142,6 +142,10 @@ class ResponseFactory
             $this->enums->getEnums('os_developpment')->getIdByLabel($data['os_developpment'])
         );
 
+        $response->setOtherLanguage(
+            $this->enums->getEnums('other_language')->getIdByLabel($data['other_language'])
+        );
+
         return $response;
     }
 

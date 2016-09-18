@@ -22,7 +22,7 @@ class Format2016 extends Format2014
             "company_type",
             "company_size",
             "job_interest",
-            'other_languages',
+            'other_language',
             "speciality",
             "php_version",
             "has_certification",
