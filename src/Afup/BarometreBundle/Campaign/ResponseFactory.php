@@ -150,6 +150,10 @@ class ResponseFactory
             $this->enums->getEnums('remote_usage')->getIdByLabel($data["remote_usage"])
         );
 
+        $response->setMeetupParticipation(
+            $this->enums->getEnums('meetup_participation')->getIdByLabel($data['meetup_participation'])
+        );
+
         return $response;
     }
 

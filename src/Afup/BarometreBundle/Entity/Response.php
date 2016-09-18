@@ -167,6 +167,12 @@ class Response
     protected $remoteUsage;
 
     /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @var int
+     */
+    protected $meetupParticipation;
+
+    /**
      */
     public function __construct()
     {
@@ -655,6 +661,26 @@ class Response
     public function setRemoteUsage($remoteUsage)
     {
         $this->remoteUsage = $remoteUsage;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getMeetupParticipation()
+    {
+        return $this->meetupParticipation;
+    }
+
+    /**
+     * @param int $meetupParticipation
+     *
+     * @return $this
+     */
+    public function setMeetupParticipation($meetupParticipation)
+    {
+        $this->meetupParticipation = $meetupParticipation;
 
         return $this;
     }
