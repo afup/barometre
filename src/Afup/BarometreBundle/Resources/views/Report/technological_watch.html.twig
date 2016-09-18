@@ -1,0 +1,19 @@
+<table class="table table-striped highchart tablesorter"
+       data-graph-container-before="1"
+       data-graph-type="column"
+       data-graph-legend-disabled="1">
+    <thead>
+    <tr>
+        <th>{{ "report.view.technological_watch" | trans }}</th>
+        <th>{{ "report.view.response_number" | trans }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in results %}
+        <tr>
+            <td>{{ row.technologicalWatch|enum_label('technological_watch') }}</td>
+            <td class="text-right">{{ row.nbResponse }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

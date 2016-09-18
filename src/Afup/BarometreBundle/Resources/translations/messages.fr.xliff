@@ -220,19 +220,19 @@
             </trans-unit>
             <trans-unit id="report.os_developpment.label">
                 <source>report.os_developpment.label</source>
-                <target>Sous quel OS développez-vous principalement ?</target>
-            </trans-unit>
-            <trans-unit id="report.view.os_developpment">
-                <source>report.view.os_developpment</source>
-                <target>OS de développement principal</target>
-            </trans-unit>
-            <trans-unit id="report.os_developpment.label">
-                <source>report.os_developpment.label</source>
                 <target>Répartition par OS Principal</target>
             </trans-unit>
             <trans-unit id="report.view.os_developpment">
                 <source>report.view.os_developpment</source>
                 <target>OS de développement principal</target>
+            </trans-unit>
+            <trans-unit id="report.technological_watch.label">
+                <source>report.technological_watch.label</source>
+                <target>Faites-vous régulièrement de la veille technique ?</target>
+            </trans-unit>
+            <trans-unit id="report.view.technological_watch">
+                <source>report.view.technological_watch</source>
+                <target>Récurrence veille technique</target>
             </trans-unit>
             <trans-unit id="report.remote_usage.label">
                 <source>report.remote_usage.label</source>
