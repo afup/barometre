@@ -54,7 +54,7 @@ knp_menu:
         template: AfupBarometreBundle:Default:knp_menu.html.twig
 
 afup_barometre:
-    min_result: %min_result%
+    min_result: "%min_result%"
 
 grunt_hash_assets:
-    assets_base_path: %web_root%/assets
+    assets_base_path: "%web_root%/assets"
