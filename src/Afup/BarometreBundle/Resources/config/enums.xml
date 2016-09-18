@@ -57,5 +57,9 @@
         <service id="afup.barometre.enums.os_developpment" class="Afup\BarometreBundle\Enums\OsDeveloppmentEnums">
             <tag name="barometre.enums" alias="os_developpment"/>
         </service>
+
+        <service id="afup.barometre.enums.other_language" class="Afup\BarometreBundle\Enums\OtherLanguageEnums">
+            <tag name="barometre.enums" alias="other_language" />
+        </service>
     </services>
 </container>
