@@ -134,6 +134,14 @@ class ResponseFactory
             $this->enums->getEnums('gender')->getIdByLabel($data["gender"])
         );
 
+        $response->setTechnologicalWatch(
+            $this->enums->getEnums('technological_watch')->getIdByLabel($data['technological_watch'])
+        );
+
+        $response->setOsDeveloppment(
+            $this->enums->getEnums('os_developpment')->getIdByLabel($data['os_developpment'])
+        );
+
         return $response;
     }
 

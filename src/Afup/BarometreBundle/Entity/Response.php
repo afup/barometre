@@ -141,6 +141,20 @@ class Response
     protected $gender;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    protected $osDeveloppment;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    protected $technologicalWatch;
+
+    /**
      */
     public function __construct()
     {
@@ -549,6 +563,46 @@ class Response
     public function setGender($gender)
     {
         $this->gender = $gender;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTechnologicalWatch()
+    {
+        return $this->technologicalWatch;
+    }
+
+    /**
+     * @param int $technologicalWatch
+     *
+     * @return $this
+     */
+    public function setTechnologicalWatch($technologicalWatch)
+    {
+        $this->technologicalWatch = $technologicalWatch;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getOsDeveloppment()
+    {
+        return $this->osDeveloppment;
+    }
+
+    /**
+     * @param int $osDeveloppment
+     *
+     * @return $this
+     */
+    public function setOsDeveloppment($osDeveloppment)
+    {
+        $this->osDeveloppment = $osDeveloppment;
 
         return $this;
     }
