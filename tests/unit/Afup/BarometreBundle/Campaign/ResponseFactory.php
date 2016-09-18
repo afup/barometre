@@ -14,6 +14,8 @@ use Afup\BarometreBundle\Enums\PHPVersionEnums;
 use Afup\BarometreBundle\Enums\PHPStrengthEnums;
 use Afup\BarometreBundle\Enums\JobTitleEnums;
 use Afup\BarometreBundle\Enums\ExperienceEnums;
+use Afup\BarometreBundle\Enums\TechnologicalWatchEnums;
+use Afup\BarometreBundle\Enums\OsDeveloppmentEnums;
 
 class ResponseFactory extends atoum
 {
@@ -32,7 +34,8 @@ class ResponseFactory extends atoum
         $enumCollection->addEnums(new JobTitleEnums(), 'job_title');
         $enumCollection->addEnums(new ExperienceEnums(), 'experience');
         $enumCollection->addEnums(new GenderEnums(), 'gender');
-
+        $enumCollection->addEnums(new TechnologicalWatchEnums(), 'technological_watch');
+        $enumCollection->addEnums(new OsDeveloppmentEnums(), 'os_developpment');
 
         $certificationRepository = new \mock\Doctrine\Common\Persistence\ObjectRepository();
         $specialityRepository = new \mock\Doctrine\Common\Persistence\ObjectRepository();
@@ -67,6 +70,8 @@ class ResponseFactory extends atoum
             'job_title' => '',
             'experience' => '',
             'gender' => '',
+            'technological_watch' => '',
+            'os_developpment' => '',
         );
 
         $campaign = new \Afup\BarometreBundle\Entity\Campaign();
