@@ -161,6 +161,12 @@ class Response
     protected $technologicalWatch;
 
     /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @var int
+     */
+    protected $remoteUsage;
+
+    /**
      */
     public function __construct()
     {
@@ -629,6 +635,26 @@ class Response
     public function setOtherLanguage($otherLanguage)
     {
         $this->otherLanguage = $otherLanguage;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getRemoteUsage()
+    {
+        return $this->remoteUsage;
+    }
+
+    /**
+     * @param int $remoteUsage
+     *
+     * @return $this
+     */
+    public function setRemoteUsage($remoteUsage)
+    {
+        $this->remoteUsage = $remoteUsage;
 
         return $this;
     }

@@ -146,6 +146,10 @@ class ResponseFactory
             $this->enums->getEnums('other_language')->getIdByLabel($data['other_language'])
         );
 
+        $response->setRemoteUsage(
+            $this->enums->getEnums('remote_usage')->getIdByLabel($data["remote_usage"])
+        );
+
         return $response;
     }
 
