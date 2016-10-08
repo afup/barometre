@@ -226,6 +226,14 @@
                 <source>report.view.os_developpment</source>
                 <target>OS de développement principal</target>
             </trans-unit>
+            <trans-unit id="report.meetup_participation.label">
+                <source>report.meetup_participation.label</source>
+                <target>Participation à des meetups</target>
+            </trans-unit>
+            <trans-unit id="report.view.meetup_participation">
+                <source>report.view.meetup_participation</source>
+                <target>Participation à un meetup</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
