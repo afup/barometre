@@ -6,19 +6,32 @@ $(document).ready(function () {
             if ($(this).hasClass('highchart-emoticon')) {
                 var icons = $(this).data('icons');
 
-                highChartConfig.plotOptions.series = {
-                    dataLabels: {
-                        useHTML: true,
-                        formatter : function () {
-                            var defaultDatalabel = '<b>' + this.point.name + '</b> : ' + this.percentage.toFixed(2) + '%';
-                            if (typeof icons[this.point.name] === 'undefined') {
-                                return defaultDatalabel;
+                if ($(this).data('graph-type') != 'column') {
+                    highChartConfig.plotOptions.series = {
+                        dataLabels: {
+                            useHTML: true,
+                            formatter : function () {
+                                var defaultDatalabel = '<b>' + this.point.name + '</b> : ' + this.percentage.toFixed(2) + '%';
+                                if (typeof icons[this.point.name] === 'undefined') {
+                                    return defaultDatalabel;
+                                }
+                                var infos = icons[this.point.name];
+                                return '<i class="icon ' + infos.class + '" style="font-size: ' + infos.size + '"></i> ' + defaultDatalabel;
                             }
-                            var infos = icons[this.point.name];
-                            return '<i class="icon ' + infos.class + '" style="font-size: ' + infos.size + '"></i> ' + defaultDatalabel;
                         }
-                    }
-                };
+                    };
+                } else {
+                    highChartConfig.xAxis.labels.useHTML = true;
+                    highChartConfig.xAxis.labels.formatter = function () {
+                        var trimmedValue = this.value.trim();
+                        var defaultDatalabel = trimmedValue;
+                        if (typeof icons[trimmedValue] === 'undefined') {
+                            return defaultDatalabel;
+                        }
+                        var infos = icons[trimmedValue];
+                        return '<i class="icon ' + infos.class + '" style="font-size: ' + infos.size + '"></i> ' + defaultDatalabel;
+                    };
+                }
             }
 
             if ($(this).hasClass('highchart-value-and-percent')) {

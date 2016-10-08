@@ -58,7 +58,10 @@ module.exports = function(grunt) {
                     "smile-o",
                     "frown-o",
                     "male",
-                    "female"
+                    "female",
+                    "apple",
+                    "linux",
+                    "windows"
                 ]
             }
         }
