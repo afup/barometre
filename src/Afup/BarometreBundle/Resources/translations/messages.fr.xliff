@@ -226,6 +226,22 @@
                 <source>report.view.os_developpment</source>
                 <target>OS de développement principal</target>
             </trans-unit>
+            <trans-unit id="report.technological_watch.label">
+                <source>report.technological_watch.label</source>
+                <target>Faites-vous régulièrement de la veille technique ?</target>
+            </trans-unit>
+            <trans-unit id="report.view.technological_watch">
+                <source>report.view.technological_watch</source>
+                <target>Récurrence veille technique</target>
+            </trans-unit>
+            <trans-unit id="report.remote_usage.label">
+                <source>report.remote_usage.label</source>
+                <target>Répartition des télétravailleurs</target>
+            </trans-unit>
+            <trans-unit id="report.view.remote_usage">
+                <source>report.view.remote_usage</source>
+                <target>Travaillez-vous en télétravail ?</target>
+            </trans-unit>
             <trans-unit id="report.meetup_participation.label">
                 <source>report.meetup_participation.label</source>
                 <target>Participation à des meetups</target>
