@@ -226,6 +226,14 @@
                 <source>report.view.os_developpment</source>
                 <target>OS de développement principal</target>
             </trans-unit>
+            <trans-unit id="report.remote_usage.label">
+                <source>report.remote_usage.label</source>
+                <target>Répartition des télétravailleurs</target>
+            </trans-unit>
+            <trans-unit id="report.view.remote_usage">
+                <source>report.view.remote_usage</source>
+                <target>Travaillez-vous en télétravail ?</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
