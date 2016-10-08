@@ -74,5 +74,9 @@
         <service id="afup.barometre.report.remote_usage" class="Afup\Barometre\Report\RemoteUsageReport" parent="afup.barometre.report.abstract">
             <tag name="barometre.report" />
         </service>
+
+        <service id="afup.barometre.report.technological_watch" class="Afup\Barometre\Report\TechnologicalWatchReport" parent="afup.barometre.report.abstract">
+            <tag name="barometre.report" />
+        </service>
     </services>
 </container>
