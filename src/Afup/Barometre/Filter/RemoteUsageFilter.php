@@ -1,0 +1,74 @@
+<?php
+
+namespace Afup\Barometre\Filter;
+
+use Afup\Barometre\Form\Type\Select2MultipleFilterType;
+use Afup\BarometreBundle\Enums\RemoteUsageEnums;
+use Doctrine\DBAL\Query\QueryBuilder;
+use Symfony\Component\Form\FormBuilderInterface;
+
+class RemoteUsageFilter implements FilterInterface
+{
+    /**
+     * @var RemoteUsageEnums
+     */
+    private $remoteUsageEnums;
+
+    /**
+     * @param RemoteUsageEnums $remoteUsageEnums
+     */
+    public function __construct(RemoteUsageEnums $remoteUsageEnums)
+    {
+        $this->remoteUsageEnums = $remoteUsageEnums;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function buildForm(FormBuilderInterface $builder)
+    {
+        $builder->add($this->getName(), new Select2MultipleFilterType(), [
+            'label'    => 'filter.remote_work',
+            'choices'  => $this->remoteUsageEnums->getChoices()
+        ]);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function buildQuery(QueryBuilder $queryBuilder, array $values = [])
+    {
+        if (!array_key_exists($this->getName(), $values) || 0 === count($values[$this->getName()])) {
+            return;
+        }
+
+        $queryBuilder
+            ->andWhere($queryBuilder->expr()->in('response.remoteUsage', $values[$this->getName()]));
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function convertValuesToLabels($value)
+    {
+        return array_map(function ($value) {
+            return $this->remoteUsageEnums->getLabelById($value);
+        }, $value);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return 'remote_usage';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getWeight()
+    {
+        return 200;
+    }
+}

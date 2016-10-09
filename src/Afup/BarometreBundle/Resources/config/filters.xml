@@ -67,5 +67,10 @@
             <argument type="service" id="afup.barometre.enums.meetup_participation" />
             <tag name="barometre.filter" alias="meetup_participation" />
         </service>
+
+        <service id="afup.barometre.filter.remote_usage" class="Afup\Barometre\Filter\RemoteUsageFilter">
+            <argument type="service" id="afup.barometre.enums.remote_usage" />
+            <tag name="barometre.filter" alias="remote_usage" />
+        </service>
     </services>
 </container>
