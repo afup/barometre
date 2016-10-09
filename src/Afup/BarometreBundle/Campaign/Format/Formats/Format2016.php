@@ -38,7 +38,6 @@ class Format2016 extends Format2014
             "technological_watch",
             "os_developpment"
         );
-
     }
 
     /**

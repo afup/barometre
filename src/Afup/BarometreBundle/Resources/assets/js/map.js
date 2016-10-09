@@ -58,14 +58,12 @@
                     keyCode: "code",
                     keyNom: "nom"
                 };
-                break;
             case 'departement':
                 return {
                     file: "/geofla/departement.json",
                     keyCode: "CODE_DEPT",
                     keyNom: "NOM_DEPT"
                 };
-                break;
             default:
                 throw "unknown map type";
         }

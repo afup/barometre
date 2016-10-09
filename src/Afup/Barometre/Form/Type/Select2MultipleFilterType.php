@@ -22,6 +22,7 @@ class Select2MultipleFilterType extends AbstractType
                 'attr'     => [
                     'class' => 'select2'
                 ],
+                'choice_translation_domain' => false,
             ]
         );
     }
