@@ -135,7 +135,7 @@ class Response
     protected $hasRecentTraining;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      * @var bool
      */
     protected $isRecentTrainingHadSalaryImpact;
