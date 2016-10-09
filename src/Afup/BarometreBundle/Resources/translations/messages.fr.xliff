@@ -66,6 +66,10 @@
                 <source>filter.status</source>
                 <target>Statut</target>
             </trans-unit>
+            <trans-unit id="filter.meetup_participation">
+                <source>filter.meetup_participation</source>
+                <target>Participation à des meetups</target>
+            </trans-unit>
             <trans-unit id="filter.submit">
                 <source>filter.submit</source>
                 <target>Filtrer</target>
