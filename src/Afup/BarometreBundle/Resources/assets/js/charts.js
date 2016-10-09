@@ -45,6 +45,19 @@ $(document).ready(function () {
                 };
             }
 
+            if ($(this).data('graph-datalabels-format')) {
+                highChartConfig.plotOptions.series.dataLabels = {
+                    useHTML: true,
+                    format: $(this).data('graph-datalabels-format')
+                }
+            }
+
+            if ($(this).data('graph-tooltip-disabled') == 1) {
+                highChartConfig.tooltip = {
+                    enabled: false
+                };
+            }
+
             highChartConfig.colors[0] = '#4C6EAF';
             var align = $(this).data('graph-xaxis-labels-align');
             if (align !== undefined) {

@@ -250,6 +250,21 @@
                 <source>report.view.meetup_participation</source>
                 <target>Participation à un meetup</target>
             </trans-unit>
+
+            <trans-unit id="report.training_participation.label">
+                <source>report.training_participation.label</source>
+                <target>Participation à une formation</target>
+            </trans-unit>
+
+            <trans-unit id="report.view.training_participation">
+                <source>report.view.training_participation</source>
+                <target>Avec vous récement participé à une formation ?</target>
+            </trans-unit>
+
+            <trans-unit id="report.view.training_impact">
+                <source>report.view.training_impact</source>
+                <target>Cette formation à t-elle eut un impact sur votre rémunération ?</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
