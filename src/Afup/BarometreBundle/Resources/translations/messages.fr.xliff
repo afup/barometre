@@ -14,6 +14,10 @@
                 <source>menu.results</source>
                 <target>Résultats détaillés</target>
             </trans-unit>
+            <trans-unit id="menu.press_review">
+                <source>menu.press_review</source>
+                <target>Revue de presse</target>
+            </trans-unit>
             <trans-unit id="filter.company_size">
                 <source>filter.company_size</source>
                 <target>Taille de l'entreprise</target>

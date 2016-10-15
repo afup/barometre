@@ -62,6 +62,14 @@ class MenuBuilder
         );
 
         $menu->addChild(
+            'menu.press_review',
+            [
+                'route' => 'afup_barometre_press_review',
+                'routeAbsolute' => UrlGeneratorInterface::ABSOLUTE_URL,
+            ]
+        );
+
+        $menu->addChild(
             'menu.about',
             [
                 'route' => 'afup_barometre_about',

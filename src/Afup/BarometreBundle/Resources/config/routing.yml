@@ -23,4 +23,7 @@ afup_barometre_report:
     path:  /report/{reportName}
     defaults: { _controller: AfupBarometreBundle:Default:index }
 
+afup_barometre_press_review:
+    path: /press_review
+    defaults: {_controller: AfupBarometreBundle:PressReview:index }
 
