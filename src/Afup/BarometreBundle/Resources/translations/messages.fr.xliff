@@ -70,6 +70,10 @@
                 <source>filter.meetup_participation</source>
                 <target>Participation à des meetups</target>
             </trans-unit>
+            <trans-unit id="filter.remote_work">
+                <source>filter.remote_work</source>
+                <target>Travail à distance</target>
+            </trans-unit>
             <trans-unit id="filter.submit">
                 <source>filter.submit</source>
                 <target>Filtrer</target>
