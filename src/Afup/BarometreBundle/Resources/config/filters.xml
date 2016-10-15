@@ -62,5 +62,10 @@
             <argument type="service" id="afup.barometre.enums.status" />
             <tag name="barometre.filter" alias="status" />
         </service>
+
+        <service id="afup.barometre.filter.meetup_participation" class="Afup\Barometre\Filter\MeetupParticipationFilter">
+            <argument type="service" id="afup.barometre.enums.meetup_participation" />
+            <tag name="barometre.filter" alias="meetup_participation" />
+        </service>
     </services>
 </container>
