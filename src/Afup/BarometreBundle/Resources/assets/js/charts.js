@@ -6,7 +6,7 @@ $(document).ready(function () {
             if ($(this).hasClass('highchart-emoticon')) {
                 var icons = $(this).data('icons');
 
-                if ($(this).data('graph-type') != 'column') {
+                if ($(this).data('graph-type') !== 'column') {
                     highChartConfig.plotOptions.series = {
                         dataLabels: {
                             useHTML: true,
