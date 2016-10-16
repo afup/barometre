@@ -112,9 +112,12 @@ class ResponseFactory
         $response->setHasRecentTraining(
             "oui" === strtolower($data["has_formation"])
         );
-        $response->setRecentTrainingHadSalaryImpact(
-            "oui" === strtolower($data["formation_impact"])
-        );
+
+        if (strlen($data["formation_impact"])) {
+            $response->setRecentTrainingHadSalaryImpact(
+                "oui" === strtolower($data["formation_impact"])
+            );
+        }
 
         if ("oui" === strtolower($data['has_certification'])) {
             $this->addCertification(
