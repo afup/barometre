@@ -4,6 +4,7 @@ namespace Afup\BarometreBundle\Enums;
 
 class OtherLanguageEnums extends AbstractEnums
 {
+    const AUCUN      = 0;
     const JAVASCRIPT = 1;
     const DOT_NET    = 2;
     const JAVA       = 3;
@@ -16,6 +17,7 @@ class OtherLanguageEnums extends AbstractEnums
      * @var array
      */
     protected $choices = [
+        self::AUCUN      => 'Aucun',
         self::JAVASCRIPT => 'Javascript',
         self::DOT_NET    => '.Net',
         self::JAVA       => 'Java',
@@ -30,6 +32,6 @@ class OtherLanguageEnums extends AbstractEnums
      */
     protected function getDefaultValue()
     {
-        return null;
+        return self::AUCUN;
     }
 }
