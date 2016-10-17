@@ -7,12 +7,12 @@ module.exports = function(grunt) {
     copy: {
       main: {
         files: [
-          {expand: true, cwd: 'bower_components/select2/', src: ['**.png'], dest: 'web/assets/images/select2/', filter: 'isFile'},
-          {expand: true, cwd: 'bower_components/select2/', src: ['**.gif'], dest: 'web/assets/images/select2/', filter: 'isFile'},
-          {expand: true, cwd: 'bower_components/bootstrap-sass-official/vendor/assets/stylesheets/', src: ['**'], dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/'},
-          {expand: true, cwd: 'bower_components/select2/', src: ['select2-bootstrap.scss'], dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/'},
-          {expand: false, src: 'bower_components/jquery.tablesorter/css/theme.bootstrap.css', dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/tablesorter.theme.bootstrap.scss'},
-          {expand: false, src: 'bower_components/colorbrewer/colorbrewer.css', dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/colorbrewer.scss'},
+          {expand: true, cwd: 'node_modules/select2/', src: ['**.png'], dest: 'web/assets/images/select2/', filter: 'isFile'},
+          {expand: true, cwd: 'node_modules/select2/', src: ['**.gif'], dest: 'web/assets/images/select2/', filter: 'isFile'},
+          {expand: true, cwd: 'node_modules/bootstrap-sass/assets/stylesheets/', src: ['**'], dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/'},
+          {expand: true, cwd: 'node_modules/select2/', src: ['select2-bootstrap.scss'], dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/'},
+          {expand: false, src: 'node_modules/tablesorter/dist/css/theme.bootstrap.css', dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/tablesorter.theme.bootstrap.scss'},
+          {expand: false, src: 'node_modules/colorbrewer/colorbrewer.css', dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/colorbrewer.scss'},
           {expand: false, src: 'bower_components/github-fork-ribbon-css/gh-fork-ribbon.css',  dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/github-fork-ribbon/gh-fork-ribbon.scss'}
         ]
       }
@@ -20,41 +20,31 @@ module.exports = function(grunt) {
 
     cssUrlRewrite: {
       select2: {
-          src: 'bower_components/select2/select2.css',
+          src: 'node_modules/select2/select2.css',
           dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/select2.scss',
           options: {
             rewriteUrl: function(url, options, dataURI) {
-              return '/assets/images/select2/' + url.replace('bower_components/select2/', '');
+              return '/assets/images/select2/' + url.replace('node_modules/select2/', '');
             }
           }
       },
       select2bootstrap: {
-          src: 'bower_components/select2-bootstrap3-css/lib/select2-bootstrap.scss',
+          src: 'node_modules/select2-bootstrap-css/lib/select2-bootstrap.scss',
           dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/select2-bootstrap.scss',
       }
     },
 
     webfont_svg_extractor: {
-        glyphicon: {
-            options: {
-                fontPath: "bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.svg",
-                cssPath: "bower_components/bootstrap/dist/css/bootstrap.css",
-                outputDir: "app/cache/grunt/font/",
-                preset: "glyphicon",
-                icons: [
-                    "remove",
-                    "chevron-up",
-                    "chevron-down"
-                ]
-            }
-        },
         fontawesome: {
             options: {
-                fontPath: "bower_components/fontawesome/fonts/fontawesome-webfont.svg",
-                cssPath: "bower_components/fontawesome/css/font-awesome.css",
+                fontPath: "node_modules/font-awesome/fonts/fontawesome-webfont.svg",
+                cssPath: "node_modules/font-awesome/css/font-awesome.css",
                 outputDir: "app/cache/grunt/font/",
                 preset: "fontawesome",
                 icons: [
+                    "chevron-up",
+                    "chevron-down",
+                    "remove",
                     "smile-o",
                     "frown-o",
                     "male",
@@ -104,17 +94,17 @@ module.exports = function(grunt) {
         },
         nonull: true,
         src: [
-          'bower_components/jquery/dist/jquery.js',
-          'bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/dropdown.js',
-          'bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/transition.js',
-          'bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap/collapse.js',
+          'node_modules/jquery/dist/jquery.js',
+          'node_modules/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js',
+          'node_modules/bootstrap-sass/assets/javascripts/bootstrap/transition.js',
+          'node_modules/bootstrap-sass/assets/javascripts/bootstrap/collapse.js',
           'bower_components/select2/select2.js',
-          'bower_components/select2/select2_locale_fr.js',
-          'bower_components/highcharts/highcharts.js',
-          'bower_components/highchartTable/jquery.highchartTable.js',
-          'bower_components/jquery.tablesorter/js/jquery.tablesorter.js',
-          'bower_components/jquery.tablesorter/js/jquery.tablesorter.widgets.js',
-          'bower_components/d3/d3.v2.js',
+          'node_modules/select2/select2_locale_fr.js',
+          'node_modules/highcharts/highcharts.js',
+          'node_modules/highchartTable/jquery.highchartTable.js',
+          'node_modules/tablesorter/dist/js/jquery.tablesorter.js',
+          'node_modules/tablesorter/dist/js/jquery.tablesorter.widgets.js',
+          'node_modules/d3/d3.v2.js',
           'src/Afup/BarometreBundle/Resources/assets/js/tablesorter.js',
           'src/Afup/BarometreBundle/Resources/assets/js/select2.js',
           'src/Afup/BarometreBundle/Resources/assets/js/charts.js',
