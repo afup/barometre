@@ -59,7 +59,9 @@
             <tag name="barometre.report" />
         </service>
 
-        <service id="afup.barometre.report.php_version" class="Afup\Barometre\Report\PhpVersionReport" parent="afup.barometre.report.abstract">
+        <service id="afup.barometre.report.php_version" class="Afup\Barometre\Report\PhpVersionReport">
+            <argument type="service" id="doctrine" />
+            <argument>%min_result%</argument>
             <tag name="barometre.report" />
         </service>
 

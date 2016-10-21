@@ -87,4 +87,12 @@ abstract class AbstractReport implements ReportInterface
 
         return ($report1->getWeight() < $report2->getWeight()) ? 1 : -1;
     }
+
+    /**
+     * @return array
+     */
+    public function getChildReports()
+    {
+        return [];
+    }
 }

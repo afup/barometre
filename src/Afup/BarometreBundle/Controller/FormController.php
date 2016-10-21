@@ -19,7 +19,7 @@ class FormController extends Controller
     {
         $manager = $this->getManager();
 
-        $manager->handleRequest($request);
+        $manager->handleRequest($this->get('request_stack')->getMasterRequest());
 
         return [
             'form'   => $manager->getForm()->createView(),

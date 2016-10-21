@@ -2,8 +2,25 @@
 
 namespace Afup\Barometre\Report;
 
+use Doctrine\Bundle\DoctrineBundle\Registry as Doctrine;
+
 class PhpVersionReport extends AbstractReport
 {
+    /**
+     * @var Doctrine
+     */
+    protected $doctrine;
+
+    /**
+     * @param Doctrine $doctrine
+     * @param int $minResult
+     */
+    public function __construct(Doctrine $doctrine, $minResult = 10)
+    {
+        $this->doctrine = $doctrine;
+        parent::__construct($minResult);
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -26,5 +43,12 @@ class PhpVersionReport extends AbstractReport
     public function getName()
     {
         return 'php_version';
+    }
+
+    public function getChildReports()
+    {
+        return [
+            new PhpVersionReportEvolution($this->doctrine),
+        ];
     }
 }

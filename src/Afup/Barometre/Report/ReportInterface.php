@@ -53,4 +53,9 @@ interface ReportInterface
      * @return null|int
      */
     public function getWeight();
+
+    /**
+     * @return ReportInterface[]
+     */
+    public function getChildReports();
 }
