@@ -65,7 +65,7 @@
                 <argument type="collection">
                     <argument type="service">
                         <service class="Afup\Barometre\Report\PhpVersionReportEvolution">
-                            <argument type="service" id="doctrine" />
+                            <argument type="service" id="afup.barometre.request_modifier_collection" />
                             <argument>%min_result%</argument>
                         </service>
                     </argument>
@@ -73,8 +73,25 @@
             </call>
         </service>
 
-        <service id="afup.barometre.report.gender" class="Afup\Barometre\Report\GenderReport" parent="afup.barometre.report.abstract">
+        <service id="afup.barometre.report.gender" class="Afup\Barometre\Report\GenderReport">
+            <argument>%min_result%</argument>
             <tag name="barometre.report" />
+            <call method="setChildReports">
+                <argument type="collection">
+                    <argument type="service">
+                        <service class="Afup\Barometre\Report\GenderSalaryEvolutionReport">
+                            <argument type="service" id="afup.barometre.request_modifier_collection" />
+                            <argument>%min_result%</argument>
+                        </service>
+                    </argument>
+                    <argument type="service">
+                        <service class="Afup\Barometre\Report\GenderCountEvolutionReport">
+                            <argument type="service" id="afup.barometre.request_modifier_collection" />
+                            <argument>%min_result%</argument>
+                        </service>
+                    </argument>
+                </argument>
+            </call>
         </service>
 
         <service id="afup.barometre.report.os_developpment" class="Afup\Barometre\Report\OsDeveloppmentReport" parent="afup.barometre.report.abstract">

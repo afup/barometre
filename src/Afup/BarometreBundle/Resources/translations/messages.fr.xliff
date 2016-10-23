@@ -122,6 +122,14 @@
                 <source>report.gender.label</source>
                 <target>Salaire moyen par sexe</target>
             </trans-unit>
+            <trans-unit id="reportreport.gender_salary_evolution.label">
+                <source>report.gender_salary_evolution.label</source>
+                <target>Évolution du salaire moyen par sexe</target>
+            </trans-unit>
+            <trans-unit id="reportreport.gender_count_evolution.label">
+                <source>report.gender_count_evolution.label</source>
+                <target>Évolution du nombre de réponses par sexe</target>
+            </trans-unit>
             <trans-unit id="report.company_size_salary.label">
                 <source>report.company_size_salary.label</source>
                 <target>Rémunération par taille d'entreprise</target>
