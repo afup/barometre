@@ -1,0 +1,28 @@
+{% set icons =  {
+    "Hommes": { class: 'icon-male', size: '30px', color: "#343477"},
+    "Femmes": { class: 'icon-female', size: '30px', color: "#882D60"},
+    "Non précisé" : {color: "#999"}
+} %}
+
+<table class="highchart" data-graph-container-before="1" data-graph-type="line" style="display:none">
+    <thead>
+        <tr>
+            <th>Salaire</th>
+            <th>Hommes</th>
+            <th>Femmes</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for year, results_in_year in results %}
+        <tr>
+            <td>{{ year }}</td>
+            <td>{{ results_in_year[1]|default("") }}</td>
+            <td>{{ results_in_year[2]|default("") }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<div class="salary-info">
+    *{{ "report.view.info_annual_salary"|trans }}
+</div>
