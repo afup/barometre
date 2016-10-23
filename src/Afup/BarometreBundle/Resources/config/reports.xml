@@ -59,10 +59,18 @@
             <tag name="barometre.report" />
         </service>
 
-        <service id="afup.barometre.report.php_version" class="Afup\Barometre\Report\PhpVersionReport">
-            <argument type="service" id="doctrine" />
-            <argument>%min_result%</argument>
+        <service id="afup.barometre.report.php_version" class="Afup\Barometre\Report\PhpVersionReport" parent="afup.barometre.report.abstract">
             <tag name="barometre.report" />
+            <call method="setChildReports">
+                <argument type="collection">
+                    <argument type="service">
+                        <service class="Afup\Barometre\Report\PhpVersionReportEvolution">
+                            <argument type="service" id="doctrine" />
+                            <argument>%min_result%</argument>
+                        </service>
+                    </argument>
+                </argument>
+            </call>
         </service>
 
         <service id="afup.barometre.report.gender" class="Afup\Barometre\Report\GenderReport" parent="afup.barometre.report.abstract">

@@ -22,6 +22,11 @@ abstract class AbstractReport implements ReportInterface
     protected $minResult;
 
     /**
+     * @var ReportInterface[]
+     */
+    protected $childReports = [];
+
+    /**
      * @param integer $minResult
      */
     public function __construct($minResult = 10)
@@ -93,6 +98,16 @@ abstract class AbstractReport implements ReportInterface
      */
     public function getChildReports()
     {
-        return [];
+        return $this->childReports;
+    }
+
+    /**
+     * @param array $childReports
+     *
+     * @return array
+     */
+    public function setChildReports(array $childReports)
+    {
+        return $this->childReports = $childReports;
     }
 }

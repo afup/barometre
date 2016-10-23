@@ -58,4 +58,11 @@ interface ReportInterface
      * @return ReportInterface[]
      */
     public function getChildReports();
+
+    /**
+     * @param array $childReports
+     *
+     * @return ReportInterface[]
+     */
+    public function setChildReports(array $childReports);
 }
