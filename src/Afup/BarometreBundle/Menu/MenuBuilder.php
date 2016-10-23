@@ -47,16 +47,17 @@ class MenuBuilder
         $menu->setChildrenAttribute('class', 'nav navbar-nav');
 
         $menu->addChild(
-            'Questionnaire 2016',
+            'menu.result2015',
             [
-                'route' => 'afup_barometre_2016form',
+                'route' => 'afup_barometre_2015form',
+                'routeAbsolute' => UrlGeneratorInterface::ABSOLUTE_URL,
             ]
         );
 
         $menu->addChild(
-            'menu.result2015',
+            'menu.press_review',
             [
-                'route' => 'afup_barometre_2015form',
+                'route' => 'afup_barometre_press_review',
                 'routeAbsolute' => UrlGeneratorInterface::ABSOLUTE_URL,
             ]
         );
