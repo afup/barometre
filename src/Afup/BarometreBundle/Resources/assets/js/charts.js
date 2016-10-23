@@ -62,6 +62,19 @@ $(document).ready(function () {
                 };
             }
 
+            if ($(this).hasClass('gender-count-evolution')) {
+                highChartConfig.plotOptions.series.dataLabels = {
+                    useHTML: true,
+                    formatter : function () {
+                        if (typeof this.percentage === 'undefined') {
+                            return;
+                        }
+
+                        return this.percentage.toFixed(2) + '%';
+                    }
+                };
+            }
+
             if ($(this).data('graph-datalabels-format')) {
                 highChartConfig.plotOptions.series.dataLabels = {
                     useHTML: true,

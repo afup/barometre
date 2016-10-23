@@ -84,6 +84,12 @@
                             <argument>%min_result%</argument>
                         </service>
                     </argument>
+                    <argument type="service">
+                        <service class="Afup\Barometre\Report\GenderCountEvolutionReport">
+                            <argument type="service" id="afup.barometre.request_modifier_collection" />
+                            <argument>%min_result%</argument>
+                        </service>
+                    </argument>
                 </argument>
             </call>
         </service>

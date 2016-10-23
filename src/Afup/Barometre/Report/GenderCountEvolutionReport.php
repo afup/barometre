@@ -5,7 +5,7 @@ namespace Afup\Barometre\Report;
 use Afup\Barometre\RequestModifier\RequestModifierCollection;
 use Symfony\Component\HttpFoundation\Request;
 
-class GenderSalaryEvolutionReport extends AbstractReport implements AlterableReportInterface
+class GenderCountEvolutionReport extends AbstractReport implements AlterableReportInterface
 {
     /**
      * @var RequestModifierCollection
@@ -29,20 +29,21 @@ class GenderSalaryEvolutionReport extends AbstractReport implements AlterableRep
     {
         $this->queryBuilder
             ->addSelect('response.gender as gender')
-            ->addSelect('AVG(annualSalary) as averageSalary')
+            ->addSelect('COUNT(*) as nbResponses')
             ->addSelect('campaign.name as campaign_name')
             ->join('response', 'campaign', 'campaign', 'response.campaign_id = campaign.id')
             ->addGroupBy('campaign_name')
             ->addGroupBy('response.gender')
             ->addOrderBy('campaign_name', 'asc')
             ->addOrderBy('response.gender', 'asc')
-            ->having('COUNT(*) >= :minResult')
-            ->setParameter(':minResult', $this->minResult);
+            ->having('nbResponses >= :minResult')
+            ->setParameter(':minResult', $this->minResult)
+        ;
 
         $data = [];
 
         foreach ($this->queryBuilder->execute() as $row) {
-            $data[$row['campaign_name']][$row['gender']] = round($row['averageSalary']);
+            $data[$row['campaign_name']][$row['gender']] = $row['nbResponses'];
         }
 
         $this->data = $data;
@@ -53,7 +54,7 @@ class GenderSalaryEvolutionReport extends AbstractReport implements AlterableRep
      */
     public function getName()
     {
-        return 'gender_salary_evolution';
+        return 'gender_count_evolution';
     }
 
     /**
