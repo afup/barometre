@@ -45,6 +45,23 @@ $(document).ready(function () {
                 };
             }
 
+            if ($(this).hasClass('php-versions-evolution')) {
+                highChartConfig.plotOptions.series.dataLabels = {
+                    useHTML: true,
+                    formatter : function () {
+                        if (typeof this.percentage === 'undefined') {
+                            return;
+                        }
+
+                        if (this.percentage < 10) {
+                            return;
+                        }
+
+                        return '<b>' + this.series.name + '</b> : <br />' + ' ' + this.percentage.toFixed(2) + '%';
+                    }
+                };
+            }
+
             if ($(this).data('graph-datalabels-format')) {
                 highChartConfig.plotOptions.series.dataLabels = {
                     useHTML: true,

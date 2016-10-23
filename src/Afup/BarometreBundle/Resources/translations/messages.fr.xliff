@@ -218,6 +218,10 @@
                 <source>report.php_version.label</source>
                 <target>Versions de PHP utilisées</target>
             </trans-unit>
+            <trans-unit id="report.php_version_evolution.label">
+                <source>report.php_version_evolution.label</source>
+                <target>Évolution des versions de PHP utilisées</target>
+            </trans-unit>
             <trans-unit id="report.view.php_version">
                 <source>report.view.php_version</source>
                 <target>Version de PHP utilisée</target>

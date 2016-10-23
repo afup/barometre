@@ -53,4 +53,16 @@ interface ReportInterface
      * @return null|int
      */
     public function getWeight();
+
+    /**
+     * @return ReportInterface[]
+     */
+    public function getChildReports();
+
+    /**
+     * @param array $childReports
+     *
+     * @return ReportInterface[]
+     */
+    public function setChildReports(array $childReports);
 }
