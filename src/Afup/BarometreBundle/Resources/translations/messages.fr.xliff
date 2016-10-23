@@ -106,6 +106,10 @@
                 <source>report.salary.label</source>
                 <target>Distribution des salaires</target>
             </trans-unit>
+            <trans-unit id="report.salary_evolution.label">
+                <source>report.salary_evolution.label</source>
+                <target>Évolution des salaires</target>
+            </trans-unit>
             <trans-unit id="report.speciality.label">
                 <source>report.speciality.label</source>
                 <target>Distribution des spécialités</target>

@@ -13,6 +13,16 @@
 
         <service id="afup.barometre.report.salary" class="Afup\Barometre\Report\SalaryReport"  parent="afup.barometre.report.abstract">
             <tag name="barometre.report" />
+            <call method="setChildReports">
+                <argument type="collection">
+                    <argument type="service">
+                        <service class="Afup\Barometre\Report\SalaryEvolutionReport">
+                            <argument type="service" id="afup.barometre.request_modifier_collection" />
+                            <argument>%min_result%</argument>
+                        </service>
+                    </argument>
+                </argument>
+            </call>
         </service>
 
         <service id="afup.barometre.report.company_type" class="Afup\Barometre\Report\CompanyTypeReport" parent="afup.barometre.report.abstract">
