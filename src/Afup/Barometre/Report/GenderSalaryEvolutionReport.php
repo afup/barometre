@@ -5,7 +5,7 @@ namespace Afup\Barometre\Report;
 use Afup\Barometre\RequestModifier\RequestModifierCollection;
 use Symfony\Component\HttpFoundation\Request;
 
-class PhpVersionReportEvolution extends AbstractReport implements AlterableReportInterface
+class GenderSalaryEvolutionReport extends AbstractReport implements AlterableReportInterface
 {
     /**
      * @var RequestModifierCollection
@@ -28,40 +28,25 @@ class PhpVersionReportEvolution extends AbstractReport implements AlterableRepor
     public function execute()
     {
         $this->queryBuilder
-            ->select('response.phpVersion')
-            ->addSelect('campaign.name')
-            ->addSelect('COUNT(response.id) as nbResponse')
-            ->add('where', 'response.phpVersion is not null')
+            ->addSelect('response.gender as gender')
+            ->addSelect('AVG(annualSalary) as averageSalary')
+            ->addSelect('campaign.name as campaign_name')
             ->join('response', 'campaign', 'campaign', 'response.campaign_id = campaign.id')
-            ->having('nbResponse >= :minResult')
+            ->addGroupBy('campaign_name')
+            ->addGroupBy('response.gender')
+            ->addOrderBy('campaign_name', 'asc')
+            ->addOrderBy('response.gender', 'asc')
+            ->having('COUNT(*) >= :minResult')
             ->setParameter(':minResult', $this->minResult)
-            ->groupBy('response.campaign_id')
-            ->addGroupBy('response.phpVersion')
-            ->addOrderBy('campaign.name')
         ;
 
         $data = [];
 
-        $allPhpVersions = [];
-
-        foreach ($this->queryBuilder->execute()->fetchAll() as $row) {
-            $allPhpVersions[$row['phpVersion']] = 0;
-            $data[$row['name']][$row['phpVersion']] = $row['nbResponse'];
+        foreach ($this->queryBuilder->execute() as $row) {
+            $data[$row['campaign_name']][$row['gender']] = round($row['averageSalary']);
         }
 
-        ksort($allPhpVersions);
-
-        foreach ($data as $campaignId => $values) {
-            $data[$campaignId] = $values + $allPhpVersions;
-            ksort($data[$campaignId]);
-        }
-
-        if (count($data)) {
-            $this->data = [
-                'data' => $data,
-                'columns' => array_keys($allPhpVersions),
-            ];
-        }
+        $this->data = $data;
     }
 
     /**
@@ -69,7 +54,17 @@ class PhpVersionReportEvolution extends AbstractReport implements AlterableRepor
      */
     public function getName()
     {
-        return 'php_version_evolution';
+        return 'gender_salary_evolution';
+    }
+
+    /**
+     * report weight
+     *
+     * @return int
+     */
+    public function getWeight()
+    {
+        return -20;
     }
 
     /**
