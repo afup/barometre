@@ -1,0 +1,20 @@
+<table class="highchart" data-graph-container-before="1" data-graph-type="line" style="display:none">
+    <thead>
+    <tr>
+        <th>Salaire</th>
+        <th>Moyenne</th>
+        <th>90ème percentile</th>
+        <th>Médiane</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for year, result in results %}
+        <tr>
+            <td>{{ year }}</td>
+            <td>{{ result.avg }}</td>
+            <td>{{ result.per_90 }}</td>
+            <td>{{ result.per_50 }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
