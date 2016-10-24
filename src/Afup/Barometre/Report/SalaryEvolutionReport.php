@@ -44,8 +44,9 @@ class SalaryEvolutionReport extends AbstractReport implements AlterableReportInt
         foreach ($qb->execute() as $row) {
             $data[$row['campaign_name']] = [
                 'avg' => round($row['averageSalary']),
-                'per_90' => round($this->calculatePercentileForYear($row['campaign_id'], $row['cnt'], 90)),
+                'per_10' => round($this->calculatePercentileForYear($row['campaign_id'], $row['cnt'], 10)),
                 'per_50' => round($this->calculatePercentileForYear($row['campaign_id'], $row['cnt'], 50)),
+                'per_90' => round($this->calculatePercentileForYear($row['campaign_id'], $row['cnt'], 90)),
             ];
         }
 
