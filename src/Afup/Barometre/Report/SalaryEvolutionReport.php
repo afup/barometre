@@ -68,6 +68,8 @@ class SalaryEvolutionReport extends AbstractReport implements AlterableReportInt
         $qb->andWhere("response.campaign_id = :id");
         $qb->setParameter(':id', $campaignId);
 
+        $qb->orderBy('response.grossAnnualSalary', 'asc');
+
         $qb->setFirstResult($percentile / 100 * $campaignCount);
         $qb->setMaxResults(1);
 
