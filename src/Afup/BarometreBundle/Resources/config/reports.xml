@@ -29,6 +29,10 @@
             <tag name="barometre.report" />
         </service>
 
+        <service id="afup.barometre.report.job_title" class="Afup\Barometre\Report\JobTitleReport" parent="afup.barometre.report.abstract">
+            <tag name="barometre.report" />
+        </service>
+
         <service id="afup.barometre.report.status" class="Afup\Barometre\Report\StatusReport" parent="afup.barometre.report.abstract">
             <tag name="barometre.report" />
         </service>
