@@ -100,7 +100,7 @@
             </trans-unit>
             <trans-unit id="report.job_title.label">
                 <source>report.job_title.label</source>
-                <target>Distribution par initulé de poste</target>
+                <target>Distribution par intitulé de poste</target>
             </trans-unit>
             <trans-unit id="report.view.job_title">
                 <source>report.view.job_title</source>
