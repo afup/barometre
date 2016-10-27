@@ -98,6 +98,14 @@
                 <source>report.company_type.label</source>
                 <target>Distribution des types d'entreprises</target>
             </trans-unit>
+            <trans-unit id="report.job_title.label">
+                <source>report.job_title.label</source>
+                <target>Distribution par initulé de poste</target>
+            </trans-unit>
+            <trans-unit id="report.view.job_title">
+                <source>report.view.job_title</source>
+                <target>Initulé de poste</target>
+            </trans-unit>
             <trans-unit id="report.status.label">
                 <source>report.status.label</source>
                 <target>Distribution des statuts</target>
