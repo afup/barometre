@@ -34,6 +34,10 @@
             <tag name="barometre.filter" alias="departement" />
         </service>
 
+        <service id="afup.barometre.filter.district" class="Afup\Barometre\Filter\DistrictFilter">
+            <tag name="barometre.filter" alias="district" />
+        </service>
+
         <service id="afup.barometre.filter.experience" class="Afup\Barometre\Filter\ExperienceFilter">
             <argument type="service" id="afup.barometre.enums.experience" />
             <tag name="barometre.filter" alias="experience" />

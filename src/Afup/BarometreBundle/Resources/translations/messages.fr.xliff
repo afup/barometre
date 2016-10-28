@@ -46,6 +46,10 @@
                 <source>filter.department</source>
                 <target>Département</target>
             </trans-unit>
+            <trans-unit id="filter.district">
+                <source>filter.district</source>
+                <target>Region</target>
+            </trans-unit>
             <trans-unit id="filter.experience">
                 <source>filter.experience</source>
                 <target>Expérience</target>
