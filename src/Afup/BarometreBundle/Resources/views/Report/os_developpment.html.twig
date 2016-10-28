@@ -1,0 +1,32 @@
+{% set icons =  {
+"Linux": { class: 'icon-linux', size: '30px'},
+"Windows": { class: 'icon-windows', size: '30px'},
+"MacOS": { class: 'icon-apple', size: '30px'},
+"Non précisé" : {color: "#999"}
+} %}
+
+<table class="table table-striped highchart highchart-emoticon"
+       data-graph-container-before="1"
+       data-graph-type="column"
+       data-icons="{{ icons|json_encode }}"
+       data-graph-legend-disabled="1">
+    <thead>
+    <tr>
+        <th>{{ "report.view.os_developpment" | trans }}</th>
+        <th>{{ "report.view.response_number" | trans }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in results %}
+        <tr>
+            <td>
+                {% if icons[row.osDeveloppment|enum_label('os_developpment')].class is defined %}
+                    <i class="icon {{ icons[row.osDeveloppment|enum_label('os_developpment')].class }}"></i>
+                {% endif %}
+                {{ row.osDeveloppment|enum_label('os_developpment') }}
+            </td>
+            <td class="text-right">{{ row.nbResponse }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

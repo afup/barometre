@@ -151,6 +151,5 @@ class MenuBuilder
                 ]
             );
         }
-
     }
 }

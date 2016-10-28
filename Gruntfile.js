@@ -58,7 +58,10 @@ module.exports = function(grunt) {
                     "smile-o",
                     "frown-o",
                     "male",
-                    "female"
+                    "female",
+                    "apple",
+                    "linux",
+                    "windows"
                 ]
             }
         }
@@ -139,21 +142,18 @@ module.exports = function(grunt) {
         }
       }
     },
-
-    hash: {
+    filerev: {
       options: {
-         hashLength: 8,
-         hashFunction: function(source, encoding){
-              return require('crypto').createHash('sha1').update(source, encoding).digest('hex');
-         }
+        algorithm: 'sha1',
+        length: 8
       },
       js: {
           src: 'app/cache/grunt/main.js',
           dest: 'web/assets/js/'
       },
       css: {
-          src: 'app/cache/grunt/main.css',
-          dest: 'web/assets/css/'
+        src: 'app/cache/grunt/main.css',
+        dest: 'web/assets/css/'
       },
       logos: {
         src: 'src/Afup/BarometreBundle/Resources/assets/logos/*',
@@ -245,7 +245,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-css-url-rewrite');
-  grunt.loadNpmTasks('grunt-hash');
+  grunt.loadNpmTasks('grunt-filerev');
   grunt.loadNpmTasks('grunt-githooks');
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -257,7 +257,7 @@ module.exports = function(grunt) {
   grunt.registerTask('test', ['shell:atoum']);
   grunt.registerTask('lint', ['shell:coke', 'jshint', 'scsslint']);
   grunt.registerTask('common', ['clean', 'copy', 'cssUrlRewrite', 'webfont_svg_extractor', 'webfont', 'sass', 'concat', 'favicons']);
-  grunt.registerTask('dev', ['common', 'hash']);
-  grunt.registerTask('default', ['common', 'uglify', 'cssmin', 'hash']);
+  grunt.registerTask('dev', ['common', 'filerev']);
+  grunt.registerTask('default', ['common', 'uglify', 'cssmin', 'filerev']);
 
 };

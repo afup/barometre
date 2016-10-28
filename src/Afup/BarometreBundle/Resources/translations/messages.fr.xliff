@@ -46,6 +46,10 @@
                 <source>filter.department</source>
                 <target>Département</target>
             </trans-unit>
+            <trans-unit id="filter.district">
+                <source>filter.district</source>
+                <target>Region</target>
+            </trans-unit>
             <trans-unit id="filter.experience">
                 <source>filter.experience</source>
                 <target>Expérience</target>
@@ -70,6 +74,14 @@
                 <source>filter.status</source>
                 <target>Statut</target>
             </trans-unit>
+            <trans-unit id="filter.meetup_participation">
+                <source>filter.meetup_participation</source>
+                <target>Participation à des meetups</target>
+            </trans-unit>
+            <trans-unit id="filter.remote_work">
+                <source>filter.remote_work</source>
+                <target>Travail à distance</target>
+            </trans-unit>
             <trans-unit id="filter.submit">
                 <source>filter.submit</source>
                 <target>Filtrer</target>
@@ -90,6 +102,14 @@
                 <source>report.company_type.label</source>
                 <target>Distribution des types d'entreprises</target>
             </trans-unit>
+            <trans-unit id="report.job_title.label">
+                <source>report.job_title.label</source>
+                <target>Distribution par intitulé de poste</target>
+            </trans-unit>
+            <trans-unit id="report.view.job_title">
+                <source>report.view.job_title</source>
+                <target>Initulé de poste</target>
+            </trans-unit>
             <trans-unit id="report.status.label">
                 <source>report.status.label</source>
                 <target>Distribution des statuts</target>
@@ -97,6 +117,10 @@
             <trans-unit id="report.salary.label">
                 <source>report.salary.label</source>
                 <target>Distribution des salaires</target>
+            </trans-unit>
+            <trans-unit id="report.salary_evolution.label">
+                <source>report.salary_evolution.label</source>
+                <target>Évolution des salaires</target>
             </trans-unit>
             <trans-unit id="report.speciality.label">
                 <source>report.speciality.label</source>
@@ -117,6 +141,14 @@
             <trans-unit id="report.gender.label">
                 <source>report.gender.label</source>
                 <target>Salaire moyen par sexe</target>
+            </trans-unit>
+            <trans-unit id="reportreport.gender_salary_evolution.label">
+                <source>report.gender_salary_evolution.label</source>
+                <target>Évolution du salaire moyen par sexe</target>
+            </trans-unit>
+            <trans-unit id="reportreport.gender_count_evolution.label">
+                <source>report.gender_count_evolution.label</source>
+                <target>Évolution du nombre de réponses par sexe</target>
             </trans-unit>
             <trans-unit id="report.company_size_salary.label">
                 <source>report.company_size_salary.label</source>
@@ -214,6 +246,10 @@
                 <source>report.php_version.label</source>
                 <target>Versions de PHP utilisées</target>
             </trans-unit>
+            <trans-unit id="report.php_version_evolution.label">
+                <source>report.php_version_evolution.label</source>
+                <target>Évolution des versions de PHP utilisées</target>
+            </trans-unit>
             <trans-unit id="report.view.php_version">
                 <source>report.view.php_version</source>
                 <target>Version de PHP utilisée</target>
@@ -221,6 +257,53 @@
             <trans-unit id="report.view.average_salary">
                 <source>report.view.average_salary</source>
                 <target>Salaire moyen</target>
+            </trans-unit>
+            <trans-unit id="report.os_developpment.label">
+                <source>report.os_developpment.label</source>
+                <target>Répartition par OS Principal</target>
+            </trans-unit>
+            <trans-unit id="report.view.os_developpment">
+                <source>report.view.os_developpment</source>
+                <target>OS de développement principal</target>
+            </trans-unit>
+            <trans-unit id="report.technological_watch.label">
+                <source>report.technological_watch.label</source>
+                <target>Faites-vous régulièrement de la veille technique ?</target>
+            </trans-unit>
+            <trans-unit id="report.view.technological_watch">
+                <source>report.view.technological_watch</source>
+                <target>Récurrence veille technique</target>
+            </trans-unit>
+            <trans-unit id="report.remote_usage.label">
+                <source>report.remote_usage.label</source>
+                <target>Répartition des télétravailleurs</target>
+            </trans-unit>
+            <trans-unit id="report.view.remote_usage">
+                <source>report.view.remote_usage</source>
+                <target>Travaillez-vous en télétravail ?</target>
+            </trans-unit>
+            <trans-unit id="report.meetup_participation.label">
+                <source>report.meetup_participation.label</source>
+                <target>Participation à des meetups</target>
+            </trans-unit>
+            <trans-unit id="report.view.meetup_participation">
+                <source>report.view.meetup_participation</source>
+                <target>Participation à un meetup</target>
+            </trans-unit>
+
+            <trans-unit id="report.training_participation.label">
+                <source>report.training_participation.label</source>
+                <target>Participation à une formation</target>
+            </trans-unit>
+
+            <trans-unit id="report.view.training_participation">
+                <source>report.view.training_participation</source>
+                <target>Avec vous récemment participé à une formation ?</target>
+            </trans-unit>
+
+            <trans-unit id="report.view.training_impact">
+                <source>report.view.training_impact</source>
+                <target>Cette formation à t-elle eut un impact sur votre rémunération ?</target>
             </trans-unit>
         </body>
     </file>

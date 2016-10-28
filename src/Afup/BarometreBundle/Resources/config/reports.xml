@@ -13,9 +13,23 @@
 
         <service id="afup.barometre.report.salary" class="Afup\Barometre\Report\SalaryReport"  parent="afup.barometre.report.abstract">
             <tag name="barometre.report" />
+            <call method="setChildReports">
+                <argument type="collection">
+                    <argument type="service">
+                        <service class="Afup\Barometre\Report\SalaryEvolutionReport">
+                            <argument type="service" id="afup.barometre.request_modifier_collection" />
+                            <argument>%min_result%</argument>
+                        </service>
+                    </argument>
+                </argument>
+            </call>
         </service>
 
         <service id="afup.barometre.report.company_type" class="Afup\Barometre\Report\CompanyTypeReport" parent="afup.barometre.report.abstract">
+            <tag name="barometre.report" />
+        </service>
+
+        <service id="afup.barometre.report.job_title" class="Afup\Barometre\Report\JobTitleReport" parent="afup.barometre.report.abstract">
             <tag name="barometre.report" />
         </service>
 
@@ -61,9 +75,56 @@
 
         <service id="afup.barometre.report.php_version" class="Afup\Barometre\Report\PhpVersionReport" parent="afup.barometre.report.abstract">
             <tag name="barometre.report" />
+            <call method="setChildReports">
+                <argument type="collection">
+                    <argument type="service">
+                        <service class="Afup\Barometre\Report\PhpVersionReportEvolution">
+                            <argument type="service" id="afup.barometre.request_modifier_collection" />
+                            <argument>%min_result%</argument>
+                        </service>
+                    </argument>
+                </argument>
+            </call>
         </service>
 
-        <service id="afup.barometre.report.gender" class="Afup\Barometre\Report\GenderReport" parent="afup.barometre.report.abstract">
+        <service id="afup.barometre.report.gender" class="Afup\Barometre\Report\GenderReport">
+            <argument>%min_result%</argument>
+            <tag name="barometre.report" />
+            <call method="setChildReports">
+                <argument type="collection">
+                    <argument type="service">
+                        <service class="Afup\Barometre\Report\GenderSalaryEvolutionReport">
+                            <argument type="service" id="afup.barometre.request_modifier_collection" />
+                            <argument>%min_result%</argument>
+                        </service>
+                    </argument>
+                    <argument type="service">
+                        <service class="Afup\Barometre\Report\GenderCountEvolutionReport">
+                            <argument type="service" id="afup.barometre.request_modifier_collection" />
+                            <argument>%min_result%</argument>
+                        </service>
+                    </argument>
+                </argument>
+            </call>
+        </service>
+
+        <service id="afup.barometre.report.os_developpment" class="Afup\Barometre\Report\OsDeveloppmentReport" parent="afup.barometre.report.abstract">
+            <tag name="barometre.report" />
+        </service>
+
+        <service id="afup.barometre.report.remote_usage" class="Afup\Barometre\Report\RemoteUsageReport" parent="afup.barometre.report.abstract">
+            <tag name="barometre.report" />
+        </service>
+
+        <service id="afup.barometre.report.technological_watch" class="Afup\Barometre\Report\TechnologicalWatchReport" parent="afup.barometre.report.abstract">
+            <tag name="barometre.report" />
+        </service>
+
+        <service id="afup.barometre.report.meetup_particpation" class="Afup\Barometre\Report\MeetupParticipationReport" parent="afup.barometre.report.abstract">
+            <tag name="barometre.report" />
+        </service>
+
+        <service id="afup.barometre.report.training_particpation" class="Afup\Barometre\Report\TrainingParticipationReport" parent="afup.barometre.report.abstract">
             <tag name="barometre.report" />
         </service>
     </services>

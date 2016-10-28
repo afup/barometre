@@ -3,38 +3,13 @@
 {% block title %}{{ report.label|trans }} | {{ parent() }}{% endblock %}
 
 {% block content %}
-
     <div class="row">
         <div class="col-md-9">
-            <h1>{{ report.label | trans }}</h1>
-            {% if filters is not empty %}
-                <div class="filters-summary">
-                {% for name, filter in filters %}
-                    {% set title = attribute(form, name).vars.label|trans %}
-                    {% if filter is iterable %}
-                        {% for filterValue in filter %}
-                            <span class="label label-primary">{{ title }} : {{ filterValue }}</span>
-                        {% endfor %}
-                    {% else %}
-                        <span title="{{ title }}" class="label label-primary">{{ filter }}</span>
-                    {% endif %}
-                {% endfor %}
-                </div>
-            {% endif %}
-
-            {% if report.hasResults %}
-                {{ include("AfupBarometreBundle:Report:" ~ report.name ~ ".html.twig", { results: report.data }) }}
-            {% else %}
-                <div id="no-results">
-                    Aucune ou trop peu de données à afficher pour votre filtrage. Essayez de supprimer des filtres.
-                </div>
-            {% endif %}
-
+            {% render(controller('AfupBarometreBundle:Report:index', {reportName: report_name })) %}
         </div>
         <div class="col-md-3">
             <h1>Filtres</h1>
             {% block filters render(controller('AfupBarometreBundle:Form:index')) %}
         </div>
     </div>
-
 {% endblock %}

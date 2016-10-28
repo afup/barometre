@@ -1,0 +1,32 @@
+<table class="table table-striped highchart"
+       data-graph-container-before="1"
+       data-graph-type="column"
+       data-graph-inverted="1"
+       data-graph-legend-disabled="1"
+       data-graph-datalabels-enabled="1"
+       data-graph-datalabels-color="white"
+       data-graph-xaxis-labels-align="right"
+       data-graph-tooltip-disabled="1"
+       data-graph-datalabels-format="{point.series.name} : <br /> <b>{point.y}</b>"
+       style="display: none"
+>
+    <thead>
+        <tr>
+            <th></th>
+            <th data-graph-stack-group="1">Non</th>
+            <th data-graph-stack-group="1">Oui</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{ "report.view.training_impact" | trans }}</td>
+            <td>{{ results.is_training_has_salary_impact[0]|default(0) }}</td>
+            <td>{{ results.is_training_has_salary_impact[1]|default(0) }}</td>
+        </tr>
+        <tr>
+            <td>{{ "report.view.training_participation" | trans }}</td>
+            <td>{{ results.has_training[0]|default(0) }}</td>
+            <td>{{ results.has_training[1]|default(0) }}</td>
+        </tr>
+    </tbody>
+</table>

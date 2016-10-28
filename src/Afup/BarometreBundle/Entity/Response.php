@@ -114,6 +114,12 @@ class Response
      * @ORM\Column(type="integer", nullable=true)
      * @var int
      */
+    protected $otherLanguage;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @var int
+     */
     protected $phpVersion;
 
     /**
@@ -129,7 +135,7 @@ class Response
     protected $hasRecentTraining;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      * @var bool
      */
     protected $isRecentTrainingHadSalaryImpact;
@@ -139,6 +145,32 @@ class Response
      * @var int
      */
     protected $gender;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    protected $osDeveloppment;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    protected $technologicalWatch;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @var int
+     */
+    protected $remoteUsage;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @var int
+     */
+    protected $meetupParticipation;
 
     /**
      */
@@ -549,6 +581,106 @@ class Response
     public function setGender($gender)
     {
         $this->gender = $gender;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTechnologicalWatch()
+    {
+        return $this->technologicalWatch;
+    }
+
+    /**
+     * @param int $technologicalWatch
+     *
+     * @return $this
+     */
+    public function setTechnologicalWatch($technologicalWatch)
+    {
+        $this->technologicalWatch = $technologicalWatch;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getOsDeveloppment()
+    {
+        return $this->osDeveloppment;
+    }
+
+    /**
+     * @param int $osDeveloppment
+     *
+     * @return $this
+     */
+    public function setOsDeveloppment($osDeveloppment)
+    {
+        $this->osDeveloppment = $osDeveloppment;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getOtherLanguage()
+    {
+        return $this->otherLanguage;
+    }
+
+    /**
+     * @param int $otherLanguage
+     *
+     * @return $this
+     */
+    public function setOtherLanguage($otherLanguage)
+    {
+        $this->otherLanguage = $otherLanguage;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getRemoteUsage()
+    {
+        return $this->remoteUsage;
+    }
+
+    /**
+     * @param int $remoteUsage
+     *
+     * @return $this
+     */
+    public function setRemoteUsage($remoteUsage)
+    {
+        $this->remoteUsage = $remoteUsage;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getMeetupParticipation()
+    {
+        return $this->meetupParticipation;
+    }
+
+    /**
+     * @param int $meetupParticipation
+     *
+     * @return $this
+     */
+    public function setMeetupParticipation($meetupParticipation)
+    {
+        $this->meetupParticipation = $meetupParticipation;
 
         return $this;
     }

@@ -71,7 +71,7 @@
             <tag name="twig.extension" />
         </service>
 
-        <service id="afup.barometre.manager" class="Afup\Barometre\ReportManager">
+        <service id="afup.barometre.manager" class="Afup\Barometre\ReportManager" shared="false">
             <argument type="service" id="doctrine.dbal.default_connection" />
             <argument type="service" id="afup.barometre.filter_form" />
             <argument type="service" id="afup.barometre.report_collection" />
@@ -83,7 +83,7 @@
             <tag name="form.type" alias="filter" />
         </service>
 
-        <service id="afup.barometre.filter_form" class="Symfony\Component\Form\FormInterface">
+        <service id="afup.barometre.filter_form" class="Symfony\Component\Form\FormInterface" shared="false">
             <factory service="form.factory" method="create" />
             <argument>filter</argument>
         </service>
@@ -92,6 +92,14 @@
         </service>
 
         <service id="afup.barometre.filter_collection" class="Afup\Barometre\Filter\FilterCollection">
+        </service>
+
+        <service id="afup.barometre.request_modifier_collection" class="Afup\Barometre\RequestModifier\RequestModifierCollection">
+        </service>
+
+        <service id="afup.barometre.request_modifier.filter_on_all_campaigns" class="Afup\Barometre\RequestModifier\FilterOnAllCampaigns">
+            <argument type="service" id="doctrine" />
+            <tag name="barometre.request_modifier"  />
         </service>
     </services>
 </container>

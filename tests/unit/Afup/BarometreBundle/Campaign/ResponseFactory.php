@@ -4,16 +4,21 @@ namespace Afup\BarometreBundle\Campaign\Tests\Units;
 
 use atoum;
 use Afup\BarometreBundle\Campaign\ResponseFactory as TestedClass;
-use Afup\BarometreBundle\Enums\GenderEnums;
-use Afup\BarometreBundle\Enums\StatusEnums;
-use Afup\BarometreBundle\Enums\InitialTrainingEnums;
-use Afup\BarometreBundle\Enums\CompanyTypeEnums;
 use Afup\BarometreBundle\Enums\CompanySizeEnums;
-use Afup\BarometreBundle\Enums\JobInterestEnums;
-use Afup\BarometreBundle\Enums\PHPVersionEnums;
-use Afup\BarometreBundle\Enums\PHPStrengthEnums;
-use Afup\BarometreBundle\Enums\JobTitleEnums;
+use Afup\BarometreBundle\Enums\CompanyTypeEnums;
 use Afup\BarometreBundle\Enums\ExperienceEnums;
+use Afup\BarometreBundle\Enums\MeetupParticipationEnums;
+use Afup\BarometreBundle\Enums\GenderEnums;
+use Afup\BarometreBundle\Enums\InitialTrainingEnums;
+use Afup\BarometreBundle\Enums\JobInterestEnums;
+use Afup\BarometreBundle\Enums\JobTitleEnums;
+use Afup\BarometreBundle\Enums\OsDeveloppmentEnums;
+use Afup\BarometreBundle\Enums\OtherLanguageEnums;
+use Afup\BarometreBundle\Enums\PHPStrengthEnums;
+use Afup\BarometreBundle\Enums\PHPVersionEnums;
+use Afup\BarometreBundle\Enums\RemoteUsageEnums;
+use Afup\BarometreBundle\Enums\StatusEnums;
+use Afup\BarometreBundle\Enums\TechnologicalWatchEnums;
 
 class ResponseFactory extends atoum
 {
@@ -32,7 +37,11 @@ class ResponseFactory extends atoum
         $enumCollection->addEnums(new JobTitleEnums(), 'job_title');
         $enumCollection->addEnums(new ExperienceEnums(), 'experience');
         $enumCollection->addEnums(new GenderEnums(), 'gender');
-
+        $enumCollection->addEnums(new TechnologicalWatchEnums(), 'technological_watch');
+        $enumCollection->addEnums(new OsDeveloppmentEnums(), 'os_developpment');
+        $enumCollection->addEnums(new OtherLanguageEnums(), 'other_language');
+        $enumCollection->addEnums(new RemoteUsageEnums(), 'remote_usage');
+        $enumCollection->addEnums(new MeetupParticipationEnums(), 'meetup_participation');
 
         $certificationRepository = new \mock\Doctrine\Common\Persistence\ObjectRepository();
         $specialityRepository = new \mock\Doctrine\Common\Persistence\ObjectRepository();
@@ -67,6 +76,11 @@ class ResponseFactory extends atoum
             'job_title' => '',
             'experience' => '',
             'gender' => '',
+            'technological_watch' => '',
+            'os_developpment' => '',
+            'other_language' => '',
+            'meetup_participation' => '',
+            'remote_usage' => '',
         );
 
         $campaign = new \Afup\BarometreBundle\Entity\Campaign();

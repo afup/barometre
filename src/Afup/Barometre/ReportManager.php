@@ -145,7 +145,7 @@ class ReportManager
     /**
      * @return \Doctrine\DBAL\Query\QueryBuilder
      */
-    protected function createBaseQueryBuilder()
+    public function createBaseQueryBuilder()
     {
         $data = (array) $this->form->getData();
 

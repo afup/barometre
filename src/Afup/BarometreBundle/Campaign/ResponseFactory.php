@@ -112,9 +112,12 @@ class ResponseFactory
         $response->setHasRecentTraining(
             "oui" === strtolower($data["has_formation"])
         );
-        $response->setRecentTrainingHadSalaryImpact(
-            "oui" === strtolower($data["formation_impact"])
-        );
+
+        if (strlen($data["formation_impact"])) {
+            $response->setRecentTrainingHadSalaryImpact(
+                "oui" === strtolower($data["formation_impact"])
+            );
+        }
 
         if ("oui" === strtolower($data['has_certification'])) {
             $this->addCertification(
@@ -132,6 +135,26 @@ class ResponseFactory
 
         $response->setGender(
             $this->enums->getEnums('gender')->getIdByLabel($data["gender"])
+        );
+
+        $response->setTechnologicalWatch(
+            $this->enums->getEnums('technological_watch')->getIdByLabel($data['technological_watch'])
+        );
+
+        $response->setOsDeveloppment(
+            $this->enums->getEnums('os_developpment')->getIdByLabel($data['os_developpment'])
+        );
+
+        $response->setOtherLanguage(
+            $this->enums->getEnums('other_language')->getIdByLabel($data['other_language'])
+        );
+
+        $response->setRemoteUsage(
+            $this->enums->getEnums('remote_usage')->getIdByLabel($data["remote_usage"])
+        );
+
+        $response->setMeetupParticipation(
+            $this->enums->getEnums('meetup_participation')->getIdByLabel($data['meetup_participation'])
         );
 
         return $response;
