@@ -127,5 +127,9 @@
         <service id="afup.barometre.report.training_particpation" class="Afup\Barometre\Report\TrainingParticipationReport" parent="afup.barometre.report.abstract">
             <tag name="barometre.report" />
         </service>
+
+        <service id="afup.barometre.report.other_language" class="Afup\Barometre\Report\OtherLanguageReport" parent="afup.barometre.report.abstract">
+            <tag name="barometre.report" />
+        </service>
     </services>
 </container>

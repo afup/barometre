@@ -305,6 +305,15 @@
                 <source>report.view.training_impact</source>
                 <target>Cette formation à t-elle eut un impact sur votre rémunération ?</target>
             </trans-unit>
+
+            <trans-unit id="report.view.other_language">
+                <source>report.view.other_language</source>
+                <target>Langage</target>
+            </trans-unit>
+            <trans-unit id="report.other_language.label">
+                <source>report.other_language.label</source>
+                <target>Autres langage de programmation principal</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
