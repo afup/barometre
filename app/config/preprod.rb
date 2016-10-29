@@ -19,7 +19,7 @@ set :use_composer,          true
 set :clear_controllers,     true
 
 set :scm_username,          "git"
-set :repository,            "git@github.com:afup/barometre.git"
+set :repository,            "https://github.com/afup/barometre.git"
 set :scm,                   :git
 set :user,                  "barometre"
 set :deploy_via,            :remote_cache
