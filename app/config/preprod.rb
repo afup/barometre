@@ -35,6 +35,8 @@ set :webserver_user,        "www-data"
 set :permission_method,     :acl
 set :use_set_permissions,   true
 
+set :interactive_mode, false
+
 server "beta-barometre.afup.org", :web, :app, :db, :primary => true
 
 after 'symfony:cache:warmup', 'barometre:assets_build'

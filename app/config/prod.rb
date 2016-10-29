@@ -24,6 +24,8 @@ set :scm,                   :git
 set :user,                  "barometre"
 set :deploy_via,            :remote_cache
 
+set :interactive_mode, false
+
 default_run_options[:pty]   = true
 ssh_options[:forward_agent] = true
 
