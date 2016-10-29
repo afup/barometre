@@ -224,6 +224,12 @@ class PressReviewController extends Controller
                 'media_logo' => 'frenchweb.jpg',
                 'date' => '2016-01-13',
             ],
+            [
+                'url' => 'http://www.journaldunet.com/web-tech/developpeur/1170666-les-salaires-des-developpeurs-php-en-2016/',
+                'title' => 'Les salaires des développeurs PHP en 2016',
+                'media_logo' => 'jdn.svg',
+                'date' => '2016-10-28',
+            ]
         ];
     }
 }
