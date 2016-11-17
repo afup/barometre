@@ -229,6 +229,12 @@ class PressReviewController extends Controller
                 'title' => 'Les salaires des développeurs PHP en 2016',
                 'media_logo' => 'jdn.svg',
                 'date' => '2016-10-28',
+            ],
+            [
+                'url' => 'http://www.silicon.fr/salaires-developpeurs-php-2016-afup-162024.html',
+                'title' => 'Salaires : des disparités entre développeurs PHP en 2016',
+                'media_logo' => 'silicon.png',
+                'date' => '2016-11-07',
             ]
         ];
     }
