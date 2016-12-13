@@ -22,4 +22,12 @@ class CampaignController extends Controller
     {
         return $this->render('AfupBarometreBundle:Campaign:report2015.html.twig');
     }
+
+    /**
+     * @return Response
+     */
+    public function report2016Action()
+    {
+        return $this->render('AfupBarometreBundle:Campaign:report2016.html.twig');
+    }
 }
