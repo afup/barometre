@@ -1,4 +1,4 @@
-# Baromètre
+# Baromètre
 
 [http://barometre.afup.org](http://barometre.afup.org)
 
