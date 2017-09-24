@@ -6,6 +6,8 @@ CURRENT_GID=$(shell id -g)
 init:
 	docker-compose run --rm cli /bin/bash -l -c "make vendors"
 	docker-compose run --rm cli /bin/bash -l -c "grunt"
+	docker-compose run --rm cli /bin/bash -l -c "php app/console doctrine:schema:update --force"
+	docker-compose run --rm cli /bin/bash -l -c "php app/console doctrine:fixtures:load --fixtures=src/Afup/BarometreBundle/DataTest/ORM/"
 
 vendors: node_modules vendor .vendors/bundler bower_components
 
