@@ -7,7 +7,7 @@ init:
 	docker-compose run --rm cli /bin/bash -l -c "make vendors"
 	docker-compose run --rm cli /bin/bash -l -c "grunt"
 
-vendors: node_modules vendor .vendors/bundler
+vendors: node_modules vendor .vendors/bundler bower_components
 
 composer.phar:
 	$(eval EXPECTED_SIGNATURE = "$(shell wget -q -O - https://composer.github.io/installer.sig)")
@@ -24,6 +24,9 @@ node_modules:
 
 .vendors/bundler:
 	bundle install --path .vendors/bundler
+
+bower_components:
+	./node_modules/bower/bin/bower install
 
 app/config/parameters.yml:
 	cp app/config/parameters.yml.dist app/config/parameters.yml
