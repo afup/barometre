@@ -19,6 +19,7 @@ RUN docker-php-ext-install zip
 RUN docker-php-ext-install pdo_mysql
 RUN apt-get update && apt-get install -y bash-completion
 
+RUN echo "date.timezone=Europe/Paris" >> "/usr/local/etc/php/php.ini"
 RUN echo "error_reporting = E_ALL" >> /usr/local/etc/php/php.ini
 
 ARG uid=1008
