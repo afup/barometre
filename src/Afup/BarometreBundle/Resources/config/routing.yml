@@ -2,18 +2,25 @@ afup_barometre_homepage:
     path: /
     defaults:
         _controller: FrameworkBundle:Redirect:urlRedirect
-        path: /report/2016
+        path: /campaign/2017
         permanent: false
+
+afup_barometre_2017form:
+    path: /campaign/2017
+    defaults: {_controller: AfupBarometreBundle:Campaign:form2017 }
+
 afup_barometre_2015form:
-    pattern: /report/2015
+    path: /report/2015
     defaults: {_controller: AfupBarometreBundle:Campaign:report2015 }
+
 afup_barometre_2015form_slash:
-    pattern: /report/2015/
+    path: /report/2015/
     defaults: {_controller: AfupBarometreBundle:Campaign:report2015 }
 
 afup_barometre_2016form:
     path: /report/2016
     defaults: {_controller: AfupBarometreBundle:Campaign:report2016 }
+
 afup_barometre_2016form_slash:
     path: /report/2016/
     defaults: {_controller: AfupBarometreBundle:Campaign:report2016 }

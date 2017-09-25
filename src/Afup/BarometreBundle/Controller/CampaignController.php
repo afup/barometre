@@ -10,9 +10,9 @@ class CampaignController extends Controller
     /**
      * @return Response
      */
-    public function form2015Action()
+    public function form2017Action()
     {
-        return $this->render('AfupBarometreBundle:Campaign:form2015.html.twig');
+        return $this->render('AfupBarometreBundle:Campaign:form2017.html.twig');
     }
 
     /**
