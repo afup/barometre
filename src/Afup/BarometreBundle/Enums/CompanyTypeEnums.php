@@ -16,7 +16,7 @@ class CompanyTypeEnums extends AbstractEnums
      */
     protected $choices = array(
         self::PRESSE_MEDIA => "Presse / média",
-        self::SSII         => "SSII / conseil",
+        self::SSII         => "SSII / agence web / conseil",
         self::AGENCE_COMM  => "Agence de communication",
         self::CLIENT_FINAL => "Service informatique d'un client final",
         self::STARTUP      => "Startup",
