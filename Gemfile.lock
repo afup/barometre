@@ -1,32 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    capifony (2.8.6)
-      capistrano (>= 2.13.5, <= 2.16.0)
-      capistrano-maintenance (= 0.0.3)
-      colored (>= 1.2.0)
-      inifile (>= 2.0.2, < 3.0.0)
-      ruby-progressbar (= 1.4.1)
-    capistrano (2.15.7)
-      highline
-      net-scp (>= 1.0.0)
-      net-sftp (>= 2.0.0)
-      net-ssh (>= 2.0.14)
-      net-ssh-gateway (>= 1.1.0)
-    capistrano-maintenance (0.0.3)
-      capistrano (>= 2.0.0)
-    colored (1.2)
-    highline (1.7.8)
-    inifile (2.0.2)
-    net-scp (1.2.1)
-      net-ssh (>= 2.6.5)
-    net-sftp (2.1.2)
-      net-ssh (>= 2.6.5)
-    net-ssh (3.0.1)
-    net-ssh-gateway (1.2.0)
-      net-ssh (>= 2.6.5)
     rainbow (2.0.0)
-    ruby-progressbar (1.4.1)
     sass (3.3.14)
     scss-lint (0.26.2)
       rainbow (~> 2.0)
@@ -36,10 +11,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  capifony
-  capistrano (~> 2.15.0)
   sass
   scss-lint
 
 BUNDLED WITH
-   1.10.6
+   1.15.4

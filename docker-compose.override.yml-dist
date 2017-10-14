@@ -1,0 +1,9 @@
+version: "2.1"
+services:
+  db:
+    ports:
+      - "3399:3306"
+
+  web:
+    ports:
+      - "9008:80"

@@ -16,3 +16,7 @@
 /src/Afup/BarometreBundle/Resources/assets/sass/generated/
 /.sass-cache/
 /app/Resources/views/favicons/
+/docker/data
+/.bundle/
+/.vendors/
+/docker-compose.override.yml

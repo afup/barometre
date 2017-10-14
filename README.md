@@ -1,5 +1,4 @@
-Baromètre
-=========
+# Baromètre
 
 [http://barometre.afup.org](http://barometre.afup.org)
 
@@ -9,15 +8,23 @@ Lors du forum PHP 2013 l’Association Française des Utilisateurs de PHP (AFUP)
 
 Ce site a pour vocation de présenter les résultats de cette enquête en permettant de filtrer sur différents critères (le département, la rémunération, le type d'entreprise...) pour ainsi présenter des résultats plus en accord avec la situation du développeur les consultant.
 
+## Installation via docker
 
-Dépendances
------------
+* cloner le dépot
+* effectuer un `make docker-up` pour la création de l'infrastructure sous docker
+* effectuer un `make init` pour la copie des fichiers de config par défaut, l'installation des dépendances et le build des assets.
+
+_Les ports utilisés peuvent être modifiés dans le fichier `docker-compose.override.yml`._
+
+
+## Installation manuelle
+
+### Dépendances
 
 * node / npm
 * ruby > 1.9.3 / bundler
 
-Installation
-------------
+### Installation
 
 ```
 php composer.phar install
@@ -26,10 +33,9 @@ bundle install
 ./node_modules/bower/bin/bower install
 ```
 
-Build des assets
-----------------
+### Build des assets
 
-### Si grunt-cli est installé globalement
+#### Si grunt-cli est installé globalement
 
 ```
 grunt
@@ -41,7 +47,7 @@ Pour les builder automatiquement à chaque modification :
 grunt watch
 ```
 
-### Si grunt-cli n'est pas installé globalement
+#### Si grunt-cli n'est pas installé globalement
 
 ```
 ./node_modules/.bin/grunt
@@ -53,7 +59,7 @@ Pour les builder automatiquement à chaque modification :
 ./node_modules/.bin/grunt watch
 ```
 
-### Si vous avez une erreur `Cannot find module './build/Release/shell'`
+#### Si vous avez une erreur `Cannot find module './build/Release/shell'`
 
 Il peut être necessaire de rebuilder execSync. Pour se faire :
 
@@ -64,8 +70,7 @@ Il peut être necessaire de rebuilder execSync. Pour se faire :
 
 Vous pouvez retourner dans le répertoire racine et relancer la commande grunt.
 
-Construction de la base de donnée
----------------------------------
+## Construction de la base de donnée
 
 Création de la base
 ```
@@ -77,8 +82,7 @@ Mise à jour/création du schema
 php app/console doctrine:schema:update --force
 ```
 
-Chargement des données de test
-------------------------------
+## Chargement des données de test
 
 Pour charger les données de test, il faut effectuer un
 
@@ -87,15 +91,13 @@ php app/console doctrine:fixtures:load --fixtures=src/Afup/BarometreBundle/DataT
 ```
 
 
-Installation des hooks de précommit
------------------------------------
+## Installation des hooks de précommit
 
 ```
 grunt githooks
 ```
 
-Installation de données réelles
--------------------------------
+## Installation de données réelles
 
 re installation des fixtures
 

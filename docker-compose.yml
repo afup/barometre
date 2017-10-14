@@ -1,0 +1,36 @@
+version: "2.1"
+services:
+  db:
+    image: mysql:5.5
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: barometreuser
+      MYSQL_PASSWORD: barometrepass
+      MYSQL_DATABASE: barometre
+    volumes:
+      - ./docker/data/mysql:/var/lib/mysql
+
+  web:
+    build:
+      context: ./docker/dockerfiles/web
+      args:
+        uid: "${CURRENT_UID:-1001}"
+        gid: "${CURRENT_GID:-1001}"
+    volumes:
+      - .:/var/www/html
+    links:
+      - db
+
+  cli:
+    build:
+      context: ./docker/dockerfiles/cli
+      args:
+        uid: "${CURRENT_UID:-1001}"
+        gid: "${CURRENT_GID:-1001}"
+    links:
+      - db
+    volumes:
+      - .:/var/www/html
+    command: "false"
+    user: localUser
+    working_dir: /var/www/html

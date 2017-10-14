@@ -1,10 +1,10 @@
 parameters:
     database_driver:   pdo_mysql
-    database_host:     127.0.0.1
-    database_port:     ~
-    database_name:     symfony
-    database_user:     root
-    database_password: ~
+    database_host:     db
+    database_port: null
+    database_name: barometre
+    database_user: barometreuser
+    database_password: barometrepass
 
     mailer_transport:  smtp
     mailer_host:       127.0.0.1
