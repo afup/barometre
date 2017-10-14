@@ -157,6 +157,10 @@ class ResponseFactory
             $this->enums->getEnums('meetup_participation')->getIdByLabel($data['meetup_participation'])
         );
 
+        if (isset($data['company_origin'])) {
+            $response->setCompanyOrigin($data['company_origin']);
+        }
+
         return $response;
     }
 
