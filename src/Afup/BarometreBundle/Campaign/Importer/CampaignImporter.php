@@ -37,8 +37,14 @@ class CampaignImporter
      * @param \DateTime $endDate
      * @param string $filename
      */
-    public function import(FormatInterface $format, $name, \DateTime $startDate, \DateTime $endDate, $filename)
-    {
+    public function import(
+        FormatInterface $format,
+        $name,
+        \DateTime $startDate,
+        \DateTime $endDate,
+        $filename,
+        $separator = ';'
+    ) {
         $campaign = new Campaign();
         $campaign
             ->setName($name)
@@ -48,7 +54,7 @@ class CampaignImporter
         $this->objectManager->persist($campaign);
 
         $file = new SplFileObject($filename, 'r');
-        $file->setCsvControl(";");
+        $file->setCsvControl($separator);
         $file->setFlags(
             SplFileObject::READ_AHEAD
             | SplFileObject::READ_CSV

@@ -34,7 +34,6 @@ class Format2017 extends Format2014
             'formation_subject',
             'formation_impact',
             'gender',
-            'email',
         ];
     }
 
