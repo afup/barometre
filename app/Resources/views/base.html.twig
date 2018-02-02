@@ -15,9 +15,16 @@
         {% block stylesheets %}
         <link rel="stylesheet" href="{{ grunt_asset('css/main.css') }}" />
         {% endblock stylesheets %}
+        <link rel="stylesheet" href="{{ global_menu_prefix }}/templates/site/css/global-menu.css" media="all" />
         {% block ga '' %}
     </head>
     <body>
+        <div id="afup-global-menu">
+            <a href="https://afup.org" class="lien-entete">AFUP</a>
+            <a href="https://event.afup.org" class="lien-entete">PHPTour 2018</a>
+            <a href="https://barometre.afup.org" class="lien-entete lien-entete__active">Baromètre</a>
+            <a href="http://www.planete-php.fr" class="lien-entete">Planète PHP</a>
+        </div>
         {% block body '' %}
         {% block body_javascript %}
             <script src="{{ grunt_asset('js/main.js') }}"></script>
