@@ -1,6 +1,6 @@
 .PHONY: vendors data_dirs
 
-CURRENT_UID=$(shell id -u)
+CURRENT_UID ?= $(shell id -u)
 
 init:
 	docker-compose run --rm cli /bin/bash -l -c "make vendors"
