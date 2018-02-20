@@ -235,7 +235,31 @@ class PressReviewController extends Controller
                 'title' => 'Salaires : des disparités entre développeurs PHP en 2016',
                 'media_logo' => 'silicon.png',
                 'date' => '2016-11-07',
-            ]
+            ],
+            [
+                'url' => 'https://afup.org/news/977-nouvelle-edition-du-barometre',
+                'title' => 'Nouvelle édition du baromètre des salaires en PHP !',
+                'media_logo' => 'afup.png',
+                'date' => '2017-10-24',
+            ],
+            [
+                'url' => 'https://blog.humancoders.com/contribuez-barometre-salaires-2017-de-lafup-2264/',
+                'title' => 'Contribuez au baromètre des salaires 2017 de l’AFUP !',
+                'media_logo' => 'human_coders.png',
+                'date' => '2017-11-14',
+            ],
+            [
+                'url' => 'https://www.programmez.com/actualites/lenquete-2017-du-barometre-des-salaires-en-php-est-ouverte-26824',
+                'title' => 'L\'enquête 2017 du baromètre des salaires en PHP est ouverte',
+                'media_logo' => 'programmez.png',
+                'date' => '2017-11-28',
+            ],
+            [
+                'url' => 'http://www.toolinux.com/Participez-a-l-enquete-2017-du',
+                'title' => 'Le baromètre des salaires PHP relancé',
+                'media_logo' => 'toolinux.png',
+                'date' => '2017-12-14',
+            ],
         ];
     }
 }
