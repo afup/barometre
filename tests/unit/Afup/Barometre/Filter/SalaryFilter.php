@@ -18,6 +18,10 @@ class SalaryFilter extends atoum
                 ->isIdenticalTo(['max' => '<= 15000'])
             ->array($salaryFilter->convertValuesToLabels(['min' => 15000, 'max' => 20000]))
                 ->isIdenticalTo(['min' => '>= 15000', 'max' => '<= 20000'])
+            ->array($salaryFilter->convertValuesToLabels(['min' => 15000, 'max' => null]))
+                ->isIdenticalTo(['min' => '>= 15000'])
+            ->array($salaryFilter->convertValuesToLabels(['min' => null, 'max' => 20000]))
+                ->isIdenticalTo(['max' => '<= 20000'])
         ;
     }
 
