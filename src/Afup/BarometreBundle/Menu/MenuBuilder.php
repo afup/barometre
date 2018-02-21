@@ -46,11 +46,6 @@ class MenuBuilder
         $menu = $this->factory->createItem('menu');
         $menu->setChildrenAttribute('class', 'nav navbar-nav');
 
-        $menu->addChild('Questionnaire 2017', [
-            'route' => 'afup_barometre_2017form',
-            'routeAbsolute' => UrlGeneratorInterface::ABSOLUTE_URL,
-        ]);
-
         $menu->addChild(
             'menu.result2016',
             [

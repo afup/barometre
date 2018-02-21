@@ -1,4 +1,5 @@
 version: "2.1"
+
 services:
   db:
     ports:
@@ -7,3 +8,5 @@ services:
   web:
     ports:
       - "9008:80"
+    environment:
+      AFUP_GLOBAL_MENU_PREFIX: 'https://localhost:9205'

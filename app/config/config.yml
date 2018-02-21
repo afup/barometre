@@ -1,5 +1,6 @@
 imports:
     - { resource: parameters.yml }
+    - { resource: parameters.php }
 
 framework:
     #esi:             ~
@@ -29,6 +30,7 @@ twig:
     strict_variables: "%kernel.debug%"
     globals:
         ga_enabled: %ga_enabled%
+        global_menu_prefix: %global_menu_prefix%
 
 # Doctrine Configuration
 doctrine:
