@@ -8,18 +8,26 @@ afup_barometre_homepage:
 afup_barometre_2015form:
     path: /report/2015
     defaults: {_controller: AfupBarometreBundle:Campaign:report2015 }
+    options:
+        campaign_year: 2015
 
 afup_barometre_2015form_slash:
     path: /report/2015/
     defaults: {_controller: AfupBarometreBundle:Campaign:report2015 }
+    options:
+        campaign_year: 2015
 
 afup_barometre_2016form:
     path: /report/2016
     defaults: {_controller: AfupBarometreBundle:Campaign:report2016 }
+    options:
+        campaign_year: 2016
 
 afup_barometre_2016form_slash:
     path: /report/2016/
     defaults: {_controller: AfupBarometreBundle:Campaign:report2016 }
+    options:
+        campaign_year: 2016
 
 afup_barometre_about:
     path: /about
