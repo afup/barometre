@@ -16,6 +16,17 @@ Ce site a pour vocation de présenter les résultats de cette enquête en permet
 
 _Les ports utilisés peuvent être modifiés dans le fichier `docker-compose.override.yml`._
 
+### Problème connus
+
+Lors de l'installation du projet avec docker, nous utilisons l'id de l'utilisateurs courant pour palier les différents problèmes de droits,
+Avec docker-machine, l'id de l'utilisateurs courant ne correspond pas à celui de docker-machine,
+pour que cela fonctionne correctement il faut surcharger la variable d'envirronement CURRENT_UID avec la valeur 1000.
+
+exemple:
+
+```
+CURRENT_UID=1000 make docker-up
+```
 
 ## Installation manuelle
 
