@@ -1,13 +1,12 @@
 .PHONY: vendors data_dirs
 
-CURRENT_UID=$(shell id -u)
-CURRENT_GID=$(shell id -g)
+CURRENT_UID ?= $(shell id -u)
 
 init:
 	docker-compose run --rm cli /bin/bash -l -c "make vendors"
 	docker-compose run --rm cli /bin/bash -l -c "grunt"
 	docker-compose run --rm cli /bin/bash -l -c "php app/console doctrine:schema:update --force"
-	docker-compose run --rm cli /bin/bash -l -c "php app/console doctrine:fixtures:load --no-interaction --fixtures=src/Afup/BarometreBundle/DataTest/ORM/"
+	docker-compose run --rm cli /bin/bash -l -c "php -d "memory_limit=-1" app/console doctrine:fixtures:load --no-interaction --fixtures=src/Afup/BarometreBundle/DataTest/ORM/"
 
 vendors: node_modules vendor .vendors/bundler bower_components
 
@@ -28,7 +27,7 @@ node_modules:
 	bundle install --path .vendors/bundler
 
 bower_components:
-	./node_modules/bower/bin/bower install
+	./node_modules/bower/bin/bower install --allow-root
 
 app/config/parameters.yml:
 	cp app/config/parameters.yml.dist app/config/parameters.yml
@@ -40,7 +39,7 @@ docker-build: app/logs/.docker-build
 
 app/logs/.docker-build: docker-compose.yml docker-compose.override.yml $(shell find docker/dockerfiles -type f)
 	docker-compose rm --force
-	CURRENT_UID=$(CURRENT_UID) CURRENT_GID=$(CURRENT_GID) docker-compose build
+	CURRENT_UID=$(CURRENT_UID) docker-compose build
 	touch app/logs/.docker-build
 
 data_dirs: docker/data docker/data/composer

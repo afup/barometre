@@ -29,9 +29,5 @@ RUN echo "date.timezone=Europe/Paris" >> "/usr/local/etc/php/php.ini"
 RUN echo "error_reporting = E_ALL" >> /usr/local/etc/php/php.ini
 
 ARG uid=1008
-ARG gid=1008
 
-RUN groupadd -g ${gid} localUser \
-    && useradd -u ${uid} -g ${gid} -m -s /bin/bash localUser
-
-RUN usermod -a -G www-data localUser
+RUN usermod -u ${uid} www-data
