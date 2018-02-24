@@ -87,12 +87,11 @@ module.exports = function(grunt) {
 
 
     sass: {
-       dist: {
+       dist: {
           options: {
-            style: 'expanded',
-            bundleExec: true
+            style: 'expanded'
           },
-          src: 'src/Afup/BarometreBundle/Resources/assets/sass/main.scss',
+          src: 'src/Afup/BarometreBundle/Resources/assets/sass/main.scss',
           dest : 'app/cache/grunt/main.css'
        }
     },
@@ -178,7 +177,7 @@ module.exports = function(grunt) {
             'src/Afup/BarometreBundle/Resources/assets/sass/*',
             'src/Afup/BarometreBundle/Resources/assets/sass/ui/*'
         ],
-        tasks: ['scsslint']
+        tasks: ['sasslint']
       },
       gruntfile: { files: ['Gruntfile.js'], tasks: ['dev']  }
     },
@@ -190,14 +189,11 @@ module.exports = function(grunt) {
       src: ['src/Afup/BarometreBundle/Resources/assets/js/*']
     },
 
-    scsslint: {
+    sasslint: {
       options: {
-        bundleExec: true,
-        config: ".scss-lint.yml"
+          configFile: ".sass-lint.yml"
       },
-      main: {
-          src: ['src/Afup/BarometreBundle/Resources/assets/sass/**']
-      }
+      target: ['src/Afup/BarometreBundle/Resources/assets/sass/**']
     },
 
     githooks: {
@@ -243,19 +239,19 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-css-url-rewrite');
   grunt.loadNpmTasks('grunt-filerev');
   grunt.loadNpmTasks('grunt-githooks');
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  grunt.loadNpmTasks('grunt-scss-lint');
+  grunt.loadNpmTasks('grunt-sass-lint');
   grunt.loadNpmTasks('grunt-webfont');
   grunt.loadNpmTasks('grunt-webfont-svg-extractor');
   grunt.loadNpmTasks('grunt-favicons');
 
   grunt.registerTask('test', ['shell:atoum']);
-  grunt.registerTask('lint', ['shell:coke', 'jshint', 'scsslint']);
+  grunt.registerTask('lint', ['shell:coke', 'jshint', 'sasslint']);
   grunt.registerTask('common', ['clean', 'copy', 'cssUrlRewrite', 'webfont_svg_extractor', 'webfont', 'sass', 'concat', 'favicons']);
   grunt.registerTask('dev', ['common', 'filerev']);
   grunt.registerTask('default', ['common', 'uglify', 'cssmin', 'filerev']);

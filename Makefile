@@ -8,7 +8,7 @@ init:
 	docker-compose run --rm cli /bin/bash -l -c "php app/console doctrine:schema:update --force"
 	docker-compose run --rm cli /bin/bash -l -c "php -d "memory_limit=-1" app/console doctrine:fixtures:load --no-interaction --fixtures=src/Afup/BarometreBundle/DataTest/ORM/"
 
-vendors: node_modules vendor .vendors/bundler bower_components
+vendors: node_modules vendor bower_components
 
 composer.phar:
 	$(eval EXPECTED_SIGNATURE = "$(shell wget -q -O - https://composer.github.io/installer.sig)")
@@ -22,9 +22,6 @@ vendor: composer.phar app/config/parameters.yml
 
 node_modules:
 	npm install
-
-.vendors/bundler:
-	bundle install --path .vendors/bundler
 
 bower_components:
 	./node_modules/bower/bin/bower install --allow-root
