@@ -4,7 +4,9 @@ $(document).ready(function () {
     }
     $(".select2").select2({
         closeOnSelect: false,
-        placeholder: "Choisir une valeur"
+        placeholder: "Choisir une valeur",
+        theme: "bootstrap",
+        width: '100%'
     });
 });
 

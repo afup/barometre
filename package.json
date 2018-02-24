@@ -2,7 +2,11 @@
   "name": "afupbarometre",
   "version": "0.1.0",
   "devDependencies": {
-    "bower": "1.3.12",
+    "bootstrap-sass": "^3.3.7",
+    "colorbrewer": "^1.0.0",
+    "d3": "^2.10.3",
+    "font-awesome": "4.6.3",
+    "github-fork-ribbon-css": "^0.2.1",
     "grunt": "~0.4.2",
     "grunt-cli": "~0.1.13",
     "grunt-contrib-clean": "~0.5.0",
@@ -16,12 +20,18 @@
     "grunt-favicons": "^0.7.0",
     "grunt-filerev": "^2.3.1",
     "grunt-githooks": "~0.3.1",
+    "grunt-sass": "^2.1.0",
     "grunt-sass-lint": "~0.2.4",
     "grunt-shell": "~0.6.4",
     "grunt-webfont": "~0.4.8",
     "grunt-webfont-svg-extractor": "0.0.2",
+    "highchartTable": "git+https://github.com/highchartTable/jquery-highchartTable-plugin.git",
+    "highcharts": "^5.0.0",
+    "jquery": "^1.11.3",
     "node-sass": "^4.7.2",
     "sass-lint": "^1.12.1",
-    "grunt-sass": "^2.1.0"
+    "select2": "4.0.5",
+    "select2-bootstrap-theme": "0.1.0-beta.10",
+    "tablesorter": "^2.27.8"
   }
 }

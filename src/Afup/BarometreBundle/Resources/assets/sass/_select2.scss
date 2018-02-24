@@ -1,9 +1,23 @@
-.select2-container-multi {
-  .select2-choices {
-    .select2-search-choice {
+.select2-container--bootstrap {
+  .select2-selection--multiple {
+    .select2-selection__choice {
       background: $afup-blue;
       border: 1px solid $afup-blue;
       color: #fff;
+    }
+
+    .select2-selection__choice__remove {
+      color: #fff;
+      margin-top: -5px;
+      opacity: .8;
+      vertical-align: middle;
+      width: 12px;
+
+      &:hover {
+        color: #fff;
+        opacity: 1;
+        text-decoration: none;
+      }
     }
   }
 }
@@ -11,26 +25,3 @@
 .select2-drop {
   z-index: $zindex-navbar - 50;
 }
-
-.select2-drop-mask {
-  z-index: $zindex-navbar - 60;
-}
-
-.select2-search-choice-close {
-  @extend .icon;
-  @extend .icon-remove;
-  background: none;
-  color: #fff;
-  font-size: 11px;
-  height: 12px;
-  margin-top: -5px;
-  opacity: .8;
-  width: 12px;
-
-  &:hover {
-    color: #fff;
-    opacity: 1;
-    text-decoration: none;
-  }
-}
-

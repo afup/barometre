@@ -9,7 +9,6 @@
 /vendor/
 /bin/
 /composer.phar
-/bower_components/
 /node_modules/
 /web/assets/
 /src/Afup/BarometreBundle/Resources/assets/sass/vendor/
@@ -17,6 +16,4 @@
 /.sass-cache/
 /app/Resources/views/favicons/
 /docker/data
-/.bundle/
-/.vendors/
 /docker-compose.override.yml

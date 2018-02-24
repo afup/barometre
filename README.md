@@ -33,15 +33,12 @@ CURRENT_UID=1000 make docker-up
 ### Dépendances
 
 * node / npm
-* ruby > 1.9.3 / bundler
 
 ### Installation
 
 ```
 php composer.phar install
 npm install
-bundle install
-./node_modules/bower/bin/bower install
 ```
 
 ### Build des assets
