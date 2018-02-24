@@ -10,20 +10,23 @@
   }
 }
 
-#background path {
-  fill: none;
-  stroke: #000;
-  stroke-width: .2px;
+#background {
+  path {
+    fill: none;
+    stroke: #000;
+    stroke-width: .2px;
+  }
 }
 
-
-div.tooltip {
-  background: #b0c4de;
-  border: 0;
-  border-radius: 8px;
-  font: .78em;
-  height: 28px;
-  padding: 2px;
-  position: absolute;
-  text-align: center;
+div {
+  &.tooltip {
+    background: #b0c4de;
+    border: 0;
+    border-radius: 8px;
+    font: .78em;
+    height: 28px;
+    padding: 2px;
+    position: absolute;
+    text-align: center;
+  }
 }

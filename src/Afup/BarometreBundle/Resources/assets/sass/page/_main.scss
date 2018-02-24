@@ -1,8 +1,12 @@
 .main {
   margin: 0 $grid-gutter-width/2;
 
-  .content h1.page-header {
-    margin-top: 20px;
+  .content {
+    h1 {
+      .page-header {
+        margin-top: 20px;
+      }
+    }
   }
 }
 

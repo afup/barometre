@@ -1,7 +1,11 @@
-.select2-container-multi .select2-choices .select2-search-choice {
-  background: $afup-blue;
-  border: 1px solid $afup-blue;
-  color: #fff;
+.select2-container-multi {
+  .select2-choices {
+    .select2-search-choice {
+      background: $afup-blue;
+      border: 1px solid $afup-blue;
+      color: #fff;
+    }
+  }
 }
 
 .select2-drop {
