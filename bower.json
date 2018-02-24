@@ -1,16 +1,7 @@
 {
   "name": "barometre/afup",
   "dependencies": {
-    "jquery": "1.11.0",
     "select2": "3.4.5",
-    "bootstrap-sass-official": "v3.0.3.0",
-    "select2-bootstrap3-css": "master",
-    "highchartTable": "~1.0.4",
-    "jquery.tablesorter": "~2.14.5",
-    "colorbrewer": "~1.0.0",
-    "d3": "~2.10.3",
-    "bootstrap": "v3.2.0",
-    "fontawesome": "v4.2.0",
     "github-fork-ribbon-css": "0.1.1"
   }
 }
