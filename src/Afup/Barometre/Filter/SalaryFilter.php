@@ -67,15 +67,16 @@ class SalaryFilter implements FilterInterface
             list($value['max'], $value['min']) = [$value['min'], $value['max']];
         }
 
+        $labels = [];
         if (isset($value['min'])) {
-            $value['min'] = '>= '.$value['min'];
+            $labels['min'] = '>= '.$value['min'];
         }
 
         if (isset($value['max'])) {
-            $value['max'] = '<= '.$value['max'];
+            $labels['max'] = '<= '.$value['max'];
         }
 
-        return $value;
+        return $labels;
     }
 
     /**
