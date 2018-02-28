@@ -36,7 +36,7 @@ class PressReviewController extends Controller
         krsort($reviewsByYear);
 
         foreach ($reviewsByYear as &$reviews) {
-            usort($reviews, function($reviewA, $reviewB) {
+            usort($reviews, function ($reviewA, $reviewB) {
                 return $reviewA['date'] < $reviewB['date'] ? 1 : -1;
             });
         }
@@ -49,6 +49,7 @@ class PressReviewController extends Controller
      */
     protected function getPressReviews()
     {
+        //@codingStandardsIgnoreStart
         return [
             [
                 'url' => 'http://www.clubic.com/pro/emploi-informatique/actualite-739143-afup-barometre-php-salaire-developpeur-secteur.html',
@@ -261,5 +262,6 @@ class PressReviewController extends Controller
                 'date' => '2017-12-14',
             ],
         ];
+        //@codingStandardsIgnoreEnd
     }
 }
