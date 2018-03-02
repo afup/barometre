@@ -45,7 +45,7 @@ $(document).ready(function () {
                 };
             }
 
-            if ($(this).hasClass('php-versions-evolution')) {
+            if ($(this).hasClass('php-versions-evolution') || $(this).hasClass('status-evolution')) {
                 highChartConfig.plotOptions.series.dataLabels = {
                     useHTML: true,
                     formatter : function () {

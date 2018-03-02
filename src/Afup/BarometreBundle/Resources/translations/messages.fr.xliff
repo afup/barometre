@@ -118,6 +118,10 @@
                 <source>report.status.label</source>
                 <target>Distribution des statuts</target>
             </trans-unit>
+            <trans-unit id="report.status_evolution.label">
+                <source>report.status_evolution.label</source>
+                <target>Évolution de la distribution des statuts</target>
+            </trans-unit>
             <trans-unit id="report.salary.label">
                 <source>report.salary.label</source>
                 <target>Distribution des salaires</target>
