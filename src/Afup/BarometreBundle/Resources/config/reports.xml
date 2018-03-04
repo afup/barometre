@@ -124,6 +124,16 @@
 
         <service id="afup.barometre.report.remote_usage" class="Afup\Barometre\Report\RemoteUsageReport" parent="afup.barometre.report.abstract">
             <tag name="barometre.report" />
+            <call method="setChildReports">
+                <argument type="collection">
+                    <argument type="service">
+                        <service class="Afup\Barometre\Report\RemoteUsageReportEvolution">
+                            <argument type="service" id="afup.barometre.request_modifier_collection" />
+                            <argument>%min_result%</argument>
+                        </service>
+                    </argument>
+                </argument>
+            </call>
         </service>
 
         <service id="afup.barometre.report.technological_watch" class="Afup\Barometre\Report\TechnologicalWatchReport" parent="afup.barometre.report.abstract">

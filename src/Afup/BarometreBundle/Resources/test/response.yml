@@ -29,3 +29,4 @@ Afup\BarometreBundle\Entity\Response:
         recentTrainingHadSalaryImpact: <numberBetween(0, 1)>
         specialities: 50%? <numberBetween(1, 7)>x @speciality*
         certifications: 50%? <numberBetween(1, 2)>x @certification*
+        remoteUsage: <enums('remote_usage')>

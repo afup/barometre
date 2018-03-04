@@ -286,6 +286,10 @@
                 <source>report.remote_usage.label</source>
                 <target>Répartition des télétravailleurs</target>
             </trans-unit>
+            <trans-unit id="report.remote_usage_evolution.label">
+                <source>report.remote_usage_evolution.label</source>
+                <target>Évolution de la répartition des télétravailleurs</target>
+            </trans-unit>
             <trans-unit id="report.view.remote_usage">
                 <source>report.view.remote_usage</source>
                 <target>Travaillez-vous en télétravail ?</target>
