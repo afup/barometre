@@ -1,25 +1,10 @@
-<table class="highchart gender-count-evolution"
-       data-graph-container-before="1"
-       data-graph-type="column"
-       data-graph-datalabels-enabled="1"
-       data-graph-datalabels-color="white"
-       data-graph-stacking="percent"
-       style="display: none"
->
-    <thead>
-    <tr>
-        <th>Salaire</th>
-        <th data-graph-stack-group="1">Hommes</th>
-        <th data-graph-stack-group="1">Femmes</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for year, results_in_year in results %}
-        <tr>
-            <td>{{ year }}</td>
-            <td>{{ results_in_year[1]|default("") }}</td>
-            <td>{{ results_in_year[2]|default("") }}</td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
+{%  set color = {
+(constant('Afup\\BarometreBundle\\Enums\\GenderEnums::MALE')):'#343477',
+(constant('Afup\\BarometreBundle\\Enums\\GenderEnums::FEMALE')):'#A14679'
+}
+%}
+
+{% set fieldName = 'gender' %}
+{% set title = 'Salaire' %}
+
+{% include 'AfupBarometreBundle:Report:_distribution_evolution_report.html.twig' with {'color': color, 'fieldName': fieldName} %}

@@ -2,14 +2,14 @@
 
 namespace Afup\Barometre\Report;
 
-use Afup\Barometre\RequestModifier\RequestModifierCollection;
 use Symfony\Component\HttpFoundation\Request;
+use Afup\Barometre\RequestModifier\RequestModifierCollection;
 
 /**
- * Class StatusReportEvolution
+ * Class AbstractDistributionEvolutionReport
  * @package Afup\Barometre\Report
  */
-class StatusReportEvolution extends AbstractReport implements AlterableReportInterface
+abstract class AbstractDistributionEvolutionReport extends AbstractReport implements AlterableReportInterface
 {
     /**
      * @var RequestModifierCollection
@@ -32,24 +32,25 @@ class StatusReportEvolution extends AbstractReport implements AlterableReportInt
     public function execute()
     {
         $this->queryBuilder
-            ->select('response.status')
+            ->select('response.'.$this->getFieldName())
             ->addSelect('campaign.name')
             ->addSelect('COUNT(response.id) as nbResponse')
-            ->add('where', 'response.status is not null')
+            ->add('where', 'response.'.$this->getFieldName().' is not null')
             ->join('response', 'campaign', 'campaign', 'response.campaign_id = campaign.id')
             ->having('nbResponse >= :minResult')
             ->setParameter(':minResult', $this->minResult)
             ->groupBy('response.campaign_id')
-            ->addGroupBy('response.status')
+            ->addGroupBy('response.'.$this->getFieldName())
             ->addOrderBy('campaign.name')
+            ->addOrderBy('response.'.$this->getFieldName(), 'asc')
         ;
 
         $data = [];
 
         $allStatus = [];
         foreach ($this->queryBuilder->execute()->fetchAll() as $row) {
-            $allStatus[$row['status']] = 0;
-            $data[$row['name']][$row['status']] = $row['nbResponse'];
+            $allStatus[$row[$this->getFieldName()]] = 0;
+            $data[$row['name']][$row[$this->getFieldName()]] = $row['nbResponse'];
         }
 
         ksort($allStatus);
@@ -67,19 +68,10 @@ class StatusReportEvolution extends AbstractReport implements AlterableReportInt
         }
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getName()
-    {
-        return 'status_evolution';
-    }
-
-    /**
-     * @param Request $request
-     */
     public function alterRequest(Request $request)
     {
         $this->requestModifierCollection->getModifier('filter_on_all_campaigns')->alterRequest($request);
     }
+
+    abstract protected function getFieldName();
 }
