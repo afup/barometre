@@ -7,6 +7,11 @@
             <argument>%min_result%</argument>
         </service>
 
+        <service id="afup.barometre.report.abstract_distribution_evolution" abstract="true" public="false">
+            <argument type="service" id="afup.barometre.request_modifier_collection" />
+            <argument>%min_result%</argument>
+        </service>
+
         <service id="afup.barometre.report.company_size" class="Afup\Barometre\Report\CompanySizeReport" parent="afup.barometre.report.abstract">
             <tag name="barometre.report" />
         </service>
@@ -35,6 +40,13 @@
 
         <service id="afup.barometre.report.status" class="Afup\Barometre\Report\StatusReport" parent="afup.barometre.report.abstract">
             <tag name="barometre.report" />
+            <call method="setChildReports">
+                <argument type="collection">
+                    <argument type="service">
+                        <service class="Afup\Barometre\Report\StatusEvolutionReport" parent="afup.barometre.report.abstract_distribution_evolution" />
+                    </argument>
+                </argument>
+            </call>
         </service>
 
         <service id="afup.barometre.report.company_department" class="Afup\Barometre\Report\CompanyDepartmentReport" parent="afup.barometre.report.abstract">
@@ -78,10 +90,7 @@
             <call method="setChildReports">
                 <argument type="collection">
                     <argument type="service">
-                        <service class="Afup\Barometre\Report\PhpVersionReportEvolution">
-                            <argument type="service" id="afup.barometre.request_modifier_collection" />
-                            <argument>%min_result%</argument>
-                        </service>
+                        <service class="Afup\Barometre\Report\PhpVersionEvolutionReport" parent="afup.barometre.report.abstract_distribution_evolution" />
                     </argument>
                 </argument>
             </call>
@@ -99,10 +108,7 @@
                         </service>
                     </argument>
                     <argument type="service">
-                        <service class="Afup\Barometre\Report\GenderCountEvolutionReport">
-                            <argument type="service" id="afup.barometre.request_modifier_collection" />
-                            <argument>%min_result%</argument>
-                        </service>
+                        <service class="Afup\Barometre\Report\GenderCountEvolutionReport" parent="afup.barometre.report.abstract_distribution_evolution" />
                     </argument>
                 </argument>
             </call>
@@ -114,6 +120,13 @@
 
         <service id="afup.barometre.report.remote_usage" class="Afup\Barometre\Report\RemoteUsageReport" parent="afup.barometre.report.abstract">
             <tag name="barometre.report" />
+            <call method="setChildReports">
+                <argument type="collection">
+                    <argument type="service">
+                        <service class="Afup\Barometre\Report\RemoteUsageEvolutionReport" parent="afup.barometre.report.abstract_distribution_evolution" />
+                    </argument>
+                </argument>
+            </call>
         </service>
 
         <service id="afup.barometre.report.technological_watch" class="Afup\Barometre\Report\TechnologicalWatchReport" parent="afup.barometre.report.abstract">

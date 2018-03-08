@@ -1,0 +1,13 @@
+{%  set color = {
+(constant('Afup\\BarometreBundle\\Enums\\StatusEnums::AUTRE')):'#4C6EAF',
+(constant('Afup\\BarometreBundle\\Enums\\StatusEnums::CDD')):'#89A54E',
+(constant('Afup\\BarometreBundle\\Enums\\StatusEnums::CDI')):'#80699B',
+(constant('Afup\\BarometreBundle\\Enums\\StatusEnums::FREELANCE')):'#3D96AE',
+(constant('Afup\\BarometreBundle\\Enums\\StatusEnums::SANS_EMPLOI')):'#DB843D',
+}
+%}
+
+{% set fieldName = 'status' %}
+{% set title = 'Année' %}
+
+{% include 'AfupBarometreBundle:Report:_distribution_evolution_report.html.twig' with {'color': color, 'fieldName': fieldName} %}

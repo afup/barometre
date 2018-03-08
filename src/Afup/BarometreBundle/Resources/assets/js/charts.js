@@ -45,7 +45,7 @@ $(document).ready(function () {
                 };
             }
 
-            if ($(this).hasClass('php-versions-evolution')) {
+            if ($(this).hasClass('abstract-distribution-evolution')) {
                 highChartConfig.plotOptions.series.dataLabels = {
                     useHTML: true,
                     formatter : function () {
@@ -58,19 +58,6 @@ $(document).ready(function () {
                         }
 
                         return '<b>' + this.series.name + '</b> : <br />' + ' ' + this.percentage.toFixed(2) + '%';
-                    }
-                };
-            }
-
-            if ($(this).hasClass('gender-count-evolution')) {
-                highChartConfig.plotOptions.series.dataLabels = {
-                    useHTML: true,
-                    formatter : function () {
-                        if (typeof this.percentage === 'undefined') {
-                            return;
-                        }
-
-                        return this.percentage.toFixed(2) + '%';
                     }
                 };
             }

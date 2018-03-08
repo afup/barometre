@@ -1,33 +1,8 @@
 {% extends "AfupBarometreBundle:Report:_php_versions_parent.html.twig" %}
 
+{% set fieldName = 'php_version' %}
+{% set title = 'Année' %}
+
 {% block report_content %}
-<table class="highchart php-versions-evolution"
-       data-graph-container-before="1"
-       data-graph-type="column"
-       style="display:none"
-       data-graph-datalabels-enabled="1"
-       data-graph-datalabels-color="white"
-       data-graph-stacking="percent"
->
-    <thead>
-    <tr>
-        <th>Année</th>
-        {% for phpversion in results.columns %}
-            <th data-graph-stack-group="1"
-                data-graph-color="{{ phpVersionColors[phpversion] }}"
-            >{{ phpversion|enum_label('php_version') }}</th>
-        {% endfor %}
-    </tr>
-    </thead>
-    <tbody>
-    {% for year,yearResults in results.data %}
-        <tr>
-            <td>{{ year }}</td>
-            {% for row in yearResults %}
-                <td class="text-right">{{ row }}</td>
-            {% endfor %}
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
+    {% include 'AfupBarometreBundle:Report:_distribution_evolution_report.html.twig' with {'color': phpVersionColors, 'fieldName': fieldName} %}
 {% endblock %}

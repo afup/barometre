@@ -1,0 +1,13 @@
+{%  set color = {
+(constant('Afup\\BarometreBundle\\Enums\\RemoteUsageEnums::AUTRE')):'#4C6EAF',
+(constant('Afup\\BarometreBundle\\Enums\\RemoteUsageEnums::ALWAYS')):'#89A54E',
+(constant('Afup\\BarometreBundle\\Enums\\RemoteUsageEnums::OFTEN')):'#80699B',
+(constant('Afup\\BarometreBundle\\Enums\\RemoteUsageEnums::SOME_TIMES')):'#3D96AE',
+(constant('Afup\\BarometreBundle\\Enums\\RemoteUsageEnums::NEVER')):'#DB843D',
+}
+%}
+
+{% set fieldName = 'remote_usage' %}
+{% set title = 'Année' %}
+
+{% include 'AfupBarometreBundle:Report:_distribution_evolution_report.html.twig' with {'color': color, 'fieldName': fieldName} %}

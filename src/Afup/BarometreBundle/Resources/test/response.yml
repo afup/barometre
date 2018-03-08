@@ -15,6 +15,7 @@ Afup\BarometreBundle\Entity\Response:
         variableAnnualSalary: <numberBetween(0, 4500)>
         annualSalary: <numberBetween(20000, 45000)>
         salarySatisfaction: <numberBetween(1, 5)>
+        status: <enums('status')>
         initialTraining: <enums('initial_training')>
         jobTitle: <enums('job_title')>
         experience: <enums('experience')>
@@ -28,3 +29,4 @@ Afup\BarometreBundle\Entity\Response:
         recentTrainingHadSalaryImpact: <numberBetween(0, 1)>
         specialities: 50%? <numberBetween(1, 7)>x @speciality*
         certifications: 50%? <numberBetween(1, 2)>x @certification*
+        remoteUsage: <enums('remote_usage')>

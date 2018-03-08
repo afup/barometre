@@ -2,10 +2,14 @@
 
 namespace Afup\Barometre\Report;
 
-use Afup\Barometre\RequestModifier\RequestModifierCollection;
 use Symfony\Component\HttpFoundation\Request;
+use Afup\Barometre\RequestModifier\RequestModifierCollection;
 
-class PhpVersionReportEvolution extends AbstractReport implements AlterableReportInterface
+/**
+ * Class AbstractDistributionEvolutionReport
+ * @package Afup\Barometre\Report
+ */
+abstract class AbstractDistributionEvolutionReport extends AbstractReport implements AlterableReportInterface
 {
     /**
      * @var RequestModifierCollection
@@ -28,55 +32,46 @@ class PhpVersionReportEvolution extends AbstractReport implements AlterableRepor
     public function execute()
     {
         $this->queryBuilder
-            ->select('response.phpVersion')
+            ->select('response.'.$this->getFieldName())
             ->addSelect('campaign.name')
             ->addSelect('COUNT(response.id) as nbResponse')
-            ->add('where', 'response.phpVersion is not null')
+            ->add('where', 'response.'.$this->getFieldName().' is not null')
             ->join('response', 'campaign', 'campaign', 'response.campaign_id = campaign.id')
             ->having('nbResponse >= :minResult')
             ->setParameter(':minResult', $this->minResult)
             ->groupBy('response.campaign_id')
-            ->addGroupBy('response.phpVersion')
+            ->addGroupBy('response.'.$this->getFieldName())
             ->addOrderBy('campaign.name')
+            ->addOrderBy('response.'.$this->getFieldName(), 'asc')
         ;
 
         $data = [];
 
-        $allPhpVersions = [];
-
+        $allStatus = [];
         foreach ($this->queryBuilder->execute()->fetchAll() as $row) {
-            $allPhpVersions[$row['phpVersion']] = 0;
-            $data[$row['name']][$row['phpVersion']] = $row['nbResponse'];
+            $allStatus[$row[$this->getFieldName()]] = 0;
+            $data[$row['name']][$row[$this->getFieldName()]] = $row['nbResponse'];
         }
 
-        ksort($allPhpVersions);
+        ksort($allStatus);
 
         foreach ($data as $campaignId => $values) {
-            $data[$campaignId] = $values + $allPhpVersions;
+            $data[$campaignId] = $values + $allStatus;
             ksort($data[$campaignId]);
         }
 
         if (count($data)) {
             $this->data = [
                 'data' => $data,
-                'columns' => array_keys($allPhpVersions),
+                'columns' => array_keys($allStatus),
             ];
         }
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getName()
-    {
-        return 'php_version_evolution';
-    }
-
-    /**
-     * @param Request $request
-     */
     public function alterRequest(Request $request)
     {
         $this->requestModifierCollection->getModifier('filter_on_all_campaigns')->alterRequest($request);
     }
+
+    abstract protected function getFieldName();
 }
