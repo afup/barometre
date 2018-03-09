@@ -31,6 +31,8 @@ class CompanyCountyReport extends AbstractReport
             unset($row['totalAnnualSalary']);
             $this->data[] = $row;
         }
+
+        $this->data = $this->addPercentResponse($this->data);
     }
 
     /**
@@ -52,20 +54,20 @@ class CompanyCountyReport extends AbstractReport
     }
 
     /**
-     * @param arrya $data
+     * @param array $data
      *
      * @return array
      */
     protected function groupDataByRegion(array $data)
     {
         $preparedData = array();
-        $codesRegionsByCodesDeparatement = $this->getCodesRegionsByCodeDepartement();
+        $codesRegionsByCodesDepartment = $this->getCodesRegionsByCodeDepartement();
 
         foreach ($data as $row) {
-            if (!isset($codesRegionsByCodesDeparatement[$row['companyDepartment']])) {
+            if (!isset($codesRegionsByCodesDepartment[$row['companyDepartment']])) {
                 continue;
             }
-            $codeRegion = $codesRegionsByCodesDeparatement[$row['companyDepartment']];
+            $codeRegion = $codesRegionsByCodesDepartment[$row['companyDepartment']];
             if (!isset($preparedData[$codeRegion])) {
                 $preparedData[$codeRegion] = array(
                     'nbResponse' => 0,

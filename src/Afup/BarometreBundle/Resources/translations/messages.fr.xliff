@@ -178,6 +178,10 @@
                 <source>report.view.response_number</source>
                 <target>Nombre de réponses</target>
             </trans-unit>
+            <trans-unit id="report.view.response_percent">
+                 <source>report.view.response_percent</source>
+                 <target>Pourcentage de réponses</target>
+            </trans-unit>
             <trans-unit id="report.view.company_size">
                 <source>report.view.company_size</source>
                 <target>Taille d'entreprise</target>

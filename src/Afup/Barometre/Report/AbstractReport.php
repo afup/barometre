@@ -110,4 +110,48 @@ abstract class AbstractReport implements ReportInterface
     {
         return $this->childReports = $childReports;
     }
+
+    /**
+     * @param array $data
+     * @return array
+     */
+    protected function addPercentResponse(array $data)
+    {
+        $totalResponseNumber = $this->calculateTotalResponseNumber($data);
+
+        if ($totalResponseNumber == 0) {
+            return array_map(
+                function ($response) use ($totalResponseNumber) {
+                    $response['percentResponse'] = 0;
+
+                    return $response;
+                },
+                $data
+            );
+        }
+
+        return array_map(
+            function ($response) use ($totalResponseNumber) {
+                $response['percentResponse'] = $response['nbResponse'] * 100 / $totalResponseNumber;
+
+                return $response;
+            },
+            $data
+        );
+    }
+
+    /**
+     * @param array $data
+     * @return integer mixed
+     */
+    private function calculateTotalResponseNumber(array $data)
+    {
+        return array_reduce(
+            $data,
+            function ($totalResponseNumber, $response) {
+                return $totalResponseNumber += $response['nbResponse'];
+            },
+            0
+        );
+    }
 }

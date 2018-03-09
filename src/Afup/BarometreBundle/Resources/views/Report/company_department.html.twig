@@ -10,6 +10,7 @@
             <th>{{ "report.view.department_code" | trans }}</th>
             <th>{{ "report.view.department_label" | trans }}</th>
             <th>{{ "report.view.response_number" | trans }}</th>
+            <th>{{ "report.view.response_percent" | trans }}</th>
             <th>{{ "report.view.annual_salary" | trans }}</th>
         </tr>
     </thead>
@@ -19,6 +20,7 @@
                 <td>{{ row.companyDepartment }}</td>
                 <td>{{ row.companyDepartment|department_label }}</td>
                 <td>{{ row.nbResponse }}</td>
+                <td>{{ row.percentResponse|round(2) }}</td>
                 <td class="text-right">{{ row.annualSalary|round(-2)|number_format_decimal }}</td>
             </tr>
         {% endfor %}
