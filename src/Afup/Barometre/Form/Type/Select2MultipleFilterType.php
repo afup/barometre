@@ -3,6 +3,7 @@
 namespace Afup\Barometre\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
@@ -17,6 +18,7 @@ class Select2MultipleFilterType extends AbstractType
     {
         $resolver->setDefaults(
             [
+                'choices_as_values' => true,
                 'multiple' => true,
                 'required' => false,
                 'attr'     => [
@@ -27,10 +29,7 @@ class Select2MultipleFilterType extends AbstractType
         );
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'select2_multiple_filter';
     }
@@ -40,6 +39,6 @@ class Select2MultipleFilterType extends AbstractType
      */
     public function getParent()
     {
-        return 'choice';
+        return ChoiceType::class;
     }
 }

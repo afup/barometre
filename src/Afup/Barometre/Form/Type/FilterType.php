@@ -3,6 +3,7 @@
 namespace Afup\Barometre\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -35,7 +36,8 @@ class FilterType extends AbstractType
 
         $builder
             ->setMethod('GET')
-            ->add('submit', 'submit', ['label' => 'filter.submit']);
+            ->add('submit', SubmitType::class, ['label' => 'filter.submit'])
+        ;
     }
 
     /**
@@ -46,10 +48,7 @@ class FilterType extends AbstractType
         $resolver->setDefaults(['csrf_protection' => false]);
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'filter';
     }

@@ -28,9 +28,9 @@ class ExperienceFilter implements FilterInterface
      */
     public function buildForm(FormBuilderInterface $builder)
     {
-        $builder->add($this->getName(), new Select2MultipleFilterType(), [
+        $builder->add($this->getName(), Select2MultipleFilterType::class, [
             'label'    => 'filter.experience',
-            'choices'  => $this->experience->getChoices()
+            'choices'  => array_flip($this->experience->getChoices())
         ]);
     }
 

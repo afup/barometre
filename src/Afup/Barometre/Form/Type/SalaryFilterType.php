@@ -25,7 +25,7 @@ class SalaryFilterType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getName()
+    public function getBlockPrefix()
     {
         return 'salary';
     }

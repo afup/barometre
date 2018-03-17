@@ -4,6 +4,7 @@ namespace Afup\Barometre\Filter;
 
 use Afup\BarometreBundle\Entity\Speciality;
 use Doctrine\ORM\EntityRepository;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Doctrine\DBAL\Query\QueryBuilder;
 
@@ -14,7 +15,7 @@ class SpecialityFilter implements FilterInterface
      */
     public function buildForm(FormBuilderInterface $builder)
     {
-        $builder->add($this->getName(), 'entity', [
+        $builder->add($this->getName(), EntityType::class, [
             'label'    => 'filter.speciality',
             'class'    => 'Afup\BarometreBundle\Entity\Speciality',
             'attr'     => ['class' => 'select2'],
