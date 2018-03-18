@@ -16,7 +16,7 @@ class AboutController extends Controller
     {
         $campaigns = $this->getCampaignRepository()->findAllOrderedByDate();
 
-        return $this->render('AfupBarometreBundle:About:index.html.twig', ['campaigns' => $campaigns]);
+        return $this->render('@AfupBarometre/About/index.html.twig', ['campaigns' => $campaigns]);
     }
 
     /**

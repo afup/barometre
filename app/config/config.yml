@@ -7,22 +7,22 @@ framework:
     translator:      { fallback: "%locale%" }
     secret:          "%secret%"
     router:
-        resource: "%kernel.root_dir%/config/routing.yml"
+        resource: "%kernel.project_dir%/app/config/routing.yml"
         strict_requirements: ~
     form:            ~
     csrf_protection: ~
     validation:      { enable_annotations: true }
-    templating:
-        engines: ['twig']
-        #assets_version: SomeVersionScheme
     default_locale:  "%locale%"
     trusted_hosts:   ~
-    trusted_proxies: ~
     session:
-        # handler_id set to null will use default session handler from php.ini
-        handler_id:  ~
+        # https://symfony.com/doc/current/reference/configuration/framework.html#handler-id
+        handler_id: session.handler.native_file
+        save_path: '%kernel.project_dir%/var/sessions/%kernel.environment%'
     fragments:       ~
     http_method_override: true
+    assets: ~
+    php_errors:
+        log: true
 
 # Twig Configuration
 twig:
@@ -44,7 +44,7 @@ doctrine:
         charset:  UTF8
         server_version: %doctrine.server_version%
         # if using pdo_sqlite as your database driver, add the path in parameters.yml
-        # e.g. database_path: "%kernel.root_dir%/data/data.db3"
+        # e.g. database_path: "%kernel.project_dir%/var/data/data.db3"
         # path:     "%database_path%"
 
     orm:
@@ -53,7 +53,7 @@ doctrine:
 
 knp_menu:
     twig:
-        template: AfupBarometreBundle:Default:knp_menu.html.twig
+        template: "@AfupBarometre/Default/knp_menu.html.twig"
 
 afup_barometre:
     min_result: "%min_result%"

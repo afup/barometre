@@ -19,7 +19,7 @@
     {% endif %}
 
     {% if report.hasResults %}
-        {{ include("AfupBarometreBundle:Report:" ~ report.name ~ ".html.twig", { results: report.data }) }}
+        {{ include("@AfupBarometre/Report/" ~ report.name ~ ".html.twig", { results: report.data }) }}
     {% else %}
         <div id="no-results">
             Aucune ou trop peu de données à afficher pour votre filtrage. Essayez de supprimer des filtres.

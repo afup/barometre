@@ -2,7 +2,7 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
 
-    clean: ["web/assets", "app/cache/grunt", "src/Afup/BarometreBundle/Resources/assets/sass/vendor/"],
+    clean: ["web/assets", "var/cache/grunt", "src/Afup/BarometreBundle/Resources/assets/sass/vendor/"],
 
     copy: {
       main: {
@@ -39,7 +39,7 @@ module.exports = function(grunt) {
             options: {
                 fontPath: "bower_components/bootstrap/dist/fonts/glyphicons-halflings-regular.svg",
                 cssPath: "bower_components/bootstrap/dist/css/bootstrap.css",
-                outputDir: "app/cache/grunt/font/",
+                outputDir: "var/cache/grunt/font/",
                 preset: "glyphicon",
                 icons: [
                     "remove",
@@ -52,7 +52,7 @@ module.exports = function(grunt) {
             options: {
                 fontPath: "bower_components/fontawesome/fonts/fontawesome-webfont.svg",
                 cssPath: "bower_components/fontawesome/css/font-awesome.css",
-                outputDir: "app/cache/grunt/font/",
+                outputDir: "var/cache/grunt/font/",
                 preset: "fontawesome",
                 icons: [
                     "smile-o",
@@ -69,7 +69,7 @@ module.exports = function(grunt) {
 
     webfont: {
         icons: {
-            src: 'app/cache/grunt/font/*.svg',
+            src: 'var/cache/grunt/font/*.svg',
             dest: 'web/assets/fonts',
             destCss: 'src/Afup/BarometreBundle/Resources/assets/sass/generated',
             options: {
@@ -93,7 +93,7 @@ module.exports = function(grunt) {
             bundleExec: true
           },
           src: 'src/Afup/BarometreBundle/Resources/assets/sass/main.scss',
-          dest : 'app/cache/grunt/main.css'
+          dest : 'var/cache/grunt/main.css'
        }
     },
 
@@ -121,7 +121,7 @@ module.exports = function(grunt) {
           'src/Afup/BarometreBundle/Resources/assets/js/filters.js',
           'src/Afup/BarometreBundle/Resources/assets/js/map.js'
         ],
-        dest: 'app/cache/grunt/main.js'
+        dest: 'var/cache/grunt/main.js'
       }
     },
      uglify: {
@@ -148,11 +148,11 @@ module.exports = function(grunt) {
         length: 8
       },
       js: {
-          src: 'app/cache/grunt/main.js',
+          src: 'var/cache/grunt/main.js',
           dest: 'web/assets/js/'
       },
       css: {
-        src: 'app/cache/grunt/main.css',
+        src: 'var/cache/grunt/main.css',
         dest: 'web/assets/css/'
       },
       logos: {
