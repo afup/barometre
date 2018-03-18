@@ -24,4 +24,12 @@ class GenderEnums extends AbstractEnums
     {
         return self::NONE;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return 'gender';
+    }
 }

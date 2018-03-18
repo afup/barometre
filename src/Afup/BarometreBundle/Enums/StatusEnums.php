@@ -19,4 +19,12 @@ class StatusEnums extends AbstractEnums
         self::SANS_EMPLOI => 'Sans emploi',
         self::AUTRE => 'Autre',
     ];
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return 'status';
+    }
 }

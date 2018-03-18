@@ -32,4 +32,12 @@ class OtherLanguageEnums extends AbstractEnums
     {
         return null;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return 'other_language';
+    }
 }

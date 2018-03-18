@@ -18,4 +18,12 @@ class ExperienceEnums extends AbstractEnums
         self::XP_6_10 => '6 à 10 ans',
         self::XP_10 => 'Plus de 10 ans',
     ];
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return 'experience';
+    }
 }

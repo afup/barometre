@@ -26,4 +26,12 @@ class TechnologicalWatchEnums extends AbstractEnums
     {
         return null;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return 'technological_watch';
+    }
 }

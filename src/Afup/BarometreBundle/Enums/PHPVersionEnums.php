@@ -32,4 +32,12 @@ class PHPVersionEnums extends AbstractEnums
     {
         return null;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return 'php_version';
+    }
 }

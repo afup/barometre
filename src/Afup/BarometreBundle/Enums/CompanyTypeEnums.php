@@ -31,4 +31,12 @@ class CompanyTypeEnums extends AbstractEnums
     {
         return null;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return 'company_type';
+    }
 }

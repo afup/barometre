@@ -24,4 +24,12 @@ class MeetupParticipationEnums extends AbstractEnums
     {
         return null;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return 'meetup_participation';
+    }
 }

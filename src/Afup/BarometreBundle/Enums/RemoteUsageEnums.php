@@ -26,4 +26,12 @@ class RemoteUsageEnums extends AbstractEnums
     {
         return null;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return 'remote_usage';
+    }
 }

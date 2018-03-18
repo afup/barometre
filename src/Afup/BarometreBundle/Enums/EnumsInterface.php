@@ -22,4 +22,9 @@ interface EnumsInterface
      * @return string|null
      */
     public function getLabelById($id);
+
+    /**
+     * @return string
+     */
+    public function getName();
 }

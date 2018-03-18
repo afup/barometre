@@ -23,6 +23,9 @@ services:
         Afup\Barometre\Filter\FilterInterface:
             tags: ['barometre.filter']
 
+        Afup\BarometreBundle\Enums\EnumsInterface:
+            tags: ['barometre.enums']
+
     Afup\Barometre\:
         resource: '../../src/Afup/Barometre/*'
 
@@ -49,4 +52,7 @@ services:
     Afup\BarometreBundle\Entity\CampaignRepository: ~
     Afup\Barometre\Filter\FilterCollection:
         arguments: [!tagged barometre.filter]
-
+    Afup\Barometre\Report\ReportCollection:
+        arguments: [!tagged barometre.report]
+    Afup\BarometreBundle\Enums\EnumsCollection:
+        arguments: [!tagged barometre.enums]

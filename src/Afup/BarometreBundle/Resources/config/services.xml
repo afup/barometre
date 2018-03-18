@@ -31,7 +31,7 @@
 
         <service id="afup.barometre.campaign.response_factory" class="Afup\BarometreBundle\Campaign\ResponseFactory">
             <argument type="service" id="number_formatter" />
-            <argument type="service" id="afup.barometre.enums_collection" />
+            <argument type="service" id="Afup\BarometreBundle\Enums\EnumsCollection" />
             <argument type="service" id="afup.barometre.repository.certification_repository" />
             <argument type="service" id="afup.barometre.repository.speciality_repository" />
         </service>
@@ -54,17 +54,13 @@
         <service id="afup.barometre.manager" class="Afup\Barometre\ReportManager" shared="false">
             <argument type="service" id="doctrine.dbal.default_connection" />
             <argument type="service" id="afup.barometre.filter_form" />
-            <argument type="service" id="afup.barometre.report_collection" />
+            <argument type="service" id="Afup\Barometre\Report\ReportCollection" />
             <argument type="service" id="Afup\Barometre\Filter\FilterCollection" />
         </service>
 
         <service id="afup.barometre.filter_form" class="Symfony\Component\Form\FormInterface" shared="false">
             <factory service="form.factory" method="create" />
             <argument>Afup\Barometre\Form\Type\FilterType</argument>
-        </service>
-
-        <service id="afup.barometre.report_collection" class="Afup\Barometre\Report\ReportCollection">
-            <argument type="tagged" tag="barometre.report" />
         </service>
 
         <service id="afup.barometre.request_modifier_collection" class="Afup\Barometre\RequestModifier\RequestModifierCollection">

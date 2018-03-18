@@ -20,4 +20,12 @@ class SalarySatisfactionEnums extends AbstractEnums
         self::STATISFAIT => 'Satisfait',
         self::TRES_SATISFAIT => 'Très satisfait',
     ];
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return 'salary_satisfaction';
+    }
 }

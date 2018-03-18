@@ -10,12 +10,13 @@ class EnumsCollection
     private $enums = [];
 
     /**
-     * @param EnumsInterface $enums
-     * @param string         $alias
+     * @param iterable|EnumsInterface[] $enums
      */
-    public function addEnums(EnumsInterface $enums, $alias)
+    public function __construct($enums)
     {
-        $this->enums[$alias] = $enums;
+        foreach ($enums as $enum) {
+            $this->enums[$enum->getName()] = $enum;
+        }
     }
 
     /**

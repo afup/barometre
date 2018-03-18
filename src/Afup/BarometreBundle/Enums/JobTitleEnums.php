@@ -27,4 +27,12 @@ class JobTitleEnums extends AbstractEnums
         self::DEVELOPPEUR => 'Développeur',
         self::AUTRE => 'Autre',
     ];
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return 'job_title';
+    }
 }

@@ -29,4 +29,12 @@ class InitialTrainingEnums extends AbstractEnums
     {
         return null;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return 'initial_training';
+    }
 }

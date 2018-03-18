@@ -19,4 +19,12 @@ class JobInterestEnums extends AbstractEnums
         self::REMUNERATION => 'La rémunération',
         self::AUTRE => 'Autre',
     ];
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getName()
+    {
+        return 'job_interest';
+    }
 }

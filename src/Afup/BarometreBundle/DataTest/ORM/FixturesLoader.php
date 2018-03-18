@@ -3,6 +3,7 @@
 namespace Afup\BarometreBundle\DataTest\ORM;
 
 use Afup\BarometreBundle\DataTest\EnumsProvider;
+use Afup\BarometreBundle\Enums\EnumsCollection;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Nelmio\Alice\Fixtures;
@@ -19,7 +20,7 @@ class FixturesLoader implements FixtureInterface, ContainerAwareInterface
      */
     public function load(ObjectManager $manager)
     {
-        $enumsCollection = $this->container->get('afup.barometre.enums_collection');
+        $enumsCollection = $this->container->get(EnumsCollection::class);
         Fixtures::load(
             [
                 $this->getKernel()->locateResource('@AfupBarometreBundle/Resources/fixtures/speciality.yml'),
