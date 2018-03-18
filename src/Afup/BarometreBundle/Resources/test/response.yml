@@ -1,12 +1,12 @@
 Afup\BarometreBundle\Entity\Campaign:
     campaign1:
-        name: "2013"
-        startDate: <dateTimeBetween('2013-01-01', '2013-12-31')>
-        endDate: <dateTimeBetween($startDate, '2013-12-31')>
+        name: "2015"
+        startDate: <dateTimeBetween('2015-01-01', '2015-12-31')>
+        endDate: <dateTimeBetween($startDate, '2015-12-31')>
     campaign2:
-        name: "2014"
-        startDate: <dateTimeBetween('2014-01-01', '2014-10-06')>
-        endDate: <dateTimeBetween($startDate, '2014-10-06')>
+        name: "2016"
+        startDate: <dateTimeBetween('2016-01-01', '2016-10-06')>
+        endDate: <dateTimeBetween($startDate, '2016-10-06')>
 
 Afup\BarometreBundle\Entity\Response:
     response{1..2600}:

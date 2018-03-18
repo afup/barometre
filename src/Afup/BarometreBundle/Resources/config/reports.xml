@@ -140,12 +140,5 @@
         <service id="afup.barometre.report.training_particpation" class="Afup\Barometre\Report\TrainingParticipationReport" parent="afup.barometre.report.abstract">
             <tag name="barometre.report" />
         </service>
-
-        <service id="barometre.campaign_report_request_listener" class="Afup\BarometreBundle\EventListener\CampaignReportRequestListener">
-            <argument type="service" id="afup.barometre.repository.campaign_repository" />
-            <argument type="service" id="router" />
-            <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest" />
-        </service>
-
     </services>
 </container>

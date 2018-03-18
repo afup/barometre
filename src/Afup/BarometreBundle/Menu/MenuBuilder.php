@@ -49,7 +49,8 @@ class MenuBuilder
         $menu->addChild(
             'menu.result2016',
             [
-                'route' => 'afup_barometre_2016form',
+                'route' => 'afup_barometre_campaign',
+                'routeParameters' => array('campaignName' => 2016),
                 'routeAbsolute' => UrlGeneratorInterface::ABSOLUTE_URL,
             ]
         );
@@ -57,7 +58,8 @@ class MenuBuilder
         $menu->addChild(
             'menu.result2015',
             [
-                'route' => 'afup_barometre_2015form',
+                'route' => 'afup_barometre_campaign',
+                'routeParameters' => array('campaignName' => 2015),
                 'routeAbsolute' => UrlGeneratorInterface::ABSOLUTE_URL,
             ]
         );
