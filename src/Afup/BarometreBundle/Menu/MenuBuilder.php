@@ -90,17 +90,17 @@ class MenuBuilder
 
         $menu->addChild('menu.results', [
             'attributes' => [
-                'class' => 'dropdown'
+                'class' => 'dropdown',
             ],
             'uri' => '#',
             'children_attributes' => [
                 'class' => 'dropdown-menu',
-            ]
+            ],
         ]);
 
         $menu['menu.results']->setLinkAttributes([
             'class' => 'dropdown-toggle',
-            'data-toggle' => 'dropdown'
+            'data-toggle' => 'dropdown',
         ]);
         $menu['menu.results']->setChildrenAttribute('class', 'dropdown-menu');
 
@@ -154,7 +154,7 @@ class MenuBuilder
             $menu->addChild(
                 $report->getLabel(),
                 [
-                    'route'           => 'afup_barometre_report',
+                    'route' => 'afup_barometre_report',
                     'routeParameters' => $routeParameters,
                 ]
             );

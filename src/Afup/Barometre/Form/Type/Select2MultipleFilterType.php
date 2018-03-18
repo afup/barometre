@@ -21,8 +21,8 @@ class Select2MultipleFilterType extends AbstractType
                 'choices_as_values' => true,
                 'multiple' => true,
                 'required' => false,
-                'attr'     => [
-                    'class' => 'select2'
+                'attr' => [
+                    'class' => 'select2',
                 ],
                 'choice_translation_domain' => false,
             ]

@@ -32,7 +32,6 @@ class SalarySatisfactionReport extends AbstractReport
         return 'salary_satisfaction';
     }
 
-
     /**
      * report weight
      *

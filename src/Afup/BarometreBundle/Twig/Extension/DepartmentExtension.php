@@ -23,7 +23,7 @@ class DepartmentExtension extends \Twig_Extension
     public function __construct(TranslatorInterface $translator)
     {
         $this->departements = new Collection();
-        $this->translator   = $translator;
+        $this->translator = $translator;
     }
 
     /**

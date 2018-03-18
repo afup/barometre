@@ -2,12 +2,11 @@
 
 namespace Afup\BarometreBundle\Filtering;
 
-use Doctrine\DBAL\Connection;
 use Afup\BarometreBundle\Filter\FilterCollection;
+use Doctrine\DBAL\Connection;
 
 class QueryBuilderFactory
 {
-
     protected $connection;
     protected $context;
     protected $filters;

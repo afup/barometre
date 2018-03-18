@@ -2,13 +2,12 @@
 
 namespace Afup\Barometre\Filter;
 
-use Symfony\Component\Form\FormBuilderInterface;
-use Doctrine\DBAL\Query\QueryBuilder;
-use Doctrine\DBAL\Connection;
+use Afup\Barometre\Form\Type\Select2MultipleFilterType;
 use agallou\Departements\Collection as Departments;
 use agallou\Regions\Collection as Regions;
-
-use Afup\Barometre\Form\Type\Select2MultipleFilterType;
+use Doctrine\DBAL\Connection;
+use Doctrine\DBAL\Query\QueryBuilder;
+use Symfony\Component\Form\FormBuilderInterface;
 
 class DepartmentFilter implements FilterInterface
 {
@@ -21,8 +20,8 @@ class DepartmentFilter implements FilterInterface
     public function buildForm(FormBuilderInterface $builder)
     {
         $builder->add($this->getName(), Select2MultipleFilterType::class, [
-            'label'    => 'filter.department',
-            'choices'  => $this->getChoices(),
+            'label' => 'filter.department',
+            'choices' => $this->getChoices(),
         ]);
     }
 
@@ -31,7 +30,7 @@ class DepartmentFilter implements FilterInterface
      */
     protected function getChoices()
     {
-        $choices = array();
+        $choices = [];
         $choices[self::ALL_BUT_PARIS] = 'Tous sauf île-de-France';
 
         foreach (new Departments() as $number => $label) {
@@ -44,7 +43,7 @@ class DepartmentFilter implements FilterInterface
     /**
      * {@inheritdoc}
      */
-    public function buildQuery(QueryBuilder $queryBuilder, array $values = array())
+    public function buildQuery(QueryBuilder $queryBuilder, array $values = [])
     {
         if (!array_key_exists($this->getName(), $values) || 0 === count($values[$this->getName()])) {
             return;
@@ -81,6 +80,7 @@ class DepartmentFilter implements FilterInterface
     public function convertValuesToLabels($value)
     {
         $choices = $this->getChoices();
+
         return array_map(function ($code) use ($choices) {
             return $choices[$code];
         }, $value);

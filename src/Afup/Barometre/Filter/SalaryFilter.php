@@ -2,10 +2,9 @@
 
 namespace Afup\Barometre\Filter;
 
-use Symfony\Component\Form\FormBuilderInterface;
-use Doctrine\DBAL\Query\QueryBuilder;
-
 use Afup\Barometre\Form\Type\SalaryFilterType;
+use Doctrine\DBAL\Query\QueryBuilder;
+use Symfony\Component\Form\FormBuilderInterface;
 
 /**
  * Filter on Salary Min & max
@@ -25,7 +24,7 @@ class SalaryFilter implements FilterInterface
     /**
      * {@inheritdoc}
      */
-    public function buildQuery(QueryBuilder $queryBuilder, array $values = array())
+    public function buildQuery(QueryBuilder $queryBuilder, array $values = [])
     {
         if (!array_key_exists('salary', $values)) {
             return;
@@ -65,11 +64,11 @@ class SalaryFilter implements FilterInterface
 
         $labels = [];
         if (isset($value['min'])) {
-            $labels['min'] = '>= '.$value['min'];
+            $labels['min'] = '>= ' . $value['min'];
         }
 
         if (isset($value['max'])) {
-            $labels['max'] = '<= '.$value['max'];
+            $labels['max'] = '<= ' . $value['max'];
         }
 
         return $labels;

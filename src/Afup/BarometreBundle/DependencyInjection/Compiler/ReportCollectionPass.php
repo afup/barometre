@@ -16,7 +16,7 @@ class ReportCollectionPass implements CompilerPassInterface
         $definition = $container->getDefinition('afup.barometre.report_collection');
 
         foreach ($container->findTaggedServiceIds('barometre.report') as $id => $attributes) {
-            $definition->addMethodCall('addReport', array(new Reference($id)));
+            $definition->addMethodCall('addReport', [new Reference($id)]);
         }
         $definition->addMethodCall('sortReports');
     }

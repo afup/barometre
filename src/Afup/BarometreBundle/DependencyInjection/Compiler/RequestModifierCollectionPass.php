@@ -16,7 +16,7 @@ class RequestModifierCollectionPass implements CompilerPassInterface
         $definition = $container->getDefinition('afup.barometre.request_modifier_collection');
 
         foreach ($container->findTaggedServiceIds('barometre.request_modifier') as $id => $attributes) {
-            $definition->addMethodCall('addModifier', array(new Reference($id)));
+            $definition->addMethodCall('addModifier', [new Reference($id)]);
         }
     }
 }

@@ -16,7 +16,7 @@ class FilterCollectionPass implements CompilerPassInterface
         $definition = $container->getDefinition('afup.barometre.filter_collection');
 
         foreach ($container->findTaggedServiceIds('barometre.filter') as $id => $attributes) {
-            $definition->addMethodCall('addFilter', array(new Reference($id)));
+            $definition->addMethodCall('addFilter', [new Reference($id)]);
         }
     }
 }

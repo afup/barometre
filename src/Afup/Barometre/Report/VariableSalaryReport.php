@@ -4,7 +4,6 @@ namespace Afup\Barometre\Report;
 
 class VariableSalaryReport extends AbstractReport
 {
-
     /**
      * {@inheritdoc}
      */

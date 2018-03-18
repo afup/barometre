@@ -14,7 +14,7 @@ class GenderSalaryEvolutionReport extends AbstractReport implements AlterableRep
 
     /**
      * @param RequestModifierCollection $requestModifierCollection
-     * @param int $minResult
+     * @param int                       $minResult
      */
     public function __construct(RequestModifierCollection $requestModifierCollection, $minResult = 10)
     {

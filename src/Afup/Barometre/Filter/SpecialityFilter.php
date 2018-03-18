@@ -3,10 +3,10 @@
 namespace Afup\Barometre\Filter;
 
 use Afup\BarometreBundle\Entity\Speciality;
+use Doctrine\DBAL\Query\QueryBuilder;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Doctrine\DBAL\Query\QueryBuilder;
 
 class SpecialityFilter implements FilterInterface
 {
@@ -16,16 +16,16 @@ class SpecialityFilter implements FilterInterface
     public function buildForm(FormBuilderInterface $builder)
     {
         $builder->add($this->getName(), EntityType::class, [
-            'label'    => 'filter.speciality',
-            'class'    => 'Afup\BarometreBundle\Entity\Speciality',
-            'attr'     => ['class' => 'select2'],
+            'label' => 'filter.speciality',
+            'class' => 'Afup\BarometreBundle\Entity\Speciality',
+            'attr' => ['class' => 'select2'],
             'multiple' => true,
             'required' => false,
             'query_builder' => function (EntityRepository $repository) {
                 return $repository
                     ->createQueryBuilder('speciality')
                     ->orderBy('speciality.name', 'ASC');
-            }
+            },
         ]);
     }
 

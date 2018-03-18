@@ -2,11 +2,10 @@
 
 namespace Afup\Barometre\Filter;
 
-use Symfony\Component\Form\FormBuilderInterface;
-use Doctrine\DBAL\Query\QueryBuilder;
-
-use Afup\BarometreBundle\Enums\ExperienceEnums;
 use Afup\Barometre\Form\Type\Select2MultipleFilterType;
+use Afup\BarometreBundle\Enums\ExperienceEnums;
+use Doctrine\DBAL\Query\QueryBuilder;
+use Symfony\Component\Form\FormBuilderInterface;
 
 class ExperienceFilter implements FilterInterface
 {
@@ -29,15 +28,15 @@ class ExperienceFilter implements FilterInterface
     public function buildForm(FormBuilderInterface $builder)
     {
         $builder->add($this->getName(), Select2MultipleFilterType::class, [
-            'label'    => 'filter.experience',
-            'choices'  => array_flip($this->experience->getChoices())
+            'label' => 'filter.experience',
+            'choices' => array_flip($this->experience->getChoices()),
         ]);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function buildQuery(QueryBuilder $queryBuilder, array $values = array())
+    public function buildQuery(QueryBuilder $queryBuilder, array $values = [])
     {
         if (!array_key_exists($this->getName(), $values) || 0 === count($values[$this->getName()])) {
             return;

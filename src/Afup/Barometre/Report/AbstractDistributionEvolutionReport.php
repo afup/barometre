@@ -2,12 +2,11 @@
 
 namespace Afup\Barometre\Report;
 
-use Symfony\Component\HttpFoundation\Request;
 use Afup\Barometre\RequestModifier\RequestModifierCollection;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class AbstractDistributionEvolutionReport
- * @package Afup\Barometre\Report
  */
 abstract class AbstractDistributionEvolutionReport extends AbstractReport implements AlterableReportInterface
 {
@@ -18,7 +17,7 @@ abstract class AbstractDistributionEvolutionReport extends AbstractReport implem
 
     /**
      * @param RequestModifierCollection $requestModifierCollection
-     * @param int $minResult
+     * @param int                       $minResult
      */
     public function __construct(RequestModifierCollection $requestModifierCollection, $minResult = 10)
     {
@@ -32,17 +31,17 @@ abstract class AbstractDistributionEvolutionReport extends AbstractReport implem
     public function execute()
     {
         $this->queryBuilder
-            ->select('response.'.$this->getFieldName())
+            ->select('response.' . $this->getFieldName())
             ->addSelect('campaign.name')
             ->addSelect('COUNT(response.id) as nbResponse')
-            ->add('where', 'response.'.$this->getFieldName().' is not null')
+            ->add('where', 'response.' . $this->getFieldName() . ' is not null')
             ->join('response', 'campaign', 'campaign', 'response.campaign_id = campaign.id')
             ->having('nbResponse >= :minResult')
             ->setParameter(':minResult', $this->minResult)
             ->groupBy('response.campaign_id')
-            ->addGroupBy('response.'.$this->getFieldName())
+            ->addGroupBy('response.' . $this->getFieldName())
             ->addOrderBy('campaign.name')
-            ->addOrderBy('response.'.$this->getFieldName(), 'asc')
+            ->addOrderBy('response.' . $this->getFieldName(), 'asc')
         ;
 
         $data = [];

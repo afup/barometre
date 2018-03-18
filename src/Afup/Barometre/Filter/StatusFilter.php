@@ -30,7 +30,7 @@ class StatusFilter implements FilterInterface
     public function buildForm(FormBuilderInterface $builder)
     {
         $builder->add($this->getName(), Select2MultipleFilterType::class, [
-            'label'   => 'filter.status',
+            'label' => 'filter.status',
             'choices' => array_flip($this->status->getChoices()),
         ]);
     }
@@ -41,7 +41,7 @@ class StatusFilter implements FilterInterface
      * @param QueryBuilder $queryBuilder
      * @param array        $values
      */
-    public function buildQuery(QueryBuilder $queryBuilder, array $values = array())
+    public function buildQuery(QueryBuilder $queryBuilder, array $values = [])
     {
         if (!array_key_exists($this->getName(), $values) || 0 === count($values[$this->getName()])) {
             return;

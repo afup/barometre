@@ -21,7 +21,7 @@ class CompanyCountyReport extends AbstractReport
 
         $preparedData = $this->groupDataByRegion($data);
 
-        $this->data = array();
+        $this->data = [];
         foreach ($preparedData as $codeRegion => $row) {
             if ($row['nbResponse'] < $this->minResult) {
                 continue;
@@ -38,7 +38,7 @@ class CompanyCountyReport extends AbstractReport
      */
     protected function getCodesRegionsByCodeDepartement()
     {
-        $codesRegionsByCodesDeparatement = array();
+        $codesRegionsByCodesDeparatement = [];
 
         $regions = new Collection();
         /** @var Region $region */
@@ -58,7 +58,7 @@ class CompanyCountyReport extends AbstractReport
      */
     protected function groupDataByRegion(array $data)
     {
-        $preparedData = array();
+        $preparedData = [];
         $codesRegionsByCodesDeparatement = $this->getCodesRegionsByCodeDepartement();
 
         foreach ($data as $row) {
@@ -67,12 +67,12 @@ class CompanyCountyReport extends AbstractReport
             }
             $codeRegion = $codesRegionsByCodesDeparatement[$row['companyDepartment']];
             if (!isset($preparedData[$codeRegion])) {
-                $preparedData[$codeRegion] = array(
+                $preparedData[$codeRegion] = [
                     'nbResponse' => 0,
                     'totalAnnualSalary' => 0,
-                );
+                ];
             }
-            $preparedData[$codeRegion]['nbResponse']++;
+            ++$preparedData[$codeRegion]['nbResponse'];
             $preparedData[$codeRegion]['totalAnnualSalary'] += $row['annualSalary'];
         }
 
@@ -86,7 +86,6 @@ class CompanyCountyReport extends AbstractReport
     {
         return 'company_county';
     }
-
 
     /**
      * report weight

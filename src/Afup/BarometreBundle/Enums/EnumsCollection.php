@@ -7,7 +7,7 @@ class EnumsCollection
     /**
      * @var array
      */
-    private $enums = array();
+    private $enums = [];
 
     /**
      * @param EnumsInterface $enums
@@ -28,7 +28,7 @@ class EnumsCollection
     public function getEnums($alias)
     {
         if (!isset($this->enums[$alias])) {
-            throw new \InvalidArgumentException(sprintf("Enums %s inconnu", $alias));
+            throw new \InvalidArgumentException(sprintf('Enums %s inconnu', $alias));
         }
 
         return $this->enums[$alias];

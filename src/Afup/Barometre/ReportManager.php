@@ -48,7 +48,7 @@ class ReportManager
         FilterCollection $filterCollection
     ) {
         $this->connection = $connection;
-        $this->form             = $form;
+        $this->form = $form;
         $this->reportCollection = $reportCollection;
         $this->filterCollection = $filterCollection;
     }
@@ -77,7 +77,7 @@ class ReportManager
     public function getSelectedFilters()
     {
         $filters = $this->form->getData();
-        $filters = array_filter((array) $filters, array($this, 'filterValues'));
+        $filters = array_filter((array) $filters, [$this, 'filterValues']);
         $filters = $this->filterCollection->convertValuesToLabels($filters);
 
         return $filters;
@@ -88,12 +88,12 @@ class ReportManager
      *
      * @param mixed $value
      *
-     * @return boolean
+     * @return bool
      */
     protected function filterValues($value)
     {
         if (is_array($value)) {
-            $value = array_filter($value, array($this, 'filterValues'));
+            $value = array_filter($value, [$this, 'filterValues']);
 
             $keepValue = count($value) > 0;
         } elseif ($value instanceof Collection) {

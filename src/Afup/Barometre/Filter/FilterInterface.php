@@ -2,8 +2,8 @@
 
 namespace Afup\Barometre\Filter;
 
-use Symfony\Component\Form\FormBuilderInterface;
 use Doctrine\DBAL\Query\QueryBuilder;
+use Symfony\Component\Form\FormBuilderInterface;
 
 /**
  * A FilterInterface
@@ -23,7 +23,7 @@ interface FilterInterface
      * @param QueryBuilder $queryBuilder
      * @param array        $values
      */
-    public function buildQuery(QueryBuilder $queryBuilder, array $values = array());
+    public function buildQuery(QueryBuilder $queryBuilder, array $values = []);
 
     /**
      * Convert the given values to the corresponding labels

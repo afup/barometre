@@ -2,8 +2,8 @@
 
 namespace Afup\BarometreBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 class FormController extends Controller
@@ -22,7 +22,7 @@ class FormController extends Controller
         $manager->handleRequest($this->get('request_stack')->getMasterRequest());
 
         return [
-            'form'   => $manager->getForm()->createView(),
+            'form' => $manager->getForm()->createView(),
         ];
     }
 

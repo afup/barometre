@@ -13,7 +13,6 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 /**
  * Class GenderFilter
- * @package Afup\Barometre\Filter
  */
 class GenderFilter implements FilterInterface
 {
@@ -44,7 +43,7 @@ class GenderFilter implements FilterInterface
 
         $condition = array_map(
             function ($value) use ($queryBuilder) {
-                if ($value === '') {
+                if ('' === $value) {
                     return $queryBuilder->expr()->isNull('response.gender');
                 }
 
@@ -66,7 +65,7 @@ class GenderFilter implements FilterInterface
     public function buildForm(FormBuilderInterface $builder)
     {
         $builder->add($this->getName(), Select2MultipleFilterType::class, [
-            'label'   => 'filter.gender',
+            'label' => 'filter.gender',
             'choices' => array_flip($this->gender->getChoices()),
         ]);
     }
@@ -76,9 +75,8 @@ class GenderFilter implements FilterInterface
      */
     public function convertValuesToLabels($value)
     {
-
         return array_map(function ($value) {
-                return $this->gender->getLabelById($value);
+            return $this->gender->getLabelById($value);
         }, $value);
     }
 
@@ -91,7 +89,6 @@ class GenderFilter implements FilterInterface
     {
         return 100;
     }
-
 
     /**
      * The filter name

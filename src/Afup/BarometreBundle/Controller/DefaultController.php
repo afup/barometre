@@ -2,8 +2,8 @@
 
 namespace Afup\BarometreBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 class DefaultController extends Controller
@@ -25,8 +25,8 @@ class DefaultController extends Controller
         $report = $manager->getReport($reportName);
 
         return [
-            'form'    => $manager->getForm()->createView(),
-            'report'  => $report,
+            'form' => $manager->getForm()->createView(),
+            'report' => $report,
             'report_name' => $reportName,
         ];
     }

@@ -4,7 +4,6 @@ namespace Afup\Barometre\Report;
 
 /**
  * Class RemoteUsageEvolutionReport
- * @package Afup\Barometre\Report
  */
 class RemoteUsageEvolutionReport extends AbstractDistributionEvolutionReport
 {

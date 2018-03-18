@@ -30,7 +30,7 @@ class Enums extends \Twig_Extension
     }
 
     /**
-     * @param int $enumId
+     * @param int    $enumId
      * @param string $enumName
      *
      * @return string
@@ -41,6 +41,7 @@ class Enums extends \Twig_Extension
         if (!isset($choices[$enumId])) {
             return $enumId;
         }
+
         return $choices[$enumId];
     }
 

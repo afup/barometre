@@ -31,7 +31,6 @@ class CompanyDepartmentReport extends AbstractReport
         return 'company_department';
     }
 
-
     /**
      * report weight
      *

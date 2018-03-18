@@ -7,7 +7,6 @@ namespace Afup\Barometre\Report;
  */
 class SalaryReport extends AbstractReport
 {
-
     const SLICE = 5000;
 
     /**
@@ -21,30 +20,29 @@ class SalaryReport extends AbstractReport
         $this->queryBuilder->setParameter(':minResult', $this->minResult);
         $this->queryBuilder->addGroupBy('salarySlice');
 
-        $results = array();
+        $results = [];
         foreach ($this->queryBuilder->execute() as $row) {
             $slice = $row['salarySlice'];
-            $results[$slice] = array(
-                'count' => $row['nbResponse']
-            );
+            $results[$slice] = [
+                'count' => $row['nbResponse'],
+            ];
         }
 
         if (0 === count($results)) {
             return $results;
         }
 
-        $baseResult = array(
+        $baseResult = [
             'count' => 0,
-        );
+        ];
 
         $min = min(array_keys($results));
         $max = max(array_keys($results));
 
-
         if ($max != $min) {
             $baseResults = array_fill($min, $max - $min, $baseResult);
         } else {
-            $baseResults = array();
+            $baseResults = [];
         }
 
         $results = $results + $baseResults;

@@ -4,8 +4,8 @@ namespace Afup\BarometreBundle\Controller;
 
 use Afup\Barometre\Report\AlterableReportInterface;
 use Afup\Barometre\ReportManager;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 class ReportController extends Controller
@@ -31,7 +31,6 @@ class ReportController extends Controller
 
         $childReports = [];
         foreach ($report->getChildReports() as $childReport) {
-
             if ($childReport instanceof AlterableReportInterface) {
                 $request = clone $masterRequest;
                 $childReport->alterRequest($request);
@@ -44,14 +43,14 @@ class ReportController extends Controller
             $childReport->execute();
             $childReports[] = [
                 'filters' => $childManager->getSelectedFilters(),
-                'report' => $childReport
+                'report' => $childReport,
             ];
         }
 
         return [
-            'form'    => $manager->getForm()->createView(),
+            'form' => $manager->getForm()->createView(),
             'filters' => $manager->getSelectedFilters(),
-            'report'  => $report,
+            'report' => $report,
             'child_reports' => $childReports,
         ];
     }

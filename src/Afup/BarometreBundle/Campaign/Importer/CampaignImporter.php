@@ -26,16 +26,16 @@ class CampaignImporter
      */
     public function __construct(ObjectManager $objectManager, ResponseFactory $responseFactory)
     {
-        $this->objectManager   = $objectManager;
+        $this->objectManager = $objectManager;
         $this->responseFactory = $responseFactory;
     }
 
     /**
      * @param FormatInterface $format
-     * @param string $name
-     * @param \DateTime $startDate
-     * @param \DateTime $endDate
-     * @param string $filename
+     * @param string          $name
+     * @param \DateTime       $startDate
+     * @param \DateTime       $endDate
+     * @param string          $filename
      */
     public function import(FormatInterface $format, $name, \DateTime $startDate, \DateTime $endDate, $filename)
     {
@@ -48,7 +48,7 @@ class CampaignImporter
         $this->objectManager->persist($campaign);
 
         $file = new SplFileObject($filename, 'r');
-        $file->setCsvControl(";");
+        $file->setCsvControl(';');
         $file->setFlags(
             SplFileObject::READ_AHEAD
             | SplFileObject::READ_CSV

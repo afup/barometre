@@ -11,11 +11,11 @@ class GenderEnums extends AbstractEnums
     /**
      * @var array
      */
-    protected $choices = array(
+    protected $choices = [
         self::MALE => 'Hommes',
         self::FEMALE => 'Femmes',
         self::NONE => 'Non précisé',
-    );
+    ];
 
     /**
      * {@inheritdoc}

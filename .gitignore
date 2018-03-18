@@ -27,3 +27,5 @@
 /.bundle/
 /.vendors/
 /docker-compose.override.yml
+
+.php_cs.cache

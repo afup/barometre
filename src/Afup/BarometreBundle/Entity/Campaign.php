@@ -10,35 +10,38 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Campaign
 {
-
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     *
      * @var int
      */
     protected $id;
 
     /**
      * @ORM\Column(type="string", length=100)
+     *
      * @var string
      */
     protected $name;
 
     /**
      * @ORM\Column(type="date")
+     *
      * @var \DateTime
      */
     protected $startDate;
 
     /**
      * @ORM\Column(type="date")
+     *
      * @var \DateTime
      */
     protected $endDate;
 
     /**
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -47,6 +50,7 @@ class Campaign
 
     /**
      * @param string $name
+     *
      * @return Campaign
      */
     public function setName($name)
@@ -66,6 +70,7 @@ class Campaign
 
     /**
      * @param \DateTime $startDate
+     *
      * @return Campaign
      */
     public function setStartDate($startDate)
@@ -85,6 +90,7 @@ class Campaign
 
     /**
      * @param \DateTime $endDate
+     *
      * @return Campaign
      */
     public function setEndDate($endDate)

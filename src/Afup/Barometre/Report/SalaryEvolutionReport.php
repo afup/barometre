@@ -14,7 +14,7 @@ class SalaryEvolutionReport extends AbstractReport implements AlterableReportInt
 
     /**
      * @param RequestModifierCollection $requestModifierCollection
-     * @param int $minResult
+     * @param int                       $minResult
      */
     public function __construct(RequestModifierCollection $requestModifierCollection, $minResult = 10)
     {
@@ -66,7 +66,7 @@ class SalaryEvolutionReport extends AbstractReport implements AlterableReportInt
 
         $qb->select('response.grossAnnualSalary');
 
-        $qb->andWhere("response.campaign_id = :id");
+        $qb->andWhere('response.campaign_id = :id');
         $qb->setParameter(':id', $campaignId);
 
         $qb->orderBy('response.grossAnnualSalary', 'asc');

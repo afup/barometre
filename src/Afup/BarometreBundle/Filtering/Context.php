@@ -7,7 +7,7 @@ class Context
     /**
      * @var array
      */
-    protected $parameters = array();
+    protected $parameters = [];
 
     public function setParameter($key, $value)
     {

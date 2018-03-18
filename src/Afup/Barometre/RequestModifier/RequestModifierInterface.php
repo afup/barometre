@@ -13,8 +13,6 @@ interface RequestModifierInterface
 
     /**
      * @param Request $request
-     *
-     * @return void
      */
     public function alterRequest(Request $request);
 }

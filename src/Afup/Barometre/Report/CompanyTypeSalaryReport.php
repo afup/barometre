@@ -9,7 +9,7 @@ class CompanyTypeSalaryReport extends AbstractReport
      */
     public function execute()
     {
-        $results =  $this->queryBuilder
+        $results = $this->queryBuilder
             ->select('response.experience')
             ->addSelect('response.companyType as companyType')
             ->addSelect('AVG(response.annualSalary) as annualSalary')
@@ -21,12 +21,12 @@ class CompanyTypeSalaryReport extends AbstractReport
 
         $data = [
             'columns' => [],
-            'data'    => []
+            'data' => [],
         ];
 
         foreach ($results as $result) {
             if (!array_key_exists($result['experience'], $data['data'])) {
-                $data['data'][$result['experience']] = array();
+                $data['data'][$result['experience']] = [];
             }
 
             if (!in_array($result['companyType'], $data['columns'])) {

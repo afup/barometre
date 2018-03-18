@@ -30,7 +30,6 @@ class ExperienceSalaryReport extends AbstractReport
         return 'experience_salary';
     }
 
-
     /**
      * report weight
      *

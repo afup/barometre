@@ -38,14 +38,14 @@ class SpecialitySalaryReport extends AbstractReport
             'Symfony',
             'Zend Framework',
             'Wordpress',
-            'Drupal'
+            'Drupal',
         ];
 
         $otherFramework = 'report.view.other_framework';
 
         $data = [
             'columns' => array_merge($framework, [$otherFramework]),
-            'data'    => []
+            'data' => [],
         ];
 
         foreach ($results as $result) {
@@ -84,7 +84,7 @@ class SpecialitySalaryReport extends AbstractReport
      */
     public function getName()
     {
-        return "speciality_salary";
+        return 'speciality_salary';
     }
 
     /**
@@ -96,7 +96,6 @@ class SpecialitySalaryReport extends AbstractReport
 
         return count($data['data']);
     }
-
 
     /**
      * report weight

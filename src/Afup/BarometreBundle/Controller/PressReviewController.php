@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Afup\BarometreBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -109,7 +108,7 @@ class PressReviewController extends Controller
                 'url' => 'http://www.lemondeinformatique.fr/actualites/lire-agence-e-publie-un-barometre-sur-les-salaires-des-developpeurs-php-avec-l-afup-55891.html',
                 'title' => 'Agence-e publie un baromètre sur les salaires des développeurs PHP avec l\'Afup',
                 'media_logo' => 'le_monde_informatique.png',
-                'date' => '2013-12-05'
+                'date' => '2013-12-05',
             ],
             [
                 'url' => 'http://www.developpez.com/actu/76854/Quels-sont-les-salaires-des-developpeurs-PHP-en-France-L-AFUP-publie-son-barometre/',
@@ -139,13 +138,13 @@ class PressReviewController extends Controller
                 'url' => 'https://www.maddyness.com/business/2016/02/02/infographie-le-salaire-des-developpeurs-francais/',
                 'title' => 'Salaire, spécialité, type de contrat : quel est le profil type du développeur français ?',
                 'media_logo' => 'maddyness.svg',
-                'date' => '2016-02-02'
+                'date' => '2016-02-02',
             ],
             [
                 'url' => 'http://www.agence-e.fr/component/content/article/11-sondages/39-barometre-afup-les-salaires-du-php-en-france-2014',
                 'title' => 'Baromètre AFUP - Agence-e 2015 : les salaires du PHP en France',
                 'media_logo' => 'agence-e.png',
-                'date' => '2014-10-27'
+                'date' => '2014-10-27',
             ],
             [
                 'url' => 'http://afup.org/pages/site/?route=actualites/945/edition-2016-du-barometre-des-salaires-en-php',

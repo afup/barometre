@@ -7,7 +7,7 @@ class RequestModifierCollection
     /**
      * @var RequestModifierInterface[]
      */
-    private $modifier = array();
+    private $modifier = [];
 
     /**
      * @param RequestModifierInterface $modifier

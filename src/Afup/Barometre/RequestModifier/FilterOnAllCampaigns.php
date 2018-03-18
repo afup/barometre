@@ -2,8 +2,8 @@
 
 namespace Afup\Barometre\RequestModifier;
 
-use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Bundle\DoctrineBundle\Registry as Doctrine;
+use Symfony\Component\HttpFoundation\Request;
 
 class FilterOnAllCampaigns implements RequestModifierInterface
 {

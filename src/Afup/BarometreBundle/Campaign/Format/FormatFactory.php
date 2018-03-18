@@ -16,6 +16,6 @@ class FormatFactory
             throw new \InvalidArgumentException(sprintf('Code %s invalid', $code));
         }
 
-        return new $class;
+        return new $class();
     }
 }

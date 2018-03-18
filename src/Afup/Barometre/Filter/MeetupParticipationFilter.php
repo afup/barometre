@@ -4,8 +4,8 @@ namespace Afup\Barometre\Filter;
 
 use Afup\Barometre\Form\Type\Select2MultipleFilterType;
 use Afup\BarometreBundle\Enums\MeetupParticipationEnums;
-use Symfony\Component\Form\FormBuilderInterface;
 use Doctrine\DBAL\Query\QueryBuilder;
+use Symfony\Component\Form\FormBuilderInterface;
 
 class MeetupParticipationFilter implements FilterInterface
 {
@@ -28,15 +28,15 @@ class MeetupParticipationFilter implements FilterInterface
     public function buildForm(FormBuilderInterface $builder)
     {
         $builder->add($this->getName(), Select2MultipleFilterType::class, [
-            'label'    => 'filter.meetup_participation',
-            'choices'  => array_flip($this->meetupParticipationEnums->getChoices())
+            'label' => 'filter.meetup_participation',
+            'choices' => array_flip($this->meetupParticipationEnums->getChoices()),
         ]);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function buildQuery(QueryBuilder $queryBuilder, array $values = array())
+    public function buildQuery(QueryBuilder $queryBuilder, array $values = [])
     {
         if (!array_key_exists($this->getName(), $values) || 0 === count($values[$this->getName()])) {
             return;

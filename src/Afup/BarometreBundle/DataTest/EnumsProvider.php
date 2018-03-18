@@ -16,7 +16,7 @@ class EnumsProvider
      */
     public function __construct(EnumsCollection $collection)
     {
-         $this->collection = $collection;
+        $this->collection = $collection;
     }
 
     /**
@@ -27,6 +27,7 @@ class EnumsProvider
     public function enums($alias)
     {
         $choices = $this->collection->getEnums($alias)->getChoices();
+
         return array_rand($choices);
     }
 }

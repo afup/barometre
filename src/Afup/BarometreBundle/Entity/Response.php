@@ -15,6 +15,7 @@ class Response
      * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     *
      * @var int
      */
     protected $id;
@@ -22,126 +23,147 @@ class Response
     /**
      * @ORM\ManyToOne(targetEntity="Campaign")
      * @ORM\JoinColumn(name="campaign_id", referencedColumnName="id")
+     *
      * @var int
      */
     protected $campaign;
 
     /**
      * @ORM\ManyToMany(targetEntity="Certification")
+     *
      * @var \Doctrine\Common\Collections\Collection
      */
     protected $certifications;
 
     /**
      * @ORM\ManyToMany(targetEntity="Speciality")
+     *
      * @var \Doctrine\Common\Collections\Collection
      */
     protected $specialities;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     *
      * @var int
      */
     protected $grossAnnualSalary;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     *
      * @var int
      */
     protected $variableAnnualSalary;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     *
      * @var int
      */
     protected $annualSalary;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     *
      * @var int
      */
     protected $salarySatisfaction;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     *
      * @var int
      */
     protected $status;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     *
      * @var int
      */
     protected $initialTraining;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     *
      * @var int
      */
     protected $jobTitle;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     *
      * @var int
      */
     protected $experience;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     *
      * @var int
      */
     protected $companyType;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     *
      * @var int
      */
     protected $companySize;
 
     /**
      * @ORM\Column(type="string", length=3, nullable=true)
+     *
      * @var int
      */
     protected $companyDepartment;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     *
      * @var int
      */
     protected $jobInterest;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     *
      * @var int
      */
     protected $otherLanguage;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     *
      * @var int
      */
     protected $phpVersion;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     *
      * @var int
      */
     protected $phpStrength;
 
     /**
      * @ORM\Column(type="boolean")
+     *
      * @var bool
      */
     protected $hasRecentTraining;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
+     *
      * @var bool
      */
     protected $isRecentTrainingHadSalaryImpact;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     *
      * @var int
      */
     protected $gender;
@@ -162,18 +184,18 @@ class Response
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     *
      * @var int
      */
     protected $remoteUsage;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     *
      * @var int
      */
     protected $meetupParticipation;
 
-    /**
-     */
     public function __construct()
     {
         $this->certifications = new ArrayCollection();
@@ -181,7 +203,7 @@ class Response
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -189,7 +211,8 @@ class Response
     }
 
     /**
-     * @param integer $grossAnnualSalary
+     * @param int $grossAnnualSalary
+     *
      * @return Response
      */
     public function setGrossAnnualSalary($grossAnnualSalary)
@@ -200,7 +223,7 @@ class Response
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getGrossAnnualSalary()
     {
@@ -208,7 +231,8 @@ class Response
     }
 
     /**
-     * @param integer $variableAnnualSalary
+     * @param int $variableAnnualSalary
+     *
      * @return Response
      */
     public function setVariableAnnualSalary($variableAnnualSalary)
@@ -219,7 +243,7 @@ class Response
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getVariableAnnualSalary()
     {
@@ -227,7 +251,8 @@ class Response
     }
 
     /**
-     * @param integer $annualSalary
+     * @param int $annualSalary
+     *
      * @return Response
      */
     public function setAnnualSalary($annualSalary)
@@ -238,7 +263,7 @@ class Response
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getAnnualSalary()
     {
@@ -246,7 +271,8 @@ class Response
     }
 
     /**
-     * @param integer $salarySatisfaction
+     * @param int $salarySatisfaction
+     *
      * @return Response
      */
     public function setSalarySatisfaction($salarySatisfaction)
@@ -257,7 +283,7 @@ class Response
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getSalarySatisfaction()
     {
@@ -265,7 +291,8 @@ class Response
     }
 
     /**
-     * @param integer $status
+     * @param int $status
+     *
      * @return Response
      */
     public function setStatus($status)
@@ -276,7 +303,7 @@ class Response
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getStatus()
     {
@@ -284,7 +311,8 @@ class Response
     }
 
     /**
-     * @param integer $initialTraining
+     * @param int $initialTraining
+     *
      * @return Response
      */
     public function setInitialTraining($initialTraining)
@@ -295,7 +323,7 @@ class Response
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getInitialTraining()
     {
@@ -303,7 +331,8 @@ class Response
     }
 
     /**
-     * @param integer $jobTitle
+     * @param int $jobTitle
+     *
      * @return Response
      */
     public function setJobTitle($jobTitle)
@@ -314,7 +343,7 @@ class Response
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getJobTitle()
     {
@@ -322,7 +351,8 @@ class Response
     }
 
     /**
-     * @param integer $experience
+     * @param int $experience
+     *
      * @return Response
      */
     public function setExperience($experience)
@@ -333,7 +363,7 @@ class Response
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getExperience()
     {
@@ -341,7 +371,8 @@ class Response
     }
 
     /**
-     * @param integer $companyType
+     * @param int $companyType
+     *
      * @return Response
      */
     public function setCompanyType($companyType)
@@ -352,7 +383,7 @@ class Response
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getCompanyType()
     {
@@ -360,7 +391,8 @@ class Response
     }
 
     /**
-     * @param integer $companySize
+     * @param int $companySize
+     *
      * @return Response
      */
     public function setCompanySize($companySize)
@@ -371,7 +403,7 @@ class Response
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getCompanySize()
     {
@@ -379,18 +411,19 @@ class Response
     }
 
     /**
-     * @param integer $companyDepartment
+     * @param int $companyDepartment
+     *
      * @return Response
      */
     public function setCompanyDepartment($companyDepartment)
     {
-        $this->companyDepartment = str_pad($companyDepartment, 2, "0", STR_PAD_LEFT);
+        $this->companyDepartment = str_pad($companyDepartment, 2, '0', STR_PAD_LEFT);
 
         return $this;
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getCompanyDepartment()
     {
@@ -398,7 +431,8 @@ class Response
     }
 
     /**
-     * @param integer $jobInterest
+     * @param int $jobInterest
+     *
      * @return Response
      */
     public function setJobInterest($jobInterest)
@@ -409,7 +443,7 @@ class Response
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getJobInterest()
     {
@@ -417,7 +451,8 @@ class Response
     }
 
     /**
-     * @param integer $phpVersion
+     * @param int $phpVersion
+     *
      * @return Response
      */
     public function setPhpVersion($phpVersion)
@@ -428,7 +463,7 @@ class Response
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getPhpVersion()
     {
@@ -436,7 +471,8 @@ class Response
     }
 
     /**
-     * @param integer $phpStrength
+     * @param int $phpStrength
+     *
      * @return Response
      */
     public function setPhpStrength($phpStrength)
@@ -447,7 +483,7 @@ class Response
     }
 
     /**
-     * @return integer
+     * @return int
      */
     public function getPhpStrength()
     {
@@ -455,7 +491,8 @@ class Response
     }
 
     /**
-     * @param boolean $hasRecentTraining
+     * @param bool $hasRecentTraining
+     *
      * @return Response
      */
     public function setHasRecentTraining($hasRecentTraining)
@@ -466,7 +503,7 @@ class Response
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function getHasRecentTraining()
     {
@@ -474,7 +511,8 @@ class Response
     }
 
     /**
-     * @param boolean $recentTrainingHadSalaryImpact
+     * @param bool $recentTrainingHadSalaryImpact
+     *
      * @return Response
      */
     public function setRecentTrainingHadSalaryImpact($recentTrainingHadSalaryImpact)
@@ -485,7 +523,7 @@ class Response
     }
 
     /**
-     * @return boolean
+     * @return bool
      */
     public function getRecentTrainingHadSalaryImpact()
     {
@@ -494,6 +532,7 @@ class Response
 
     /**
      * @param Campaign $campaign
+     *
      * @return Response
      */
     public function setCampaign(Campaign $campaign = null)
@@ -513,6 +552,7 @@ class Response
 
     /**
      * @param Certification $certifications
+     *
      * @return Response
      */
     public function addCertification(Certification $certifications)
@@ -540,6 +580,7 @@ class Response
 
     /**
      * @param Speciality $specialities
+     *
      * @return Response
      */
     public function addSpeciality(Speciality $specialities)

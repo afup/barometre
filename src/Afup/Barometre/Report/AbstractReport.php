@@ -17,7 +17,7 @@ abstract class AbstractReport implements ReportInterface
     protected $queryBuilder;
 
     /**
-     * @var integer
+     * @var int
      */
     protected $minResult;
 
@@ -27,7 +27,7 @@ abstract class AbstractReport implements ReportInterface
     protected $childReports = [];
 
     /**
-     * @param integer $minResult
+     * @param int $minResult
      */
     public function __construct($minResult = 10)
     {
@@ -55,7 +55,7 @@ abstract class AbstractReport implements ReportInterface
      */
     public function getLabel()
     {
-        return "report." . $this->getName() . ".label";
+        return 'report.' . $this->getName() . '.label';
     }
 
     /**
@@ -68,8 +68,6 @@ abstract class AbstractReport implements ReportInterface
 
     /**
      * report weight
-     *
-     * @return null
      */
     public function getWeight()
     {

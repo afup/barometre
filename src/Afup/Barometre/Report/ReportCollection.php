@@ -7,7 +7,7 @@ namespace Afup\Barometre\Report;
  */
 class ReportCollection implements \IteratorAggregate
 {
-    private $reports = array();
+    private $reports = [];
 
     /**
      * Add a new report
@@ -21,11 +21,10 @@ class ReportCollection implements \IteratorAggregate
 
     /**
      * sort all reports by theirs keys
-     *
      */
     public function sortReports()
     {
-        uasort($this->reports, array('Afup\Barometre\Report\AbstractReport', 'cmpReport'));
+        uasort($this->reports, ['Afup\Barometre\Report\AbstractReport', 'cmpReport']);
     }
 
     /**

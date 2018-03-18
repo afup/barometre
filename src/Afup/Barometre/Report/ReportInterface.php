@@ -40,7 +40,7 @@ interface ReportInterface
     /**
      * The report has results
      *
-     * @return boolean
+     * @return bool
      */
     public function hasResults();
 

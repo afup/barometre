@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Afup\BarometreBundle\Controller;
 
 use Afup\BarometreBundle\Entity\CampaignRepository;

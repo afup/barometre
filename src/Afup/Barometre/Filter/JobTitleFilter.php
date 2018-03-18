@@ -30,7 +30,7 @@ class JobTitleFilter implements FilterInterface
     public function buildForm(FormBuilderInterface $builder)
     {
         $builder->add($this->getName(), Select2MultipleFilterType::class, [
-            'label'   => 'filter.job_title',
+            'label' => 'filter.job_title',
             'choices' => array_flip($this->jobTitles->getChoices()),
         ]);
     }
@@ -41,7 +41,7 @@ class JobTitleFilter implements FilterInterface
      * @param QueryBuilder $queryBuilder
      * @param array        $values
      */
-    public function buildQuery(QueryBuilder $queryBuilder, array $values = array())
+    public function buildQuery(QueryBuilder $queryBuilder, array $values = [])
     {
         if (!array_key_exists($this->getName(), $values) || 0 === count($values[$this->getName()])) {
             return;
