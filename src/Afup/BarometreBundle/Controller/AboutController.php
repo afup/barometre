@@ -9,20 +9,14 @@ use Symfony\Component\HttpFoundation\Response;
 class AboutController extends Controller
 {
     /**
+     * @param CampaignRepository $campaignRepository
+     *
      * @return Response
      */
-    public function indexAction()
+    public function indexAction(CampaignRepository $campaignRepository)
     {
-        $campaigns = $this->getCampaignRepository()->findAllOrderedByDate();
+        $campaigns = $campaignRepository->findAllOrderedByDate();
 
         return $this->render('@AfupBarometre/About/index.html.twig', ['campaigns' => $campaigns]);
-    }
-
-    /**
-     * @return CampaignRepository
-     */
-    private function getCampaignRepository()
-    {
-        return $this->get('afup.barometre.repository.campaign_repository');
     }
 }

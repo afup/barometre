@@ -15,23 +15,18 @@
         <service id="afup.barometre.query_builder_factory" class="Afup\BarometreBundle\Filtering\QueryBuilderFactory">
             <argument type="service" id="doctrine.dbal.default_connection" />
             <argument type="service" id="afup.barometre.context" />
-            <argument type="service" id="afup.barometre.filter_collection" />
+            <argument type="service" id="Afup\Barometre\Filter\FilterCollection" />
         </service>
 
         <service id="afup.barometre.context_factory" class="Afup\BarometreBundle\Filtering\ContextFactory" />
 
         <service id="afup.barometre.default_context_factory" class="Afup\BarometreBundle\Filtering\DefaultContextFactory" >
-            <argument type="service" id="afup.barometre.repository.campaign_repository" />
+            <argument type="service" id="Afup\BarometreBundle\Entity\CampaignRepository" />
         </service>
 
         <service id="afup.barometre.campaign.importer" class="Afup\BarometreBundle\Campaign\Importer\CampaignImporter">
             <argument type="service" id="doctrine.orm.entity_manager" />
             <argument type="service" id="afup.barometre.campaign.response_factory" />
-        </service>
-
-        <service id="afup.barometre.twig.enums" class="Afup\BarometreBundle\Twig\Enums">
-            <argument type="service" id="afup.barometre.enums_collection" />
-            <tag name="twig.extension" />
         </service>
 
         <service id="afup.barometre.campaign.response_factory" class="Afup\BarometreBundle\Campaign\ResponseFactory">
@@ -46,41 +41,21 @@
             <argument>1</argument>
         </service>
 
-        <service id="afup.barometre.repository.campaign_repository" class="Afup\BarometreBundle\Entity\CampaignRepository">
-            <factory service="doctrine.orm.entity_manager" method="getRepository" />
-            <argument>Afup\BarometreBundle\Entity\Campaign</argument>
-        </service>
-
-        <service id="afup.barometre.repository.certification_repository" class="Doctrine\ORM\EntityRepository">
-            <factory service="doctrine.orm.entity_manager" method="getRepository" />
+        <service id="afup.barometre.repository.certification_repository" class="Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository">
+            <argument type="service" id="doctrine" />
             <argument>Afup\BarometreBundle\Entity\Certification</argument>
         </service>
 
-        <service id="afup.barometre.repository.speciality_repository" class="Doctrine\ORM\EntityRepository">
-            <factory service="doctrine.orm.entity_manager" method="getRepository" />
+        <service id="afup.barometre.repository.speciality_repository" class="Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository">
+            <argument type="service" id="doctrine" />
             <argument>Afup\BarometreBundle\Entity\Speciality</argument>
-        </service>
-
-        <service id="afup.barometre.twig.extension.department" class="Afup\BarometreBundle\Twig\Extension\DepartmentExtension">
-            <argument type="service" id="translator" />
-            <tag name="twig.extension" />
-        </service>
-
-        <service id="afup.barometre.twig.extension.county" class="Afup\BarometreBundle\Twig\Extension\CountyExtension">
-            <argument type="service" id="translator" />
-            <tag name="twig.extension" />
         </service>
 
         <service id="afup.barometre.manager" class="Afup\Barometre\ReportManager" shared="false">
             <argument type="service" id="doctrine.dbal.default_connection" />
             <argument type="service" id="afup.barometre.filter_form" />
             <argument type="service" id="afup.barometre.report_collection" />
-            <argument type="service" id="afup.barometre.filter_collection" />
-        </service>
-
-        <service id="afup.barometre.type.filter" class="Afup\Barometre\Form\Type\FilterType">
-            <argument type="service" id="afup.barometre.filter_collection" />
-            <tag name="form.type" />
+            <argument type="service" id="Afup\Barometre\Filter\FilterCollection" />
         </service>
 
         <service id="afup.barometre.filter_form" class="Symfony\Component\Form\FormInterface" shared="false">
@@ -89,9 +64,7 @@
         </service>
 
         <service id="afup.barometre.report_collection" class="Afup\Barometre\Report\ReportCollection">
-        </service>
-
-        <service id="afup.barometre.filter_collection" class="Afup\Barometre\Filter\FilterCollection">
+            <argument type="tagged" tag="barometre.report" />
         </service>
 
         <service id="afup.barometre.request_modifier_collection" class="Afup\Barometre\RequestModifier\RequestModifierCollection">

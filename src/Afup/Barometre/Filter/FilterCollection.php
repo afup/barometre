@@ -11,22 +11,21 @@ use Symfony\Component\Form\FormBuilderInterface;
 class FilterCollection
 {
     /**
+     * @param iterable|FilterInterface[] $filters
+     */
+    public function __construct($filters)
+    {
+        foreach ($filters as $filter) {
+            $this->filters[$filter->getWeight()] = $filter;
+        }
+
+        ksort($this->filters);
+    }
+
+    /**
      * @var FilterInterface[]
      */
     private $filters = [];
-
-    /**
-     * Add a filter
-     *
-     * @param FilterInterface $filter
-     */
-    public function addFilter(FilterInterface $filter)
-    {
-        if (isset($this->filters[$filter->getWeight()])) {
-            throw new \LogicException('filter of same weight already added');
-        }
-        $this->filters[$filter->getWeight()] = $filter;
-    }
 
     /**
      * Get a filter by its name
@@ -47,7 +46,6 @@ class FilterCollection
      */
     public function buildForm(FormBuilderInterface $builder)
     {
-        ksort($this->filters);
         foreach ($this->filters as $filter) {
             $filter->buildForm($builder);
         }

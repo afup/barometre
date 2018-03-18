@@ -25,7 +25,6 @@ class AfupBarometreExtension extends Extension
         $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.xml');
         $loader->load('enums.xml');
-        $loader->load('filters.xml');
         $loader->load('reports.xml');
         $loader->load('menu.xml');
         $loader->load('http_cache.xml');

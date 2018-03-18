@@ -17,8 +17,6 @@ class AfupBarometreBundle extends Bundle
     public function build(ContainerBuilder $container)
     {
         $container->addCompilerPass(new EnumsCollectionPass());
-        $container->addCompilerPass(new FilterCollectionPass());
-        $container->addCompilerPass(new ReportCollectionPass());
         $container->addCompilerPass(new RequestModifierCollectionPass());
     }
 }

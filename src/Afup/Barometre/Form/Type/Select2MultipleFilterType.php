@@ -18,7 +18,6 @@ class Select2MultipleFilterType extends AbstractType
     {
         $resolver->setDefaults(
             [
-                'choices_as_values' => true,
                 'multiple' => true,
                 'required' => false,
                 'attr' => [

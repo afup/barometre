@@ -10,20 +10,14 @@ class ReportCollection implements \IteratorAggregate
     private $reports = [];
 
     /**
-     * Add a new report
-     *
-     * @param ReportInterface $report
+     * @param iterable|ReportInterface[] $reports
      */
-    public function addReport(ReportInterface $report)
+    public function __construct($reports)
     {
-        $this->reports[$report->getName()] = $report;
-    }
+        foreach ($reports as $report) {
+            $this->reports[$report->getName()] = $report;
+        }
 
-    /**
-     * sort all reports by theirs keys
-     */
-    public function sortReports()
-    {
         uasort($this->reports, ['Afup\Barometre\Report\AbstractReport', 'cmpReport']);
     }
 
