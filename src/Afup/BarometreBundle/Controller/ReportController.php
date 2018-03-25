@@ -18,11 +18,10 @@ class ReportController extends Controller
      *
      * @return array
      */
-    public function indexAction(Request $request, $reportName)
+    public function indexAction(Request $request, ReportManager $manager, $reportName)
     {
         $masterRequest = $this->get('request_stack')->getMasterRequest();
 
-        $manager = $this->getManager();
         $manager->handleRequest($masterRequest);
 
         $report = $manager->getReport($reportName);
@@ -53,13 +52,5 @@ class ReportController extends Controller
             'report' => $report,
             'child_reports' => $childReports,
         ];
-    }
-
-    /**
-     * @return ReportManager
-     */
-    private function getManager()
-    {
-        return $this->get('afup.barometre.manager');
     }
 }

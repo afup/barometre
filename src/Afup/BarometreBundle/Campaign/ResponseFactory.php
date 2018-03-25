@@ -4,8 +4,10 @@ namespace Afup\BarometreBundle\Campaign;
 
 use Afup\BarometreBundle\Entity\Campaign;
 use Afup\BarometreBundle\Entity\Certification;
+use Afup\BarometreBundle\Entity\CertificationRepository;
 use Afup\BarometreBundle\Entity\Response;
 use Afup\BarometreBundle\Entity\Speciality;
+use Afup\BarometreBundle\Entity\SpecialityRepository;
 use Afup\BarometreBundle\Enums\EnumsCollection;
 use agallou\Departements\Collection as Departments;
 use Doctrine\Common\Persistence\ObjectRepository;
@@ -24,26 +26,26 @@ class ResponseFactory
     private $enums;
 
     /**
-     * @var ObjectRepository
+     * @var CertificationRepository
      */
     private $certificationRepository;
 
     /**
-     * @var ObjectRepository
+     * @var SpecialityRepository
      */
     private $specialityRepository;
 
     /**
-     * @param NumberFormatter  $numberFormatter
-     * @param EnumsCollection  $enums
-     * @param ObjectRepository $certificationRepository
-     * @param ObjectRepository $specialityRepository
+     * @param NumberFormatter         $numberFormatter
+     * @param EnumsCollection         $enums
+     * @param CertificationRepository $certificationRepository
+     * @param SpecialityRepository    $specialityRepository
      */
     public function __construct(
         NumberFormatter $numberFormatter,
         EnumsCollection $enums,
-        ObjectRepository $certificationRepository,
-        ObjectRepository $specialityRepository
+        CertificationRepository $certificationRepository,
+        SpecialityRepository $specialityRepository
     ) {
         $this->numberFormatter = $numberFormatter;
         $this->enums = $enums;
@@ -167,11 +169,7 @@ class ResponseFactory
     protected function addCertification(Response $response, array $certificationList)
     {
         foreach ($certificationList as $certification) {
-            $certification = $this->certificationRepository->findOneBy(
-                [
-                    'name' => trim($certification),
-                ]
-            );
+            $certification = $this->certificationRepository->findOneByName(trim($certification));
 
             if (!$certification instanceof Certification) {
                 continue;

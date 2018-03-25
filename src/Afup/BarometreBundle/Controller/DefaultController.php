@@ -2,6 +2,7 @@
 
 namespace Afup\BarometreBundle\Controller;
 
+use Afup\Barometre\ReportManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,10 +17,8 @@ class DefaultController extends Controller
      *
      * @return array
      */
-    public function indexAction(Request $request, $reportName)
+    public function indexAction(Request $request, ReportManager $manager, $reportName)
     {
-        $manager = $this->get('afup.barometre.manager');
-
         $manager->handleRequest($request);
 
         $report = $manager->getReport($reportName);
