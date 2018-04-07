@@ -129,5 +129,13 @@
 
             <p> Nous vous invitons à consulter des rapports dans le menu "Rapports détaillés".</p>
         </div>
+
+        <div class="col-md-4">
+            <h1>Résultats détaillés</h1>
+
+            <div class="well">
+                {% block menu_reports knp_menu_render('reports_menu', {}, 'reports') %}
+            </div>
+        </div>
     </div>
 {% endblock %}

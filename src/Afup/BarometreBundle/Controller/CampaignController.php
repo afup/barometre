@@ -3,23 +3,27 @@
 namespace Afup\BarometreBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Afup\BarometreBundle\Entity\Campaign;
 
 class CampaignController extends Controller
 {
     /**
+     * @param Request $request
+     * @param string  $campaignName
      * @return Response
      */
-    public function report2015Action()
+    public function reportAction(Request $request, $campaignName)
     {
-        return $this->render('AfupBarometreBundle:Campaign:report2015.html.twig');
-    }
+        $campaignRepository = $this->container->get('afup.barometre.repository.campaign_repository');
+        $campaign = $campaignRepository->findOneBy(['name' => $campaignName]);
 
-    /**
-     * @return Response
-     */
-    public function report2016Action()
-    {
-        return $this->render('AfupBarometreBundle:Campaign:report2016.html.twig');
+        if ($campaign instanceof Campaign) {
+            $filter = ['campaign' => [$campaign->getId()]];
+            $request->attributes->set('filter', $filter);
+        }
+
+        return $this->render('AfupBarometreBundle:Campaign:report'.$campaignName.'.html.twig');
     }
 }
