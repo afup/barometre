@@ -20,7 +20,7 @@ class CompanyDepartmentReport extends AbstractReport
             ->setParameter(':minResult', $this->minResult)
             ->addGroupBy('response.companyDepartment');
 
-        $this->data = $this->queryBuilder->execute()->fetchAll();
+        $this->data = $this->addPercentResponse($this->queryBuilder->execute()->fetchAll());
     }
 
     /**
