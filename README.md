@@ -116,7 +116,9 @@ re installation des fixtures
 php app/console doctrine:fixtures:load
 ```
 
-chargement des données
+chargement des données.
+
+Le séparateur du fichier csv doit être ";".
 
 ```
 php app/console barometre:imports  2013 01/05/2013 01/11/2013  ~/Downloads/test.csv

@@ -18,6 +18,7 @@ class BarometreImportCommand extends ContainerAwareCommand
             ->setName("barometre:imports")
             ->setDescription("Importe une nouvelle campagne")
             ->addOption('format', 'f', InputOption::VALUE_REQUIRED, 'Format du fichier ("2013" ou "2014")')
+            ->addOption('separator', '', InputOption::VALUE_OPTIONAL, 'separateur csv (";" par défaut)', ';')
             ->addArgument('name', InputArgument::REQUIRED, 'Nom de la campagne')
             ->addArgument('startDate', InputArgument::REQUIRED, 'Date de début de la campagne (format: dd/mm/yyyy)')
             ->addArgument('endDate', InputArgument::REQUIRED, 'Date de fin de la campagne (format: dd/mm/yyyy)')
@@ -36,6 +37,7 @@ class BarometreImportCommand extends ContainerAwareCommand
         $startDate  = $input->getArgument('startDate');
         $endDate    = $input->getArgument('endDate');
         $filename   = $input->getArgument('filename');
+        $separator = $input->getOption('separator');
 
         $formatFactory = new FormatFactory();
         $format = $formatFactory->createFromCode($input->getOption('format'));
@@ -46,7 +48,8 @@ class BarometreImportCommand extends ContainerAwareCommand
             $name,
             \DateTime::createFromFormat('d/m/Y', $startDate),
             \DateTime::createFromFormat('d/m/Y', $endDate),
-            $filename
+            $filename,
+            $separator
         );
     }
 

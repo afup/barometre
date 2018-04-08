@@ -22,7 +22,8 @@ class Response
     /**
      * @ORM\ManyToOne(targetEntity="Campaign")
      * @ORM\JoinColumn(name="campaign_id", referencedColumnName="id")
-     * @var int
+     *
+     * @var Campaign
      */
     protected $campaign;
 
@@ -103,6 +104,13 @@ class Response
      * @var int
      */
     protected $companyDepartment;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     *
+     * @var string
+     */
+    protected $companyOrigin;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -683,5 +691,21 @@ class Response
         $this->meetupParticipation = $meetupParticipation;
 
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCompanyOrigin()
+    {
+        return $this->companyOrigin;
+    }
+
+    /**
+     * @param string $companyOrigin
+     */
+    public function setCompanyOrigin($companyOrigin)
+    {
+        $this->companyOrigin = $companyOrigin;
     }
 }
