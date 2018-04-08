@@ -1,8 +1,8 @@
 Afup\BarometreBundle\Entity\Campaign:
     campaign1:
-        name: "2015"
-        startDate: <dateTimeBetween('2015-01-01', '2015-12-31')>
-        endDate: <dateTimeBetween($startDate, '2015-12-31')>
+        name: "2017"
+        startDate: <dateTimeBetween('2017-01-01', '2017-12-31')>
+        endDate: <dateTimeBetween($startDate, '2017-12-31')>
     campaign2:
         name: "2016"
         startDate: <dateTimeBetween('2016-01-01', '2016-10-06')>
