@@ -261,6 +261,18 @@ class PressReviewController extends Controller
                 'media_logo' => 'toolinux.png',
                 'date' => '2017-12-14',
             ],
+            [
+                'url' => 'https://www.journaldunet.com/management/salaire-cadres/1208691-les-salaires-des-dev-php-explosent-en-2017/',
+                'title' => 'Les salaires des dev PHP ont explosé en 2017',
+                'media_logo' => 'jdn.svg',
+                'date' => '2018-04-11',
+            ],
+            [
+                'url' => 'https://www.toolinux.com/?Mise-a-jour-du-barometre-des-salaires-PHP',
+                'title' => 'Mise à jour du baromètre des salaires PHP',
+                'media_logo' => 'toolinux.png',
+                'date' => '2018-04-11',
+            ],
         ];
         //@codingStandardsIgnoreEnd
     }
