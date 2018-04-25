@@ -273,6 +273,12 @@ class PressReviewController extends Controller
                 'media_logo' => 'toolinux.png',
                 'date' => '2018-04-11',
             ],
+            [
+                'url' => 'https://afup.org/news/994-decouvrez-les-resultats-du-barometre-des-salaires',
+                'title' => 'Découvrez les résultats du baromètre des salaires en PHP 2017',
+                'media_logo' => 'afup.png',
+                'date' => '2018-04-09',
+            ],
         ];
         //@codingStandardsIgnoreEnd
     }
