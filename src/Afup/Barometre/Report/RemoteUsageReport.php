@@ -18,6 +18,7 @@ class RemoteUsageReport extends AbstractReport
             ->orderBy('nbResponse', 'desc');
 
         $this->data = $this->queryBuilder->execute()->fetchAll();
+        $this->data = $this->addPercentResponse($this->data);
     }
 
     /**

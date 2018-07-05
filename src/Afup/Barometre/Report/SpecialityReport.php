@@ -30,7 +30,8 @@ class SpecialityReport extends AbstractReport
             ->addGroupBy('specialityName')
             ->addOrderBy('nbResponse', 'desc');
 
-        $this->data = $this->queryBuilder->execute();
+        $this->data = $this->queryBuilder->execute()->fetchAll();
+        $this->data = $this->addPercentResponse($this->data);
     }
 
     /**

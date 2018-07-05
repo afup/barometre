@@ -25,7 +25,8 @@ class SalaryReport extends AbstractReport
         foreach ($this->queryBuilder->execute() as $row) {
             $slice = $row['salarySlice'];
             $results[$slice] = array(
-                'count' => $row['nbResponse']
+                'count' => $row['nbResponse'],
+                'nbResponse' => $row['nbResponse'],
             );
         }
 
@@ -56,6 +57,7 @@ class SalaryReport extends AbstractReport
         }
 
         $this->data = $results;
+        $this->data = $this->addPercentResponse($this->data);
     }
 
     /**
