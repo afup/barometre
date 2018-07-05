@@ -16,6 +16,7 @@
     <tr>
         <th>{{ "report.gender.label" | trans }}</th>
         <th class="text-right">{{ "report.view.response_number" | trans }}</th>
+        <th>{{ "report.view.response_percent" | trans }}</th>
         <th data-graph-skip="1" class="text-right">{{ "report.view.average_salary" | trans }}</th>
     </tr>
     </thead>
@@ -29,6 +30,7 @@
                 {{ row.gender|enum_label('gender') }}
             </td>
             <td {% if row.gender is null %}data-graph-item-highlight="1"{% endif %} {% if icons[row.gender|enum_label('gender')].color %}data-graph-item-color="{{ icons[row.gender|enum_label('gender')].color }}"{% endif %} data-graph-name='{{ row.gender|enum_label('gender') }}' class="text-right">{{ row.nbResponse }}</td>
+            <td>{{ row.percentResponse|round(2) }}</td>
             <td class="text-right">{{ row.averageSalary|number_format(null, '', ' ') }}</td>
         </tr>
     {% endfor %}
