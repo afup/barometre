@@ -25,7 +25,6 @@ class SalaryReport extends AbstractReport
         foreach ($this->queryBuilder->execute() as $row) {
             $slice = $row['salarySlice'];
             $results[$slice] = array(
-                'count' => $row['nbResponse'],
                 'nbResponse' => $row['nbResponse'],
             );
         }
@@ -42,7 +41,7 @@ class SalaryReport extends AbstractReport
         $max = max(array_keys($results));
 
 
-        if ($max != $min) {
+        if ($max !== $min) {
             $baseResults = array_fill($min, $max - $min, $baseResult);
         } else {
             $baseResults = array();
