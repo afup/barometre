@@ -6,6 +6,10 @@
                 <source>menu.about</source>
                 <target>A propos du baromètre</target>
             </trans-unit>
+            <trans-unit id="menu.survey">
+                <source>menu.survey</source>
+                <target>Questionnaire 2018</target>
+            </trans-unit>
             <trans-unit id="menu.result2016">
                 <source>menu.result2016</source>
                 <target>Résultats 2016</target>
