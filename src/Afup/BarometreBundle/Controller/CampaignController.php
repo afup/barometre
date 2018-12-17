@@ -9,11 +9,6 @@ use Afup\BarometreBundle\Entity\Campaign;
 
 class CampaignController extends Controller
 {
-    public function formAction()
-    {
-        return $this->render('AfupBarometreBundle:Campaign:form.html.twig');
-    }
-
     /**
      * @param Request $request
      * @param string  $campaignName
