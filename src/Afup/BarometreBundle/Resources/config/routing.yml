@@ -5,6 +5,13 @@ afup_barometre_homepage:
         path: /about
         permanent: false
 
+afup_barometre_survey_2018:
+    path: /campaign/2018
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /about
+        permanent: true
+
 afup_barometre_campaign:
     path: /report/{campaignName}
     defaults: {_controller: AfupBarometreBundle:Campaign:report }
