@@ -1,7 +1,0 @@
-{
-  "name": "barometre/afup",
-  "dependencies": {
-    "select2": "3.4.5",
-    "github-fork-ribbon-css": "0.1.1"
-  }
-}
