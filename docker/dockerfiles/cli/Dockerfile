@@ -1,6 +1,7 @@
 FROM php:5.6
 
 RUN apt-get update && apt-get install -y build-essential
+RUN apt-get update && apt-get install -y gnupg
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
 RUN apt-get update && apt-get install -y nodejs
 
