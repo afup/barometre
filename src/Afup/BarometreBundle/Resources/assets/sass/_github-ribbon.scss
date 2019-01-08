@@ -1,5 +1,9 @@
 .github-fork-ribbon {
-  @extend .hidden-xs;
-  @extend .hidden-sm;
-  background-color: $afup-blue;
+  &:before {
+    background-color: $afup-blue;
+  }
+
+  &:before, &:after {
+    box-sizing: content-box;
+  }
 }

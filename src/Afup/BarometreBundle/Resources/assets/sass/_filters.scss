@@ -1,7 +1,9 @@
-.form-group .filter-toggler {
-  color: #000;
-  font-family: $font-family-title;
-  font-weight: bold;
-  margin: 0 0 5px;
-  text-decoration: none;
+.form-group {
+  .filter-toggler {
+    color: #000;
+    font-family: $font-family-title;
+    font-weight: bold;
+    margin: 0 0 5px;
+    text-decoration: none;
+  }
 }

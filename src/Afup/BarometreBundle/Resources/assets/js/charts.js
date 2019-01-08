@@ -66,10 +66,10 @@ $(document).ready(function () {
                 highChartConfig.plotOptions.series.dataLabels = {
                     useHTML: true,
                     format: $(this).data('graph-datalabels-format')
-                }
+                };
             }
 
-            if ($(this).data('graph-tooltip-disabled') == 1) {
+            if ($(this).data('graph-tooltip-disabled') === 1) {
                 highChartConfig.tooltip = {
                     enabled: false
                 };
