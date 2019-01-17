@@ -5,6 +5,7 @@
     <thead>
         <tr>
             <th>{{ 'report.view.experience' | trans }}</th>
+            <th data-graph-skip="1">{{ 'report.view.response_number' | trans }}</th>
             <th>{{ "report.view.annual_salary" | trans }}</th>
         </tr>
     </thead>
@@ -12,6 +13,7 @@
         {% for row in results %}
             <tr>
                 <td>{{ row.experience|enum_label('experience') }}</td>
+                <td class="text-right">{{ row.nbResponse }}</td>
                 <td class="text-right">{{ row.annualSalary|round(-2)|number_format_decimal }}</td>
              </tr>
         {% endfor %}
