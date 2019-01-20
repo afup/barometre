@@ -32,6 +32,6 @@
     "sass-lint": "^1.12.1",
     "select2": "4.0.5",
     "select2-bootstrap-theme": "0.1.0-beta.10",
-    "tablesorter": "^2.27.8"
+    "tablesorter": "2.18.4"
   }
 }
