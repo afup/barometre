@@ -47,19 +47,19 @@ class MenuBuilder
         $menu->setChildrenAttribute('class', 'nav navbar-nav');
 
         $menu->addChild(
-            'menu.result2017',
+            'menu.result2018',
             [
                 'route' => 'afup_barometre_campaign',
-                'routeParameters' => array('campaignName' => 2017),
+                'routeParameters' => array('campaignName' => 2018),
                 'routeAbsolute' => UrlGeneratorInterface::ABSOLUTE_URL,
             ]
         );
 
         $menu->addChild(
-            'menu.result2016',
+            'menu.result2017',
             [
                 'route' => 'afup_barometre_campaign',
-                'routeParameters' => array('campaignName' => 2016),
+                'routeParameters' => array('campaignName' => 2017),
                 'routeAbsolute' => UrlGeneratorInterface::ABSOLUTE_URL,
             ]
         );
