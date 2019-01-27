@@ -1,7 +1,7 @@
 {% if ga_enabled %}
 <script>
-    tarteaucitron.user.gajsUa = 'UA-33922307-2';
-    tarteaucitron.user.gajsMore = function () { /* add here your optionnal _ga.push() */ };
-    (tarteaucitron.job = tarteaucitron.job || []).push('gajs');
+    tarteaucitron.user.analyticsUa = 'UA-33922307-2';
+    tarteaucitron.user.analyticsUaCreate = {'siteSpeedSampleRate': 100};
+    (tarteaucitron.job = tarteaucitron.job || []).push('analytics');
 </script>
 {% endif %}
