@@ -197,3 +197,30 @@ parameters:
                 title: Mise à jour du baromètre des salaires PHP
                 media_logo: toolinux.png
                 date: "2018-04-11"
+            -
+                url: https://afup.org/news/1008-nouvelle-edition-du-barometre-des-salaires-php-en-collaboration-avec-le-jdn
+                title: L'AFUP lance la nouvelle édition du baromètre des salaires PHP en collaboration avec le Journal du Net
+                media_logo: afup.png
+                date: "2018-09-17"
+            -
+                url: https://www.journaldunet.com/web-tech/developpeur/1211460-le-barometre-des-salaires-php-c-est-parti-pour-2018/
+                title: "Le baromètre des salaires PHP : c'est parti pour 2018 !"
+                media_logo: jdn.svg
+                date: "2018-09-17"
+
+        2019:
+            -
+                url: https://www.journaldunet.com/solutions/dsi/1420610-php-la-progression-des-salaires-se-tasse-en-2018/
+                title: "PHP : la progression des salaires se tasse en 2018"
+                media_logo: jdn.svg
+                date: "2019-01-19"
+            -
+                url: https://afup.org/news/1026-resultats-du-barometre-php-2018-publies
+                title: Les résultats du baromètre des salaires en PHP 2018 sont publiés
+                media_logo: afup.png
+                date: "2019-01-29"
+            -
+                url: https://www.toolinux.com/?barometre-salaires-php-2018
+                title: Voici les résultats du baromètre des salaires PHP pour 2018
+                media_logo: toolinux.png
+                date: "2019-01-31"
