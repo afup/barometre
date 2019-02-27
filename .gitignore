@@ -11,6 +11,7 @@
 /composer.phar
 /node_modules/
 /web/assets/
+/web/js/
 /src/Afup/BarometreBundle/Resources/assets/sass/vendor/
 /src/Afup/BarometreBundle/Resources/assets/sass/generated/
 /.sass-cache/
