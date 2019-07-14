@@ -224,3 +224,9 @@ parameters:
                 title: Voici les résultats du baromètre des salaires PHP pour 2018
                 media_logo: toolinux.png
                 date: "2019-01-31"
+
+            -
+                url: http://www.e-works.fr/blog/salaires-remunerations-developpeurs-php-2019/
+                title: Étude des salaires et rémunérations des développeurs PHP en 2019
+                media_logo: eworks.jpg
+                date: "2019-02-05"
