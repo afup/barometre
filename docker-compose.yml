@@ -1,4 +1,4 @@
-version: "2.1"
+version: '3.1'
 
 services:
   db:
@@ -18,7 +18,7 @@ services:
         uid: "${CURRENT_UID:-1001}"
     volumes:
       - .:/var/www/html
-    links:
+    depends_on:
       - db
 
   cli:
@@ -26,9 +26,9 @@ services:
       context: ./docker/dockerfiles/cli
       args:
         uid: "${CURRENT_UID:-1001}"
-    links:
-      - db
     volumes:
       - .:/var/www/html
     command: "false"
     working_dir: /var/www/html
+    depends_on:
+      - db
