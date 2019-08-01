@@ -36,20 +36,4 @@ class Format2017 extends Format2014
             'gender',
         ];
     }
-
-    /**
-     * @param array $data
-     *
-     * @return array
-     */
-    public function alterData(array $data)
-    {
-        $data = parent::alterData($data);
-
-        if ($data['company_type'] === 'SSII / conseil') {
-            $data['company_type'] = 'SSII / agence web / conseil';
-        }
-
-        return $data;
-    }
 }
