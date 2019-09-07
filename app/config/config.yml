@@ -1,6 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: parameters.php }
+    - { resource: press_review.yml }
 
 framework:
     #esi:             ~

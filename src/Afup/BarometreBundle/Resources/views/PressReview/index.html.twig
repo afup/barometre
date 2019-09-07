@@ -5,19 +5,18 @@
 {% block content %}
     <h1>Revue de presse</h1>
 
-    {% for year, press_reviews in press_review_by_year %}
+    {% for year, press_reviews in press_review_by_year|reverse(true) %}
         <h2>{{ year }}</h2>
-        {% for press_review in press_reviews %}
-        <div class="row press-review--container">
-            <div class="col-md-2 press-review--logo-container">
-                <img src="{{ asset('images/press_review/' ~ press_review.media_logo) }}" class="press-review--logo"/>
+        {% for press_review in press_reviews|reverse %}
+            <div class="row press-review--container">
+                <div class="col-md-2 press-review--logo-container">
+                    <img src="{{ asset('images/press_review/' ~ press_review.media_logo) }}" class="press-review--logo"/>
+                </div>
+                <div class="col-md-10">
+                    <h3><a href="{{ press_review.url }}">{{ press_review.title }}</a></h3>
+                    Publié le {{ press_review.date|date('d/m/Y') }}
+                </div>
             </div>
-            <div class="col-md-10">
-                <h3><a href="{{ press_review.url }}">{{ press_review.title }}</a></h3>
-                Publié le {{ press_review.date|date('d/m/Y') }}
-            </div>
-        </div>
         {% endfor %}
     {% endfor %}
-
 {% endblock %}
