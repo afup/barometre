@@ -201,7 +201,7 @@ module.exports = function(grunt) {
         HTMLPrefix: '/assets/favicons/'
       },
       icons: {
-        src: 'src/Afup/BarometreBundle/Resources/assets/favicon/favicon.png',
+        src: 'src/Afup/BarometreBundle/Resources/assets/logos/barometre-logo.svg',
         dest: 'web/assets/favicons/'
       }
     }
