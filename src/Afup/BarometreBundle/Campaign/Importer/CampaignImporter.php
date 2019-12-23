@@ -5,7 +5,9 @@ namespace Afup\BarometreBundle\Campaign\Importer;
 use Afup\BarometreBundle\Campaign\Format\FormatInterface;
 use Afup\BarometreBundle\Campaign\ResponseFactory;
 use Afup\BarometreBundle\Entity\Campaign;
+use DateTime;
 use Doctrine\Common\Persistence\ObjectManager;
+use LogicException;
 use SplFileObject;
 
 class CampaignImporter
@@ -32,16 +34,17 @@ class CampaignImporter
 
     /**
      * @param FormatInterface $format
-     * @param string $name
-     * @param \DateTime $startDate
-     * @param \DateTime $endDate
-     * @param string $filename
+     * @param string          $name
+     * @param DateTime        $startDate
+     * @param DateTime        $endDate
+     * @param string          $filename
+     * @param string          $separator
      */
     public function import(
         FormatInterface $format,
         $name,
-        \DateTime $startDate,
-        \DateTime $endDate,
+        DateTime $startDate,
+        DateTime $endDate,
         $filename,
         $separator = ';'
     ) {
@@ -71,7 +74,7 @@ class CampaignImporter
             }
 
             if (count($columns) !== count($line)) {
-                throw new \LogicException('Invalid column count. Incorrect format ?');
+                throw new LogicException('Invalid column count. Incorrect format ?');
             }
 
             $data = $format->alterData(array_combine($columns, $line));
