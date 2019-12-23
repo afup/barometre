@@ -39,6 +39,8 @@
             <argument type="service" id="afup.barometre.enums_collection" />
             <argument type="service" id="afup.barometre.repository.certification_repository" />
             <argument type="service" id="afup.barometre.repository.speciality_repository" />
+            <argument type="service" id="afup.barometre.repository.hosting_type_repository" />
+            <argument type="service" id="afup.barometre.repository.container_environment_usage_repository" />
         </service>
 
         <service id="number_formatter" class="NumberFormatter">
@@ -59,6 +61,16 @@
         <service id="afup.barometre.repository.speciality_repository" class="Doctrine\ORM\EntityRepository">
             <factory service="doctrine.orm.entity_manager" method="getRepository" />
             <argument>Afup\BarometreBundle\Entity\Speciality</argument>
+        </service>
+
+        <service id="afup.barometre.repository.hosting_type_repository" class="Doctrine\ORM\EntityRepository">
+            <factory service="doctrine.orm.entity_manager" method="getRepository" />
+            <argument>Afup\BarometreBundle\Entity\HostingType</argument>
+        </service>
+
+        <service id="afup.barometre.repository.container_environment_usage_repository" class="Doctrine\ORM\EntityRepository">
+            <factory service="doctrine.orm.entity_manager" method="getRepository" />
+            <argument>Afup\BarometreBundle\Entity\ContainerEnvironmentUsage</argument>
         </service>
 
         <service id="afup.barometre.twig.extension.department" class="Afup\BarometreBundle\Twig\Extension\DepartmentExtension">

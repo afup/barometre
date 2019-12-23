@@ -869,6 +869,11 @@ class Response
         $this->hostingTypes = $hostingTypes;
     }
 
+    public function addHostingType($hostingType)
+    {
+        $this->hostingTypes[] = $hostingType;
+    }
+
     /**
      * @return Collection
      */
@@ -947,5 +952,10 @@ class Response
     public function setIsRecentTrainingHadSalaryImpact($isRecentTrainingHadSalaryImpact)
     {
         $this->isRecentTrainingHadSalaryImpact = $isRecentTrainingHadSalaryImpact;
+    }
+
+    public function addContainerEnvironmentUsage(ContainerEnvironmentUsage $containerEnvironmentUsage)
+    {
+        $this->containerEnvironmentsUsage[] = $containerEnvironmentUsage;
     }
 }
