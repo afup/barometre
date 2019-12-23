@@ -207,13 +207,13 @@ class ResponseFactory
         );
 
         if (isset($data['php_documentation_source'])) {
-            $response->setWorkMethod(
+            $response->setPhpDocumentationSource(
                 $this->enums->getEnums('php_documentation_source')
                             ->getIdByLabel($data["php_documentation_source"])
             );
         }
         if (isset($data['french_php_documentation_quality'])) {
-            $response->setWorkMethod(
+            $response->setFrenchPhpDocumentationQuality(
                 $this->enums->getEnums('french_php_documentation_quality')
                             ->getIdByLabel($data["french_php_documentation_quality"])
             );
