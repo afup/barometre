@@ -30,3 +30,4 @@ Afup\BarometreBundle\Entity\Response:
         specialities: 50%? <numberBetween(1, 7)>x @speciality*
         certifications: 50%? <numberBetween(1, 2)>x @certification*
         remoteUsage: <enums('remote_usage')>
+        gender: <enums('gender')>
