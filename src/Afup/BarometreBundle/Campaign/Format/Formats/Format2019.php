@@ -44,4 +44,15 @@ class Format2019 extends Format2014
             'gender',
         ];
     }
+
+    public function alterData(array $data)
+    {
+        $data = parent::alterData($data);
+
+        if ($data['gender'] == 'Une personne non-binaire') {
+            $data['gender'] = "Personnes non-binaires";
+        }
+
+        return $data;
+    }
 }
