@@ -49,8 +49,20 @@ class Format2019 extends Format2014
     {
         $data = parent::alterData($data);
 
-        if ($data['gender'] == 'Une personne non-binaire') {
+        if ($data['gender'] === 'Une personne non-binaire') {
             $data['gender'] = "Personnes non-binaires";
+        }
+
+        if ($data['status'] === 'Freelance / entreprise individuelle'
+            && '' !== trim($data['freelance_tjm'])
+            && '' !== trim($data['freelance_average_work_day'])
+        ) {
+            // calcul basic du brut d'un freelance
+            $freelanceAnnualSalary = $data['freelance_tjm'] * $data['freelance_average_work_day'];
+
+            $data['annual_salary'] = $freelanceAnnualSalary;
+            $data['gross_annual_salary'] = $freelanceAnnualSalary;
+            $data['variable_annual_salary'] = 0;
         }
 
         return $data;

@@ -11,7 +11,7 @@
         <th>{{ title }}</th>
         {% for data in results.columns %}
             <th data-graph-stack-group="1"
-                data-graph-color="{{ color[data] }}"
+                data-graph-color="{{ color[data] is defined ? color[data] : '#999' }}"
             >{{ data|enum_label(fieldName) }}</th>
         {% endfor %}
     </tr>
