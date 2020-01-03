@@ -1,0 +1,11 @@
+Afup\BarometreBundle\Entity\HostingType:
+    mutualise:
+        name: 'Mutualisé'
+    dedie:
+        name: 'Dédié'
+    paas:
+        name: 'PAAS'
+    iaas:
+        name: 'IAAS'
+    cloud:
+        name: 'Cloud'

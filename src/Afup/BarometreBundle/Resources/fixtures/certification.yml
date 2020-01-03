@@ -7,3 +7,5 @@ Afup\BarometreBundle\Entity\Certification:
         name: Zend Framework
     certification3:
         name: eZ Publish
+    certification4:
+        name: Laravel

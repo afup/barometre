@@ -13,8 +13,11 @@
                     <span class="icon-bar"></span>
                 </button>
                 {% block brand %}
-                    <a class="navbar-brand hidden-xs" href="{{ path('afup_barometre_homepage') }}">Baromètre des salaires du PHP</a>
-                    <a class="navbar-brand visible-xs" href="{{ path('afup_barometre_homepage') }}">Baromètre AFUP</a>
+                    <a class="navbar-brand" href="{{ path('afup_barometre_homepage') }}">
+                        <img src="{{ grunt_asset('logos/logo-barometre-blanc.png') }}" alt="Baromètre AFUP" class="logo barometre" />
+                        <span class="hidden-xs brand-name">Baromètre des salaires du PHP</span>
+                        <span class="visible-xs brand-name">Baromètre AFUP</span>
+                    </a>
                 {% endblock %}
             </div>
 

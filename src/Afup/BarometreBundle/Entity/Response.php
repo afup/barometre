@@ -3,6 +3,7 @@
 namespace Afup\BarometreBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -15,9 +16,10 @@ class Response
      * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     *
      * @var int
      */
-    protected $id;
+    private $id;
 
     /**
      * @ORM\ManyToOne(targetEntity="Campaign")
@@ -25,160 +27,233 @@ class Response
      *
      * @var Campaign
      */
-    protected $campaign;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="Certification")
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    protected $certifications;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="Speciality")
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    protected $specialities;
+    private $campaign;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     *
      * @var int
      */
-    protected $grossAnnualSalary;
+    private $grossAnnualSalary;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     *
      * @var int
      */
-    protected $variableAnnualSalary;
+    private $variableAnnualSalary;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     *
      * @var int
      */
-    protected $annualSalary;
+    private $annualSalary;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     *
      * @var int
      */
-    protected $salarySatisfaction;
+    private $salarySatisfaction;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     *
      * @var int
      */
-    protected $status;
+    private $initialTraining;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     *
      * @var int
      */
-    protected $initialTraining;
+    private $status;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     *
      * @var int
      */
-    protected $jobTitle;
+    private $jobTitle;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     *
      * @var int
      */
-    protected $experience;
+    private $experience;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     *
      * @var int
      */
-    protected $companyType;
+    private $freelanceTjm;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     *
      * @var int
      */
-    protected $companySize;
+    private $freelanceAverageWorkDayPerYear;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     *
+     * @var int
+     */
+    private $contractWorkDuration;
 
     /**
      * @ORM\Column(type="string", length=3, nullable=true)
+     *
      * @var int
      */
-    protected $companyDepartment;
+    private $companyDepartment;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     *
+     * @var int
+     */
+    private $companyType;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     *
+     * @var int
+     */
+    private $companySize;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     *
+     * @var int
+     */
+    private $jobInterest;
 
     /**
      * @ORM\Column(type="string", nullable=true)
      *
      * @var string
      */
-    protected $companyOrigin;
+    private $companyOrigin;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     *
+     * @var int
+     */
+    private $otherLanguage;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     *
+     * @var int
+     */
+    private $remoteUsage;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     *
+     * @var int
+     */
+    private $meetupParticipation;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $technologicalWatch;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $osDeveloppment;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="HostingType")
+     *
+     * @var Collection
+     */
+    private $hostingTypes;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="ContainerEnvironmentUsage")
+     *
+     * @var Collection
+     */
+    private $containerEnvironmentsUsage;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $workMethod;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Speciality")
+     *
+     * @var Collection
+     */
+    private $specialities;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     *
+     * @var int
+     */
+    private $phpVersion;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $phpDocumentationSource;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $frenchPhpDocumentationQuality;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="Certification")
+     * @var Collection
+     */
+    private $certifications;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      * @var int
      */
-    protected $jobInterest;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     * @var int
-     */
-    protected $otherLanguage;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     * @var int
-     */
-    protected $phpVersion;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     * @var int
-     */
-    protected $phpStrength;
+    private $phpStrength;
 
     /**
      * @ORM\Column(type="boolean")
      * @var bool
      */
-    protected $hasRecentTraining;
+    private $hasRecentTraining;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
      * @var bool
      */
-    protected $isRecentTrainingHadSalaryImpact;
+    private $isRecentTrainingHadSalaryImpact;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      * @var int
      */
-    protected $gender;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    protected $osDeveloppment;
-
-    /**
-     * @var int
-     *
-     * @ORM\Column(type="integer", nullable=true)
-     */
-    protected $technologicalWatch;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     * @var int
-     */
-    protected $remoteUsage;
-
-    /**
-     * @ORM\Column(type="integer", nullable=true)
-     * @var int
-     */
-    protected $meetupParticipation;
+    private $gender;
 
     /**
      */
@@ -186,6 +261,8 @@ class Response
     {
         $this->certifications = new ArrayCollection();
         $this->specialities = new ArrayCollection();
+        $this->containerEnvironmentsUsage = new ArrayCollection();
+        $this->hostingTypes = new ArrayCollection();
     }
 
     /**
@@ -198,6 +275,7 @@ class Response
 
     /**
      * @param integer $grossAnnualSalary
+     *
      * @return Response
      */
     public function setGrossAnnualSalary($grossAnnualSalary)
@@ -217,6 +295,7 @@ class Response
 
     /**
      * @param integer $variableAnnualSalary
+     *
      * @return Response
      */
     public function setVariableAnnualSalary($variableAnnualSalary)
@@ -236,6 +315,7 @@ class Response
 
     /**
      * @param integer $annualSalary
+     *
      * @return Response
      */
     public function setAnnualSalary($annualSalary)
@@ -255,6 +335,7 @@ class Response
 
     /**
      * @param integer $salarySatisfaction
+     *
      * @return Response
      */
     public function setSalarySatisfaction($salarySatisfaction)
@@ -274,6 +355,7 @@ class Response
 
     /**
      * @param integer $status
+     *
      * @return Response
      */
     public function setStatus($status)
@@ -293,6 +375,7 @@ class Response
 
     /**
      * @param integer $initialTraining
+     *
      * @return Response
      */
     public function setInitialTraining($initialTraining)
@@ -312,6 +395,7 @@ class Response
 
     /**
      * @param integer $jobTitle
+     *
      * @return Response
      */
     public function setJobTitle($jobTitle)
@@ -331,6 +415,7 @@ class Response
 
     /**
      * @param integer $experience
+     *
      * @return Response
      */
     public function setExperience($experience)
@@ -350,6 +435,7 @@ class Response
 
     /**
      * @param integer $companyType
+     *
      * @return Response
      */
     public function setCompanyType($companyType)
@@ -369,6 +455,7 @@ class Response
 
     /**
      * @param integer $companySize
+     *
      * @return Response
      */
     public function setCompanySize($companySize)
@@ -388,6 +475,7 @@ class Response
 
     /**
      * @param integer $companyDepartment
+     *
      * @return Response
      */
     public function setCompanyDepartment($companyDepartment)
@@ -407,6 +495,7 @@ class Response
 
     /**
      * @param integer $jobInterest
+     *
      * @return Response
      */
     public function setJobInterest($jobInterest)
@@ -426,6 +515,7 @@ class Response
 
     /**
      * @param integer $phpVersion
+     *
      * @return Response
      */
     public function setPhpVersion($phpVersion)
@@ -445,6 +535,7 @@ class Response
 
     /**
      * @param integer $phpStrength
+     *
      * @return Response
      */
     public function setPhpStrength($phpStrength)
@@ -464,6 +555,7 @@ class Response
 
     /**
      * @param boolean $hasRecentTraining
+     *
      * @return Response
      */
     public function setHasRecentTraining($hasRecentTraining)
@@ -483,6 +575,7 @@ class Response
 
     /**
      * @param boolean $recentTrainingHadSalaryImpact
+     *
      * @return Response
      */
     public function setRecentTrainingHadSalaryImpact($recentTrainingHadSalaryImpact)
@@ -502,6 +595,7 @@ class Response
 
     /**
      * @param Campaign $campaign
+     *
      * @return Response
      */
     public function setCampaign(Campaign $campaign = null)
@@ -521,6 +615,7 @@ class Response
 
     /**
      * @param Certification $certifications
+     *
      * @return Response
      */
     public function addCertification(Certification $certifications)
@@ -539,7 +634,7 @@ class Response
     }
 
     /**
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getCertifications()
     {
@@ -548,6 +643,7 @@ class Response
 
     /**
      * @param Speciality $specialities
+     *
      * @return Response
      */
     public function addSpeciality(Speciality $specialities)
@@ -566,7 +662,7 @@ class Response
     }
 
     /**
-     * @return \Doctrine\Common\Collections\Collection
+     * @return Collection
      */
     public function getSpecialities()
     {
@@ -707,5 +803,159 @@ class Response
     public function setCompanyOrigin($companyOrigin)
     {
         $this->companyOrigin = $companyOrigin;
+    }
+
+    /**
+     * @return int
+     */
+    public function getFreelanceTjm()
+    {
+        return $this->freelanceTjm;
+    }
+
+    /**
+     * @param int $freelanceTjm
+     */
+    public function setFreelanceTjm($freelanceTjm)
+    {
+        $this->freelanceTjm = $freelanceTjm;
+    }
+
+    /**
+     * @return int
+     */
+    public function getFreelanceAverageWorkDayPerYear()
+    {
+        return $this->freelanceAverageWorkDayPerYear;
+    }
+
+    /**
+     * @param int $freelanceAverageWorkDayPerYear
+     */
+    public function setFreelanceAverageWorkDayPerYear($freelanceAverageWorkDayPerYear)
+    {
+        $this->freelanceAverageWorkDayPerYear = $freelanceAverageWorkDayPerYear;
+    }
+
+    /**
+     * @return int
+     */
+    public function getContractWorkDuration()
+    {
+        return $this->contractWorkDuration;
+    }
+
+    /**
+     * @param int $contractWorkDuration
+     */
+    public function setContractWorkDuration($contractWorkDuration)
+    {
+        $this->contractWorkDuration = $contractWorkDuration;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getHostingTypes()
+    {
+        return $this->hostingTypes;
+    }
+
+    /**
+     * @param Collection $hostingTypes
+     */
+    public function setHostingTypes($hostingTypes)
+    {
+        $this->hostingTypes = $hostingTypes;
+    }
+
+    public function addHostingType($hostingType)
+    {
+        $this->hostingTypes[] = $hostingType;
+    }
+
+    /**
+     * @return Collection
+     */
+    public function getContainerEnvironmentsUsage()
+    {
+        return $this->containerEnvironmentsUsage;
+    }
+
+    /**
+     * @param Collection $containerEnvironmentsUsage
+     */
+    public function setContainerEnvironmentsUsage($containerEnvironmentsUsage)
+    {
+        $this->containerEnvironmentsUsage = $containerEnvironmentsUsage;
+    }
+
+    /**
+     * @return int
+     */
+    public function getWorkMethod()
+    {
+        return $this->workMethod;
+    }
+
+    /**
+     * @param int $workMethod
+     */
+    public function setWorkMethod($workMethod)
+    {
+        $this->workMethod = $workMethod;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPhpDocumentationSource()
+    {
+        return $this->phpDocumentationSource;
+    }
+
+    /**
+     * @param int $phpDocumentationSource
+     */
+    public function setPhpDocumentationSource($phpDocumentationSource)
+    {
+        $this->phpDocumentationSource = $phpDocumentationSource;
+    }
+
+    /**
+     * @return int
+     */
+    public function getFrenchPhpDocumentationQuality()
+    {
+        return $this->frenchPhpDocumentationQuality;
+    }
+
+    /**
+     * @param int $frenchPhpDocumentationQuality
+     */
+    public function setFrenchPhpDocumentationQuality($frenchPhpDocumentationQuality)
+    {
+        $this->frenchPhpDocumentationQuality = $frenchPhpDocumentationQuality;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isRecentTrainingHadSalaryImpact()
+    {
+        return $this->isRecentTrainingHadSalaryImpact;
+    }
+
+    /**
+     * @param bool $isRecentTrainingHadSalaryImpact
+     */
+    public function setIsRecentTrainingHadSalaryImpact($isRecentTrainingHadSalaryImpact)
+    {
+        $this->isRecentTrainingHadSalaryImpact = $isRecentTrainingHadSalaryImpact;
+    }
+
+    public function addContainerEnvironmentUsage(ContainerEnvironmentUsage $containerEnvironmentUsage)
+    {
+        $this->containerEnvironmentsUsage[] = $containerEnvironmentUsage;
     }
 }
