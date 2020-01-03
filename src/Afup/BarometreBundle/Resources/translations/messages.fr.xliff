@@ -325,13 +325,25 @@
                 <source>report.view.training_impact</source>
                 <target>Cette formation à t-elle eut un impact sur votre rémunération ?</target>
             </trans-unit>
+
             <trans-unit id="report.php_documentation_report.label">
                 <source>report.php_documentation_report.label</source>
                 <target>Utilisation de la documentation de PHP</target>
             </trans-unit>
+
             <trans-unit id="report.view.php_documentation_source">
                 <source>report.view.php_documentation_source</source>
                 <target>Si vous avez besoin d'information sur une fonctionnalité en PHP vous utilisez</target>
+            </trans-unit>
+
+            <trans-unit id="report.french_php_documentation_quality_report.label">
+                <source>report.french_php_documentation_quality_report.label</source>
+                <target>Qualité de la documentation française de PHP</target>
+            </trans-unit>
+
+            <trans-unit id="report.view.french_php_documentation_quality">
+                <source>report.view.french_php_documentation_quality</source>
+                <target>Vous trouvez que la qualité de la documentation en français de PHP est</target>
             </trans-unit>
         </body>
     </file>

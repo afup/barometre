@@ -16,5 +16,6 @@ class FrenchPHPDocumentationQualityEnums extends AbstractEnums
         self::ACCEPTABLE => 'Acceptable',
         self::MAUVAISE => 'Mauvaise',
         self::TRES_MAUVAISE => 'Très mauvaise',
+        self::AUTRE => 'N/A',
     ];
 }

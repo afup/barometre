@@ -2,14 +2,14 @@
 
 namespace Afup\Barometre\Report;
 
-class PHPDocumentationSourceReport extends AbstractReport
+class FrenchPhpDocumentationQualityReport extends AbstractReport
 {
     /**
      * {@inheritDoc}
      */
     public function getName()
     {
-        return 'php_documentation_report';
+        return 'french_php_documentation_quality_report';
     }
 
     /**
@@ -18,11 +18,11 @@ class PHPDocumentationSourceReport extends AbstractReport
     public function execute()
     {
         $this->queryBuilder
-            ->select('response.phpDocumentationSource')
+            ->select('response.frenchPhpDocumentationQuality')
             ->addSelect('COUNT(response.id) as nbResponse')
             ->having('nbResponse >= :minResult')
             ->setParameter(':minResult', $this->minResult)
-            ->groupBy('response.phpDocumentationSource')
+            ->groupBy('response.frenchPhpDocumentationQuality')
             ->orderBy('nbResponse', 'desc');
 
         $this->data = $this->queryBuilder->execute();
