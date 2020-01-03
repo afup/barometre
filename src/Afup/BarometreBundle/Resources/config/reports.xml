@@ -140,12 +140,29 @@
             <tag name="barometre.report" />
         </service>
 
-        <service id="afup.barometre.report.meetup_particpation" class="Afup\Barometre\Report\MeetupParticipationReport" parent="afup.barometre.report.abstract">
+        <service id="afup.barometre.report.meetup_participation" class="Afup\Barometre\Report\MeetupParticipationReport" parent="afup.barometre.report.abstract">
             <tag name="barometre.report" />
         </service>
 
-        <service id="afup.barometre.report.training_particpation" class="Afup\Barometre\Report\TrainingParticipationReport" parent="afup.barometre.report.abstract">
+        <service id="afup.barometre.report.training_participation" class="Afup\Barometre\Report\TrainingParticipationReport" parent="afup.barometre.report.abstract">
             <tag name="barometre.report" />
         </service>
+
+        <service id="afup.barometre.report.container_environment_usage" class="Afup\Barometre\Report\ContainerEnvironmentUsageReport" parent="afup.barometre.report.abstract">
+            <tag name="barometre.report" />
+        </service>
+
+        <service id="afup.barometre.report.contract_work_duration" class="Afup\Barometre\Report\ContractWorkDurationReport" parent="afup.barometre.report.abstract">
+            <tag name="barometre.report" />
+        </service>
+
+        <service id="afup.barometre.report.hosting_type" class="Afup\Barometre\Report\HostingTypeReport" parent="afup.barometre.report.abstract">
+            <tag name="barometre.report" />
+        </service>
+
+        <service id="afup.barometre.report.work_method" class="Afup\Barometre\Report\WorkMethodReport" parent="afup.barometre.report.abstract">
+            <tag name="barometre.report" />
+        </service>
+
     </services>
 </container>

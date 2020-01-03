@@ -345,6 +345,46 @@
                 <source>report.view.french_php_documentation_quality</source>
                 <target>Vous trouvez que la qualité de la documentation en français de PHP est</target>
             </trans-unit>
+
+            <trans-unit id="report.contract_work_duration_report.label">
+                <source>report.contract_work_duration_report.label</source>
+                <target>Durée de travail contractuelle</target>
+            </trans-unit>
+
+            <trans-unit id="report.container_environment_report.label">
+                <source>report.container_environment_report.label</source>
+                <target>Utilisation de container (ex: docker)</target>
+            </trans-unit>
+
+            <trans-unit id="report.work_method_report.label">
+                <source>report.work_method_report.label</source>
+                <target>Méthodologie de travail</target>
+            </trans-unit>
+
+            <trans-unit id="report.hosting_type_report.label">
+                <source>report.hosting_type_report.label</source>
+                <target>Type d'hebergement</target>
+            </trans-unit>
+
+            <trans-unit id="report.view.container_environment_report">
+                <source>report.view.container_environment_report</source>
+                <target>Utilisation de container</target>
+            </trans-unit>
+
+            <trans-unit id="report.view.hosting_type">
+                <source>report.view.hosting_type</source>
+                <target>Type d'hebergement</target>
+            </trans-unit>
+
+            <trans-unit id="report.view.work_method">
+                <source>report.view.work_method</source>
+                <target>Méthodologie de travail</target>
+            </trans-unit>
+
+            <trans-unit id="report.view.contract_work_duration">
+                <source>report.view.contract_work_duration</source>
+                <target>Durée de travail contractuelle</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
