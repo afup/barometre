@@ -1,13 +1,13 @@
 {% extends "AfupBarometreBundle::layout.html.twig" %}
 
-{% block title %}Résultats de la campagne 2019{% endblock %}
+{% block title %}Résultats de la campagne {{ campaignName }}{% endblock %}
 
 {% block meta %}
     {{ parent() }}
-    <meta property="og:title" content="Baromètre des salaires du PHP - Résultats 2019" />
+    <meta property="og:title" content="Baromètre des salaires du PHP - Résultats {{ campaignName }}" />
     <meta property="og:type" content="article" />
-    <meta property="og:url" content="{{ absolute_url('/report/2019') }}" />
-    <meta property="og:description" content="Les résultats du baromètre des salaires en PHP 2019 sont disponibles. Consultez les résultats de l’enquête de référence pour le milieu PHP menée par l’AFUP et le JDN" />
+    <meta property="og:url" content="{{ absolute_url('/report/'~campaignName) }}" />
+    <meta property="og:description" content="Les résultats du baromètre des salaires en PHP {{ campaignName }} sont disponibles. Consultez les résultats de l’enquête de référence pour le milieu PHP menée par l’AFUP et le JDN" />
     <meta property="og:site_name" content="Baromètre des salaires - AFUP / JDN" />
 {% endblock %}
 
@@ -15,7 +15,7 @@
 {% block content %}
     <div class="row report2015">
         <div class="col-md-8">
-        <h1>Résultats de la campagne 2019</h1>
+        <h1>Résultats de la campagne {{ campaignName }}</h1>
 
         <h2>Introduction</h2>
             <p>Comme chaque année, l’AFUP, en partenariat avec le JDN, a effectué une enquête auprès des développeurs et développeuses PHP. Cette enquête a eu lieu en 2019, du 17 septembre au 17 décembre.</p>
@@ -41,19 +41,19 @@
         <ul>
             <li>
                 Au global pour les postes de développeuses/développeurs et lead developpeuse/développeur (hors freelances), sur tout le pays les salaires restent identiques à ceux de l’année dernière. Le salaire médian est de 37 000 euros et la moyenne est de 39K.<br/>
-                <a href="{{ absolute_url('/report/salary?filter[campaign][]=7&filter[job_title][]=4&filter[job_title][]=8&filter[status][]=1&filter[status][]=2&filter[status][]=4&filter[status][]=0') }}">
+                <a href="{{ absolute_url('/report/salary?filter[campaign][]='~campaignId~'&filter[job_title][]=4&filter[job_title][]=8&filter[status][]=1&filter[status][]=2&filter[status][]=4&filter[status][]=0') }}">
                     <img src="{{ asset('report/2019/evolution_des_salaires.png') }}" alt="Durée contractuelle du travail" />
                 </a><br/>
             </li>
             <li>
                 Par contre, on peut noter une augmentation sur les profils les plus expérimentés : professionnel·le·s avec plus de 5 ans d’expérience ont connu cette année une augmentation du salaire médian de 1 000€. Cela montre la tension qui existe sur le marché et la difficulté à trouver les personnes expérimentées.<br/>
-                <a href="{{ absolute_url('/report/salary?filter[campaign][]=7&filter[job_title][]=4&filter[job_title][]=8&filter[experience][]=3&filter[experience][]=4&filter[status][]=1&filter[status][]=2&filter[status][]=4&filter[status][]=0') }}">
+                <a href="{{ absolute_url('/report/salary?filter[campaign][]='~campaignId~'&filter[job_title][]=4&filter[job_title][]=8&filter[experience][]=3&filter[experience][]=4&filter[status][]=1&filter[status][]=2&filter[status][]=4&filter[status][]=0') }}">
                     <img src="{{ asset('report/2019/evolution_des_salaires_plus_experimentes.png') }}" alt="Augmentation des salaires sur les profils les plus expérimentés" />
                 </a><br/>
             </li>
             <li>
                 Nous constatons bien cette valorisation de l’expérience, sur le graphique ci-dessous qui montre la progression du salaire en fonction de l’expérience.<br/>
-                <a href="{{ absolute_url('/report/experience_salary?filter[campaign][]=7&filter[job_title][]=4&filter[job_title][]=8&filter[status][]=1&filter[status][]=2&filter[status][]=4&filter[status][]=0') }}">
+                <a href="{{ absolute_url('/report/experience_salary?filter[campaign][]='~campaignId~'&filter[job_title][]=4&filter[job_title][]=8&filter[status][]=1&filter[status][]=2&filter[status][]=4&filter[status][]=0') }}">
                     <img src="{{ asset('report/2019/salaire_par_experience.png') }}" alt="Progression des salaires en fonction de l'expérience" />
                 </a><br/>
             </li>
@@ -79,7 +79,7 @@
                 <li>
                     <p>Les développeurs et développeuses sont surtout aux 35h :</p>
                     <p>
-                        <a href="{{ absolute_url('/report/contract_work_duration_report?filter[campaign][]=7&filter[job_title][]=8') }}">
+                        <a href="{{ absolute_url('/report/contract_work_duration_report?filter[campaign][]='~campaignId~'&filter[job_title][]=8') }}">
                             <img src="{{ asset('report/2019/duree_contrat_travail.png') }}" alt="Durée contractuelle du travail" />
                         </a>
                     </p>
@@ -87,7 +87,7 @@
                 <li>
                     <p>Tandis que les les lead développeurs et lead développeuses sont surtout aux 39h :</p>
                     <p>
-                        <a href="{{ absolute_url('/report/contract_work_duration_report?filter[campaign][]=7&filter[job_title][]=4') }}">
+                        <a href="{{ absolute_url('/report/contract_work_duration_report?filter[campaign][]='~campaignId~'&filter[job_title][]=4') }}">
                         <img src="{{ asset('report/2019/duree_contrat_travail_lead_dev.png') }}" alt="Durée contractuelle du travail des lead dev" />
                         </a>
                     </p>
@@ -95,7 +95,7 @@
                 <li>
                     <p>Et enfin, les profils encadrants sont surtout au forfait jour :</p>
                     <p>
-                        <a href="{{ absolute_url('/report/contract_work_duration_report?filter[campaign][]=7&filter[job_title][]=1&filter[job_title][]=2&filter[job_title][]=3&filter[job_title][]=5&filter[job_title][]=6') }}">
+                        <a href="{{ absolute_url('/report/contract_work_duration_report?filter[campaign][]='~campaignId~'&filter[job_title][]=1&filter[job_title][]=2&filter[job_title][]=3&filter[job_title][]=5&filter[job_title][]=6') }}">
                             <img src="{{ asset('report/2019/duree_contrat_travail_encadrant.png') }}" alt="Durée contractuelle du travail des profils encadrants" />
                         </a>
                     </p>
@@ -104,7 +104,7 @@
 
         <h2>Le télétravail a toujours la côte</h2>
             <p>Ce sont maintenant 38% des personnes ayant répondu qui ne font jamais de télétravail, ces personnes représentaient 42% des réponses l’année dernière. Ce chiffre continue de diminuer d’année en année (en 2016, 60 des personnes ne faisaient jamais de télétravail).</p>
-            <a href="{{ absolute_url('/report/remote_usage?filter[campaign][0]=7') }}">
+            <a href="{{ absolute_url('/report/remote_usage?filter[campaign][0]='~campaignId) }}">
                 <img src="{{ asset('report/2019/evolution_teletravail.png') }}" />
             </a>
 
@@ -115,7 +115,7 @@
 
         <h2>Scrum, une méthodologie fortement utilisée</h2>
             <p>69% de nos répondants ont les méthodes agiles pour méthode de travail habituelle, Scrum étant la plus représentée avec 47% des réponses.</p>
-            <a href="{{ absolute_url('/report/work_method_report?filter[campaign][0]=7') }}">
+            <a href="{{ absolute_url('/report/work_method_report?filter[campaign][0]='~campaignId) }}">
                 <img src="{{ asset('report/2019/methodologie_de_travail.png') }}" alt="Méthodologie de travail" />
             </a>
 
@@ -125,7 +125,7 @@
 
         <h2>Versions de PHP</h2>
             <p>Comme chaque année nous constatons que la communauté suit bien les mises à jour du langage, la version 7.3 représentant pratiquement 40% des réponses. La version 5 de PHP reste utilisée à 9%, l’année dernière, c’était 20% des personnes ayant répondu qui utilisaient cette version non supportée depuis janvier 2019.</p>
-        <a href="{{ absolute_url('/report/php_version?filter[campaign][0]=7') }}">
+        <a href="{{ absolute_url('/report/php_version?filter[campaign][0]='~campaignId) }}">
             <img src="{{ asset('report/2019/evolution_php_versions.png') }}" alt="Versions de PHP utilisées" />
         </a>
 
