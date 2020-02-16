@@ -10,13 +10,13 @@
                 <source>menu.survey</source>
                 <target>Questionnaire 2019</target>
             </trans-unit>
-            <trans-unit id="menu.result2017">
-                <source>menu.result2017</source>
-                <target>Résultats 2017</target>
-            </trans-unit>
             <trans-unit id="menu.result2018">
                 <source>menu.result2018</source>
                 <target>Résultats 2018</target>
+            </trans-unit>
+            <trans-unit id="menu.result2019">
+                <source>menu.result2019</source>
+                <target>Résultats 2019</target>
             </trans-unit>
             <trans-unit id="menu.results">
                 <source>menu.results</source>
