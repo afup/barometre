@@ -20,13 +20,13 @@ class ContainerEnvironmentUsageReport extends AbstractReport
         $this->queryBuilder
             ->select('count(distinct response.id) as nbResponse')
             ->addSelect('container_environment_usage.name as containerEnvironmentUsage')
-            ->join(
+            ->leftJoin(
                 'response',
                 'response_containerenvironmentusage',
                 'response_containerenvironmentusage',
                 'response.id = response_containerenvironmentusage.response_id'
             )
-            ->join(
+            ->leftJoin(
                 'response_containerenvironmentusage',
                 'container_environment_usage',
                 'container_environment_usage',
