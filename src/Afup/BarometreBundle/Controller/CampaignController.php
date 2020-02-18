@@ -24,11 +24,19 @@ class CampaignController extends Controller
         $campaignRepository = $this->container->get('afup.barometre.repository.campaign_repository');
         $campaign = $campaignRepository->findOneBy(['name' => $campaignName]);
 
-        if ($campaign instanceof Campaign) {
-            $filter = ['campaign' => [$campaign->getId()]];
-            $request->attributes->set('filter', $filter);
+        if (!$campaign instanceof Campaign) {
+            throw $this->createNotFoundException("La campagne demandée n'existe pas");
         }
 
-        return $this->render('AfupBarometreBundle:Campaign:report'.$campaignName.'.html.twig');
+        $filter = ['campaign' => [$campaign->getId()]];
+        $request->attributes->set('filter', $filter);
+
+        return $this->render(
+            'AfupBarometreBundle:Campaign:report'.$campaignName.'.html.twig',
+            [
+                'campaignName' => $campaignName,
+                'campaignId' => $campaign->getId(),
+            ]
+        );
     }
 }

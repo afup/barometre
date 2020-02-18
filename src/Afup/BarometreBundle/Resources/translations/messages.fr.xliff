@@ -10,13 +10,13 @@
                 <source>menu.survey</source>
                 <target>Questionnaire 2019</target>
             </trans-unit>
-            <trans-unit id="menu.result2017">
-                <source>menu.result2017</source>
-                <target>Résultats 2017</target>
-            </trans-unit>
             <trans-unit id="menu.result2018">
                 <source>menu.result2018</source>
                 <target>Résultats 2018</target>
+            </trans-unit>
+            <trans-unit id="menu.result2019">
+                <source>menu.result2019</source>
+                <target>Résultats 2019</target>
             </trans-unit>
             <trans-unit id="menu.results">
                 <source>menu.results</source>
@@ -324,6 +324,66 @@
             <trans-unit id="report.view.training_impact">
                 <source>report.view.training_impact</source>
                 <target>Cette formation à t-elle eut un impact sur votre rémunération ?</target>
+            </trans-unit>
+
+            <trans-unit id="report.php_documentation_report.label">
+                <source>report.php_documentation_report.label</source>
+                <target>Utilisation de la documentation de PHP</target>
+            </trans-unit>
+
+            <trans-unit id="report.view.php_documentation_source">
+                <source>report.view.php_documentation_source</source>
+                <target>Si vous avez besoin d'information sur une fonctionnalité en PHP vous utilisez</target>
+            </trans-unit>
+
+            <trans-unit id="report.french_php_documentation_quality_report.label">
+                <source>report.french_php_documentation_quality_report.label</source>
+                <target>Qualité de la documentation française de PHP</target>
+            </trans-unit>
+
+            <trans-unit id="report.view.french_php_documentation_quality">
+                <source>report.view.french_php_documentation_quality</source>
+                <target>Vous trouvez que la qualité de la documentation en français de PHP est</target>
+            </trans-unit>
+
+            <trans-unit id="report.contract_work_duration_report.label">
+                <source>report.contract_work_duration_report.label</source>
+                <target>Durée de travail contractuelle</target>
+            </trans-unit>
+
+            <trans-unit id="report.container_environment_report.label">
+                <source>report.container_environment_report.label</source>
+                <target>Utilisation de container (ex: docker)</target>
+            </trans-unit>
+
+            <trans-unit id="report.work_method_report.label">
+                <source>report.work_method_report.label</source>
+                <target>Méthodologie de travail</target>
+            </trans-unit>
+
+            <trans-unit id="report.hosting_type_report.label">
+                <source>report.hosting_type_report.label</source>
+                <target>Type d'hebergement</target>
+            </trans-unit>
+
+            <trans-unit id="report.view.container_environment_report">
+                <source>report.view.container_environment_report</source>
+                <target>Utilisation de container</target>
+            </trans-unit>
+
+            <trans-unit id="report.view.hosting_type">
+                <source>report.view.hosting_type</source>
+                <target>Type d'hebergement</target>
+            </trans-unit>
+
+            <trans-unit id="report.view.work_method">
+                <source>report.view.work_method</source>
+                <target>Méthodologie de travail</target>
+            </trans-unit>
+
+            <trans-unit id="report.view.contract_work_duration">
+                <source>report.view.contract_work_duration</source>
+                <target>Durée de travail contractuelle</target>
             </trans-unit>
         </body>
     </file>

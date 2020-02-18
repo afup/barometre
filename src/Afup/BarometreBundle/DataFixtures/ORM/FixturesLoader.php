@@ -19,6 +19,8 @@ class FixturesLoader extends ContainerAware implements FixtureInterface
             [
                 $this->getKernel()->locateResource('@AfupBarometreBundle/Resources/fixtures/speciality.yml'),
                 $this->getKernel()->locateResource('@AfupBarometreBundle/Resources/fixtures/certification.yml'),
+                $this->getKernel()->locateResource('@AfupBarometreBundle/Resources/fixtures/container_environment_usage.yml'),
+                $this->getKernel()->locateResource('@AfupBarometreBundle/Resources/fixtures/hosting_type.yml'),
             ],
             $manager
         );

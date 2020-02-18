@@ -7,6 +7,7 @@ class GenderEnums extends AbstractEnums
     const NONE = null;
     const MALE = 1;
     const FEMALE = 2;
+    const NON_BINARY = 3;
 
     /**
      * @var array
@@ -15,6 +16,8 @@ class GenderEnums extends AbstractEnums
         self::MALE => 'Hommes',
         self::FEMALE => 'Femmes',
         self::NONE => 'Non précisé',
+        self::NON_BINARY => 'Personnes non-binaires',
+        self::AUTRE => 'Autre',
     );
 
     /**

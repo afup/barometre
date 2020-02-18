@@ -39,16 +39,4 @@ class Format2016 extends Format2014
             "os_developpment"
         );
     }
-
-    /**
-     * @param array $data
-     *
-     * @return array
-     */
-    public function alterData(array $data)
-    {
-        $data = parent::alterData($data);
-
-        return $data;
-    }
 }

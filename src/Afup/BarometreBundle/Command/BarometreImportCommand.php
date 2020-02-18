@@ -4,6 +4,8 @@ namespace Afup\BarometreBundle\Command;
 
 use Afup\BarometreBundle\Campaign\Format\FormatFactory;
 use Afup\BarometreBundle\Campaign\Importer\CampaignImporter;
+use Afup\BarometreBundle\Entity\CampaignRepository;
+use DateTime;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -42,12 +44,13 @@ class BarometreImportCommand extends ContainerAwareCommand
         $formatFactory = new FormatFactory();
         $format = $formatFactory->createFromCode($input->getOption('format'));
 
-        $importer = $this->getCampaignImporter();
-        $importer->import(
+        $this->getCampaignRepository()->removeCampaign($name);
+
+        $this->getCampaignImporter()->import(
             $format,
             $name,
-            \DateTime::createFromFormat('d/m/Y', $startDate),
-            \DateTime::createFromFormat('d/m/Y', $endDate),
+            DateTime::createFromFormat('d/m/Y', $startDate),
+            DateTime::createFromFormat('d/m/Y', $endDate),
             $filename,
             $separator
         );
@@ -59,5 +62,13 @@ class BarometreImportCommand extends ContainerAwareCommand
     protected function getCampaignImporter()
     {
         return $this->getContainer()->get('afup.barometre.campaign.importer');
+    }
+
+    /**
+     * @return CampaignRepository
+     */
+    protected function getCampaignRepository()
+    {
+        return $this->getContainer()->get('afup.barometre.repository.campaign_repository');
     }
 }

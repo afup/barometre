@@ -1,0 +1,163 @@
+{% extends "AfupBarometreBundle::layout.html.twig" %}
+
+{% block title %}Résultats de la campagne {{ campaignName }}{% endblock %}
+
+{% block meta %}
+    {{ parent() }}
+    <meta property="og:title" content="Baromètre des salaires du PHP - Résultats {{ campaignName }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{{ absolute_url('/report/'~campaignName) }}" />
+    <meta property="og:description" content="Les résultats du baromètre des salaires en PHP {{ campaignName }} sont disponibles. Consultez les résultats de l’enquête de référence pour le milieu PHP menée par l’AFUP et le JDN" />
+    <meta property="og:site_name" content="Baromètre des salaires - AFUP / JDN" />
+{% endblock %}
+
+
+{% block content %}
+    <div class="row report2015">
+        <div class="col-md-8">
+        <h1>Résultats de la campagne {{ campaignName }}</h1>
+
+        <h2>Introduction</h2>
+            <p>Comme chaque année, l’AFUP, en partenariat avec le JDN, a effectué une enquête auprès des développeurs et développeuses PHP. Cette enquête a eu lieu en 2019, du 17 septembre au 17 décembre.</p>
+            <p>Nous remercions les 809 personnes ayant répondu : votre participation permet d’obtenir des chiffres affinés et une étude pertinente.</p>
+
+        <h2>Utilisation</h2>
+            <p>Le baromètre est tout d'abord conçu pour être utilisé par le/la salarié(e) ou l'indépendant(e), afin qu'il puisse se positionner correctement sur le marché du travail. Par exemple, un développeur ou une développeuse avec moins de 2 ans d'expérience sur Paris en emploi salarié, pourra très facilement évaluer sa situation grâce aux réponses des autres répondants. Cela permettra de chercher la spécialité la plus avantageuse, ou bien quel type d'entreprises embauche le plus.</p>
+
+            <p>Ainsi si il ou elle souhaite travailler hors Île-de-France et dans une startup, il est possible de :</p>
+            <ul>
+                <li>Visualiser géographiquement où sont situées les entreprises des répondants,</li>
+                <li>Observer la rémunération en fonction de l'expérience,</li>
+                <li>Choisir une spécialité adaptée.</li>
+            </ul>
+
+            <p>Les dirigeantes et dirigeants d'entreprises pourront y trouver un outil précieux pour gérer la carrière de leurs collaborateurs, comme l'évolution de leur rémunération. Ils pourront aussi faire une recherche géographique afin d'approfondir les écarts entre départements sur une spécialité précise.</p>
+
+            <p>Les données présentées sont utilisables sous licence Creative Commons BY-NC-ND. Afin de garantir la confidentialité des répondantes et répondants, le détail des réponses n'est pas affiché si celles-ci sont trop peu nombreuses.</p>
+
+        <h2>Focus sur le salaire</h2>
+        <p>Commençons donc par la base de l’enquête : le salaire des développeuses et développeurs.</p>
+        <p>Nous pouvons noter plusieurs choses :</p>
+        <ul>
+            <li>
+                Au global pour les postes de développeuses/développeurs et lead developpeuse/développeur (hors freelances), sur tout le pays les salaires restent identiques à ceux de l’année dernière. Le salaire médian est de 37 000 euros et la moyenne est de 39K.<br/>
+                <a href="{{ absolute_url('/report/salary?filter[campaign][]='~campaignId~'&filter[job_title][]=4&filter[job_title][]=8&filter[status][]=1&filter[status][]=2&filter[status][]=4&filter[status][]=0') }}" class="report-image">
+                    <img src="{{ asset('report/2019/evolution_des_salaires.png') }}" alt="Durée contractuelle du travail" />
+                </a><br/>
+            </li>
+            <li>
+                Par contre, on peut noter une augmentation sur les profils les plus expérimentés : professionnel·le·s avec plus de 5 ans d’expérience ont connu cette année une augmentation du salaire médian de 1 000€. Cela montre la tension qui existe sur le marché et la difficulté à trouver les personnes expérimentées.<br/>
+                <a href="{{ absolute_url('/report/salary?filter[campaign][]='~campaignId~'&filter[job_title][]=4&filter[job_title][]=8&filter[experience][]=3&filter[experience][]=4&filter[status][]=1&filter[status][]=2&filter[status][]=4&filter[status][]=0') }}" class="report-image">
+                    <img src="{{ asset('report/2019/evolution_des_salaires_plus_experimentes.png') }}" alt="Augmentation des salaires sur les profils les plus expérimentés" />
+                </a><br/>
+            </li>
+            <li>
+                Nous constatons bien cette valorisation de l’expérience, sur le graphique ci-dessous qui montre la progression du salaire en fonction de l’expérience.<br/>
+                <a href="{{ absolute_url('/report/experience_salary?filter[campaign][]='~campaignId~'&filter[job_title][]=4&filter[job_title][]=8&filter[status][]=1&filter[status][]=2&filter[status][]=4&filter[status][]=0') }}" class="report-image">
+                    <img src="{{ asset('report/2019/salaire_par_experience.png') }}" alt="Progression des salaires en fonction de l'expérience" />
+                </a><br/>
+            </li>
+        </ul>
+
+        <h2>Profil des personnes ayant répondu</h2>
+            <p>Les répondants sont :</p>
+            <ul>
+                <li>en majorité des hommes : pour 92% des hommes, 7% de femmes et 1% de personnes non-binaires.</li>
+                <li>en CDI, qui reste, de loin, le contrat le plus utilisé avec 92% des personnes ayant un contrat.</li>
+                <li>dans une zone géographique à forte densité (l’Ile de France et Rhône-Alpes représentent la majorité des réponses).</li>
+                <li>en majorité dans une PME (pour 73%).</li>
+                <li>en majorité des spécialistes Symfony (pour 76%).</li>
+            </ul>
+
+            <p>Ces points ne changent pas ou peu par rapport aux années précédentes.</p>
+
+        <h2>Durée contractuelle du travail</h2>
+            <p>Cette année nous avons ajouté une nouvelle question sur la durée contractuelle du travail. Cela nous permet d’indiquer que les personnes ayant répondu sont majoritairement aux 35h ou 39h.</p>
+
+            <p>Parmi ces réponses nous pouvons constater que cette durée du travail change en fonction de l’intitulé de poste.</p>
+            <ul>
+                <li>
+                    <p>Les développeurs et développeuses sont surtout aux 35h :</p>
+                    <p>
+                        <a href="{{ absolute_url('/report/contract_work_duration_report?filter[campaign][]='~campaignId~'&filter[job_title][]=8') }}" class="report-image">
+                            <img src="{{ asset('report/2019/duree_contrat_travail.png') }}" alt="Durée contractuelle du travail" />
+                        </a>
+                    </p>
+                </li>
+                <li>
+                    <p>Tandis que les les lead développeurs et lead développeuses sont surtout aux 39h :</p>
+                    <p>
+                        <a href="{{ absolute_url('/report/contract_work_duration_report?filter[campaign][]='~campaignId~'&filter[job_title][]=4') }}" class="report-image">
+                        <img src="{{ asset('report/2019/duree_contrat_travail_lead_dev.png') }}" alt="Durée contractuelle du travail des lead dev" />
+                        </a>
+                    </p>
+                </li>
+                <li>
+                    <p>Et enfin, les profils encadrants sont surtout au forfait jour :</p>
+                    <p>
+                        <a href="{{ absolute_url('/report/contract_work_duration_report?filter[campaign][]='~campaignId~'&filter[job_title][]=1&filter[job_title][]=2&filter[job_title][]=3&filter[job_title][]=5&filter[job_title][]=6') }}" class="report-image">
+                            <img src="{{ asset('report/2019/duree_contrat_travail_encadrant.png') }}" alt="Durée contractuelle du travail des profils encadrants" />
+                        </a>
+                    </p>
+                </li>
+            </ul>
+
+        <h2>Le télétravail a toujours la côte</h2>
+            <p>Ce sont maintenant 38% des personnes ayant répondu qui ne font jamais de télétravail, ces personnes représentaient 42% des réponses l’année dernière. Ce chiffre continue de diminuer d’année en année (en 2016, 60 des personnes ne faisaient jamais de télétravail).</p>
+            <a href="{{ absolute_url('/report/remote_usage?filter[campaign][0]='~campaignId) }}" class="report-image">
+                <img src="{{ asset('report/2019/evolution_teletravail.png') }}" />
+            </a>
+
+        <h2>Documentation de PHP</h2>
+            <p>Autre nouveauté cette année, nous avons posé des questions autour de la documentation francophone de PHP.</p>
+            <p>Nous pouvons constater que 56% des personnes ayant répondu vont en priorité utiliser la documentation de PHP en français.</p>
+            <p>Dans l’ensemble, la qualité de cette documentation est perçue comme bonne, avec 76% des réponses la trouvent bonne ou très bonne.</p>
+
+        <h2>Scrum, une méthodologie fortement utilisée</h2>
+            <p>69% de nos répondants ont les méthodes agiles pour méthode de travail habituelle, Scrum étant la plus représentée avec 47% des réponses.</p>
+            <a href="{{ absolute_url('/report/work_method_report?filter[campaign][0]='~campaignId) }}" class="report-image">
+                <img src="{{ asset('report/2019/methodologie_de_travail.png') }}" alt="Méthodologie de travail" />
+            </a>
+
+        <h2>Utilisation des containers</h2>
+            <p>Les containers, tels quel Docker, montrent leur prédominance sur l’environnement de développement : ils sont fortement utilisés en environnement de développement (pour 74% des réponses).</p>
+            <p>Ce chiffre descend fortement quand on parle des environnements de recette et de production, où les containers sont utilisés respectivement à 40% et 31%.</p>
+
+        <h2>Versions de PHP</h2>
+            <p>Comme chaque année nous constatons que la communauté suit bien les mises à jour du langage, la version 7.3 représentant pratiquement 40% des réponses. La version 5 de PHP reste utilisée à 9%, l’année dernière, c’était 20% des personnes ayant répondu qui utilisaient cette version non supportée depuis janvier 2019.</p>
+            <a href="{{ absolute_url('/report/php_version?filter[campaign][0]='~campaignId) }}" class="report-image">
+                <img src="{{ asset('report/2019/evolution_php_versions.png') }}" alt="Versions de PHP utilisées" />
+            </a>
+
+        <h2>Qui sommes nous ?</h2>
+
+            <p>Le <a href="https://www.journaldunet.com" title="Journal du Net">JDN</a> et l'<a href="http://www.afup.org" title="Association Française des Utilisateurs de PHP">association française des utilisateurs de PHP</a> (AFUP) vous présentent pour la septième année consécutive le baromètre des salaires AFUP – JDN 2019 </p>
+
+            <p>Comme chaque année, le baromètre AFUP – JDN répond aux questions que se posent les professionnel·le·s de notre secteur :</p>
+            <ul>
+                <li>Combien gagne un·e développeur·euse débutant·e ?</li>
+                <li>Comment les salaires évoluent-ils avec l’expérience ?</li>
+                <li>Quelles sont les technos qui rapportent le plus ?</li>
+                <li>Dans quelles villes touche-t-on les meilleurs salaires ?</li>
+            </ul>
+
+            <p>Nous espérons que vous aurez une vision claire du marché après consultation de ce baromètre des salaires en PHP AFUP – JDN 2019.</p>
+
+            <h3>JDN</h3>
+            <p>Avec plus de 3,1 millions de visiteurs uniques par mois, le <a href="https://www.journaldunet.com" title="Journal du Net">JDN</a> est la source d'information des dirigeants et cadres qui osent. Digital, management, nouvelles technologies : le JDN propose à la fois une veille exhaustive de l'actualité et des dossiers prospectifs pour mieux comprendre l’économie de demain. Le JDN propose 4 newsletters thématiques envoyées à plus de 500 000 abonnés.</p>
+
+            <h3>AFUP</h3>
+            <p>L'<a href="http://www.afup.org" title="Association Française des Utilisateurs de PHP">AFUP</a>, Association Française des Utilisateurs de PHP, est une association loi 1901, qui a pour objectif principal de promouvoir le langage PHP auprès des professionnel·le·s et de participer à son développement. Elle organise ainsi de nombreux événements tout au long de l’année, elle diffuse et partage les connaissances auprès des utilisateurs et utilisatrices de PHP, et participe à la valorisation des développeurs et développeuses PHP sur le marché du travail.</p>
+
+        </div>
+
+        <div class="col-md-4">
+            <h1>Résultats détaillés</h1>
+
+            <div class="well">
+                {% block menu_reports knp_menu_render('reports_menu', {}, 'reports') %}
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
