@@ -28,9 +28,9 @@ class SalarySatisfactionFilter implements FilterInterface
      */
     public function buildForm(FormBuilderInterface $builder)
     {
-        $builder->add($this->getName(), new Select2MultipleFilterType(), [
+        $builder->add($this->getName(), Select2MultipleFilterType::class, [
             'label'    => 'filter.salary_satisfaction',
-            'choices'  => $this->salarySatisfaction->getChoices()
+            'choices'  => array_flip($this->salarySatisfaction->getChoices()),
         ]);
     }
 

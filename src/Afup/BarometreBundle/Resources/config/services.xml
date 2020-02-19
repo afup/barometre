@@ -92,12 +92,12 @@
 
         <service id="afup.barometre.type.filter" class="Afup\Barometre\Form\Type\FilterType">
             <argument type="service" id="afup.barometre.filter_collection" />
-            <tag name="form.type" alias="filter" />
+            <tag name="form.type" />
         </service>
 
         <service id="afup.barometre.filter_form" class="Symfony\Component\Form\FormInterface" shared="false">
             <factory service="form.factory" method="create" />
-            <argument>filter</argument>
+            <argument>Afup\Barometre\Form\Type\FilterType</argument>
         </service>
 
         <service id="afup.barometre.report_collection" class="Afup\Barometre\Report\ReportCollection">

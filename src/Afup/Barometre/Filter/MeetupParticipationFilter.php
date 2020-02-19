@@ -27,9 +27,9 @@ class MeetupParticipationFilter implements FilterInterface
      */
     public function buildForm(FormBuilderInterface $builder)
     {
-        $builder->add($this->getName(), new Select2MultipleFilterType(), [
+        $builder->add($this->getName(), Select2MultipleFilterType::class, [
             'label'    => 'filter.meetup_participation',
-            'choices'  => $this->meetupParticipationEnums->getChoices()
+            'choices'  => array_flip($this->meetupParticipationEnums->getChoices()),
         ]);
     }
 

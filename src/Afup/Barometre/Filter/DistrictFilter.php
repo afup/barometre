@@ -5,7 +5,6 @@ namespace Afup\Barometre\Filter;
 use Symfony\Component\Form\FormBuilderInterface;
 use Doctrine\DBAL\Query\QueryBuilder;
 use Doctrine\DBAL\Connection;
-use agallou\Departements\Collection as Departments;
 use agallou\Regions\Collection2016 as Regions;
 
 use Afup\Barometre\Form\Type\Select2MultipleFilterType;
@@ -17,9 +16,9 @@ class DistrictFilter implements FilterInterface
      */
     public function buildForm(FormBuilderInterface $builder)
     {
-        $builder->add($this->getName(), new Select2MultipleFilterType(), [
+        $builder->add($this->getName(), Select2MultipleFilterType::class, [
             'label'    => 'filter.district',
-            'choices'  => $this->getChoices(),
+            'choices'  => array_flip($this->getChoices()),
         ]);
     }
 

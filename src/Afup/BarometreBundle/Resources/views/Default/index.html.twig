@@ -5,7 +5,7 @@
 {% block content %}
     <div class="row">
         <div class="col-md-9">
-            {% render(controller('AfupBarometreBundle:Report:index', {reportName: report_name })) %}
+            {{ render(controller('AfupBarometreBundle:Report:index', {reportName: report_name })) }}
         </div>
         <div class="col-md-3">
             <h1>Filtres</h1>

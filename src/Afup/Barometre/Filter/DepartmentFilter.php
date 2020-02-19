@@ -20,9 +20,9 @@ class DepartmentFilter implements FilterInterface
      */
     public function buildForm(FormBuilderInterface $builder)
     {
-        $builder->add($this->getName(), new Select2MultipleFilterType(), [
+        $builder->add($this->getName(), Select2MultipleFilterType::class, [
             'label'    => 'filter.department',
-            'choices'  => $this->getChoices(),
+            'choices'  => array_flip($this->getChoices()),
         ]);
     }
 

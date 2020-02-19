@@ -29,9 +29,9 @@ class JobTitleFilter implements FilterInterface
      */
     public function buildForm(FormBuilderInterface $builder)
     {
-        $builder->add($this->getName(), new Select2MultipleFilterType(), [
+        $builder->add($this->getName(), Select2MultipleFilterType::class, [
             'label'   => 'filter.job_title',
-            'choices' => $this->jobTitles->getChoices(),
+            'choices' => array_flip($this->jobTitles->getChoices()),
         ]);
     }
 
