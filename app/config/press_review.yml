@@ -230,3 +230,25 @@ parameters:
                 title: Étude des salaires et rémunérations des développeurs PHP en 2019
                 media_logo: eworks.jpg
                 date: "2019-02-05"
+
+        2020:
+            -
+                url: https://www.journaldunet.com/solutions/dsi/1489065-php-la-croissance-des-salaires-s-accelere-en-france/
+                title: "PHP : la croissance des salaires s'accélère en France pour les CDI"
+                media_logo: jdn.svg
+                date: "2020-02-19"
+            -
+                url: https://afup.org/news/1082-positionnez-vous-sur-le-marche-du-travail-barometre-salaires-2019
+                title: Positionnez-vous au mieux sur le marché du travail grâce au baromètre des salaires en PHP 2019
+                media_logo: afup.png
+                date: "2020-02-19"
+            -
+                url: http://www.e-works.fr/blog/etude-salaires-remunerations-developpeurs-php-france-2020/
+                title: "Salaires PHP 2020 : étude sur les rémunérations des développeurs PHP en France"
+                media_logo: eworks.jpg
+                date: "2020-02-26"
+            -
+                url: https://www.toolinux.com/?Quel-est-le-salaire-moyen-en-PHP-Le-barometre-2019-vient-de-sortir
+                title: Quel est le salaire moyen en PHP ? Le baromètre 2019 vient de sortir
+                media_logo: toolinux.png
+                date: "2020-02-27"
