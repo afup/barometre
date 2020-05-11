@@ -28,9 +28,9 @@ class CompanyTypeFilter implements FilterInterface
      */
     public function buildForm(FormBuilderInterface $builder)
     {
-        $builder->add($this->getName(), new Select2MultipleFilterType(), [
+        $builder->add($this->getName(), Select2MultipleFilterType::class, [
             'label'    => 'filter.company_type',
-            'choices'  => $this->companyTypes->getChoices()
+            'choices'  => array_flip($this->companyTypes->getChoices()),
         ]);
     }
 

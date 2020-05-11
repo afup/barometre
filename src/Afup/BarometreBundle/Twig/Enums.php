@@ -43,12 +43,4 @@ class Enums extends \Twig_Extension
         }
         return $choices[$enumId];
     }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return 'afup_barometre_twig_enums';
-    }
 }

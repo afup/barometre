@@ -44,12 +44,4 @@ class CountyExtension extends \Twig_Extension
             return $this->translator->trans('report.company_county.unknown');
         }
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getName()
-    {
-        return 'region';
-    }
 }

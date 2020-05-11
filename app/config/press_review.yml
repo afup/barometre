@@ -18,7 +18,7 @@ parameters:
                 date: "2013-11-21"
             -
                 url: http://www.clubic.com/pro/emploi-informatique/actualite-602350-developpeur-php-salaire-metier-perspective-satisfaction-etude-afup.html
-                title: PHP: quels sont les salaires du secteur en France ?
+                title: "PHP: quels sont les salaires du secteur en France ?"
                 media_logo: clubic.png
                 date: "2013-11-21"
             -
@@ -128,7 +128,7 @@ parameters:
                 date: "2016-01-13"
             -
                 url: http://www.toolinux.com/Developpeurs-le-barometre-des
-                title: Développeurs: le baromètre des salaires 2015 est connu
+                title: "Développeurs: le baromètre des salaires 2015 est connu"
                 media_logo: toolinux.png
                 date: "2016-01-18"
             -
@@ -158,7 +158,7 @@ parameters:
                 date: "2016-10-28"
             -
                 url: http://www.silicon.fr/salaires-developpeurs-php-2016-afup-162024.html
-                title: Salaires: des disparités entre développeurs PHP en 2016
+                title: "Salaires: des disparités entre développeurs PHP en 2016"
                 media_logo: silicon.png
                 date: "2016-11-07"
         2017:

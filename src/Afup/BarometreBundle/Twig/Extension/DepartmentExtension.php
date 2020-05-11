@@ -44,12 +44,4 @@ class DepartmentExtension extends \Twig_Extension
             return $this->translator->trans('report.company_departement.unknown');
         }
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getName()
-    {
-        return 'department';
-    }
 }

@@ -29,9 +29,9 @@ class StatusFilter implements FilterInterface
      */
     public function buildForm(FormBuilderInterface $builder)
     {
-        $builder->add($this->getName(), new Select2MultipleFilterType(), [
+        $builder->add($this->getName(), Select2MultipleFilterType::class, [
             'label'   => 'filter.status',
-            'choices' => $this->status->getChoices(),
+            'choices' => array_flip($this->status->getChoices()),
         ]);
     }
 
