@@ -1,4 +1,4 @@
-FROM php:5.6-apache
+FROM php:7.0-apache
 
 RUN apt-get update && apt-get install -y zlibc zlib1g zlib1g-dev
 RUN echo "date.timezone=Europe/Paris" >> "/usr/local/etc/php/php.ini"
