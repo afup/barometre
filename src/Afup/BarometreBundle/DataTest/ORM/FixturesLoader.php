@@ -4,8 +4,6 @@ namespace Afup\BarometreBundle\DataTest\ORM;
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Nelmio\Alice\Fixtures;
-use Afup\BarometreBundle\DataTest\EnumsProvider;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 use Symfony\Component\HttpKernel\KernelInterface;
@@ -19,20 +17,23 @@ class FixturesLoader implements FixtureInterface, ContainerAwareInterface
      */
     public function load(ObjectManager $manager)
     {
-        $enumsCollection = $this->container->get('afup.barometre.enums_collection');
-        Fixtures::load(
+        $loader = $this->container->get('afup.barometre.data_test.custom_native_loader');
+        $objectSet = $loader->loadFiles(
             [
                 $this->getKernel()->locateResource('@AfupBarometreBundle/Resources/fixtures/speciality.yml'),
                 $this->getKernel()->locateResource('@AfupBarometreBundle/Resources/fixtures/certification.yml'),
+                $this->getKernel()->locateResource('@AfupBarometreBundle/Resources/fixtures/container_environment_usage.yml'),
                 $this->getKernel()->locateResource('@AfupBarometreBundle/Resources/test/response.yml'),
-            ],
-            $manager,
-            [
-                'providers' => [
-                    new EnumsProvider($enumsCollection),
-                ]
             ]
         );
+
+        $objects = $objectSet->getObjects();
+        foreach($objects as $object)
+        {
+            $manager->persist($object);
+        }
+
+        $manager->flush();
     }
 
     /**

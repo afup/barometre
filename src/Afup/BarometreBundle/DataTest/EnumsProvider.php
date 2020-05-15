@@ -3,8 +3,9 @@
 namespace Afup\BarometreBundle\DataTest;
 
 use Afup\BarometreBundle\Enums\EnumsCollection;
+use Faker\Provider\Base;
 
-class EnumsProvider
+class EnumsProvider extends Base
 {
     /**
      * @var EnumsCollection
@@ -16,7 +17,7 @@ class EnumsProvider
      */
     public function __construct(EnumsCollection $collection)
     {
-         $this->collection = $collection;
+        $this->collection = $collection;
     }
 
     /**
