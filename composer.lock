@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0cb576f17141b2b9f255a65e5cec380e",
+    "content-hash": "398693493de5f53abd9491ca14829dd4",
     "packages": [
         {
             "name": "agallou/departements",
