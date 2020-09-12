@@ -2,14 +2,7 @@ afup_barometre_homepage:
     path: /
     defaults:
         _controller: FrameworkBundle:Redirect:urlRedirect
-        path: /report/2019
-        permanent: false
-
-afup_barometre_survey_2019:
-    path: /campaign/2019
-    defaults:
-        _controller: FrameworkBundle:Redirect:urlRedirect
-        path: /about
+        path: /campaign/2020
         permanent: false
 
 afup_barometre_campaign:
@@ -35,3 +28,7 @@ afup_barometre_report:
 afup_barometre_press_review:
     path: /press_review
     defaults: {_controller: AfupBarometreBundle:PressReview:index }
+
+afup_barometre_form:
+    path: /campaign/2020
+    defaults: {_controller: AfupBarometreBundle:Campaign:form }
