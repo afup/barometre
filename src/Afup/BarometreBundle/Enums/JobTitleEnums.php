@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\BarometreBundle\Enums;
 
 class JobTitleEnums extends AbstractEnums
@@ -19,16 +21,16 @@ class JobTitleEnums extends AbstractEnums
      * @var array
      */
     protected $choices = [
-        self::DIRECTEUR => "Directeur, cadre dirigeant",
+        self::DIRECTEUR => 'Directeur, cadre dirigeant',
         self::RESPONSABLE_EQUIPE => "Cadre intermédiaire, responsable d'équipe",
-        self::CHEF_PROJET => "Chef de projet",
-        self::LEAD_DEVELOPPEUR => "Lead développeur",
-        self::ARCHITECTE => "Architecte",
-        self::CONSULTANT => "Consultant",
-        self::FORMATEUR => "Formateur",
-        self::DEVELOPPEUR => "Développeur",
-        self::SYSADMIN => "Sysadmin",
-        self::DEVOPS => "Devops",
-        self::AUTRE => "Autre",
+        self::CHEF_PROJET => 'Chef de projet',
+        self::LEAD_DEVELOPPEUR => 'Lead développeur',
+        self::ARCHITECTE => 'Architecte',
+        self::CONSULTANT => 'Consultant',
+        self::FORMATEUR => 'Formateur',
+        self::DEVELOPPEUR => 'Développeur',
+        self::SYSADMIN => 'Sysadmin',
+        self::DEVOPS => 'Devops',
+        self::AUTRE => 'Autre',
     ];
 }

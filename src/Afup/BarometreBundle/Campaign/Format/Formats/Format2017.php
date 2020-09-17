@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\BarometreBundle\Campaign\Format\Formats;
 
 class Format2017 extends Format2014

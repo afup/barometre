@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\BarometreBundle\Menu;
 
 use Afup\Barometre\Report\ReportCollection;
@@ -26,11 +28,6 @@ class MenuBuilder
      */
     private $context;
 
-    /**
-     * @param FactoryInterface $factory
-     * @param ReportCollection $reports
-     * @param Context          $context
-     */
     public function __construct(FactoryInterface $factory, ReportCollection $reports, Context $context)
     {
         $this->factory = $factory;
@@ -50,7 +47,7 @@ class MenuBuilder
             'menu.result2019',
             [
                 'route' => 'afup_barometre_campaign',
-                'routeParameters' => array('campaignName' => 2019),
+                'routeParameters' => ['campaignName' => 2019],
                 'routeAbsolute' => UrlGeneratorInterface::ABSOLUTE_URL,
             ]
         );
@@ -59,7 +56,7 @@ class MenuBuilder
             'menu.result2018',
             [
                 'route' => 'afup_barometre_campaign',
-                'routeParameters' => array('campaignName' => 2018),
+                'routeParameters' => ['campaignName' => 2018],
                 'routeAbsolute' => UrlGeneratorInterface::ABSOLUTE_URL,
             ]
         );
@@ -92,17 +89,17 @@ class MenuBuilder
 
         $menu->addChild('menu.results', [
             'attributes' => [
-                'class' => 'dropdown'
+                'class' => 'dropdown',
             ],
             'uri' => '#',
             'children_attributes' => [
                 'class' => 'dropdown-menu',
-            ]
+            ],
         ]);
 
         $menu['menu.results']->setLinkAttributes([
             'class' => 'dropdown-toggle',
-            'data-toggle' => 'dropdown'
+            'data-toggle' => 'dropdown',
         ]);
         $menu['menu.results']->setChildrenAttribute('class', 'dropdown-menu');
 
@@ -135,9 +132,6 @@ class MenuBuilder
         return $menu;
     }
 
-    /**
-     * @param ItemInterface $menu
-     */
     protected function addReportsMenuItems(ItemInterface $menu)
     {
         $filters = $this->context->getParameters();
@@ -149,14 +143,14 @@ class MenuBuilder
 
             $routeParameters = ['reportName' => $report->getName()];
 
-            if (count($filters) > 0) {
+            if (\count($filters) > 0) {
                 $routeParameters['filter'] = $filters;
             }
 
             $menu->addChild(
                 $report->getLabel(),
                 [
-                    'route'           => 'afup_barometre_report',
+                    'route' => 'afup_barometre_report',
                     'routeParameters' => $routeParameters,
                 ]
             );

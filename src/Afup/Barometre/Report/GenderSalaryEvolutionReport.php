@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\Barometre\Report;
 
 use Afup\Barometre\RequestModifier\RequestModifierCollection;
@@ -13,7 +15,6 @@ class GenderSalaryEvolutionReport extends AbstractReport implements AlterableRep
     private $requestModifierCollection;
 
     /**
-     * @param RequestModifierCollection $requestModifierCollection
      * @param int $minResult
      */
     public function __construct(RequestModifierCollection $requestModifierCollection, $minResult = 10)
@@ -66,9 +67,6 @@ class GenderSalaryEvolutionReport extends AbstractReport implements AlterableRep
         return -20;
     }
 
-    /**
-     * @param Request $request
-     */
     public function alterRequest(Request $request)
     {
         $this->requestModifierCollection->getModifier('filter_on_all_campaigns')->alterRequest($request);

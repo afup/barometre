@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\BarometreBundle\Campaign\Importer;
 
 use Afup\BarometreBundle\Campaign\Format\FormatInterface;
@@ -22,23 +24,16 @@ class CampaignImporter
      */
     private $responseFactory;
 
-    /**
-     * @param ObjectManager   $objectManager
-     * @param ResponseFactory $responseFactory
-     */
     public function __construct(ObjectManager $objectManager, ResponseFactory $responseFactory)
     {
-        $this->objectManager   = $objectManager;
+        $this->objectManager = $objectManager;
         $this->responseFactory = $responseFactory;
     }
 
     /**
-     * @param FormatInterface $format
-     * @param string          $name
-     * @param DateTime        $startDate
-     * @param DateTime        $endDate
-     * @param string          $filename
-     * @param string          $separator
+     * @param string $name
+     * @param string $filename
+     * @param string $separator
      */
     public function import(
         FormatInterface $format,
@@ -73,7 +68,7 @@ class CampaignImporter
                 continue;
             }
 
-            if (count($columns) !== count($line)) {
+            if (\count($columns) !== \count($line)) {
                 throw new LogicException('Invalid column count. Incorrect format ?');
             }
 

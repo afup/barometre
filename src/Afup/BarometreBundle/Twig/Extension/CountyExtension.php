@@ -1,9 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\BarometreBundle\Twig\Extension;
 
 use agallou\Regions\Collection2016 as Collection;
 use Symfony\Component\Translation\TranslatorInterface;
+use Twig\TwigFilter;
 
 class CountyExtension extends \Twig_Extension
 {
@@ -17,9 +20,6 @@ class CountyExtension extends \Twig_Extension
      */
     protected $translator;
 
-    /**
-     * @param TranslatorInterface $translator
-     */
     public function __construct(TranslatorInterface $translator)
     {
         $this->regions = new Collection();
@@ -32,7 +32,7 @@ class CountyExtension extends \Twig_Extension
     public function getFilters()
     {
         return [
-            new \Twig_SimpleFilter('county_label', [$this, 'countyLabel']),
+            new TwigFilter('county_label', [$this, 'countyLabel']),
         ];
     }
 

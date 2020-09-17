@@ -27,7 +27,7 @@
         <service id="afup.barometre.reports_menu.renderer" class="%knp_menu.renderer.twig.class%">
             <tag name="knp_menu.renderer" alias="reports" />
             <argument type="service" id="twig" />
-            <argument>AfupBarometreBundle:Default:knp_menu_reports.html.twig</argument>
+            <argument>@AfupBarometre/Default/knp_menu_reports.html.twig</argument>
             <argument type="service" id="knp_menu.matcher" />
             <argument>%knp_menu.renderer.twig.options%</argument>
         </service>

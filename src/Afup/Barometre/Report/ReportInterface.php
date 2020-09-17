@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\Barometre\Report;
 
 use Doctrine\DBAL\Query\QueryBuilder;
@@ -11,8 +13,6 @@ interface ReportInterface
 {
     /**
      * Inject the Query updated with filter
-     *
-     * @param QueryBuilder $queryBuilder
      */
     public function setQueryBuilder(QueryBuilder $queryBuilder);
 
@@ -40,7 +40,7 @@ interface ReportInterface
     /**
      * The report has results
      *
-     * @return boolean
+     * @return bool
      */
     public function hasResults();
 
@@ -50,7 +50,7 @@ interface ReportInterface
     public function execute();
 
     /**
-     * @return null|int
+     * @return int|null
      */
     public function getWeight();
 
@@ -60,8 +60,6 @@ interface ReportInterface
     public function getChildReports();
 
     /**
-     * @param array $childReports
-     *
      * @return ReportInterface[]
      */
     public function setChildReports(array $childReports);

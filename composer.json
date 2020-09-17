@@ -8,7 +8,7 @@
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },
     "require": {
-        "php": ">=5.5.9",
+        "php": ">=7.0",
         "doctrine/doctrine-bundle": "^1.6",
         "doctrine/orm": "^2.5",
         "incenteev/composer-parameter-handler": "^2.0",
@@ -34,8 +34,7 @@
     "require-dev": {
         "sensio/generator-bundle": "^3.0",
         "symfony/phpunit-bridge": "^3.0",
-        "atoum/atoum": "^3.2",
-        "m6web/coke": "~2.1"
+        "atoum/atoum": "^3.2"
     },
     "scripts": {
         "symfony-scripts": [
@@ -53,7 +52,10 @@
         ]
     },
     "config": {
-        "bin-dir": "bin"
+        "bin-dir": "bin",
+        "platform": {
+            "php": "7.0.33"
+        }
     },
     "extra": {
         "symfony-bin-dir": "bin",

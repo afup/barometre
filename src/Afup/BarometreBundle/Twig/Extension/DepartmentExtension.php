@@ -1,9 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\BarometreBundle\Twig\Extension;
 
 use agallou\Departements\Collection;
 use Symfony\Component\Translation\TranslatorInterface;
+use Twig\TwigFilter;
 
 class DepartmentExtension extends \Twig_Extension
 {
@@ -17,13 +20,10 @@ class DepartmentExtension extends \Twig_Extension
      */
     protected $translator;
 
-    /**
-     * @param TranslatorInterface $translator
-     */
     public function __construct(TranslatorInterface $translator)
     {
         $this->departements = new Collection();
-        $this->translator   = $translator;
+        $this->translator = $translator;
     }
 
     /**
@@ -32,7 +32,7 @@ class DepartmentExtension extends \Twig_Extension
     public function getFilters()
     {
         return [
-            new \Twig_SimpleFilter('department_label', [$this, 'departmentLabel']),
+            new TwigFilter('department_label', [$this, 'departmentLabel']),
         ];
     }
 

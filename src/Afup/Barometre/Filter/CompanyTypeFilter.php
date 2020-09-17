@@ -1,12 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\Barometre\Filter;
 
-use Symfony\Component\Form\FormBuilderInterface;
-use Doctrine\DBAL\Query\QueryBuilder;
-
-use Afup\BarometreBundle\Enums\CompanyTypeEnums;
 use Afup\Barometre\Form\Type\Select2MultipleFilterType;
+use Afup\BarometreBundle\Enums\CompanyTypeEnums;
+use Doctrine\DBAL\Query\QueryBuilder;
+use Symfony\Component\Form\FormBuilderInterface;
 
 class CompanyTypeFilter implements FilterInterface
 {
@@ -15,9 +16,6 @@ class CompanyTypeFilter implements FilterInterface
      */
     private $companyTypes;
 
-    /**
-     * @param CompanyTypeEnums $companyTypes
-     */
     public function __construct(CompanyTypeEnums $companyTypes)
     {
         $this->companyTypes = $companyTypes;
@@ -29,17 +27,17 @@ class CompanyTypeFilter implements FilterInterface
     public function buildForm(FormBuilderInterface $builder)
     {
         $builder->add($this->getName(), Select2MultipleFilterType::class, [
-            'label'    => 'filter.company_type',
-            'choices'  => array_flip($this->companyTypes->getChoices()),
+            'label' => 'filter.company_type',
+            'choices' => array_flip($this->companyTypes->getChoices()),
         ]);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function buildQuery(QueryBuilder $queryBuilder, array $values = array())
+    public function buildQuery(QueryBuilder $queryBuilder, array $values = [])
     {
-        if (!array_key_exists($this->getName(), $values) || 0 === count($values[$this->getName()])) {
+        if (!\array_key_exists($this->getName(), $values) || 0 === \count($values[$this->getName()])) {
             return;
         }
 

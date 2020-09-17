@@ -1,12 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\Barometre\Filter;
 
-use Symfony\Component\Form\FormBuilderInterface;
-use Doctrine\DBAL\Query\QueryBuilder;
-
-use Afup\BarometreBundle\Enums\SalarySatisfactionEnums;
 use Afup\Barometre\Form\Type\Select2MultipleFilterType;
+use Afup\BarometreBundle\Enums\SalarySatisfactionEnums;
+use Doctrine\DBAL\Query\QueryBuilder;
+use Symfony\Component\Form\FormBuilderInterface;
 
 class SalarySatisfactionFilter implements FilterInterface
 {
@@ -15,9 +16,6 @@ class SalarySatisfactionFilter implements FilterInterface
      */
     private $salarySatisfaction;
 
-    /**
-     * @param SalarySatisfactionEnums $salarySatisfaction
-     */
     public function __construct(SalarySatisfactionEnums $salarySatisfaction)
     {
         $this->salarySatisfaction = $salarySatisfaction;
@@ -29,17 +27,17 @@ class SalarySatisfactionFilter implements FilterInterface
     public function buildForm(FormBuilderInterface $builder)
     {
         $builder->add($this->getName(), Select2MultipleFilterType::class, [
-            'label'    => 'filter.salary_satisfaction',
-            'choices'  => array_flip($this->salarySatisfaction->getChoices()),
+            'label' => 'filter.salary_satisfaction',
+            'choices' => array_flip($this->salarySatisfaction->getChoices()),
         ]);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function buildQuery(QueryBuilder $queryBuilder, array $values = array())
+    public function buildQuery(QueryBuilder $queryBuilder, array $values = [])
     {
-        if (!array_key_exists($this->getName(), $values) || 0 === count($values[$this->getName()])) {
+        if (!\array_key_exists($this->getName(), $values) || 0 === \count($values[$this->getName()])) {
             return;
         }
 

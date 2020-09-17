@@ -1,28 +1,38 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\BarometreBundle\Controller;
 
+use Afup\BarometreBundle\Entity\Campaign;
+use Afup\BarometreBundle\Entity\CampaignRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Afup\BarometreBundle\Entity\Campaign;
 
 class CampaignController extends Controller
 {
+    /** @var CampaignRepository */
+    private $campaignRepository;
+
+    public function __construct(CampaignRepository $campaignRepository)
+    {
+        $this->campaignRepository = $campaignRepository;
+    }
+
     public function formAction()
     {
-        return $this->render('AfupBarometreBundle:Campaign:form.html.twig');
+        return $this->render('@AfupBarometre/Campaign/form.html.twig');
     }
 
     /**
-     * @param Request $request
-     * @param string  $campaignName
+     * @param string $campaignName
+     *
      * @return Response
      */
     public function reportAction(Request $request, $campaignName)
     {
-        $campaignRepository = $this->container->get('afup.barometre.repository.campaign_repository');
-        $campaign = $campaignRepository->findOneBy(['name' => $campaignName]);
+        $campaign = $this->campaignRepository->findOneBy(['name' => $campaignName]);
 
         if (!$campaign instanceof Campaign) {
             throw $this->createNotFoundException("La campagne demandée n'existe pas");
@@ -32,7 +42,7 @@ class CampaignController extends Controller
         $request->attributes->set('filter', $filter);
 
         return $this->render(
-            'AfupBarometreBundle:Campaign:report'.$campaignName.'.html.twig',
+            '@AfupBarometre/Campaign/report' . $campaignName . '.html.twig',
             [
                 'campaignName' => $campaignName,
                 'campaignId' => $campaign->getId(),

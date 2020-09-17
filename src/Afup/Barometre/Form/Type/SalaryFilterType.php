@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\Barometre\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
@@ -17,8 +19,8 @@ class SalaryFilterType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('min', IntegerType::class, ['required' => false])
-            ->add('max', IntegerType::class, ['required' => false])
+            ->add('min', IntegerType::class, ['required' => false, 'attr' => ['placeholder' => 'filter.salary.min']])
+            ->add('max', IntegerType::class, ['required' => false, 'attr' => ['placeholder' => 'filter.salary.max']])
         ;
     }
 

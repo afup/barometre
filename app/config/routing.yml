@@ -2,3 +2,9 @@ afup_barometre:
     resource: "@AfupBarometreBundle/Resources/config/routing.yml"
     prefix:   /
 
+
+afup_barometre_annotation:
+    resource: "@AfupBarometreBundle/Controller"
+    prefix:   /
+    type: annotation
+

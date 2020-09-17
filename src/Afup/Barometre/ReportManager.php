@@ -1,10 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\Barometre;
 
 use Afup\Barometre\Filter\FilterCollection;
 use Afup\Barometre\Query\QueryBuilder as AfupQueryBuilder;
 use Afup\Barometre\Report\ReportCollection;
+use Afup\Barometre\Report\ReportInterface;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Connection;
 use Symfony\Component\Form\FormInterface;
@@ -35,12 +38,6 @@ class ReportManager
      */
     private $connection;
 
-    /**
-     * @param Connection       $connection
-     * @param FormInterface    $form
-     * @param ReportCollection $reportCollection
-     * @param FilterCollection $filterCollection
-     */
     public function __construct(
         Connection $connection,
         FormInterface $form,
@@ -48,7 +45,7 @@ class ReportManager
         FilterCollection $filterCollection
     ) {
         $this->connection = $connection;
-        $this->form             = $form;
+        $this->form = $form;
         $this->reportCollection = $reportCollection;
         $this->filterCollection = $filterCollection;
     }
@@ -63,8 +60,6 @@ class ReportManager
 
     /**
      * Handle the request
-     *
-     * @param Request $request
      */
     public function handleRequest(Request $request)
     {
@@ -77,7 +72,7 @@ class ReportManager
     public function getSelectedFilters()
     {
         $filters = $this->form->getData();
-        $filters = array_filter((array) $filters, array($this, 'filterValues'));
+        $filters = array_filter((array) $filters, [$this, 'filterValues']);
         $filters = $this->filterCollection->convertValuesToLabels($filters);
 
         return $filters;
@@ -86,16 +81,14 @@ class ReportManager
     /**
      * Internal cleaning function for form filter data
      *
-     * @param mixed $value
-     *
-     * @return boolean
+     * @return bool
      */
     protected function filterValues($value)
     {
-        if (is_array($value)) {
-            $value = array_filter($value, array($this, 'filterValues'));
+        if (\is_array($value)) {
+            $value = array_filter($value, [$this, 'filterValues']);
 
-            $keepValue = count($value) > 0;
+            $keepValue = \count($value) > 0;
         } elseif ($value instanceof Collection) {
             $keepValue = !$value->isEmpty();
         } else {

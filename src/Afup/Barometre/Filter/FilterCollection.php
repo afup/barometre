@@ -1,9 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\Barometre\Filter;
 
-use Symfony\Component\Form\FormBuilderInterface;
 use Doctrine\DBAL\Query\QueryBuilder;
+use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\FormInterface;
 
 /**
  * A collection of filter
@@ -13,12 +16,10 @@ class FilterCollection
     /**
      * @var FilterInterface[]
      */
-    private $filters = array();
+    private $filters = [];
 
     /**
      * Add a filter
-     *
-     * @param FilterInterface $filter
      */
     public function addFilter(FilterInterface $filter)
     {
@@ -41,8 +42,6 @@ class FilterCollection
     /**
      * Build Form
      *
-     * @param FormBuilderInterface $builder
-     *
      * @return FormInterface
      */
     public function buildForm(FormBuilderInterface $builder)
@@ -55,23 +54,17 @@ class FilterCollection
 
     /**
      * Build the query with active filters
-     *
-     * @param QueryBuilder $queryBuilder
-     * @param array        $values
      */
-    public function buildQuery(QueryBuilder $queryBuilder, array $values = array())
+    public function buildQuery(QueryBuilder $queryBuilder, array $values = [])
     {
         foreach ($this->filters as $filter) {
             $filter->buildQuery($queryBuilder, $values);
         }
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function convertValuesToLabels($value)
     {
-        $labels = array();
+        $labels = [];
         foreach ($this->filters as $filter) {
             $name = $filter->getName();
             if (isset($value[$name])) {
@@ -82,9 +75,6 @@ class FilterCollection
         return $labels;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getName()
     {
         return 'collection';

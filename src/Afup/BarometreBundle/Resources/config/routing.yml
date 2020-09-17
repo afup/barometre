@@ -24,14 +24,6 @@ afup_barometre_campaign_slash:
     requirements:
         campaignName: '\d+'
 
-afup_barometre_about:
-    path: /about
-    defaults: {_controller: AfupBarometreBundle:About:index }
-
 afup_barometre_report:
     path:  /report/{reportName}
     defaults: { _controller: AfupBarometreBundle:Default:index }
-
-afup_barometre_press_review:
-    path: /press_review
-    defaults: {_controller: AfupBarometreBundle:PressReview:index }

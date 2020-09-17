@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\Barometre\Report;
 
 class CompanySizeSalaryReport extends AbstractReport
@@ -9,7 +11,7 @@ class CompanySizeSalaryReport extends AbstractReport
      */
     public function execute()
     {
-        $results =  $this->queryBuilder
+        $results = $this->queryBuilder
             ->select('response.experience')
             ->addSelect('response.companySize as companySize')
             ->addSelect('AVG(response.annualSalary) as annualSalary')
@@ -21,15 +23,15 @@ class CompanySizeSalaryReport extends AbstractReport
 
         $data = [
             'columns' => [],
-            'data'    => []
+            'data' => [],
         ];
 
         foreach ($results as $result) {
-            if (!array_key_exists($result['experience'], $data['data'])) {
-                $data['data'][$result['experience']] = array();
+            if (!\array_key_exists($result['experience'], $data['data'])) {
+                $data['data'][$result['experience']] = [];
             }
 
-            if (!in_array($result['companySize'], $data['columns'])) {
+            if (!\in_array($result['companySize'], $data['columns'])) {
                 $data['columns'][] = $result['companySize'];
             }
 
@@ -56,6 +58,6 @@ class CompanySizeSalaryReport extends AbstractReport
     {
         $data = $this->getData();
 
-        return count($data['data']);
+        return \count($data['data']);
     }
 }

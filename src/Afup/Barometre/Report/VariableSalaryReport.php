@@ -1,10 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\Barometre\Report;
 
 class VariableSalaryReport extends AbstractReport
 {
-
     /**
      * {@inheritdoc}
      */

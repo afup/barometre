@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\Barometre\Filter;
 
 use Afup\Barometre\Form\Type\Select2MultipleFilterType;
@@ -14,9 +16,6 @@ class JobTitleFilter implements FilterInterface
      */
     private $jobTitles;
 
-    /**
-     * @param JobTitleEnums $jobTitles
-     */
     public function __construct(JobTitleEnums $jobTitles)
     {
         $this->jobTitles = $jobTitles;
@@ -24,26 +23,21 @@ class JobTitleFilter implements FilterInterface
 
     /**
      * Add specific filter for this filter
-     *
-     * @param FormBuilderInterface $builder
      */
     public function buildForm(FormBuilderInterface $builder)
     {
         $builder->add($this->getName(), Select2MultipleFilterType::class, [
-            'label'   => 'filter.job_title',
+            'label' => 'filter.job_title',
             'choices' => array_flip($this->jobTitles->getChoices()),
         ]);
     }
 
     /**
      * Build the query with active filters
-     *
-     * @param QueryBuilder $queryBuilder
-     * @param array        $values
      */
-    public function buildQuery(QueryBuilder $queryBuilder, array $values = array())
+    public function buildQuery(QueryBuilder $queryBuilder, array $values = [])
     {
-        if (!array_key_exists($this->getName(), $values) || 0 === count($values[$this->getName()])) {
+        if (!\array_key_exists($this->getName(), $values) || 0 === \count($values[$this->getName()])) {
             return;
         }
 

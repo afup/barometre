@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\Barometre\Report;
 
 /*
@@ -7,7 +9,6 @@ namespace Afup\Barometre\Report;
  */
 class StatusReport extends AbstractReport
 {
-
     /**
      * {@inheritdoc}
      */
@@ -26,7 +27,6 @@ class StatusReport extends AbstractReport
      */
     public function getName()
     {
-
         return 'status';
     }
 }

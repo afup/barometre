@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\BarometreBundle\DependencyInjection\Compiler;
 
 use Symfony\Component\DependencyInjection\Compiler\CompilerPassInterface;
@@ -8,15 +10,12 @@ use Symfony\Component\DependencyInjection\Reference;
 
 class ReportCollectionPass implements CompilerPassInterface
 {
-    /**
-     * @param ContainerBuilder $container
-     */
     public function process(ContainerBuilder $container)
     {
         $definition = $container->getDefinition('afup.barometre.report_collection');
 
         foreach ($container->findTaggedServiceIds('barometre.report') as $id => $attributes) {
-            $definition->addMethodCall('addReport', array(new Reference($id)));
+            $definition->addMethodCall('addReport', [new Reference($id)]);
         }
         $definition->addMethodCall('sortReports');
     }

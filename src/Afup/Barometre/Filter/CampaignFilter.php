@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\Barometre\Filter;
 
 use Afup\BarometreBundle\Entity\Campaign;
+use Doctrine\DBAL\Query\QueryBuilder;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Doctrine\DBAL\Query\QueryBuilder;
 
 class CampaignFilter implements FilterInterface
 {
@@ -16,16 +18,16 @@ class CampaignFilter implements FilterInterface
     public function buildForm(FormBuilderInterface $builder)
     {
         $builder->add($this->getName(), EntityType::class, [
-            'label'    => 'filter.campaign',
-            'class'    => 'Afup\BarometreBundle\Entity\Campaign',
-            'attr'     => ['class' => 'select2'],
+            'label' => 'filter.campaign',
+            'class' => Campaign::class,
+            'attr' => ['class' => 'select2'],
             'multiple' => true,
             'required' => false,
             'query_builder' => function (EntityRepository $repository) {
                 return $repository
                     ->createQueryBuilder('campaign')
                     ->orderBy('campaign.name', 'ASC');
-            }
+            },
         ]);
     }
 
@@ -34,7 +36,7 @@ class CampaignFilter implements FilterInterface
      */
     public function buildQuery(QueryBuilder $queryBuilder, array $values = [])
     {
-        if (!array_key_exists($this->getName(), $values) || 0 === count($values[$this->getName()])) {
+        if (!\array_key_exists($this->getName(), $values) || 0 === \count($values[$this->getName()])) {
             return;
         }
 

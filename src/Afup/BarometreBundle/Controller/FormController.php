@@ -1,19 +1,26 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\BarometreBundle\Controller;
 
+use Afup\Barometre\ReportManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class FormController extends Controller
 {
+    /** @var ReportManager */
+    private $reportManager;
+
+    public function __construct(ReportManager $reportManager)
+    {
+        $this->reportManager = $reportManager;
+    }
+
     /**
-     * @param Request $request
-     *
-     * @Template
-     *
-     * @return array
+     * @return Response
      */
     public function indexAction(Request $request)
     {
@@ -21,13 +28,13 @@ class FormController extends Controller
 
         $manager->handleRequest($this->get('request_stack')->getMasterRequest());
 
-        return [
-            'form'   => $manager->getForm()->createView(),
-        ];
+        return $this->render('@AfupBarometre/Form/index.html.twig', [
+            'form' => $manager->getForm()->createView(),
+        ]);
     }
 
     private function getManager()
     {
-        return $this->get('afup.barometre.manager');
+        return $this->reportManager;
     }
 }

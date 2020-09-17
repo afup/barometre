@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\BarometreBundle\Enums;
 
 class PHPDocumentationUsageEnums extends AbstractEnums
@@ -12,6 +14,6 @@ class PHPDocumentationUsageEnums extends AbstractEnums
         self::IN_FRENCH => 'La documentation de php.net en français',
         self::IN_ENGLISH => 'La documentation de php.net en anglais',
         self::FIRST_FRENCH_THEN_ENGLISH => 'La documentation de php.net en français puis en anglais si elle est incomplète/incompréhensible',
-        self::AUTRE => 'Autre (documentation intégrée dans IDE par exemple)'
+        self::AUTRE => 'Autre (documentation intégrée dans IDE par exemple)',
     ];
 }
