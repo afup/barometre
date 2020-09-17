@@ -1,4 +1,4 @@
-{% extends "AfupBarometreBundle::layout.html.twig" %}
+{% extends "@AfupBarometre/layout.html.twig" %}
 
 {% block title %}{{ report.label|trans }} | {{ parent() }}{% endblock %}
 
@@ -9,7 +9,7 @@
         </div>
         <div class="col-md-3">
             <h1>Filtres</h1>
-            {% block filters render(controller('AfupBarometreBundle:Form:index')) %}
+            {% block filters include('@AfupBarometre/Filters/index.html.twig', {form: form}) %}
         </div>
     </div>
 {% endblock %}

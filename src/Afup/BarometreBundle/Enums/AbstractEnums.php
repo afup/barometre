@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\BarometreBundle\Enums;
 
 abstract class AbstractEnums implements EnumsInterface
@@ -31,7 +33,7 @@ abstract class AbstractEnums implements EnumsInterface
      */
     public function getLabelById($id)
     {
-        return isset($this->choices[$id])? $this->choices[$id] : null;
+        return isset($this->choices[$id]) ? $this->choices[$id] : null;
     }
 
     /**

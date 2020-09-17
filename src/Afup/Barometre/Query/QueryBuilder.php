@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\Barometre\Query;
 
 use Doctrine\DBAL\Connection;
-use \Doctrine\DBAL\Query\QueryBuilder as BaseQueryBuilder;
+use Doctrine\DBAL\Query\QueryBuilder as BaseQueryBuilder;
 
 class QueryBuilder extends BaseQueryBuilder
 {
@@ -15,11 +17,8 @@ class QueryBuilder extends BaseQueryBuilder
     /**
      * @var array
      */
-    protected $paramTypes = array();
+    protected $paramTypes = [];
 
-    /**
-     * @param Connection $connection
-     */
     public function __construct(Connection $connection)
     {
         $this->connection = $connection;
@@ -46,7 +45,6 @@ class QueryBuilder extends BaseQueryBuilder
         $this->connection->executeUpdate($sql);
     }
 
-
     /**
      * paramTypes is private, we need to redefine setParameter
      * to access it
@@ -70,12 +68,9 @@ class QueryBuilder extends BaseQueryBuilder
      * paramTypes is private, we need to redefine setParameters
      * to access it
      *
-     * @param array $params
-     * @param array $types
-     *
      * @return $this
      */
-    public function setParameters(array $params, array $types = array())
+    public function setParameters(array $params, array $types = [])
     {
         $this->paramTypes = $types;
 

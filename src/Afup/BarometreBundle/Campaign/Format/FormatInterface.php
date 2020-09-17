@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\BarometreBundle\Campaign\Format;
 
 interface FormatInterface
@@ -10,8 +12,6 @@ interface FormatInterface
     public function getColumns();
 
     /**
-     * @param array $data
-     *
      * @return array
      */
     public function alterData(array $data);

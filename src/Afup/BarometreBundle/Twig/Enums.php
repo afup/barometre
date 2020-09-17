@@ -1,8 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\BarometreBundle\Twig;
 
 use Afup\BarometreBundle\Enums\EnumsCollection;
+use Twig\TwigFilter;
 
 class Enums extends \Twig_Extension
 {
@@ -11,9 +14,6 @@ class Enums extends \Twig_Extension
      */
     protected $enums;
 
-    /**
-     * @param EnumsCollection $enums
-     */
     public function __construct(EnumsCollection $enums)
     {
         $this->enums = $enums;
@@ -25,12 +25,12 @@ class Enums extends \Twig_Extension
     public function getFilters()
     {
         return [
-            new \Twig_SimpleFilter('enum_label', [$this, 'enumLabel']),
+            new TwigFilter('enum_label', [$this, 'enumLabel']),
         ];
     }
 
     /**
-     * @param int $enumId
+     * @param int    $enumId
      * @param string $enumName
      *
      * @return string
@@ -41,6 +41,7 @@ class Enums extends \Twig_Extension
         if (!isset($choices[$enumId])) {
             return $enumId;
         }
+
         return $choices[$enumId];
     }
 }

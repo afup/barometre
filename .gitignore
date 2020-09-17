@@ -17,3 +17,4 @@
 /app/Resources/views/favicons/
 /docker/data
 /docker-compose.override.yml
+.php_cs.cache

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\BarometreBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -14,18 +16,20 @@ class Speciality
      * @ORM\Column(type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
+     *
      * @var int
      */
     protected $id;
 
     /**
      * @ORM\Column(type="string", length=100)
+     *
      * @var string
      */
     protected $name;
 
     /**
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -34,6 +38,7 @@ class Speciality
 
     /**
      * @param string $name
+     *
      * @return Speciality
      */
     public function setName($name)

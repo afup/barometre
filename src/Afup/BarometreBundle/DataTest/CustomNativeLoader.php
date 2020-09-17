@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Afup\BarometreBundle\DataTest;
 
-use Afup\BarometreBundle\Enums\EnumsCollection;
 use Faker\Generator as FakerGenerator;
 use Nelmio\Alice\Loader\NativeLoader;
 
@@ -17,7 +16,6 @@ class CustomNativeLoader extends NativeLoader
 
     /**
      * CustomNativeLoader constructor.
-     * @param EnumsProvider $provider
      */
     public function __construct(EnumsProvider $provider)
     {

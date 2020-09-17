@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\Barometre\Filter;
 
 use Afup\BarometreBundle\Entity\Speciality;
+use Doctrine\DBAL\Query\QueryBuilder;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Doctrine\DBAL\Query\QueryBuilder;
 
 class SpecialityFilter implements FilterInterface
 {
@@ -16,16 +18,16 @@ class SpecialityFilter implements FilterInterface
     public function buildForm(FormBuilderInterface $builder)
     {
         $builder->add($this->getName(), EntityType::class, [
-            'label'    => 'filter.speciality',
-            'class'    => 'Afup\BarometreBundle\Entity\Speciality',
-            'attr'     => ['class' => 'select2'],
+            'label' => 'filter.speciality',
+            'class' => Speciality::class,
+            'attr' => ['class' => 'select2'],
             'multiple' => true,
             'required' => false,
             'query_builder' => function (EntityRepository $repository) {
                 return $repository
                     ->createQueryBuilder('speciality')
                     ->orderBy('speciality.name', 'ASC');
-            }
+            },
         ]);
     }
 
@@ -34,7 +36,7 @@ class SpecialityFilter implements FilterInterface
      */
     public function buildQuery(QueryBuilder $queryBuilder, array $values = [])
     {
-        if (!array_key_exists($this->getName(), $values) || 0 === count($values[$this->getName()])) {
+        if (!\array_key_exists($this->getName(), $values) || 0 === \count($values[$this->getName()])) {
             return;
         }
 

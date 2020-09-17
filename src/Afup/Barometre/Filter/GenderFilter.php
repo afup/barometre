@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Gender Filter
  */
@@ -13,7 +15,6 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 /**
  * Class GenderFilter
- * @package Afup\Barometre\Filter
  */
 class GenderFilter implements FilterInterface
 {
@@ -22,9 +23,6 @@ class GenderFilter implements FilterInterface
      */
     private $gender;
 
-    /**
-     * @param GenderEnums $gender
-     */
     public function __construct(GenderEnums $gender)
     {
         $this->gender = $gender;
@@ -32,13 +30,10 @@ class GenderFilter implements FilterInterface
 
     /**
      * Build the query with active filters
-     *
-     * @param QueryBuilder $queryBuilder
-     * @param array        $values
      */
     public function buildQuery(QueryBuilder $queryBuilder, array $values = [])
     {
-        if (!array_key_exists($this->getName(), $values) || 0 === count($values[$this->getName()])) {
+        if (!\array_key_exists($this->getName(), $values) || 0 === \count($values[$this->getName()])) {
             return;
         }
 
@@ -60,13 +55,11 @@ class GenderFilter implements FilterInterface
 
     /**
      * Add specific filter for this filter
-     *
-     * @param FormBuilderInterface $builder
      */
     public function buildForm(FormBuilderInterface $builder)
     {
         $builder->add($this->getName(), Select2MultipleFilterType::class, [
-                'label'   => 'filter.gender',
+                'label' => 'filter.gender',
                 'choices' => array_flip($this->gender->getChoices()),
             ]);
     }
@@ -76,9 +69,8 @@ class GenderFilter implements FilterInterface
      */
     public function convertValuesToLabels($value)
     {
-
         return array_map(function ($value) {
-                return $this->gender->getLabelById($value);
+            return $this->gender->getLabelById($value);
         }, $value);
     }
 
@@ -91,7 +83,6 @@ class GenderFilter implements FilterInterface
     {
         return 100;
     }
-
 
     /**
      * The filter name

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\BarometreBundle\Enums;
 
 class EnumsCollection
@@ -7,11 +9,10 @@ class EnumsCollection
     /**
      * @var array
      */
-    private $enums = array();
+    private $enums = [];
 
     /**
-     * @param EnumsInterface $enums
-     * @param string         $alias
+     * @param string $alias
      */
     public function addEnums(EnumsInterface $enums, $alias)
     {
@@ -28,7 +29,7 @@ class EnumsCollection
     public function getEnums($alias)
     {
         if (!isset($this->enums[$alias])) {
-            throw new \InvalidArgumentException(sprintf("Enums %s inconnu", $alias));
+            throw new \InvalidArgumentException(sprintf('Enums %s inconnu', $alias));
         }
 
         return $this->enums[$alias];

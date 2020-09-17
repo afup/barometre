@@ -1,13 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\Barometre\Form\Type;
 
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Afup\Barometre\Filter\FilterCollection;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-
-use Afup\Barometre\Filter\FilterCollection;
 
 /**
  * Filter Type
@@ -19,9 +20,6 @@ class FilterType extends AbstractType
      */
     private $filterCollection;
 
-    /**
-     * @param FilterCollection $filterCollection
-     */
     public function __construct(FilterCollection $filterCollection)
     {
         $this->filterCollection = $filterCollection;

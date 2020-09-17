@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\BarometreBundle\Enums;
 
 class TechnologicalWatchEnums extends AbstractEnums

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\BarometreBundle\DataTest\ORM;
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
@@ -28,8 +30,7 @@ class FixturesLoader implements FixtureInterface, ContainerAwareInterface
         );
 
         $objects = $objectSet->getObjects();
-        foreach($objects as $object)
-        {
+        foreach ($objects as $object) {
             $manager->persist($object);
         }
 

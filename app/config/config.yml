@@ -18,7 +18,6 @@ framework:
         #assets_version: SomeVersionScheme
     default_locale:  "%locale%"
     trusted_hosts:   ~
-    trusted_proxies: ~
     session:
         # handler_id set to null will use default session handler from php.ini
         handler_id:  ~
@@ -30,8 +29,8 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
     globals:
-        ga_enabled: %ga_enabled%
-        global_menu_prefix: %global_menu_prefix%
+        ga_enabled: "%ga_enabled%"
+        global_menu_prefix: "%global_menu_prefix%"
 
 # Doctrine Configuration
 doctrine:
@@ -43,7 +42,7 @@ doctrine:
         user:     "%database_user%"
         password: "%database_password%"
         charset:  UTF8
-        server_version: %doctrine.server_version%
+        server_version: "%doctrine.server_version%"
         # if using pdo_sqlite as your database driver, add the path in parameters.yml
         # e.g. database_path: "%kernel.root_dir%/data/data.db3"
         # path:     "%database_path%"
@@ -54,10 +53,14 @@ doctrine:
 
 knp_menu:
     twig:
-        template: AfupBarometreBundle:Default:knp_menu.html.twig
+        template: "@AfupBarometre/Default/knp_menu.html.twig"
 
 afup_barometre:
     min_result: "%min_result%"
 
 grunt_hash_assets:
     assets_base_path: "%web_root%/assets"
+
+sensio_framework_extra:
+    router:
+        annotations: false

@@ -29,7 +29,7 @@
                 {% endif %}
                 {{ row.gender|enum_label('gender') }}
             </td>
-            <td {% if row.gender is null %}data-graph-item-highlight="1"{% endif %} {% if icons[row.gender|enum_label('gender')].color %}data-graph-item-color="{{ icons[row.gender|enum_label('gender')].color }}"{% endif %} data-graph-name='{{ row.gender|enum_label('gender') }}' class="text-right">{{ row.nbResponse }}</td>
+            <td {% if row.gender is null %}data-graph-item-highlight="1"{% endif %} {% if icons[row.gender|enum_label('gender')] is defined %}data-graph-item-color="{{ icons[row.gender|enum_label('gender')].color }}"{% endif %} data-graph-name='{{ row.gender|enum_label('gender') }}' class="text-right">{{ row.nbResponse }}</td>
             <td class="text-right">{{ row.averageSalary|number_format(null, '', ' ') }}</td>
         </tr>
     {% endfor %}
@@ -39,4 +39,3 @@
 <div class="salary-info">
     *{{ "report.view.info_annual_salary"|trans }}
 </div>
-

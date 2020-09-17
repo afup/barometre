@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\BarometreBundle\Entity;
 
 use Doctrine\DBAL\DBALException;

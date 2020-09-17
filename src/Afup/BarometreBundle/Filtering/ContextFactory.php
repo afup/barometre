@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\BarometreBundle\Filtering;
 
 use Symfony\Component\HttpFoundation\RequestStack;
@@ -16,7 +18,7 @@ class ContextFactory
             return $context;
         }
 
-        foreach ($request->get('filter', array()) as $key => $parameter) {
+        foreach ($request->get('filter', []) as $key => $parameter) {
             if ($key == 'submit') {
                 continue;
             }

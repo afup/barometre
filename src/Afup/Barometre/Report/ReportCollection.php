@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\Barometre\Report;
 
 /**
@@ -7,12 +9,10 @@ namespace Afup\Barometre\Report;
  */
 class ReportCollection implements \IteratorAggregate
 {
-    private $reports = array();
+    private $reports = [];
 
     /**
      * Add a new report
-     *
-     * @param ReportInterface $report
      */
     public function addReport(ReportInterface $report)
     {
@@ -21,11 +21,10 @@ class ReportCollection implements \IteratorAggregate
 
     /**
      * sort all reports by theirs keys
-     *
      */
     public function sortReports()
     {
-        uasort($this->reports, array('Afup\Barometre\Report\AbstractReport', 'cmpReport'));
+        uasort($this->reports, ['Afup\Barometre\Report\AbstractReport', 'cmpReport']);
     }
 
     /**
@@ -37,7 +36,7 @@ class ReportCollection implements \IteratorAggregate
      */
     public function getReport($name)
     {
-        if (!array_key_exists($name, $this->reports)) {
+        if (!\array_key_exists($name, $this->reports)) {
             return null;
         }
 

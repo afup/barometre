@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\Barometre\Filter;
 
-use Symfony\Component\Form\FormBuilderInterface;
 use Doctrine\DBAL\Query\QueryBuilder;
+use Symfony\Component\Form\FormBuilderInterface;
 
 /**
  * A FilterInterface
@@ -12,18 +14,13 @@ interface FilterInterface
 {
     /**
      * Add specific filter for this filter
-     *
-     * @param FormBuilderInterface $builder
      */
     public function buildForm(FormBuilderInterface $builder);
 
     /**
      * Build the query with active filters
-     *
-     * @param QueryBuilder $queryBuilder
-     * @param array        $values
      */
-    public function buildQuery(QueryBuilder $queryBuilder, array $values = array());
+    public function buildQuery(QueryBuilder $queryBuilder, array $values = []);
 
     /**
      * Convert the given values to the corresponding labels
@@ -41,8 +38,6 @@ interface FilterInterface
 
     /**
      * The filter weight - minimum mean on top of the list
-     *
-     * @return mixed
      */
     public function getWeight();
 }

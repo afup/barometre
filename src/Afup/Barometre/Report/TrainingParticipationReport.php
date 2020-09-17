@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\Barometre\Report;
 
 class TrainingParticipationReport extends AbstractReport
@@ -25,7 +27,7 @@ class TrainingParticipationReport extends AbstractReport
         $this->queryBuilder
             ->select('response.isRecentTrainingHadSalaryImpact as isTrainingHadSalaryImpact')
             ->addSelect('COUNT(response.id) as nbResponse')
-            ->where("hasRecentTraining = 1")
+            ->where('hasRecentTraining = 1')
             ->having('nbResponse >= :minResult')
             ->setParameter(':minResult', $this->minResult)
             ->groupBy('response.isRecentTrainingHadSalaryImpact')
