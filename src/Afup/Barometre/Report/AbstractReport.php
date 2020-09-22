@@ -79,23 +79,6 @@ abstract class AbstractReport implements ReportInterface
     }
 
     /**
-     * comparaison function for reports
-     *
-     * @param AbstractReport $report1
-     * @param AbstractReport $report2
-     *
-     * @return int
-     */
-    public static function cmpReport($report1, $report2)
-    {
-        if ($report1->getWeight() == $report2->getWeight()) {
-            return 0;
-        }
-
-        return ($report1->getWeight() < $report2->getWeight()) ? 1 : -1;
-    }
-
-    /**
      * @return array
      */
     public function getChildReports()
@@ -111,14 +94,11 @@ abstract class AbstractReport implements ReportInterface
         return $this->childReports = $childReports;
     }
 
-    /**
-     * @return array
-     */
-    protected function addPercentResponse(array $data)
+    protected function addPercentResponse(array $data): array
     {
         $totalResponseNumber = $this->calculateTotalResponseNumber($data);
 
-        if ($totalResponseNumber == 0) {
+        if ($totalResponseNumber === 0) {
             return array_map(
                 function ($response) use ($totalResponseNumber) {
                     $response['percentResponse'] = 0;
@@ -139,15 +119,12 @@ abstract class AbstractReport implements ReportInterface
         );
     }
 
-    /**
-     * @return int mixed
-     */
-    private function calculateTotalResponseNumber(array $data)
+    private function calculateTotalResponseNumber(array $data): int
     {
         return array_reduce(
             $data,
-            function ($totalResponseNumber, $response) {
-                return $totalResponseNumber += $response['nbResponse'];
+            static function ($totalResponseNumber, $response) {
+                return $totalResponseNumber + $response['nbResponse'];
             },
             0
         );

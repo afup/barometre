@@ -21,4 +21,9 @@ class JobInterestEnums extends AbstractEnums
         self::REMUNERATION => 'La rémunération',
         self::AUTRE => 'Autre',
     ];
+
+    public function getAlias(): string
+    {
+        return 'job_interest';
+    }
 }

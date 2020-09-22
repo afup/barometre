@@ -31,4 +31,9 @@ class InitialTrainingEnums extends AbstractEnums
     {
         return null;
     }
+
+    public function getAlias(): string
+    {
+        return 'initial_training';
+    }
 }

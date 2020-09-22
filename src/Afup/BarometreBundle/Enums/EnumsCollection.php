@@ -11,12 +11,9 @@ class EnumsCollection
      */
     private $enums = [];
 
-    /**
-     * @param string $alias
-     */
-    public function addEnums(EnumsInterface $enums, $alias)
+    public function addEnums(EnumsInterface $enums)
     {
-        $this->enums[$alias] = $enums;
+        $this->enums[$enums->getAlias()] = $enums;
     }
 
     /**

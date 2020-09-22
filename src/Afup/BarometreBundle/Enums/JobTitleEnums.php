@@ -33,4 +33,9 @@ class JobTitleEnums extends AbstractEnums
         self::DEVOPS => 'Devops',
         self::AUTRE => 'Autre',
     ];
+
+    public function getAlias(): string
+    {
+        return 'job_title';
+    }
 }

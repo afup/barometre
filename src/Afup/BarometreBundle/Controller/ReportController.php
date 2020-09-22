@@ -61,6 +61,6 @@ class ReportController extends Controller
      */
     private function getManager()
     {
-        return $this->get('afup.barometre.manager');
+        return $this->get(ReportManager::class);
     }
 }

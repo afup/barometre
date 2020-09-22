@@ -4,19 +4,17 @@ declare(strict_types=1);
 
 namespace Afup\Barometre\RequestModifier;
 
-use Doctrine\Bundle\DoctrineBundle\Registry as Doctrine;
+use Afup\BarometreBundle\Repository\CampaignRepository;
 use Symfony\Component\HttpFoundation\Request;
 
 class FilterOnAllCampaigns implements RequestModifierInterface
 {
-    /**
-     * @var Doctrine
-     */
-    protected $doctrine;
+    /** @var CampaignRepository */
+    private $campaignRepository;
 
-    public function __construct(Doctrine $doctrine)
+    public function __construct(CampaignRepository $campaignRepository)
     {
-        $this->doctrine = $doctrine;
+        $this->campaignRepository = $campaignRepository;
     }
 
     /**
@@ -30,8 +28,8 @@ class FilterOnAllCampaigns implements RequestModifierInterface
     public function alterRequest(Request $request)
     {
         $campaignIds = [];
-        $campaignRepository = $this->doctrine->getManager()->getRepository('AfupBarometreBundle:Campaign');
-        foreach ($campaignRepository->findAll() as $campaign) {
+        $campaigns = $this->campaignRepository->findAll();
+        foreach ($campaigns as $campaign) {
             $campaignIds[] = $campaign->getId();
         }
 

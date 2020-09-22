@@ -38,4 +38,9 @@ class OtherLanguageEnums extends AbstractEnums
     {
         return null;
     }
+
+    public function getAlias(): string
+    {
+        return 'other_language';
+    }
 }

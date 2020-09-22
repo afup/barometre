@@ -21,4 +21,9 @@ class StatusEnums extends AbstractEnums
         self::SANS_EMPLOI => 'Sans emploi',
         self::AUTRE => 'Autre',
     ];
+
+    public function getAlias(): string
+    {
+        return 'status';
+    }
 }

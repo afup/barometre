@@ -26,4 +26,9 @@ class MeetupParticipationEnums extends AbstractEnums
     {
         return null;
     }
+
+    public function getAlias(): string
+    {
+        return 'meetup_participation';
+    }
 }

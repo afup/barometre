@@ -26,4 +26,9 @@ class OsDeveloppmentEnums extends AbstractEnums
     {
         return null;
     }
+
+    public function getAlias(): string
+    {
+        return 'os_developpment';
+    }
 }

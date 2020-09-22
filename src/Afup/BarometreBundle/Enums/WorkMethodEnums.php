@@ -18,4 +18,9 @@ class WorkMethodEnums extends AbstractEnums
         self::EXTREME_PROGRAMMING => 'Extreme programming',
         self::AUTRE => 'Autre',
     ];
+
+    public function getAlias(): string
+    {
+        return 'work_method';
+    }
 }

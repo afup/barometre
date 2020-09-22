@@ -8,7 +8,7 @@
         </service>
 
         <service id="afup.barometre.report.abstract_distribution_evolution" abstract="true" public="false">
-            <argument type="service" id="afup.barometre.request_modifier_collection" />
+            <argument type="service" id="Afup\Barometre\RequestModifier\RequestModifierCollection" />
             <argument>%min_result%</argument>
         </service>
 
@@ -22,7 +22,7 @@
                 <argument type="collection">
                     <argument type="service">
                         <service class="Afup\Barometre\Report\SalaryEvolutionReport">
-                            <argument type="service" id="afup.barometre.request_modifier_collection" />
+                            <argument type="service" id="Afup\Barometre\RequestModifier\RequestModifierCollection" />
                             <argument>%min_result%</argument>
                         </service>
                     </argument>
@@ -103,7 +103,7 @@
                 <argument type="collection">
                     <argument type="service">
                         <service class="Afup\Barometre\Report\GenderSalaryEvolutionReport">
-                            <argument type="service" id="afup.barometre.request_modifier_collection" />
+                            <argument type="service" id="Afup\Barometre\RequestModifier\RequestModifierCollection" />
                             <argument>%min_result%</argument>
                         </service>
                     </argument>

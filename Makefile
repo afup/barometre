@@ -1,4 +1,4 @@
-.PHONY: vendors data_dirs cs-fix
+.PHONY: vendors data_dirs test cs-fix
 
 CURRENT_UID ?= $(shell id -u)
 
@@ -46,6 +46,9 @@ docker/data/composer: docker/data
 
 docker-compose.override.yml:
 	cp docker-compose.override.yml-dist docker-compose.override.yml
+
+test:
+	docker-compose run --rm cli /bin/bash -l -c "bin/simple-phpunit"
 
 cs-fix:
 	docker run --rm -it -w=/app -v ${PWD}:/app oskarstark/php-cs-fixer-ga:latest

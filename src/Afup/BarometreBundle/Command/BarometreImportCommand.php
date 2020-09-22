@@ -6,7 +6,7 @@ namespace Afup\BarometreBundle\Command;
 
 use Afup\BarometreBundle\Campaign\Format\FormatFactory;
 use Afup\BarometreBundle\Campaign\Importer\CampaignImporter;
-use Afup\BarometreBundle\Entity\CampaignRepository;
+use Afup\BarometreBundle\Repository\CampaignRepository;
 use DateTime;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;

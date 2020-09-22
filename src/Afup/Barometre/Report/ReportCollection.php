@@ -24,7 +24,9 @@ class ReportCollection implements \IteratorAggregate
      */
     public function sortReports()
     {
-        uasort($this->reports, ['Afup\Barometre\Report\AbstractReport', 'cmpReport']);
+        uasort($this->reports, static function (ReportInterface $a, ReportInterface $b) {
+            return $b->getWeight() <=> $a->getWeight();
+        });
     }
 
     /**

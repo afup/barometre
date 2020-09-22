@@ -34,4 +34,9 @@ class CompanySizeEnums extends AbstractEnums
     {
         return null;
     }
+
+    public function getAlias(): string
+    {
+        return 'company_size';
+    }
 }

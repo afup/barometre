@@ -2,12 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Afup\BarometreBundle\Twig;
+namespace Afup\BarometreBundle\Twig\Extension;
 
 use Afup\BarometreBundle\Enums\EnumsCollection;
+use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 
-class Enums extends \Twig_Extension
+class EnumsExtension extends AbstractExtension
 {
     /**
      * @var EnumsCollection

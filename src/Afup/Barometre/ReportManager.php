@@ -5,11 +5,13 @@ declare(strict_types=1);
 namespace Afup\Barometre;
 
 use Afup\Barometre\Filter\FilterCollection;
+use Afup\Barometre\Form\Type\FilterType;
 use Afup\Barometre\Query\QueryBuilder as AfupQueryBuilder;
 use Afup\Barometre\Report\ReportCollection;
 use Afup\Barometre\Report\ReportInterface;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Connection;
+use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -40,12 +42,12 @@ class ReportManager
 
     public function __construct(
         Connection $connection,
-        FormInterface $form,
+        FormFactoryInterface $formFactory,
         ReportCollection $reportCollection,
         FilterCollection $filterCollection
     ) {
         $this->connection = $connection;
-        $this->form = $form;
+        $this->form = $formFactory->create(FilterType::class);
         $this->reportCollection = $reportCollection;
         $this->filterCollection = $filterCollection;
     }

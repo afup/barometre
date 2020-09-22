@@ -1,0 +1,47 @@
+name: Tests
+
+on:
+    push:
+        branches:
+            - master
+    pull_request:
+
+jobs:
+    tests:
+        name: Tests
+        runs-on: ubuntu-latest
+        steps:
+            -   name: Checkout
+                uses: actions/checkout@v2
+
+            -   name: Setup PHP
+                uses: shivammathur/setup-php@v1
+                with:
+                    php-version: '7.0'
+                    extensions: dom, curl, libxml, mbstring, zip, pdo, pdo_mysql, intl
+                    coverage: none
+                    ini-values: "memory_limit=-1"
+                    tools: php-cs-fixer
+
+            -   name: Determine composer cache directory
+                id: composer-cache
+                run: echo "::set-output name=directory::$(composer config cache-dir)"
+
+            -   name: Cache composer dependencies
+                uses: actions/cache@v1
+                with:
+                    path: ${{ steps.composer-cache.outputs.directory }}
+                    key: composer-${{ hashFiles('**/composer.lock') }}
+                    restore-keys: composer-
+
+            -   name: Install dependencies
+                run: |
+                    echo "::group::composer install"
+                    composer install --no-progress --no-suggest --ansi
+                    echo "::endgroup::"
+                    echo "::group::install phpunit"
+                    bin/simple-phpunit install
+                    echo "::endgroup::"
+
+            -   name: Run tests
+                run: bin/simple-phpunit --testdox
