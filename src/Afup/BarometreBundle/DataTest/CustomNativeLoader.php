@@ -4,30 +4,28 @@ declare(strict_types=1);
 
 namespace Afup\BarometreBundle\DataTest;
 
+use Afup\BarometreBundle\Enums\EnumsCollection;
 use Faker\Generator as FakerGenerator;
 use Nelmio\Alice\Loader\NativeLoader;
 
 class CustomNativeLoader extends NativeLoader
 {
     /**
-     * @var EnumsProvider
+     * @var EnumsCollection
      */
-    private $provider;
+    private $enumsCollection;
 
-    /**
-     * CustomNativeLoader constructor.
-     */
-    public function __construct(EnumsProvider $provider)
+    public function __construct(EnumsCollection $enumsCollection)
     {
-        $this->provider = $provider;
+        $this->enumsCollection = $enumsCollection;
+
         parent::__construct();
     }
 
     protected function createFakerGenerator(): FakerGenerator
     {
         $generator = parent::createFakerGenerator();
-        $generator->addProvider($this->provider);
-        $generator->seed($this->getSeed());
+        $generator->addProvider(new EnumsProvider($generator, $this->enumsCollection));
 
         return $generator;
     }

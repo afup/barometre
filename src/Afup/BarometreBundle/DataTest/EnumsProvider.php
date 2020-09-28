@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Afup\BarometreBundle\DataTest;
 
 use Afup\BarometreBundle\Enums\EnumsCollection;
+use Faker\Generator;
 use Faker\Provider\Base;
 
 class EnumsProvider extends Base
@@ -14,15 +15,14 @@ class EnumsProvider extends Base
      */
     protected $collection;
 
-    public function __construct(EnumsCollection $collection)
+    public function __construct(Generator $generator, EnumsCollection $collection)
     {
+        parent::__construct($generator);
+
         $this->collection = $collection;
     }
 
-    /**
-     * @param string $alias
-     */
-    public function enums($alias)
+    public function enums(string $alias)
     {
         $choices = $this->collection->getEnums($alias)->getChoices();
 

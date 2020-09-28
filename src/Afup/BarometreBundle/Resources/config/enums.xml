@@ -86,12 +86,8 @@
             <tag name="barometre.enums" alias="work_method" />
         </service>
 
-        <service id="afup.barometre.data_test.enums_provider" class="Afup\BarometreBundle\DataTest\EnumsProvider">
-            <argument type="service" id="afup.barometre.enums_collection" />
-        </service>
-
         <service id="afup.barometre.data_test.custom_native_loader" class="Afup\BarometreBundle\DataTest\CustomNativeLoader" public="true">
-            <argument type="service" id="afup.barometre.data_test.enums_provider" />
+            <argument type="service" id="afup.barometre.enums_collection" />
         </service>
     </services>
 </container>
