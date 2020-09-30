@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\Barometre\Report;
 
 /**
@@ -30,7 +32,6 @@ class CompanyDepartmentReport extends AbstractReport
     {
         return 'company_department';
     }
-
 
     /**
      * report weight

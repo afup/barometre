@@ -12,12 +12,6 @@
             <factory service="afup.barometre.default_context_factory" method="createFromRequestStack" />
         </service>
 
-        <service id="afup.barometre.query_builder_factory" class="Afup\BarometreBundle\Filtering\QueryBuilderFactory">
-            <argument type="service" id="doctrine.dbal.default_connection" />
-            <argument type="service" id="afup.barometre.context" />
-            <argument type="service" id="afup.barometre.filter_collection" />
-        </service>
-
         <service id="afup.barometre.context_factory" class="Afup\BarometreBundle\Filtering\ContextFactory" />
 
         <service id="afup.barometre.default_context_factory" class="Afup\BarometreBundle\Filtering\DefaultContextFactory" >
@@ -83,7 +77,7 @@
             <tag name="twig.extension" />
         </service>
 
-        <service id="afup.barometre.manager" class="Afup\Barometre\ReportManager" shared="false">
+        <service id="afup.barometre.manager" class="Afup\Barometre\ReportManager" shared="false" public="true">
             <argument type="service" id="doctrine.dbal.default_connection" />
             <argument type="service" id="afup.barometre.filter_form" />
             <argument type="service" id="afup.barometre.report_collection" />
@@ -112,6 +106,32 @@
         <service id="afup.barometre.request_modifier.filter_on_all_campaigns" class="Afup\Barometre\RequestModifier\FilterOnAllCampaigns">
             <argument type="service" id="doctrine" />
             <tag name="barometre.request_modifier"  />
+        </service>
+
+        <service id="barometre.command.import" class="Afup\BarometreBundle\Command\BarometreImportCommand">
+            <argument type="service" id="afup.barometre.repository.campaign_repository" />
+            <argument type="service" id="afup.barometre.campaign.importer" />
+            <tag name="console.command" />
+        </service>
+
+        <service id="Afup\BarometreBundle\Controller\CampaignController" class="Afup\BarometreBundle\Controller\CampaignController" public="true">
+            <argument type="service" id="afup.barometre.repository.campaign_repository" />
+        </service>
+
+        <service id="Afup\BarometreBundle\Controller\AboutController" class="Afup\BarometreBundle\Controller\AboutController" public="true">
+            <argument type="service" id="afup.barometre.repository.campaign_repository" />
+        </service>
+
+        <service id="Afup\BarometreBundle\Controller\ReportController" class="Afup\BarometreBundle\Controller\ReportController" public="true">
+            <argument type="service" id="afup.barometre.manager" />
+        </service>
+
+        <service id="Afup\BarometreBundle\Controller\DefaultController" class="Afup\BarometreBundle\Controller\DefaultController" public="true">
+            <argument type="service" id="afup.barometre.manager" />
+        </service>
+
+        <service id="Afup\BarometreBundle\Controller\FormController" class="Afup\BarometreBundle\Controller\FormController" public="true">
+            <argument type="service" id="afup.barometre.manager" />
         </service>
     </services>
 </container>

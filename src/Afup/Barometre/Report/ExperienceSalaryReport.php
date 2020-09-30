@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\Barometre\Report;
 
 class ExperienceSalaryReport extends AbstractReport
@@ -29,7 +31,6 @@ class ExperienceSalaryReport extends AbstractReport
     {
         return 'experience_salary';
     }
-
 
     /**
      * report weight

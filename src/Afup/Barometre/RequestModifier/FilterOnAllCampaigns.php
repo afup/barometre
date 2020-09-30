@@ -1,9 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\Barometre\RequestModifier;
 
-use Symfony\Component\HttpFoundation\Request;
 use Doctrine\Bundle\DoctrineBundle\Registry as Doctrine;
+use Symfony\Component\HttpFoundation\Request;
 
 class FilterOnAllCampaigns implements RequestModifierInterface
 {
@@ -12,9 +14,6 @@ class FilterOnAllCampaigns implements RequestModifierInterface
      */
     protected $doctrine;
 
-    /**
-     * @param Doctrine $doctrine
-     */
     public function __construct(Doctrine $doctrine)
     {
         $this->doctrine = $doctrine;
@@ -28,9 +27,6 @@ class FilterOnAllCampaigns implements RequestModifierInterface
         return 'filter_on_all_campaigns';
     }
 
-    /**
-     * @param Request $request
-     */
     public function alterRequest(Request $request)
     {
         $campaignIds = [];

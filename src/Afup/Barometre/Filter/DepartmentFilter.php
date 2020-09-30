@@ -1,14 +1,15 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\Barometre\Filter;
 
-use Symfony\Component\Form\FormBuilderInterface;
-use Doctrine\DBAL\Query\QueryBuilder;
-use Doctrine\DBAL\Connection;
+use Afup\Barometre\Form\Type\Select2MultipleFilterType;
 use agallou\Departements\Collection as Departments;
 use agallou\Regions\Collection as Regions;
-
-use Afup\Barometre\Form\Type\Select2MultipleFilterType;
+use Doctrine\DBAL\Connection;
+use Doctrine\DBAL\Query\QueryBuilder;
+use Symfony\Component\Form\FormBuilderInterface;
 
 class DepartmentFilter implements FilterInterface
 {
@@ -21,8 +22,8 @@ class DepartmentFilter implements FilterInterface
     public function buildForm(FormBuilderInterface $builder)
     {
         $builder->add($this->getName(), Select2MultipleFilterType::class, [
-            'label'    => 'filter.department',
-            'choices'  => array_flip($this->getChoices()),
+            'label' => 'filter.department',
+            'choices' => array_flip($this->getChoices()),
         ]);
     }
 
@@ -31,7 +32,7 @@ class DepartmentFilter implements FilterInterface
      */
     protected function getChoices()
     {
-        $choices = array();
+        $choices = [];
         $choices[self::ALL_BUT_PARIS] = 'Tous sauf île-de-France';
 
         foreach (new Departments() as $number => $label) {
@@ -44,15 +45,15 @@ class DepartmentFilter implements FilterInterface
     /**
      * {@inheritdoc}
      */
-    public function buildQuery(QueryBuilder $queryBuilder, array $values = array())
+    public function buildQuery(QueryBuilder $queryBuilder, array $values = [])
     {
-        if (!array_key_exists($this->getName(), $values) || 0 === count($values[$this->getName()])) {
+        if (!\array_key_exists($this->getName(), $values) || 0 === \count($values[$this->getName()])) {
             return;
         }
 
         $codes = $values[$this->getName()];
 
-        if (in_array('all_but_paris', $codes)) {
+        if (\in_array('all_but_paris', $codes)) {
             $departements = new Departments();
             $regions = new Regions();
 
@@ -67,7 +68,7 @@ class DepartmentFilter implements FilterInterface
             );
         }
 
-        if (count($codes)) {
+        if (\count($codes)) {
             $queryBuilder
                 ->setParameter('department', $codes, Connection::PARAM_STR_ARRAY)
                 ->andWhere('response.companyDepartment IN(:department)')
@@ -81,6 +82,7 @@ class DepartmentFilter implements FilterInterface
     public function convertValuesToLabels($value)
     {
         $choices = $this->getChoices();
+
         return array_map(function ($code) use ($choices) {
             return $choices[$code];
         }, $value);

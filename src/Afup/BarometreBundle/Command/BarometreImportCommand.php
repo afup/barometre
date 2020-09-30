@@ -1,24 +1,40 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\BarometreBundle\Command;
 
 use Afup\BarometreBundle\Campaign\Format\FormatFactory;
 use Afup\BarometreBundle\Campaign\Importer\CampaignImporter;
 use Afup\BarometreBundle\Entity\CampaignRepository;
 use DateTime;
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class BarometreImportCommand extends ContainerAwareCommand
+class BarometreImportCommand extends Command
 {
+    /** @var CampaignRepository */
+    private $campaignRepository;
+
+    /** @var CampaignImporter */
+    private $campaignImporter;
+
+    public function __construct(CampaignRepository $campaignRepository, CampaignImporter $campaignImporter)
+    {
+        parent::__construct();
+
+        $this->campaignRepository = $campaignRepository;
+        $this->campaignImporter = $campaignImporter;
+    }
+
     protected function configure()
     {
         $this
-            ->setName("barometre:imports")
-            ->setDescription("Importe une nouvelle campagne")
+            ->setName('barometre:imports')
+            ->setDescription('Importe une nouvelle campagne')
             ->addOption('format', 'f', InputOption::VALUE_REQUIRED, 'Format du fichier ("2013" ou "2014")')
             ->addOption('separator', '', InputOption::VALUE_OPTIONAL, 'separateur csv (";" par défaut)', ';')
             ->addArgument('name', InputArgument::REQUIRED, 'Nom de la campagne')
@@ -28,17 +44,14 @@ class BarometreImportCommand extends ContainerAwareCommand
     }
 
     /**
-     * @param InputInterface  $input
-     * @param OutputInterface $output
-     *
      * @return void
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $name       = $input->getArgument('name');
-        $startDate  = $input->getArgument('startDate');
-        $endDate    = $input->getArgument('endDate');
-        $filename   = $input->getArgument('filename');
+        $name = $input->getArgument('name');
+        $startDate = $input->getArgument('startDate');
+        $endDate = $input->getArgument('endDate');
+        $filename = $input->getArgument('filename');
         $separator = $input->getOption('separator');
 
         $formatFactory = new FormatFactory();
@@ -61,7 +74,7 @@ class BarometreImportCommand extends ContainerAwareCommand
      */
     protected function getCampaignImporter()
     {
-        return $this->getContainer()->get('afup.barometre.campaign.importer');
+        return $this->campaignImporter;
     }
 
     /**
@@ -69,6 +82,6 @@ class BarometreImportCommand extends ContainerAwareCommand
      */
     protected function getCampaignRepository()
     {
-        return $this->getContainer()->get('afup.barometre.repository.campaign_repository');
+        return $this->campaignRepository;
     }
 }

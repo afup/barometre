@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\BarometreBundle\Filtering;
 
 class Context
@@ -7,7 +9,7 @@ class Context
     /**
      * @var array
      */
-    protected $parameters = array();
+    protected $parameters = [];
 
     public function setParameter($key, $value)
     {

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\BarometreBundle\Campaign\Format\Formats;
 
 class Format2019 extends Format2014
@@ -50,7 +52,7 @@ class Format2019 extends Format2014
         $data = parent::alterData($data);
 
         if ($data['gender'] === 'Une personne non-binaire') {
-            $data['gender'] = "Personnes non-binaires";
+            $data['gender'] = 'Personnes non-binaires';
         }
 
         if ($data['status'] === 'Freelance / entreprise individuelle'

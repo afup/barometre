@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\Barometre\Report;
 
 use Doctrine\DBAL\Query\QueryBuilder;
@@ -17,7 +19,7 @@ abstract class AbstractReport implements ReportInterface
     protected $queryBuilder;
 
     /**
-     * @var integer
+     * @var int
      */
     protected $minResult;
 
@@ -27,7 +29,7 @@ abstract class AbstractReport implements ReportInterface
     protected $childReports = [];
 
     /**
-     * @param integer $minResult
+     * @param int $minResult
      */
     public function __construct($minResult = 10)
     {
@@ -55,7 +57,7 @@ abstract class AbstractReport implements ReportInterface
      */
     public function getLabel()
     {
-        return "report." . $this->getName() . ".label";
+        return 'report.' . $this->getName() . '.label';
     }
 
     /**
@@ -63,7 +65,7 @@ abstract class AbstractReport implements ReportInterface
      */
     public function hasResults()
     {
-        return count($this->getData());
+        return \count($this->getData());
     }
 
     /**
@@ -102,8 +104,6 @@ abstract class AbstractReport implements ReportInterface
     }
 
     /**
-     * @param array $childReports
-     *
      * @return array
      */
     public function setChildReports(array $childReports)
@@ -112,7 +112,6 @@ abstract class AbstractReport implements ReportInterface
     }
 
     /**
-     * @param array $data
      * @return array
      */
     protected function addPercentResponse(array $data)
@@ -141,8 +140,7 @@ abstract class AbstractReport implements ReportInterface
     }
 
     /**
-     * @param array $data
-     * @return integer mixed
+     * @return int mixed
      */
     private function calculateTotalResponseNumber(array $data)
     {

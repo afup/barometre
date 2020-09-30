@@ -1,10 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\Barometre\Report;
 
 /**
  * Class StatusEvolutionReport
- * @package Afup\Barometre\Report
  */
 class StatusEvolutionReport extends AbstractDistributionEvolutionReport
 {

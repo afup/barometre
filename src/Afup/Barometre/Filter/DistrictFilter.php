@@ -1,13 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\Barometre\Filter;
 
-use Symfony\Component\Form\FormBuilderInterface;
-use Doctrine\DBAL\Query\QueryBuilder;
-use Doctrine\DBAL\Connection;
-use agallou\Regions\Collection2016 as Regions;
-
 use Afup\Barometre\Form\Type\Select2MultipleFilterType;
+use agallou\Regions\Collection2016 as Regions;
+use Doctrine\DBAL\Connection;
+use Doctrine\DBAL\Query\QueryBuilder;
+use Symfony\Component\Form\FormBuilderInterface;
 
 class DistrictFilter implements FilterInterface
 {
@@ -17,8 +18,8 @@ class DistrictFilter implements FilterInterface
     public function buildForm(FormBuilderInterface $builder)
     {
         $builder->add($this->getName(), Select2MultipleFilterType::class, [
-            'label'    => 'filter.district',
-            'choices'  => array_flip($this->getChoices()),
+            'label' => 'filter.district',
+            'choices' => array_flip($this->getChoices()),
         ]);
     }
 
@@ -27,7 +28,7 @@ class DistrictFilter implements FilterInterface
      */
     protected function getChoices()
     {
-        $choices = array();
+        $choices = [];
 
         foreach (new Regions() as $number => $label) {
             $choices[$number] = sprintf('%s - %s', $number, $label->getLabel());
@@ -39,10 +40,9 @@ class DistrictFilter implements FilterInterface
     /**
      * {@inheritdoc}
      */
-    public function buildQuery(QueryBuilder $queryBuilder, array $values = array())
+    public function buildQuery(QueryBuilder $queryBuilder, array $values = [])
     {
-
-        if (!array_key_exists($this->getName(), $values) || 0 === count($values[$this->getName()])) {
+        if (!\array_key_exists($this->getName(), $values) || 0 === \count($values[$this->getName()])) {
             return;
         }
 
@@ -58,7 +58,7 @@ class DistrictFilter implements FilterInterface
             );
         }
 
-        if (count($codes)) {
+        if (\count($codes)) {
             $queryBuilder
                 ->setParameter('department', $codes, Connection::PARAM_STR_ARRAY)
                 ->andWhere('response.companyDepartment IN(:department)')
@@ -72,6 +72,7 @@ class DistrictFilter implements FilterInterface
     public function convertValuesToLabels($value)
     {
         $choices = $this->getChoices();
+
         return array_map(function ($code) use ($choices) {
             return $choices[$code];
         }, $value);

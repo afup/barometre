@@ -10,7 +10,7 @@ Afup\BarometreBundle\Entity\Campaign:
 
 Afup\BarometreBundle\Entity\Response:
     response{1..2600}:
-        campaign: 70%? @campaign1 : @campaign2
+        campaign: '70%? @campaign1 : @campaign2'
         grossAnnualSalary: <numberBetween(20000, 45000)>
         variableAnnualSalary: <numberBetween(0, 4500)>
         annualSalary: <numberBetween(20000, 45000)>
@@ -27,7 +27,7 @@ Afup\BarometreBundle\Entity\Response:
         phpStrength: <enums('php_strength')>
         hasRecentTraining: <numberBetween(0, 1)>
         recentTrainingHadSalaryImpact: <numberBetween(0, 1)>
-        specialities: 50%? <numberBetween(1, 7)>x @speciality*
-        certifications: 50%? <numberBetween(1, 2)>x @certification*
+        specialities: ['@speciality<numberBetween(0, 3)>', '@speciality<numberBetween(4, 8)>', '@speciality<numberBetween(9, 16)>']
+        certifications: ['@certification<numberBetween(0, 2)>', '@certification<numberBetween(3, 4)>']
         remoteUsage: <enums('remote_usage')>
         gender: <enums('gender')>

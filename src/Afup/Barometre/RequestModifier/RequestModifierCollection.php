@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\Barometre\RequestModifier;
 
 class RequestModifierCollection
@@ -7,11 +9,8 @@ class RequestModifierCollection
     /**
      * @var RequestModifierInterface[]
      */
-    private $modifier = array();
+    private $modifier = [];
 
-    /**
-     * @param RequestModifierInterface $modifier
-     */
     public function addModifier(RequestModifierInterface $modifier)
     {
         if (isset($this->modifier[$modifier->getName()])) {

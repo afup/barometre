@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\Barometre\Report;
 
 /**
@@ -38,9 +40,8 @@ class SpecialityReport extends AbstractReport
      */
     public function getName()
     {
-        return "speciality";
+        return 'speciality';
     }
-
 
     /**
      * report weight

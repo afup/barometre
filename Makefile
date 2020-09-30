@@ -1,12 +1,12 @@
-.PHONY: vendors data_dirs
+.PHONY: vendors data_dirs cs-fix
 
 CURRENT_UID ?= $(shell id -u)
 
 init:
 	docker-compose run --rm cli /bin/bash -l -c "make vendors"
 	docker-compose run --rm cli /bin/bash -l -c "grunt"
-	docker-compose run --rm cli /bin/bash -l -c "php app/console doctrine:schema:update --force"
-	docker-compose run --rm cli /bin/bash -l -c "php -d "memory_limit=-1" app/console doctrine:fixtures:load --no-interaction --fixtures=src/Afup/BarometreBundle/DataTest/ORM/"
+	docker-compose run --rm cli /bin/bash -l -c "php bin/console doctrine:schema:update --force"
+	docker-compose run --rm cli /bin/bash -l -c "php -d "memory_limit=-1" bin/console doctrine:fixtures:load --no-interaction --fixtures=src/Afup/BarometreBundle/DataTest/ORM/"
 
 vendors: node_modules vendor
 
@@ -26,7 +26,7 @@ node_modules:
 app/config/parameters.yml:
 	cp app/config/parameters.yml.dist app/config/parameters.yml
 
-docker-up: app/logs/.docker-build data_dirs
+docker-up: var/logs/.docker-build data_dirs
 	docker-compose up
 
 docker-build: app/logs/.docker-build
@@ -34,7 +34,7 @@ docker-build: app/logs/.docker-build
 app/logs/.docker-build: docker-compose.yml docker-compose.override.yml $(shell find docker/dockerfiles -type f)
 	docker-compose rm --force
 	CURRENT_UID=$(CURRENT_UID) docker-compose build
-	touch app/logs/.docker-build
+	touch var/logs/.docker-build
 
 data_dirs: docker/data docker/data/composer
 
@@ -46,3 +46,6 @@ docker/data/composer: docker/data
 
 docker-compose.override.yml:
 	cp docker-compose.override.yml-dist docker-compose.override.yml
+
+cs-fix:
+	docker run --rm -it -w=/app -v ${PWD}:/app oskarstark/php-cs-fixer-ga:latest

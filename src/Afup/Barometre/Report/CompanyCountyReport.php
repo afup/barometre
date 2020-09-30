@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\Barometre\Report;
 
 use agallou\Regions\Collection2016 as Collection;
@@ -21,7 +23,7 @@ class CompanyCountyReport extends AbstractReport
 
         $preparedData = $this->groupDataByRegion($data);
 
-        $this->data = array();
+        $this->data = [];
         foreach ($preparedData as $codeRegion => $row) {
             if ($row['nbResponse'] < $this->minResult) {
                 continue;
@@ -40,7 +42,7 @@ class CompanyCountyReport extends AbstractReport
      */
     protected function getCodesRegionsByCodeDepartement()
     {
-        $codesRegionsByCodesDeparatement = array();
+        $codesRegionsByCodesDeparatement = [];
 
         $regions = new Collection();
         /** @var Region $region */
@@ -54,13 +56,11 @@ class CompanyCountyReport extends AbstractReport
     }
 
     /**
-     * @param array $data
-     *
      * @return array
      */
     protected function groupDataByRegion(array $data)
     {
-        $preparedData = array();
+        $preparedData = [];
         $codesRegionsByCodesDepartment = $this->getCodesRegionsByCodeDepartement();
 
         foreach ($data as $row) {
@@ -69,12 +69,12 @@ class CompanyCountyReport extends AbstractReport
             }
             $codeRegion = $codesRegionsByCodesDepartment[$row['companyDepartment']];
             if (!isset($preparedData[$codeRegion])) {
-                $preparedData[$codeRegion] = array(
+                $preparedData[$codeRegion] = [
                     'nbResponse' => 0,
                     'totalAnnualSalary' => 0,
-                );
+                ];
             }
-            $preparedData[$codeRegion]['nbResponse']++;
+            ++$preparedData[$codeRegion]['nbResponse'];
             $preparedData[$codeRegion]['totalAnnualSalary'] += $row['annualSalary'];
         }
 
@@ -88,7 +88,6 @@ class CompanyCountyReport extends AbstractReport
     {
         return 'company_county';
     }
-
 
     /**
      * report weight

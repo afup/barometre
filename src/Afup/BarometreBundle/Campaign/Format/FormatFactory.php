@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\BarometreBundle\Campaign\Format;
 
 class FormatFactory
@@ -16,6 +18,6 @@ class FormatFactory
             throw new \InvalidArgumentException(sprintf('Code %s invalid', $code));
         }
 
-        return new $class;
+        return new $class();
     }
 }

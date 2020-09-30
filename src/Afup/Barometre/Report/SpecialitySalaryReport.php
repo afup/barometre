@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\Barometre\Report;
 
 /**
@@ -38,26 +40,26 @@ class SpecialitySalaryReport extends AbstractReport
             'Symfony',
             'Zend Framework',
             'Wordpress',
-            'Drupal'
+            'Drupal',
         ];
 
         $otherFramework = 'report.view.other_framework';
 
         $data = [
             'columns' => array_merge($framework, [$otherFramework]),
-            'data'    => []
+            'data' => [],
         ];
 
         foreach ($results as $result) {
             $experience = $result['experience'];
             $specialityName = $result['specialityName'];
 
-            if (!array_key_exists($experience, $data['data'])) {
+            if (!\array_key_exists($experience, $data['data'])) {
                 $data['data'][$experience] = array_flip($data['columns']);
                 $data['data'][$experience][$otherFramework] = ['annualSalary' => 0, 'nbResponse' => 0];
             }
 
-            if (in_array($specialityName, $framework)) {
+            if (\in_array($specialityName, $framework)) {
                 if ($result['nbResponse'] >= $this->minResult) {
                     $data['data'][$experience][$specialityName] = $result['annualSalary'] / $result['nbResponse'];
                 }
@@ -84,7 +86,7 @@ class SpecialitySalaryReport extends AbstractReport
      */
     public function getName()
     {
-        return "speciality_salary";
+        return 'speciality_salary';
     }
 
     /**
@@ -94,9 +96,8 @@ class SpecialitySalaryReport extends AbstractReport
     {
         $data = $this->getData();
 
-        return count($data['data']);
+        return \count($data['data']);
     }
-
 
     /**
      * report weight

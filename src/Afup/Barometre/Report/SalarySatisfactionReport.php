@@ -1,4 +1,6 @@
 <?php
+
+declare(strict_types=1);
 /**
  * Salary satisfaction
  */
@@ -31,7 +33,6 @@ class SalarySatisfactionReport extends AbstractReport
     {
         return 'salary_satisfaction';
     }
-
 
     /**
      * report weight

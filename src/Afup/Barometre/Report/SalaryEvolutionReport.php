@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\Barometre\Report;
 
 use Afup\Barometre\RequestModifier\RequestModifierCollection;
@@ -13,7 +15,6 @@ class SalaryEvolutionReport extends AbstractReport implements AlterableReportInt
     private $requestModifierCollection;
 
     /**
-     * @param RequestModifierCollection $requestModifierCollection
      * @param int $minResult
      */
     public function __construct(RequestModifierCollection $requestModifierCollection, $minResult = 10)
@@ -57,8 +58,6 @@ class SalaryEvolutionReport extends AbstractReport implements AlterableReportInt
      * @param $campaignId
      * @param $campaignCount
      * @param $percentile
-     *
-     * @return mixed
      */
     protected function calculatePercentileForYear($campaignId, $campaignCount, $percentile)
     {
@@ -66,7 +65,7 @@ class SalaryEvolutionReport extends AbstractReport implements AlterableReportInt
 
         $qb->select('response.grossAnnualSalary');
 
-        $qb->andWhere("response.campaign_id = :id");
+        $qb->andWhere('response.campaign_id = :id');
         $qb->setParameter(':id', $campaignId);
 
         $qb->orderBy('response.grossAnnualSalary', 'asc');
@@ -97,9 +96,6 @@ class SalaryEvolutionReport extends AbstractReport implements AlterableReportInt
         return 100;
     }
 
-    /**
-     * @param Request $request
-     */
     public function alterRequest(Request $request)
     {
         $this->requestModifierCollection->getModifier('filter_on_all_campaigns')->alterRequest($request);

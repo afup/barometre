@@ -1,10 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\BarometreBundle\Enums;
 
 class PHPVersionEnums extends AbstractEnums
 {
-    const PHP_4  = 0;
+    const PHP_4 = 0;
     const PHP_52 = 1;
     const PHP_53 = 2;
     const PHP_54 = 3;
@@ -19,8 +21,8 @@ class PHPVersionEnums extends AbstractEnums
     /**
      * @var array
      */
-    protected $choices = array(
-        self::PHP_4  => 'PHP 4',
+    protected $choices = [
+        self::PHP_4 => 'PHP 4',
         self::PHP_52 => 'PHP 5.2',
         self::PHP_53 => 'PHP 5.3',
         self::PHP_54 => 'PHP 5.4',
@@ -31,7 +33,7 @@ class PHPVersionEnums extends AbstractEnums
         self::PHP_72 => 'PHP 7.2',
         self::PHP_73 => 'PHP 7.3',
         self::PHP_74 => 'PHP 7.4',
-    );
+    ];
 
     /**
      * {@inheritdoc}

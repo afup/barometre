@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\Barometre\Filter;
 
 use Afup\Barometre\Form\Type\Select2MultipleFilterType;
@@ -14,9 +16,6 @@ class RemoteUsageFilter implements FilterInterface
      */
     private $remoteUsageEnums;
 
-    /**
-     * @param RemoteUsageEnums $remoteUsageEnums
-     */
     public function __construct(RemoteUsageEnums $remoteUsageEnums)
     {
         $this->remoteUsageEnums = $remoteUsageEnums;
@@ -28,8 +27,8 @@ class RemoteUsageFilter implements FilterInterface
     public function buildForm(FormBuilderInterface $builder)
     {
         $builder->add($this->getName(), Select2MultipleFilterType::class, [
-            'label'    => 'filter.remote_work',
-            'choices'  => array_flip($this->remoteUsageEnums->getChoices()),
+            'label' => 'filter.remote_work',
+            'choices' => array_flip($this->remoteUsageEnums->getChoices()),
         ]);
     }
 
@@ -38,7 +37,7 @@ class RemoteUsageFilter implements FilterInterface
      */
     public function buildQuery(QueryBuilder $queryBuilder, array $values = [])
     {
-        if (!array_key_exists($this->getName(), $values) || 0 === count($values[$this->getName()])) {
+        if (!\array_key_exists($this->getName(), $values) || 0 === \count($values[$this->getName()])) {
             return;
         }
 

@@ -42,6 +42,14 @@
                 <source>filter.salary</source>
                 <target>Salaire</target>
             </trans-unit>
+            <trans-unit id="filter.salary.min">
+                <source>filter.salary.min</source>
+                <target>Minimum</target>
+            </trans-unit>
+            <trans-unit id="filter.salary.max">
+                <source>filter.salary.max</source>
+                <target>Maximum</target>
+            </trans-unit>
             <trans-unit id="filter.certification">
                 <source>filter.certification</source>
                 <target>Certifications</target>

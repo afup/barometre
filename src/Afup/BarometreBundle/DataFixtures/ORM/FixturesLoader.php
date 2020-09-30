@@ -1,10 +1,11 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Afup\BarometreBundle\DataFixtures\ORM;
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use Nelmio\Alice\Fixtures;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareTrait;
 use Symfony\Component\HttpKernel\KernelInterface;
@@ -18,15 +19,22 @@ class FixturesLoader implements FixtureInterface, ContainerAwareInterface
      */
     public function load(ObjectManager $manager)
     {
-        Fixtures::load(
+        $loader = $this->container->get('afup.barometre.data_test.custom_native_loader');
+        $objectSet = $loader->loadFiles(
             [
                 $this->getKernel()->locateResource('@AfupBarometreBundle/Resources/fixtures/speciality.yml'),
                 $this->getKernel()->locateResource('@AfupBarometreBundle/Resources/fixtures/certification.yml'),
                 $this->getKernel()->locateResource('@AfupBarometreBundle/Resources/fixtures/container_environment_usage.yml'),
-                $this->getKernel()->locateResource('@AfupBarometreBundle/Resources/fixtures/hosting_type.yml'),
-            ],
-            $manager
+                $this->getKernel()->locateResource('@AfupBarometreBundle/Resources/test/response.yml'),
+            ]
         );
+
+        $objects = $objectSet->getObjects();
+        foreach ($objects as $object) {
+            $manager->persist($object);
+        }
+
+        $manager->flush();
     }
 
     /**
