@@ -120,7 +120,7 @@ abstract class AbstractReport implements ReportInterface
 
         if ($totalResponseNumber == 0) {
             return array_map(
-                function ($response) use ($totalResponseNumber) {
+                function ($response) {
                     $response['percentResponse'] = 0;
 
                     return $response;
