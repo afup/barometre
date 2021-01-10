@@ -86,6 +86,31 @@
             <tag name="barometre.enums" alias="work_method" />
         </service>
 
+        <service id="afup.barometre.enums.cms_usage_in_project" class="Afup\BarometreBundle\Enums\CmsUsageInProjectEnums">
+            <tag name="barometre.enums" alias="cms_usage_in_project" />
+        </service>
+        <service id="afup.barometre.enums.covid19.company_handle" class="Afup\BarometreBundle\Enums\Covid19\CompanyHandleEnums">
+            <tag name="barometre.enums" alias="covid19.company_handle" />
+        </service>
+        <service id="afup.barometre.enums.covid19.layoff" class="Afup\BarometreBundle\Enums\Covid19\LayoffEnums">
+            <tag name="barometre.enums" alias="covid19.layoff" />
+        </service>
+        <service id="afup.barometre.enums.covid19.company_trust" class="Afup\BarometreBundle\Enums\Covid19\CompanyTrustEnums">
+            <tag name="barometre.enums" alias="covid19.company_trust" />
+        </service>
+        <service id="afup.barometre.enums.covid19.future_plan" class="Afup\BarometreBundle\Enums\Covid19\FuturePlanEnums">
+            <tag name="barometre.enums" alias="covid19.future_plan" />
+        </service>
+        <service id="afup.barometre.enums.covid19.partial_unemployment" class="Afup\BarometreBundle\Enums\Covid19\PartialUnemploymentEnums">
+            <tag name="barometre.enums" alias="covid19.partial_unemployment" />
+        </service>
+        <service id="afup.barometre.enums.covid19.regular_remote_feeling" class="Afup\BarometreBundle\Enums\Covid19\RegularRemoteFeelingEnums">
+            <tag name="barometre.enums" alias="covid19.regular_remote_feeling" />
+        </service>
+        <service id="afup.barometre.enums.covid19.salary_impact" class="Afup\BarometreBundle\Enums\Covid19\SalaryImpactEnums">
+            <tag name="barometre.enums" alias="covid19.salary_impact" />
+        </service>
+
         <service id="afup.barometre.data_test.custom_native_loader" class="Afup\BarometreBundle\DataTest\CustomNativeLoader" public="true">
             <argument type="service" id="afup.barometre.enums_collection" />
         </service>

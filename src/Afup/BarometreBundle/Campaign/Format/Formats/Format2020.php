@@ -50,7 +50,7 @@ class Format2020 extends Format2014
             'covid19_salary_impact', //	Pensez-vous que le COVID-19 va avoir un impact négatif sur votre progression salariale ?
             'covid19_partial_unemployment', //	Avez-vous été au chômage partiel ou en activité partielle ?
             'covid19_regular_remote_feeling', // 	Hors période de confinement, comment vivez-vous le télétravail régulier ?
-            'covid19_remote_pace', //	Quel serait le rythme idéal en télétravail pour vous ? (en nombre de jour par semaine)
+            'covid19_remote_ideal_pace', //	Quel serait le rythme idéal en télétravail pour vous ? (en nombre de jour par semaine)
             'gender',
         ];
     }

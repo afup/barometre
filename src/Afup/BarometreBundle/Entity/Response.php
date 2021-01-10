@@ -316,7 +316,7 @@ class Response
      *
      * @var int
      */
-    private $covid19RemotePace;
+    private $covid19RemoteIdealPace;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -1082,10 +1082,10 @@ class Response
     }
 
     /**
-     * @param int $covid19RemotePace
+     * @param int $covid19RemoteIdealPace
      */
-    public function setCovid19RemotePace(int $covid19RemotePace)
+    public function setCovid19RemoteIdealPace(int $covid19RemoteIdealPace)
     {
-        $this->covid19RemotePace = $covid19RemotePace;
+        $this->covid19RemoteIdealPace = $covid19RemoteIdealPace;
     }
 }
