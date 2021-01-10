@@ -1017,73 +1017,46 @@ class Response
         $this->containerEnvironmentsUsage[] = $containerEnvironmentUsage;
     }
 
-    /**
-     * @param int $cmsUsageInProject
-     */
     public function setCmsUsageInProject(int $cmsUsageInProject)
     {
         $this->cmsUsageInProject = $cmsUsageInProject;
     }
 
-    /**
-     * @param int $covid19CompanyTrust
-     */
     public function setCovid19CompanyTrust(int $covid19CompanyTrust)
     {
         $this->covid19CompanyTrust = $covid19CompanyTrust;
     }
 
-    /**
-     * @param int $covid19CompanyHandle
-     */
     public function setCovid19CompanyHandle(int $covid19CompanyHandle)
     {
         $this->covid19CompanyHandle = $covid19CompanyHandle;
     }
 
-    /**
-     * @param int $covid19Layoff
-     */
     public function setCovid19Layoff(int $covid19Layoff)
     {
         $this->covid19Layoff = $covid19Layoff;
     }
 
-    /**
-     * @param int $covid19FuturePlan
-     */
     public function setCovid19FuturePlan(int $covid19FuturePlan)
     {
         $this->covid19FuturePlan = $covid19FuturePlan;
     }
 
-    /**
-     * @param int $covid19SalaryImpact
-     */
     public function setCovid19SalaryImpact(int $covid19SalaryImpact)
     {
         $this->covid19SalaryImpact = $covid19SalaryImpact;
     }
 
-    /**
-     * @param int $covid19PartialUnemployment
-     */
     public function setCovid19PartialUnemployment(int $covid19PartialUnemployment)
     {
         $this->covid19PartialUnemployment = $covid19PartialUnemployment;
     }
 
-    /**
-     * @param int $covid19RegularRemoteFeeling
-     */
     public function setCovid19RegularRemoteFeeling(int $covid19RegularRemoteFeeling)
     {
         $this->covid19RegularRemoteFeeling = $covid19RegularRemoteFeeling;
     }
 
-    /**
-     * @param int $covid19RemoteIdealPace
-     */
     public function setCovid19RemoteIdealPace(int $covid19RemoteIdealPace)
     {
         $this->covid19RemoteIdealPace = $covid19RemoteIdealPace;

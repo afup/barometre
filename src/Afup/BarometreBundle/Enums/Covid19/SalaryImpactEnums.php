@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Afup\BarometreBundle\Enums\Covid19;
@@ -11,7 +12,7 @@ class SalaryImpactEnums extends AbstractEnums
     const NO = 2;
     const DOES_NO_SAY = 3;
 
-    protected $choices= [
+    protected $choices = [
         self::YES => 'Oui',
         self::NO => 'Non',
         self::DOES_NO_SAY => 'Ne se prononce pas',

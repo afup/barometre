@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Afup\BarometreBundle\Enums\Covid19;
@@ -12,6 +13,6 @@ class LayoffEnums extends AbstractEnums
 
     protected $choices = [
         self::YES => 'Oui',
-        self::NO => 'Non'
+        self::NO => 'Non',
     ];
 }

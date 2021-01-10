@@ -69,15 +69,15 @@ class ResponseFactory
         $response = new Response();
 
         $response->setCampaign($campaign);
-dump($data);
+
         $response->setGrossAnnualSalary(
-            $this->numberFormatter->parse((string)$data['gross_annual_salary'])
+            $this->numberFormatter->parse((string) $data['gross_annual_salary'])
         );
         $response->setVariableAnnualSalary(
-            $this->numberFormatter->parse((string)$data['variable_annual_salary'])
+            $this->numberFormatter->parse((string) $data['variable_annual_salary'])
         );
         $response->setAnnualSalary(
-            $this->numberFormatter->parse((string)$data['annual_salary'])
+            $this->numberFormatter->parse((string) $data['annual_salary'])
         );
         $response->setSalarySatisfaction(
             $this->numberFormatter->parse($data['salary_satisfaction'])
@@ -291,7 +291,7 @@ dump($data);
 
         if (isset($data['covid19_remote_ideal_pace'])) {
             $response->setCovid19RemoteIdealPace(
-                (int)$data['covid19_remote_ideal_pace']
+                (int) $data['covid19_remote_ideal_pace']
             );
         }
 

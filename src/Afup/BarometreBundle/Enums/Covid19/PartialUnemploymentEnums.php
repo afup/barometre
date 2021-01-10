@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Afup\BarometreBundle\Enums\Covid19;
@@ -14,6 +15,6 @@ class PartialUnemploymentEnums extends AbstractEnums
     protected $choices = [
         self::NO => 'Non',
         self::YES_BUT_STARTED_BACK => "Oui et depuis j'ai repris à temps plein",
-        self::YES_STILL_IN_PARTIAL_UNEMPLOYMENT =>  "Oui encore aujourd'hui",
+        self::YES_STILL_IN_PARTIAL_UNEMPLOYMENT => "Oui encore aujourd'hui",
     ];
 }
