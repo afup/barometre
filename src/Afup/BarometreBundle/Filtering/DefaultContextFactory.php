@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Afup\BarometreBundle\Filtering;
 
-use Afup\BarometreBundle\Entity\CampaignRepository;
+use Afup\BarometreBundle\Repository\CampaignRepository;
 use Symfony\Component\HttpFoundation\RequestStack;
 
 class DefaultContextFactory extends ContextFactory

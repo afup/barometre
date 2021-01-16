@@ -18,4 +18,9 @@ class ContractWorkDurationEnums extends AbstractEnums
         self::FORFAIT_JOUR => 'Forfait jour',
         self::AUTRE => 'Autre',
     ];
+
+    public function getAlias(): string
+    {
+        return 'contract_work_duration';
+    }
 }

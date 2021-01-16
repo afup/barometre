@@ -29,4 +29,9 @@ class GenderEnums extends AbstractEnums
     {
         return self::NONE;
     }
+
+    public function getAlias(): string
+    {
+        return 'gender';
+    }
 }

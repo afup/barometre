@@ -7,7 +7,7 @@ namespace Afup\BarometreBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="Afup\BarometreBundle\Entity\CampaignRepository")
+ * @ORM\Entity(repositoryClass="Afup\BarometreBundle\Repository\CampaignRepository")
  * @ORM\Table(name="campaign")
  */
 class Campaign

@@ -22,4 +22,9 @@ class SalarySatisfactionEnums extends AbstractEnums
         self::STATISFAIT => 'Satisfait',
         self::TRES_SATISFAIT => 'Très satisfait',
     ];
+
+    public function getAlias(): string
+    {
+        return 'salary_satisfaction';
+    }
 }

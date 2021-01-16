@@ -28,4 +28,9 @@ class RemoteUsageEnums extends AbstractEnums
     {
         return null;
     }
+
+    public function getAlias(): string
+    {
+        return 'remote_usage';
+    }
 }

@@ -42,4 +42,9 @@ class PHPVersionEnums extends AbstractEnums
     {
         return null;
     }
+
+    public function getAlias(): string
+    {
+        return 'php_version';
+    }
 }

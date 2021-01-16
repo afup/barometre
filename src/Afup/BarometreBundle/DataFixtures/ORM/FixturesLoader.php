@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Afup\BarometreBundle\DataFixtures\ORM;
 
+use Afup\BarometreBundle\DataTest\CustomNativeLoader;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
@@ -19,7 +20,7 @@ class FixturesLoader implements FixtureInterface, ContainerAwareInterface
      */
     public function load(ObjectManager $manager)
     {
-        $loader = $this->container->get('afup.barometre.data_test.custom_native_loader');
+        $loader = $this->container->get(CustomNativeLoader::class);
         $objectSet = $loader->loadFiles(
             [
                 $this->getKernel()->locateResource('@AfupBarometreBundle/Resources/fixtures/speciality.yml'),

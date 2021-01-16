@@ -16,4 +16,9 @@ class PHPDocumentationUsageEnums extends AbstractEnums
         self::FIRST_FRENCH_THEN_ENGLISH => 'La documentation de php.net en français puis en anglais si elle est incomplète/incompréhensible',
         self::AUTRE => 'Autre (documentation intégrée dans IDE par exemple)',
     ];
+
+    public function getAlias(): string
+    {
+        return 'php_documentation_source';
+    }
 }

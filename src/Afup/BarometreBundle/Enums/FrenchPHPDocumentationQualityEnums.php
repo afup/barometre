@@ -20,4 +20,9 @@ class FrenchPHPDocumentationQualityEnums extends AbstractEnums
         self::TRES_MAUVAISE => 'Très mauvaise',
         self::AUTRE => 'N/A',
     ];
+
+    public function getAlias(): string
+    {
+        return 'french_php_documentation_quality';
+    }
 }

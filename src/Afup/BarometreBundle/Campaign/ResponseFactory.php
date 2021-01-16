@@ -11,6 +11,10 @@ use Afup\BarometreBundle\Entity\HostingType;
 use Afup\BarometreBundle\Entity\Response;
 use Afup\BarometreBundle\Entity\Speciality;
 use Afup\BarometreBundle\Enums\EnumsCollection;
+use Afup\BarometreBundle\Repository\CertificationRepository;
+use Afup\BarometreBundle\Repository\ContainerEnvironmentUsageRepository;
+use Afup\BarometreBundle\Repository\HostingTypeRepository;
+use Afup\BarometreBundle\Repository\SpecialityRepository;
 use agallou\Departements\Collection as Departments;
 use Doctrine\Common\Persistence\ObjectRepository;
 use NumberFormatter;
@@ -48,10 +52,10 @@ class ResponseFactory
     public function __construct(
         NumberFormatter $numberFormatter,
         EnumsCollection $enums,
-        ObjectRepository $certificationRepository,
-        ObjectRepository $specialityRepository,
-        ObjectRepository $hostingTypeRepository,
-        ObjectRepository $containerEnvironmentUsageRepository
+        CertificationRepository $certificationRepository,
+        SpecialityRepository $specialityRepository,
+        HostingTypeRepository $hostingTypeRepository,
+        ContainerEnvironmentUsageRepository $containerEnvironmentUsageRepository
     ) {
         $this->numberFormatter = $numberFormatter;
         $this->enums = $enums;

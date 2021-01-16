@@ -28,4 +28,9 @@ class TechnologicalWatchEnums extends AbstractEnums
     {
         return null;
     }
+
+    public function getAlias(): string
+    {
+        return 'technological_watch';
+    }
 }

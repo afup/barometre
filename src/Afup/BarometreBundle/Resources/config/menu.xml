@@ -5,7 +5,7 @@
     <services>
         <service id="afup.barometre.menu.menu_builder" class="Afup\BarometreBundle\Menu\MenuBuilder">
             <argument type="service" id="knp_menu.factory" />
-            <argument type="service" id="afup.barometre.report_collection" />
+            <argument type="service" id="Afup\Barometre\Report\ReportCollection" />
             <argument type="service" id="afup.barometre.default_context" />
         </service>
 

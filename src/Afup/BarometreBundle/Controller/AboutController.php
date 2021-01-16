@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Afup\BarometreBundle\Controller;
 
-use Afup\BarometreBundle\Entity\CampaignRepository;
+use Afup\BarometreBundle\Repository\CampaignRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

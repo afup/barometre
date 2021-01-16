@@ -2,14 +2,21 @@
 
 declare(strict_types=1);
 
-namespace Afup\BarometreBundle\Entity;
+namespace Afup\BarometreBundle\Repository;
 
+use Afup\BarometreBundle\Entity\Campaign;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
+use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\DBAL\DBALException;
-use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\OptimisticLockException;
 
-class CampaignRepository extends EntityRepository
+class CampaignRepository extends ServiceEntityRepository
 {
+    public function __construct(ManagerRegistry $registry)
+    {
+        parent::__construct($registry, Campaign::class);
+    }
+
     /**
      * @return Campaign|null
      */

@@ -20,12 +20,10 @@ class RequestModifierCollection
     }
 
     /**
-     * @param string $name
-     *
      * @return RequestModifierInterface|null
      */
-    public function getModifier($name)
+    public function getModifier(string $name)
     {
-        return isset($this->modifier[$name]) ? $this->modifier[$name] : null;
+        return $this->modifier[$name] ?? null;
     }
 }

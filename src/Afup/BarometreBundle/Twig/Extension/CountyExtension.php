@@ -6,9 +6,10 @@ namespace Afup\BarometreBundle\Twig\Extension;
 
 use agallou\Regions\Collection2016 as Collection;
 use Symfony\Component\Translation\TranslatorInterface;
+use Twig\Extension\AbstractExtension;
 use Twig\TwigFilter;
 
-class CountyExtension extends \Twig_Extension
+class CountyExtension extends AbstractExtension
 {
     /**
      * @var Collection

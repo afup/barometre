@@ -1,5 +1,0 @@
-standard=PSR2
-
-src/
-
-!src/Afup/BarometreBundle/Resources
