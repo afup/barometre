@@ -18,6 +18,10 @@
                 <source>menu.result2019</source>
                 <target>Résultats 2019</target>
             </trans-unit>
+            <trans-unit id="menu.result2020">
+                <source>menu.result2020</source>
+                <target>Résultats 2020</target>
+            </trans-unit>
             <trans-unit id="menu.results">
                 <source>menu.results</source>
                 <target>Résultats détaillés</target>
