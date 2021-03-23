@@ -1,0 +1,11 @@
+{%  set color = {
+(constant('Afup\\BarometreBundle\\Enums\\MeetupParticipationEnums::ONE_PER_MONTH')):'#89A54E',
+(constant('Afup\\BarometreBundle\\Enums\\MeetupParticipationEnums::ONE_PER_QUARTER')):'#80699B',
+(constant('Afup\\BarometreBundle\\Enums\\MeetupParticipationEnums::NEVER')):'#DB843D'
+}
+%}
+
+{% set fieldName = 'meetup_participation' %}
+{% set title = 'Année' %}
+
+{% include '@AfupBarometre/Report/_distribution_evolution_report.html.twig' with {'color': color, 'fieldName': fieldName} %}

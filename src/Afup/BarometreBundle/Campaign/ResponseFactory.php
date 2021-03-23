@@ -71,13 +71,13 @@ class ResponseFactory
         $response->setCampaign($campaign);
 
         $response->setGrossAnnualSalary(
-            $this->numberFormatter->parse($data['gross_annual_salary'])
+            $this->numberFormatter->parse((string) $data['gross_annual_salary'])
         );
         $response->setVariableAnnualSalary(
-            $this->numberFormatter->parse($data['variable_annual_salary'])
+            $this->numberFormatter->parse((string) $data['variable_annual_salary'])
         );
         $response->setAnnualSalary(
-            $this->numberFormatter->parse($data['annual_salary'])
+            $this->numberFormatter->parse((string) $data['annual_salary'])
         );
         $response->setSalarySatisfaction(
             $this->numberFormatter->parse($data['salary_satisfaction'])
@@ -236,6 +236,64 @@ class ResponseFactory
             $this->enums->getEnums('gender')
                         ->getIdByLabel($data['gender'])
         );
+
+        // added in campaign 2020
+        if (isset($data['cms_usage_in_project'])) {
+            $response->setCmsUsageInProject(
+                $this
+                    ->enums
+                    ->getEnums('cms_usage_in_project')
+                    ->getIdByLabel($data['cms_usage_in_project'])
+            );
+        }
+
+        if (isset($data['covid19_company_trust'])) {
+            $response->setCovid19CompanyTrust(
+                $this->enums->getEnums('covid19.company_trust')->getIdByLabel($data['covid19_company_trust'])
+            );
+        }
+
+        if (isset($data['covid19_company_handle'])) {
+            $response->setCovid19CompanyHandle(
+                $this->enums->getEnums('covid19.company_handle')->getIdByLabel($data['covid19_company_handle'])
+            );
+        }
+
+        if (isset($data['covid19_layoff'])) {
+            $response->setCovid19Layoff(
+                $this->enums->getEnums('covid19.layoff')->getIdByLabel($data['covid19_layoff'])
+            );
+        }
+
+        if (isset($data['covid19_future_plan'])) {
+            $response->setCovid19FuturePlan(
+                $this->enums->getEnums('covid19.future_plan')->getIdByLabel($data['covid19_future_plan'])
+            );
+        }
+
+        if (isset($data['covid19_salary_impact'])) {
+            $response->setCovid19SalaryImpact(
+                $this->enums->getEnums('covid19.salary_impact')->getIdByLabel($data['covid19_salary_impact'])
+            );
+        }
+
+        if (isset($data['covid19_partial_unemployment'])) {
+            $response->setCovid19PartialUnemployment(
+                $this->enums->getEnums('covid19.partial_unemployment')->getIdByLabel($data['covid19_partial_unemployment'])
+            );
+        }
+
+        if (isset($data['covid19_regular_remote_feeling'])) {
+            $response->setCovid19RegularRemoteFeeling(
+                $this->enums->getEnums('covid19.regular_remote_feeling')->getIdByLabel($data['covid19_regular_remote_feeling'])
+            );
+        }
+
+        if (isset($data['covid19_remote_ideal_pace'])) {
+            $response->setCovid19RemoteIdealPace(
+                (int) $data['covid19_remote_ideal_pace']
+            );
+        }
 
         return $response;
     }

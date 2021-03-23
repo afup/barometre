@@ -142,6 +142,16 @@
 
         <service id="afup.barometre.report.meetup_participation" class="Afup\Barometre\Report\MeetupParticipationReport" parent="afup.barometre.report.abstract">
             <tag name="barometre.report" />
+            <call method="setChildReports">
+                <argument type="collection">
+                    <argument type="service">
+                        <service class="Afup\Barometre\Report\MeetupParticipationEvolutionReport">
+                            <argument type="service" id="afup.barometre.request_modifier_collection" />
+                            <argument>%min_result%</argument>
+                        </service>
+                    </argument>
+                </argument>
+            </call>
         </service>
 
         <service id="afup.barometre.report.training_participation" class="Afup\Barometre\Report\TrainingParticipationReport" parent="afup.barometre.report.abstract">

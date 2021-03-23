@@ -228,6 +228,13 @@ class Response
     private $frenchPhpDocumentationQuality;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $cmsUsageInProject;
+
+    /**
      * @ORM\ManyToMany(targetEntity="Certification")
      *
      * @var Collection
@@ -254,6 +261,62 @@ class Response
      * @var bool
      */
     private $isRecentTrainingHadSalaryImpact;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     *
+     * @var int
+     */
+    private $covid19CompanyTrust;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     *
+     * @var int
+     */
+    private $covid19CompanyHandle;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     *
+     * @var int
+     */
+    private $covid19Layoff;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     *
+     * @var int
+     */
+    private $covid19FuturePlan;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     *
+     * @var int
+     */
+    private $covid19SalaryImpact;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     *
+     * @var int
+     */
+    private $covid19PartialUnemployment;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     *
+     * @var int
+     */
+    private $covid19RegularRemoteFeeling;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     *
+     * @var int
+     */
+    private $covid19RemoteIdealPace;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -952,5 +1015,50 @@ class Response
     public function addContainerEnvironmentUsage(ContainerEnvironmentUsage $containerEnvironmentUsage)
     {
         $this->containerEnvironmentsUsage[] = $containerEnvironmentUsage;
+    }
+
+    public function setCmsUsageInProject(int $cmsUsageInProject)
+    {
+        $this->cmsUsageInProject = $cmsUsageInProject;
+    }
+
+    public function setCovid19CompanyTrust(int $covid19CompanyTrust)
+    {
+        $this->covid19CompanyTrust = $covid19CompanyTrust;
+    }
+
+    public function setCovid19CompanyHandle(int $covid19CompanyHandle)
+    {
+        $this->covid19CompanyHandle = $covid19CompanyHandle;
+    }
+
+    public function setCovid19Layoff(int $covid19Layoff)
+    {
+        $this->covid19Layoff = $covid19Layoff;
+    }
+
+    public function setCovid19FuturePlan(int $covid19FuturePlan)
+    {
+        $this->covid19FuturePlan = $covid19FuturePlan;
+    }
+
+    public function setCovid19SalaryImpact(int $covid19SalaryImpact)
+    {
+        $this->covid19SalaryImpact = $covid19SalaryImpact;
+    }
+
+    public function setCovid19PartialUnemployment(int $covid19PartialUnemployment)
+    {
+        $this->covid19PartialUnemployment = $covid19PartialUnemployment;
+    }
+
+    public function setCovid19RegularRemoteFeeling(int $covid19RegularRemoteFeeling)
+    {
+        $this->covid19RegularRemoteFeeling = $covid19RegularRemoteFeeling;
+    }
+
+    public function setCovid19RemoteIdealPace(int $covid19RemoteIdealPace)
+    {
+        $this->covid19RemoteIdealPace = $covid19RemoteIdealPace;
     }
 }
