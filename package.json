@@ -27,7 +27,7 @@
     "grunt-webfont-svg-extractor": "0.0.2",
     "cheerio-select": "0.0.3",
     "highchartTable": "git+https://github.com/highchartTable/jquery-highchartTable-plugin.git",
-    "highcharts": "^5.0.0",
+    "highcharts": "^7.2.2",
     "jquery": "^1.11.3",
     "node-sass": "^4.7.2",
     "sass-lint": "^1.12.1",
