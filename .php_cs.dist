@@ -23,6 +23,10 @@ return PhpCsFixer\Config::create()
         'psr0' => false,
         'single_line_throw' => false,
         'simplified_null_return' => false,
-        'yoda_style' => null,
+        'yoda_style' => [
+            'equal' => null,
+            'identical' => null,
+            'less_and_greater' => null,
+        ],
     ])
 ;

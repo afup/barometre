@@ -11,7 +11,7 @@
     <tbody>
     {% for row in results %}
         <tr>
-            <td>{{ row.containerEnvironmentUsage }}</td>
+            <td>{{ row.containerEnvironmentUsage|default("Non répondu") }}</td>
             <td class="text-right">{{ row.nbResponse }}</td>
         </tr>
     {% endfor %}
