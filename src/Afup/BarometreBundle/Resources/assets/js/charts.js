@@ -62,6 +62,14 @@ $(document).ready(function () {
                 };
             }
 
+            if ($(this).hasClass('evolution-line')) {
+                highChartConfig.series.forEach(function(item) {
+                    item.marker = {
+                        enabled: true
+                    };
+                });
+            }
+
             if ($(this).data('graph-datalabels-format')) {
                 highChartConfig.plotOptions.series.dataLabels = {
                     useHTML: true,
