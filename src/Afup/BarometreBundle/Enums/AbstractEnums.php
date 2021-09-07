@@ -6,7 +6,7 @@ namespace Afup\BarometreBundle\Enums;
 
 abstract class AbstractEnums implements EnumsInterface
 {
-    const AUTRE = 0;
+    public const AUTRE = 0;
 
     protected $choices = [];
 

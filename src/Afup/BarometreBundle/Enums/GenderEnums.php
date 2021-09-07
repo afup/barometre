@@ -6,10 +6,10 @@ namespace Afup\BarometreBundle\Enums;
 
 class GenderEnums extends AbstractEnums
 {
-    const NONE = null;
-    const MALE = 1;
-    const FEMALE = 2;
-    const NON_BINARY = 3;
+    public const NONE = null;
+    public const MALE = 1;
+    public const FEMALE = 2;
+    public const NON_BINARY = 3;
 
     /**
      * @var array

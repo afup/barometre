@@ -6,9 +6,9 @@ namespace Afup\BarometreBundle\Enums;
 
 class PHPDocumentationUsageEnums extends AbstractEnums
 {
-    const IN_FRENCH = 1;
-    const IN_ENGLISH = 2;
-    const FIRST_FRENCH_THEN_ENGLISH = 3;
+    public const IN_FRENCH = 1;
+    public const IN_ENGLISH = 2;
+    public const FIRST_FRENCH_THEN_ENGLISH = 3;
 
     protected $choices = [
         self::IN_FRENCH => 'La documentation de php.net en français',

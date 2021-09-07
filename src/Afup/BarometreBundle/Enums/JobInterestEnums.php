@@ -6,10 +6,10 @@ namespace Afup\BarometreBundle\Enums;
 
 class JobInterestEnums extends AbstractEnums
 {
-    const QUALITE_DE_VIE = 1;
-    const INTERET_TECHNIQUE = 2;
-    const AMBIANCE = 3;
-    const REMUNERATION = 4;
+    public const QUALITE_DE_VIE = 1;
+    public const INTERET_TECHNIQUE = 2;
+    public const AMBIANCE = 3;
+    public const REMUNERATION = 4;
 
     /**
      * @var array
