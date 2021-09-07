@@ -5,7 +5,7 @@ $finder = PhpCsFixer\Finder::create()
         __DIR__ . '/src',
     ])
 ;
-return PhpCsFixer\Config::create()
+return (new PhpCsFixer\Config())
     ->setUsingCache(true)
     ->setRiskyAllowed(true)
     ->setFinder($finder)
