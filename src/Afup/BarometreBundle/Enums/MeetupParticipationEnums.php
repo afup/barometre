@@ -6,9 +6,9 @@ namespace Afup\BarometreBundle\Enums;
 
 class MeetupParticipationEnums extends AbstractEnums
 {
-    public const ONE_PER_MONTH = 1;
-    public const ONE_PER_QUARTER = 2;
-    public const NEVER = 3;
+    const ONE_PER_MONTH = 1;
+    const ONE_PER_QUARTER = 2;
+    const NEVER = 3;
 
     /**
      * @var array

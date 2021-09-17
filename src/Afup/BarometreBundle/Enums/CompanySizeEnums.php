@@ -6,13 +6,13 @@ namespace Afup\BarometreBundle\Enums;
 
 class CompanySizeEnums extends AbstractEnums
 {
-    public const FREELANCE = 0;
-    public const DE_2_A_9 = 1;
-    public const DE_10_A_49 = 2;
-    public const DE_50_A_199 = 3;
-    public const DE_200_A_499 = 4;
-    public const DE_500_A_999 = 5;
-    public const PLUS_DE_1000 = 6;
+    const FREELANCE = 0;
+    const DE_2_A_9 = 1;
+    const DE_10_A_49 = 2;
+    const DE_50_A_199 = 3;
+    const DE_200_A_499 = 4;
+    const DE_500_A_999 = 5;
+    const PLUS_DE_1000 = 6;
 
     /**
      * @var array

@@ -8,9 +8,9 @@ use Afup\BarometreBundle\Enums\AbstractEnums;
 
 class CompanyTrustEnums extends AbstractEnums
 {
-    public const LIKE_BEFORE = 1;
-    public const LESSER = 2;
-    public const BETTER = 3;
+    const LIKE_BEFORE = 1;
+    const LESSER = 2;
+    const BETTER = 3;
 
     protected $choices = [
         self::LIKE_BEFORE => 'Comme avant',

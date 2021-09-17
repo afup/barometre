@@ -6,11 +6,11 @@ namespace Afup\BarometreBundle\Enums;
 
 class InitialTrainingEnums extends AbstractEnums
 {
-    public const AUTODIDACTE = 1;
-    public const BAC = 2;
-    public const BTS_DUT = 3;
-    public const LICENCE = 4;
-    public const MASTER = 5;
+    const AUTODIDACTE = 1;
+    const BAC = 2;
+    const BTS_DUT = 3;
+    const LICENCE = 4;
+    const MASTER = 5;
 
     /**
      * @var array

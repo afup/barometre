@@ -8,9 +8,9 @@ use Afup\BarometreBundle\Enums\AbstractEnums;
 
 class PartialUnemploymentEnums extends AbstractEnums
 {
-    public const NO = 1;
-    public const YES_BUT_STARTED_BACK = 2;
-    public const YES_STILL_IN_PARTIAL_UNEMPLOYMENT = 3;
+    const NO = 1;
+    const YES_BUT_STARTED_BACK = 2;
+    const YES_STILL_IN_PARTIAL_UNEMPLOYMENT = 3;
 
     protected $choices = [
         self::NO => 'Non',

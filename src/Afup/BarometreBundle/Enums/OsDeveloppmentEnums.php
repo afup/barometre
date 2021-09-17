@@ -6,9 +6,9 @@ namespace Afup\BarometreBundle\Enums;
 
 class OsDeveloppmentEnums extends AbstractEnums
 {
-    public const LINUX = 1;
-    public const WINDOWS = 2;
-    public const MACOS = 3;
+    const LINUX = 1;
+    const WINDOWS = 2;
+    const MACOS = 3;
 
     /**
      * @var array

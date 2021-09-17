@@ -6,17 +6,17 @@ namespace Afup\BarometreBundle\Enums;
 
 class PHPVersionEnums extends AbstractEnums
 {
-    public const PHP_4 = 0;
-    public const PHP_52 = 1;
-    public const PHP_53 = 2;
-    public const PHP_54 = 3;
-    public const PHP_55 = 4;
-    public const PHP_56 = 5;
-    public const PHP_70 = 6;
-    public const PHP_71 = 7;
-    public const PHP_72 = 8;
-    public const PHP_73 = 9;
-    public const PHP_74 = 10;
+    const PHP_4 = 0;
+    const PHP_52 = 1;
+    const PHP_53 = 2;
+    const PHP_54 = 3;
+    const PHP_55 = 4;
+    const PHP_56 = 5;
+    const PHP_70 = 6;
+    const PHP_71 = 7;
+    const PHP_72 = 8;
+    const PHP_73 = 9;
+    const PHP_74 = 10;
 
     /**
      * @var array

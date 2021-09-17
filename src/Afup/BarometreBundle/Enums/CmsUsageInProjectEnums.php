@@ -6,9 +6,9 @@ namespace Afup\BarometreBundle\Enums;
 
 class CmsUsageInProjectEnums extends AbstractEnums
 {
-    public const YES_CLASSIC = 1;
-    public const YES_HEADLESS = 2;
-    public const NO = 3;
+    const YES_CLASSIC = 1;
+    const YES_HEADLESS = 2;
+    const NO = 3;
 
     protected $choices = [
         self::YES_CLASSIC => 'Oui un CMS classique (Wordress, Drupal, ...)',
