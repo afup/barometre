@@ -9,7 +9,7 @@ namespace Afup\Barometre\Report;
  */
 class SalaryReport extends AbstractReport
 {
-    const SLICE = 5000;
+    public const SLICE = 5000;
 
     /**
      * {@inheritdoc}

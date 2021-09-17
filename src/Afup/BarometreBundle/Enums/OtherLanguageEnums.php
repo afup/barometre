@@ -6,15 +6,15 @@ namespace Afup\BarometreBundle\Enums;
 
 class OtherLanguageEnums extends AbstractEnums
 {
-    const JAVASCRIPT = 1;
-    const DOT_NET = 2;
-    const JAVA = 3;
-    const RUBY = 4;
-    const PYTHON = 5;
-    const C = 6;
-    const AUTRE = 7;
-    const GO = 8;
-    const RUST = 9;
+    public const JAVASCRIPT = 1;
+    public const DOT_NET = 2;
+    public const JAVA = 3;
+    public const RUBY = 4;
+    public const PYTHON = 5;
+    public const C = 6;
+    public const AUTRE = 7;
+    public const GO = 8;
+    public const RUST = 9;
 
     /**
      * @var array

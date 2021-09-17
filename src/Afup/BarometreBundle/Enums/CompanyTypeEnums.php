@@ -6,13 +6,13 @@ namespace Afup\BarometreBundle\Enums;
 
 class CompanyTypeEnums extends AbstractEnums
 {
-    const PRESSE_MEDIA = 1;
-    const SSII = 2;
-    const AGENCE_COMM = 3;
-    const CLIENT_FINAL = 4;
-    const STARTUP = 5;
-    const EDITEUR = 6;
-    const AGENCE_WEB = 7;
+    public const PRESSE_MEDIA = 1;
+    public const SSII = 2;
+    public const AGENCE_COMM = 3;
+    public const CLIENT_FINAL = 4;
+    public const STARTUP = 5;
+    public const EDITEUR = 6;
+    public const AGENCE_WEB = 7;
 
     /**
      * @var array

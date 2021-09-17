@@ -13,8 +13,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class DepartmentFilter implements FilterInterface
 {
-    const ALL_BUT_PARIS = 'all_but_paris';
-    const ALL_BUT_PARIS_REGION_CODE = '11';
+    public const ALL_BUT_PARIS = 'all_but_paris';
+    public const ALL_BUT_PARIS_REGION_CODE = '11';
 
     /**
      * {@inheritdoc}

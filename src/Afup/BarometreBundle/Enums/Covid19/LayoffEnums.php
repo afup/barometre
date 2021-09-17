@@ -8,8 +8,8 @@ use Afup\BarometreBundle\Enums\AbstractEnums;
 
 class LayoffEnums extends AbstractEnums
 {
-    const YES = 1;
-    const NO = 2;
+    public const YES = 1;
+    public const NO = 2;
 
     protected $choices = [
         self::YES => 'Oui',

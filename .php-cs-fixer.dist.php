@@ -5,7 +5,7 @@ $finder = PhpCsFixer\Finder::create()
         __DIR__ . '/src',
     ])
 ;
-return PhpCsFixer\Config::create()
+return (new PhpCsFixer\Config())
     ->setUsingCache(true)
     ->setRiskyAllowed(true)
     ->setFinder($finder)
@@ -20,7 +20,7 @@ return PhpCsFixer\Config::create()
         'phpdoc_summary' => false,
         'phpdoc_annotation_without_dot' => false,
         'phpdoc_order' => true,
-        'psr0' => false,
+        'psr_autoloading' => false,
         'single_line_throw' => false,
         'simplified_null_return' => false,
         'yoda_style' => [
