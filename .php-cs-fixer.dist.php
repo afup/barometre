@@ -23,6 +23,7 @@ return (new PhpCsFixer\Config())
         'psr_autoloading' => false,
         'single_line_throw' => false,
         'simplified_null_return' => false,
+        'visibility_required' => ['elements' => ['property', 'method']],
         'yoda_style' => [
             'equal' => null,
             'identical' => null,
