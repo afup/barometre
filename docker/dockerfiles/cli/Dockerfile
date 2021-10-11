@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y gnupg
 RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
 RUN apt-get update && apt-get install -y nodejs
 
-RUN npm install -g grunt-cli
+RUN npm install -g grunt-cli@0.1.13
 
 RUN apt-get update -q -y \
     && apt-get install -q -y wget \
