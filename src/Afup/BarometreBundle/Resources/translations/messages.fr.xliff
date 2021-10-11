@@ -44,7 +44,7 @@
             </trans-unit>
             <trans-unit id="filter.salary">
                 <source>filter.salary</source>
-                <target>Salaire</target>
+                <target>Salaire brut</target>
             </trans-unit>
             <trans-unit id="filter.salary.min">
                 <source>filter.salary.min</source>
@@ -228,7 +228,7 @@
             </trans-unit>
             <trans-unit id="report.view.gross_annual_salary">
                 <source>report.view.gross_annual_salary</source>
-                <target>Salaire fixe annuel</target>
+                <target>Salaire brut fixe annuel</target>
             </trans-unit>
 
             <trans-unit id="report.view.variable_annual_salary">
@@ -238,12 +238,12 @@
 
             <trans-unit id="report.view.annual_salary">
                 <source>report.view.annual_salary</source>
-                <target>Salaire annuel (fixe + variable)</target>
+                <target>Salaire brut annuel (fixe + variable)</target>
             </trans-unit>
 
             <trans-unit id="report.view.info_annual_salary">
                 <source>report.view.info_annual_salary</source>
-                <target>Le salaire indiqué est le salaire fixe et variable</target>
+                <target>Le salaire indiqué est le salaire brut fixe et variable</target>
             </trans-unit>
 
             <trans-unit id="report.view.speciality">
