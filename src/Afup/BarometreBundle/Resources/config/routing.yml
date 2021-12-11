@@ -2,7 +2,7 @@ afup_barometre_homepage:
     path: /
     defaults:
         _controller: FrameworkBundle:Redirect:urlRedirect
-        path: /campaign/2021
+        path: /about
         permanent: false
 
 afup_barometre_campaign:
@@ -23,4 +23,6 @@ afup_barometre_report:
 
 afup_barometre_form:
     path: /campaign/2021
-    defaults: {_controller: AfupBarometreBundle:Campaign:form }
+    defaults:
+        _controller: FrameworkBundle:Redirect:urlRedirect
+        path: /about
