@@ -1,11 +1,9 @@
-FROM php:7.0
+FROM php:7.2
 
 RUN apt-get update && apt-get install -y build-essential
 RUN apt-get update && apt-get install -y gnupg
-RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
 RUN apt-get update && apt-get install -y nodejs
-
-RUN npm install -g grunt-cli@0.1.13
 
 RUN apt-get update -q -y \
     && apt-get install -q -y wget \
