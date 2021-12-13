@@ -65,7 +65,7 @@ abstract class AbstractReport implements ReportInterface
      */
     public function hasResults()
     {
-        return \count($this->getData());
+        return $this->data !== null && \count($this->getData());
     }
 
     /**

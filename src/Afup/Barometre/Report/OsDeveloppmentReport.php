@@ -19,7 +19,7 @@ class OsDeveloppmentReport extends AbstractReport
             ->groupBy('response.osDeveloppment')
             ->orderBy('nbResponse', 'desc');
 
-        $this->data = $this->queryBuilder->execute();
+        $this->data = $this->queryBuilder->execute()->fetchAll();
     }
 
     /**
