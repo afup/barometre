@@ -19,7 +19,7 @@ class CompanySizeReport extends AbstractReport
             ->addSelect('COUNT(response.id) as nbResponse')
             ->addGroupBy('response.companySize');
 
-        $this->data = $this->queryBuilder->execute();
+        $this->data = $this->queryBuilder->execute()->fetchAll();
     }
 
     /**

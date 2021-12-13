@@ -23,7 +23,7 @@ class SalarySatisfactionReport extends AbstractReport
             ->groupBy('response.salarySatisfaction')
             ->orderBy('salarySatisfaction', 'desc');
 
-        $this->data = $this->queryBuilder->execute();
+        $this->data = $this->queryBuilder->execute()->fetchAll();
     }
 
     /**

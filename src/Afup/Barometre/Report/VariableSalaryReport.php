@@ -20,7 +20,7 @@ class VariableSalaryReport extends AbstractReport
             ->setParameter(':minResult', $this->minResult)
             ->groupBy('response.experience');
 
-        $this->data = $this->queryBuilder->execute();
+        $this->data = $this->queryBuilder->execute()->fetchAll();
     }
 
     /**

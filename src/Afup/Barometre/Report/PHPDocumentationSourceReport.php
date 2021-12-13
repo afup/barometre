@@ -27,6 +27,6 @@ class PHPDocumentationSourceReport extends AbstractReport
             ->groupBy('response.phpDocumentationSource')
             ->orderBy('nbResponse', 'desc');
 
-        $this->data = $this->queryBuilder->execute();
+        $this->data = $this->queryBuilder->execute()->fetchAll();
     }
 }

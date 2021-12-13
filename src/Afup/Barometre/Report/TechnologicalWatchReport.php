@@ -19,7 +19,7 @@ class TechnologicalWatchReport extends AbstractReport
             ->groupBy('response.technologicalWatch')
             ->orderBy('nbResponse', 'desc');
 
-        $this->data = $this->queryBuilder->execute();
+        $this->data = $this->queryBuilder->execute()->fetchAll();
     }
 
     /**

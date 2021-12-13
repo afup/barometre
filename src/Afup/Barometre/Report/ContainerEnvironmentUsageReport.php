@@ -40,6 +40,6 @@ class ContainerEnvironmentUsageReport extends AbstractReport
             ->orderBy('nbResponse', 'desc')
         ;
 
-        $this->data = $this->queryBuilder->execute();
+        $this->data = $this->queryBuilder->execute()->fetchAll();
     }
 }
