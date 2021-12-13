@@ -1,3 +1,5 @@
+const sass = require('node-sass');
+
 module.exports = function(grunt) {
 
   grunt.initConfig({
@@ -61,6 +63,9 @@ module.exports = function(grunt) {
 
 
     sass: {
+       options: {
+           implementation: sass,
+       },
        dist: {
           options: {
             style: 'expanded'
@@ -191,19 +196,6 @@ module.exports = function(grunt) {
             },
             command: './bin/coke'
         }
-    },
-    favicons: {
-      options: {
-        trueColor: true,
-        precomposed: true,
-        appleTouchBackgroundColor: "#ffffff",
-        html: 'app/Resources/views/favicons/favicons.html',
-        HTMLPrefix: '/assets/favicons/'
-      },
-      icons: {
-        src: 'src/Afup/BarometreBundle/Resources/assets/logos/barometre-logo.svg',
-        dest: 'web/assets/favicons/'
-      }
     }
   });
 
@@ -222,11 +214,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-sass-lint');
   grunt.loadNpmTasks('grunt-webfont');
   grunt.loadNpmTasks('grunt-webfont-svg-extractor');
-  grunt.loadNpmTasks('grunt-favicons');
 
   grunt.registerTask('test', ['shell:atoum']);
   grunt.registerTask('lint', ['shell:coke', 'jshint', 'sasslint']);
-  grunt.registerTask('common', ['clean', 'copy', 'webfont_svg_extractor', 'webfont', 'sass', 'concat', 'favicons']);
+  grunt.registerTask('common', ['clean', 'copy', 'webfont_svg_extractor', 'webfont', 'sass', 'concat']);
   grunt.registerTask('dev', ['common', 'filerev']);
   grunt.registerTask('default', ['common', 'uglify', 'cssmin', 'filerev']);
 

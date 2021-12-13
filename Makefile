@@ -4,7 +4,7 @@ CURRENT_UID ?= $(shell id -u)
 
 init:
 	docker-compose run --rm cli /bin/bash -l -c "make vendors"
-	docker-compose run --rm cli /bin/bash -l -c "grunt"
+	docker-compose run --rm cli /bin/bash -l -c "./node_modules/grunt-cli/bin/grunt"
 	docker-compose run --rm cli /bin/bash -l -c "php bin/console doctrine:schema:update --force"
 	docker-compose run --rm cli /bin/bash -l -c "php -d "memory_limit=-1" bin/console doctrine:fixtures:load --no-interaction --fixtures=src/Afup/BarometreBundle/DataTest/ORM/"
 
