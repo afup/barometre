@@ -55,8 +55,10 @@ module.exports = function(grunt) {
                 },
                 relativeFontPath: '/assets/fonts/',
                 htmlDemo: false,
+                fontHeight: 1024,
                 engine: 'node',
-                stylesheet: 'scss'
+                stylesheet: 'scss',
+                types: 'eot,woff,ttf,svg'
             }
         }
     },
