@@ -2,6 +2,7 @@
 
 namespace Afup\BarometreBundle\Campaign\Tests\Units;
 
+use Afup\BarometreBundle\Entity\Campaign;
 use atoum;
 use Afup\BarometreBundle\Campaign\ResponseFactory as TestedClass;
 use Afup\BarometreBundle\Enums\CompanySizeEnums;
@@ -19,6 +20,7 @@ use Afup\BarometreBundle\Enums\PHPVersionEnums;
 use Afup\BarometreBundle\Enums\RemoteUsageEnums;
 use Afup\BarometreBundle\Enums\StatusEnums;
 use Afup\BarometreBundle\Enums\TechnologicalWatchEnums;
+use Doctrine\Common\Persistence\ObjectRepository;
 
 class ResponseFactory extends atoum
 {
@@ -43,14 +45,18 @@ class ResponseFactory extends atoum
         $enumCollection->addEnums(new RemoteUsageEnums(), 'remote_usage');
         $enumCollection->addEnums(new MeetupParticipationEnums(), 'meetup_participation');
 
-        $certificationRepository = new \mock\Doctrine\Common\Persistence\ObjectRepository();
-        $specialityRepository = new \mock\Doctrine\Common\Persistence\ObjectRepository();
+        $certificationRepository = $this->newMockInstance(ObjectRepository::class);
+        $specialityRepository = $this->newMockInstance(ObjectRepository::class);
+        $hostingTypeRepository = $this->newMockInstance(ObjectRepository::class);
+        $containerEnvironmentUsageRepository = $this->newMockInstance(ObjectRepository::class);
 
-        $testedClass = new TestedClass(
+        $testedClass = $this->newTestedInstance(
             $numberFormatter,
             $enumCollection,
             $certificationRepository,
-            $specialityRepository
+            $specialityRepository,
+            $hostingTypeRepository,
+            $containerEnvironmentUsageRepository
         );
 
         $data = array (
@@ -81,9 +87,11 @@ class ResponseFactory extends atoum
             'other_language' => '',
             'meetup_participation' => '',
             'remote_usage' => '',
+            'hosting_type' => '',
+            'container_environment_usage' => ''
         );
 
-        $campaign = new \Afup\BarometreBundle\Entity\Campaign();
+        $campaign = new Campaign();
 
         $this
             ->object($response = $testedClass->createResponse($data, $campaign))
