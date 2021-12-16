@@ -45,15 +45,6 @@ class Format2014 implements FormatInterface
      */
     public function alterData(array $data)
     {
-        // TODO gerer le cas vide, 3-5 et 6-10 dans l'import 2013
-//        if (trim($data['experience']) == '') {
-//            $data['experience'] = "0 à 2 ans";
-//        } elseif ($data['experience'] == '2 à 5 ans') {
-//            $data['experience'] = "3 à 5 ans";
-//        } elseif ($data['experience'] == '5 à 10 ans') {
-//            $data['experience'] = "6 à 10 ans";
-//        }
-
         $data['annual_salary'] = $data['gross_annual_salary'] + $data['variable_annual_salary'];
 
         if ($data['gender'] == 'Un homme' || $data['gender'] == 'Homme') {
