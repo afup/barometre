@@ -1,10 +1,10 @@
 parameters:
     database_driver:   pdo_mysql
-    database_host:     db
-    database_port: null
-    database_name: barometre
-    database_user: barometreuser
-    database_password: barometrepass
+    database_host:     '%env(string:DB_HOST)%'
+    database_port: '%env(DB_PORT)%'
+    database_name: '%env(string:DB_NAME)%'
+    database_user: '%env(string:DB_USER)%'
+    database_password: '%env(string:DB_PASSWORD)%'
 
     mailer_transport:  smtp
     mailer_host:       127.0.0.1
@@ -12,9 +12,9 @@ parameters:
     mailer_password:   ~
 
     locale:            fr
-    secret:            576cb917df25a75913295cedb90e2d8481868925fff
+    secret:            '%env(string:APP_SECRET)%'
 
-    ga_enabled: false
+    ga_enabled: '%env(bool:GA_ENABLED)%'
 
     min_result:        5
 
