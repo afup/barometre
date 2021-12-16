@@ -20,6 +20,8 @@ services:
       - .:/var/www/html
     depends_on:
       - db
+    env_file:
+      - .env
 
   cli:
     build:
@@ -32,3 +34,5 @@ services:
     working_dir: /var/www/html
     depends_on:
       - db
+    env_file:
+      - .env
