@@ -23,6 +23,9 @@ vendor: composer.phar app/config/parameters.yml
 node_modules:
 	npm install
 
+asset_install:
+	node_modules/grunt-cli/bin/grunt
+
 app/config/parameters.yml:
 	cp app/config/parameters.yml.dist app/config/parameters.yml
 
@@ -49,3 +52,7 @@ docker-compose.override.yml:
 
 cs-fix:
 	docker run --rm -it -w=/app -v ${PWD}:/app oskarstark/php-cs-fixer-ga:latest
+
+deploy: node_modules asset_install
+	rm -f web/app_dev.php
+	php bin/console doctrine:migrations:migrate --env=prod --no-interaction
