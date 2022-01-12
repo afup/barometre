@@ -1,4 +1,4 @@
-FROM php:7.2
+FROM php:7.4
 
 RUN apt-get update && apt-get install -y build-essential
 RUN apt-get update && apt-get install -y gnupg
@@ -11,7 +11,10 @@ RUN apt-get update -q -y \
         libicu-dev \
         bash-completion \
         imagemagick \
-        zlib1g-dev
+        zlib1g-dev \
+	libzip-dev
+
+COPY --from=composer:1.10.22 /usr/bin/composer /usr/local/bin/composer
 
 RUN docker-php-ext-install intl
 RUN docker-php-ext-install zip
