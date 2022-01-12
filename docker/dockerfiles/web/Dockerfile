@@ -1,9 +1,8 @@
-FROM php:7.2-apache
+FROM php:7.4-apache
 
-RUN apt-get update && apt-get install -y zlibc zlib1g zlib1g-dev
+RUN apt-get update && apt-get install -y zlib1g zlib1g-dev
 RUN echo "date.timezone=Europe/Paris" >> "/usr/local/etc/php/php.ini"
 RUN docker-php-ext-install pdo_mysql
-RUN docker-php-ext-install mbstring
 RUN apt-get update && apt-get install -y libicu-dev build-essential
 RUN docker-php-ext-install intl
 RUN echo "Include sites-enabled/" >> /etc/apache2/apache2.conf

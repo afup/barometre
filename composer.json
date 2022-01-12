@@ -8,9 +8,9 @@
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },
     "require": {
-        "php": ">=7.0",
+        "php": ">=7.4",
         "doctrine/doctrine-bundle": "^1.6",
-        "doctrine/orm": "^2.5",
+        "doctrine/orm": "~2.6.0",
         "incenteev/composer-parameter-handler": "^2.0",
         "sensio/distribution-bundle": "^5.0.19",
         "sensio/framework-extra-bundle": "^5.0.0",
@@ -52,10 +52,7 @@
         ]
     },
     "config": {
-        "bin-dir": "bin",
-        "platform": {
-            "php": "7.0.33"
-        }
+        "bin-dir": "bin"
     },
     "extra": {
         "symfony-bin-dir": "bin",
