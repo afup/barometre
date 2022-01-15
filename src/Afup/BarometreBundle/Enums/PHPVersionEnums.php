@@ -17,6 +17,8 @@ class PHPVersionEnums extends AbstractEnums
     const PHP_72 = 8;
     const PHP_73 = 9;
     const PHP_74 = 10;
+    const PHP_80 = 11;
+    const PHP_81 = 12;
 
     /**
      * @var array
@@ -33,6 +35,8 @@ class PHPVersionEnums extends AbstractEnums
         self::PHP_72 => 'PHP 7.2',
         self::PHP_73 => 'PHP 7.3',
         self::PHP_74 => 'PHP 7.4',
+        self::PHP_80 => 'PHP 8.0',
+        self::PHP_81 => 'PHP 8.1',
     ];
 
     /**

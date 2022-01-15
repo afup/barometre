@@ -584,8 +584,6 @@ class Response
     }
 
     /**
-     * @param JobInterest $jobInterests
-     *
      * @return Response
      */
     public function addJobInterest(JobInterest $jobInterest)
@@ -596,8 +594,6 @@ class Response
     }
 
     /**
-     * @param JobInterest $jobInterests
-     *
      * @return Response
      */
     public function removeJobInterest(JobInterest $jobInterest)
@@ -1096,25 +1092,16 @@ class Response
         $this->covid19RemoteIdealPace = $covid19RemoteIdealPace;
     }
 
-    /**
-     * @return int
-     */
     public function getRetraining(): int
     {
         return $this->retraining;
     }
 
-    /**
-     * @param int $retraining
-     */
     public function setRetraining(int $retraining)
     {
         $this->retraining = $retraining;
     }
 
-    /**
-     * @return int
-     */
     public function getRemotePace(): int
     {
         return $this->remotePace;

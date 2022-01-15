@@ -16,9 +16,6 @@ use agallou\Departements\Collection as Departments;
 use Doctrine\Common\Persistence\ObjectRepository;
 use NumberFormatter;
 
-use function in_array;
-use function strlen;
-
 class ResponseFactory
 {
     /**
@@ -125,7 +122,7 @@ class ResponseFactory
         }
 
         $department = new Departments();
-        if (in_array($data['company_department'], array_keys($department->getAll()))) {
+        if (\in_array($data['company_department'], array_keys($department->getAll()))) {
             $response->setCompanyDepartment(
                 $data['company_department']
             );
@@ -175,14 +172,14 @@ class ResponseFactory
                         ->getIdByLabel($data['os_developpment'])
         );
 
-        if (isset($data['hosting_type']) && strlen(trim($data['hosting_type'])) !== 0) {
+        if (isset($data['hosting_type']) && \strlen(trim($data['hosting_type'])) !== 0) {
             $this->addHostingType(
                 $response,
                 explode(', ', $data['hosting_type'])
             );
         }
 
-        if (isset($data['container_environment_usage']) && strlen(trim($data['container_environment_usage'])) !== 0) {
+        if (isset($data['container_environment_usage']) && \strlen(trim($data['container_environment_usage'])) !== 0) {
             $this->addContainerEnvironmentUsage(
                 $response,
                 explode(', ', $data['container_environment_usage'])
@@ -196,7 +193,7 @@ class ResponseFactory
             );
         }
 
-        if (strlen(trim($data['speciality'])) !== 0) {
+        if (\strlen(trim($data['speciality'])) !== 0) {
             $this->addSpeciality(
                 $response,
                 explode(', ', $data['speciality'])
@@ -237,7 +234,7 @@ class ResponseFactory
             'oui' === strtolower($data['has_formation'])
         );
 
-        if (strlen($data['formation_impact'])) {
+        if (\strlen($data['formation_impact'])) {
             $response->setRecentTrainingHadSalaryImpact(
                 'oui' === strtolower($data['formation_impact'])
             );
