@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Afup\BarometreBundle\Enums;
 
-class RetrainingEnums
+class RetrainingEnums extends AbstractEnums
 {
     const YES_SHORT = 1;
     const YES_LONG = 2;

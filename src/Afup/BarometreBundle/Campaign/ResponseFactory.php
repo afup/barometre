@@ -155,7 +155,8 @@ class ResponseFactory
             $this->enums->getEnums('remote_usage')
                         ->getIdByLabel($data['remote_usage'])
         );
-        if (isset($data['company_origin'])) {
+
+        if (isset($data['remote_pace'])) {
             $response->setRemotePace((int) $data['remote_pace']);
         }
 
@@ -174,14 +175,14 @@ class ResponseFactory
                         ->getIdByLabel($data['os_developpment'])
         );
 
-        if (strlen(trim($data['hosting_type'])) !== 0) {
+        if (isset($data['hosting_type']) && strlen(trim($data['hosting_type'])) !== 0) {
             $this->addHostingType(
                 $response,
                 explode(', ', $data['hosting_type'])
             );
         }
 
-        if (strlen(trim($data['container_environment_usage'])) !== 0) {
+        if (isset($data['container_environment_usage']) && strlen(trim($data['container_environment_usage'])) !== 0) {
             $this->addContainerEnvironmentUsage(
                 $response,
                 explode(', ', $data['container_environment_usage'])
