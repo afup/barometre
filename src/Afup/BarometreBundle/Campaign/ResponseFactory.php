@@ -8,6 +8,7 @@ use Afup\BarometreBundle\Entity\Campaign;
 use Afup\BarometreBundle\Entity\Certification;
 use Afup\BarometreBundle\Entity\ContainerEnvironmentUsage;
 use Afup\BarometreBundle\Entity\HostingType;
+use Afup\BarometreBundle\Entity\JobInterest;
 use Afup\BarometreBundle\Entity\Response;
 use Afup\BarometreBundle\Entity\Speciality;
 use Afup\BarometreBundle\Enums\EnumsCollection;
@@ -15,10 +16,13 @@ use agallou\Departements\Collection as Departments;
 use Doctrine\Common\Persistence\ObjectRepository;
 use NumberFormatter;
 
+use function in_array;
+use function strlen;
+
 class ResponseFactory
 {
     /**
-     * @var \NumberFormatter
+     * @var NumberFormatter
      */
     private $numberFormatter;
 
@@ -44,6 +48,10 @@ class ResponseFactory
      * @var ObjectRepository
      */
     private $containerEnvironmentUsageRepository;
+    /**
+     * @var ObjectRepository
+     */
+    private $jobInterestRepository;
 
     public function __construct(
         NumberFormatter $numberFormatter,
@@ -51,7 +59,8 @@ class ResponseFactory
         ObjectRepository $certificationRepository,
         ObjectRepository $specialityRepository,
         ObjectRepository $hostingTypeRepository,
-        ObjectRepository $containerEnvironmentUsageRepository
+        ObjectRepository $containerEnvironmentUsageRepository,
+        ObjectRepository $jobInterestRepository
     ) {
         $this->numberFormatter = $numberFormatter;
         $this->enums = $enums;
@@ -59,12 +68,10 @@ class ResponseFactory
         $this->specialityRepository = $specialityRepository;
         $this->hostingTypeRepository = $hostingTypeRepository;
         $this->containerEnvironmentUsageRepository = $containerEnvironmentUsageRepository;
+        $this->jobInterestRepository = $jobInterestRepository;
     }
 
-    /**
-     * @return Response
-     */
-    public function createResponse(array $data, Campaign $campaign)
+    public function createResponse(array $data, Campaign $campaign): Response
     {
         $response = new Response();
 
@@ -86,6 +93,11 @@ class ResponseFactory
             $this->enums->getEnums('initial_training')
                         ->getIdByLabel($data['initial_training'])
         );
+
+        if (isset($data['retraining'])) {
+            $response->setRetraining($this->enums->getEnums('retraining')->getIdByLabel($data['retraining']));
+        }
+
         $response->setStatus(
             $this->enums->getEnums('status')
                         ->getIdByLabel($data['status'])
@@ -99,12 +111,10 @@ class ResponseFactory
                         ->getIdByLabel($data['experience'])
         );
 
-        $response->setFreelanceTjm(
-            isset($data['freelance_tjm']) ? $data['freelance_tjm'] : null
-        );
+        $response->setFreelanceTjm($data['freelance_tjm'] ?? null);
 
         $response->setFreelanceAverageWorkDayPerYear(
-            isset($data['freelance_average_work_day']) ? $data['freelance_average_work_day'] : null
+            $data['freelance_average_work_day'] ?? null
         );
 
         if (isset($data['contract_work_duration'])) {
@@ -115,7 +125,7 @@ class ResponseFactory
         }
 
         $department = new Departments();
-        if (\in_array($data['company_department'], array_keys($department->getAll()))) {
+        if (in_array($data['company_department'], array_keys($department->getAll()))) {
             $response->setCompanyDepartment(
                 $data['company_department']
             );
@@ -130,10 +140,7 @@ class ResponseFactory
                         ->getIdByLabel($data['company_size'])
         );
 
-        $response->setJobInterest(
-            $this->enums->getEnums('job_interest')
-                        ->getIdByLabel($data['job_interest'])
-        );
+        $this->addJobInterest($response, explode(', ', $data['job_interest']));
 
         if (isset($data['company_origin'])) {
             $response->setCompanyOrigin($data['company_origin']);
@@ -148,6 +155,9 @@ class ResponseFactory
             $this->enums->getEnums('remote_usage')
                         ->getIdByLabel($data['remote_usage'])
         );
+        if (isset($data['company_origin'])) {
+            $response->setRemotePace((int) $data['remote_pace']);
+        }
 
         $response->setMeetupParticipation(
             $this->enums->getEnums('meetup_participation')
@@ -164,14 +174,14 @@ class ResponseFactory
                         ->getIdByLabel($data['os_developpment'])
         );
 
-        if (\strlen(trim($data['hosting_type'])) !== 0) {
+        if (strlen(trim($data['hosting_type'])) !== 0) {
             $this->addHostingType(
                 $response,
                 explode(', ', $data['hosting_type'])
             );
         }
 
-        if (\strlen(trim($data['container_environment_usage'])) !== 0) {
+        if (strlen(trim($data['container_environment_usage'])) !== 0) {
             $this->addContainerEnvironmentUsage(
                 $response,
                 explode(', ', $data['container_environment_usage'])
@@ -185,7 +195,7 @@ class ResponseFactory
             );
         }
 
-        if (\strlen(trim($data['speciality'])) !== 0) {
+        if (strlen(trim($data['speciality'])) !== 0) {
             $this->addSpeciality(
                 $response,
                 explode(', ', $data['speciality'])
@@ -226,7 +236,7 @@ class ResponseFactory
             'oui' === strtolower($data['has_formation'])
         );
 
-        if (\strlen($data['formation_impact'])) {
+        if (strlen($data['formation_impact'])) {
             $response->setRecentTrainingHadSalaryImpact(
                 'oui' === strtolower($data['formation_impact'])
             );
@@ -295,6 +305,12 @@ class ResponseFactory
             );
         }
 
+        if (isset($data['covid19_work_condition'])) {
+            $response->setCovid19WorkCondition(
+                (int) $data['covid19_work_condition']
+            );
+        }
+
         return $response;
     }
 
@@ -351,6 +367,19 @@ class ResponseFactory
             }
 
             $response->addContainerEnvironmentUsage($containerEnvironmentUsage);
+        }
+    }
+
+    private function addJobInterest(Response $response, array $jobInterests)
+    {
+        foreach ($jobInterests as $name) {
+            $jobInterest = $this->jobInterestRepository->findOneBy(['name' => $name]);
+
+            if (!$jobInterest instanceof JobInterest) {
+                continue;
+            }
+
+            $response->addJobInterest($jobInterest);
         }
     }
 }

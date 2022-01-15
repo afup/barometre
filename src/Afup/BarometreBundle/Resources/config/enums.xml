@@ -34,8 +34,8 @@
             <tag name="barometre.enums" alias="initial_training"/>
         </service>
 
-        <service id="afup.barometre.enums.job_interest" class="Afup\BarometreBundle\Enums\JobInterestEnums">
-            <tag name="barometre.enums" alias="job_interest"/>
+        <service id="afup.barometre.enums.retraining" class="Afup\BarometreBundle\Enums\RetrainingEnums">
+            <tag name="barometre.enums" alias="retraining"/>
         </service>
 
         <service id="afup.barometre.enums.job_title" class="Afup\BarometreBundle\Enums\JobTitleEnums">
