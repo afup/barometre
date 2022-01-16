@@ -10,15 +10,8 @@ init:
 
 vendors: node_modules vendor
 
-composer.phar:
-	$(eval EXPECTED_SIGNATURE = "$(shell wget -q -O - https://composer.github.io/installer.sig)")
-	$(eval ACTUAL_SIGNATURE = "$(shell php -r "copy('https://getcomposer.org/installer', 'composer-setup.php'); echo hash_file('SHA384', 'composer-setup.php');")")
-	@if [ "$(EXPECTED_SIGNATURE)" != "$(ACTUAL_SIGNATURE)" ]; then echo "Invalid signature"; exit 1; fi
-	php composer-setup.php
-	rm composer-setup.php
-
-vendor: composer.phar app/config/parameters.yml
-	php composer.phar install
+vendor: app/config/parameters.yml
+	composer install
 
 node_modules:
 	npm install
@@ -32,9 +25,9 @@ app/config/parameters.yml:
 docker-up: var/logs/.docker-build data_dirs
 	docker-compose up
 
-docker-build: app/logs/.docker-build
+docker-build: var/logs/.docker-build
 
-app/logs/.docker-build: docker-compose.yml docker-compose.override.yml $(shell find docker/dockerfiles -type f)
+var/logs/.docker-build: docker-compose.yml docker-compose.override.yml $(shell find docker/dockerfiles -type f)
 	docker-compose rm --force
 	CURRENT_UID=$(CURRENT_UID) docker-compose build
 	touch var/logs/.docker-build
