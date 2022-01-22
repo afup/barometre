@@ -6,11 +6,11 @@ init:
 	docker-compose run --rm cli /bin/bash -l -c "make vendors"
 	docker-compose run --rm cli /bin/bash -l -c "./node_modules/grunt-cli/bin/grunt"
 	docker-compose run --rm cli /bin/bash -l -c "php bin/console doctrine:schema:update --force"
-	docker-compose run --rm cli /bin/bash -l -c "php -d "memory_limit=-1" bin/console doctrine:fixtures:load --no-interaction --fixtures=src/Afup/BarometreBundle/DataTest/ORM/"
+	docker-compose run --rm cli /bin/bash -l -c "php -d "memory_limit=-1" bin/console doctrine:fixtures:load --no-interaction"
 
 vendors: node_modules vendor
 
-vendor: app/config/parameters.yml
+vendor:
 	composer install
 
 node_modules:
@@ -18,9 +18,6 @@ node_modules:
 
 asset_install:
 	node_modules/grunt-cli/bin/grunt
-
-app/config/parameters.yml:
-	cp app/config/parameters.yml.dist app/config/parameters.yml
 
 docker-up: var/logs/.docker-build data_dirs
 	docker-compose up

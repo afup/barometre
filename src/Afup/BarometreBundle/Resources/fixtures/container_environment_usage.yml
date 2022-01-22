@@ -1,7 +1,0 @@
-Afup\BarometreBundle\Entity\ContainerEnvironmentUsage:
-    in_dev:
-        name: 'En développement'
-    in_staging:
-        name: 'En recette'
-    in_prod:
-        name: 'En production'

@@ -1,18 +1,25 @@
-/web/bundles/
-/app/config/parameters.yml
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/config/secrets/prod/prod.decrypt.private.php
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
 /var/*
 !var/logs/.gitkeep
 !var/cache/.gitkeep
 /build/
-/vendor/
 /bin/*
 !/bin/console
-/composer.phar
 /node_modules/
-/web/assets/
-/web/js/
-/src/Afup/BarometreBundle/Resources/assets/sass/vendor/
-/src/Afup/BarometreBundle/Resources/assets/sass/generated/
+/public/assets/
+/public/js/
+/assets/sass/vendor/
+/assets/sass/generated/
 /.sass-cache/
 /app/Resources/views/favicons/
 /docker/data

@@ -1,4 +1,4 @@
-FROM php:7.4
+FROM php:8.0
 
 RUN apt-get update && apt-get install -y build-essential
 RUN apt-get update && apt-get install -y gnupg
@@ -14,7 +14,7 @@ RUN apt-get update -q -y \
         zlib1g-dev \
 	libzip-dev
 
-COPY --from=composer:1.10.22 /usr/bin/composer /usr/local/bin/composer
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
 RUN docker-php-ext-install intl
 RUN docker-php-ext-install zip

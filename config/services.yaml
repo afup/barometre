@@ -1,0 +1,307 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices.html#use-parameters-for-application-configuration
+
+imports:
+    - { resource: 'press_review.yml' }
+
+parameters:
+    minResult: '%env(int:MIN_RESULT)%'
+
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+    _instanceof:
+        App\Enums\EnumsInterface:
+            tags: ['barometre.enums']
+
+        App\Filter\FilterInterface:
+            tags: [ 'barometre.filter' ]
+
+        App\RequestModifier\RequestModifierInterface:
+            tags: [ 'barometre.request_modifier' ]
+
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    App\:
+        resource: '../src/'
+        exclude:
+            - '../src/DependencyInjection/'
+            - '../src/Entity/'
+            - '../src/Kernel.php'
+            - '../src/Tests/'
+            - '../src/Twig/'
+
+    App\ReportManager:
+        shared: false
+        public: true
+
+    App\Enums\EnumsCollection:
+        arguments:
+            - !tagged_iterator barometre.enums
+
+    App\Filter\FilterCollection:
+        shared: false
+        arguments:
+            - !tagged_iterator barometre.filter
+
+    App\Report\ReportCollection:
+        arguments:
+            - !tagged_iterator barometre.report
+
+    App\RequestModifier\RequestModifierCollection:
+        arguments:
+            - !tagged_iterator barometre.request_modifier
+
+    App\Menu\MenuBuilder:
+        arguments:
+            - '@knp_menu.factory'
+            - '@App\Report\ReportCollection'
+            - '@App\Filtering\DefaultContext'
+
+    App\Filtering\DefaultContext:
+        factory: [ '@App\Filtering\DefaultContextFactory', 'createFromRequestStack' ]
+        arguments: [ '@request_stack' ]
+
+    app.menu:
+        class: Knp\Menu\MenuItem # the service definition requires setting the class
+        factory: [ '@App\Menu\MenuBuilder', 'createSimpleMenu' ]
+        arguments: [ "@request_stack" ]
+        tags:
+            - { name: knp_menu.menu, alias: menu } # The alias is what is used to retrieve the menu
+
+    app.complete_menu:
+        class: Knp\Menu\MenuItem # the service definition requires setting the class
+        factory: [ '@App\Menu\MenuBuilder', 'createMenu' ]
+        arguments: [ "@request_stack" ]
+        tags:
+            - { name: knp_menu.menu, alias: complete_menu } # The alias is what is used to retrieve the menu
+
+    app.reports_menu:
+        class: Knp\Menu\MenuItem # the service definition requires setting the class
+        factory: [ '@App\Menu\MenuBuilder', 'createReportsMenu' ]
+        arguments: [ "@request_stack" ]
+        tags:
+            - { name: knp_menu.menu, alias: reports_menu } # The alias is what is used to retrieve the menu
+
+    afup.barometre.reports_menu.renderer:
+        class: '%knp_menu.renderer.twig.class%'
+        arguments:
+            - '@twig'
+            - 'Default/knp_menu_reports.html.twig'
+            - '@knp_menu.matcher'
+            - '%knp_menu.renderer.twig.options%'
+        tags:
+            - { name: knp_menu.renderer, alias: reports } # The alias is what is used to retrieve the menu
+
+    afup.barometre.filter_form:
+        class: Symfony\Component\Form\FormInterface
+        factory: [ "@form.factory", create]
+        arguments: [ App\Form\Type\FilterType ]
+        shared: false
+
+    Symfony\Component\Form\FormInterface: '@afup.barometre.filter_form'
+
+    App\Twig\Enums:
+        tags:
+          - { name: twig.extension }
+
+    App\Twig\Extension\DepartmentExtension:
+        tags:
+          - { name: twig.extension }
+
+    App\Twig\Extension\CountyExtension:
+        tags:
+          - { name: twig.extension }
+
+    App\EventListener\ResponseListener:
+        tags:
+            - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse }
+
+    # Reports
+    App\Report\AbstractReport:
+        abstract: true
+        arguments: ['%minResult%']
+
+    App\Report\AbstractDistributionEvolutionReport:
+        abstract: true
+        arguments: ['@App\RequestModifier\RequestModifierCollection', '%minResult%']
+
+    App\Report\CompanySizeReport:
+        parent: App\Report\AbstractReport
+        tags: ['barometre.report']
+
+    App\Report\SalaryEvolutionReport:
+        arguments: ['@App\RequestModifier\RequestModifierCollection', '%minResult%']
+
+    App\Report\SalaryReport:
+        parent: App\Report\AbstractReport
+        calls:
+            - setChildReports: [['@App\Report\SalaryEvolutionReport']]
+        tags: [ 'barometre.report' ]
+
+    App\Report\CompanyTypeReport:
+        parent: App\Report\AbstractReport
+        tags: ['barometre.report']
+
+    App\Report\JobTitleReport:
+        parent: App\Report\AbstractReport
+        tags: [ 'barometre.report' ]
+
+    App\Report\StatusEvolutionReport:
+        parent: App\Report\AbstractDistributionEvolutionReport
+
+    App\Report\StatusReport:
+        parent: App\Report\AbstractReport
+        calls:
+            - setChildReports: [ [ '@App\Report\StatusEvolutionReport' ] ]
+        tags: [ 'barometre.report' ]
+
+    App\Report\CompanyDepartmentReport:
+        parent: App\Report\AbstractReport
+        tags: [ 'barometre.report' ]
+
+    App\Report\CompanyCountyReport:
+        parent: App\Report\AbstractReport
+        tags: [ 'barometre.report' ]
+
+    App\Report\SpecialityReport:
+        parent: App\Report\AbstractReport
+        tags: [ 'barometre.report' ]
+
+    App\Report\ExperienceSalaryReport:
+        parent: App\Report\AbstractReport
+        tags: [ 'barometre.report' ]
+
+    App\Report\VariableSalaryReport:
+        parent: App\Report\AbstractReport
+        tags: [ 'barometre.report' ]
+
+#    App\Report\CompanyTypeReport: nom avec salary
+#        parent: App\Report\AbstractReport
+#        tags: [ 'barometre.report' ]
+
+    App\Report\CompanySizeSalaryReport:
+        parent: App\Report\AbstractReport
+        tags: [ 'barometre.report' ]
+
+    App\Report\SpecialitySalaryReport:
+        parent: App\Report\AbstractReport
+        tags: [ 'barometre.report' ]
+
+    App\Report\SalarySatisfactionReport:
+        parent: App\Report\AbstractReport
+        tags: [ 'barometre.report' ]
+
+    App\Report\PhpVersionEvolutionReport:
+        parent: App\Report\AbstractDistributionEvolutionReport
+
+    App\Report\PhpVersionReport:
+        parent: App\Report\AbstractReport
+        calls:
+            - setChildReports: [ [ '@App\Report\PhpVersionEvolutionReport' ] ]
+        tags: [ 'barometre.report' ]
+
+    App\Report\GenderSalaryEvolutionReport:
+        arguments: [ '@App\RequestModifier\RequestModifierCollection', '%minResult%' ]
+
+    App\Report\GenderCountEvolutionReport:
+        parent: App\Report\AbstractDistributionEvolutionReport
+
+    App\Report\GenderReport:
+        parent: App\Report\AbstractReport
+        calls:
+            - setChildReports: [ [ '@App\Report\GenderSalaryEvolutionReport', '@App\Report\GenderCountEvolutionReport'  ] ]
+        tags: [ 'barometre.report' ]
+
+    App\Report\OsDeveloppmentReport:
+        parent: App\Report\AbstractReport
+        tags: [ 'barometre.report' ]
+
+    App\Report\PHPDocumentationSourceReport:
+        parent: App\Report\AbstractReport
+        tags: [ 'barometre.report' ]
+
+    App\Report\FrenchPhpDocumentationQualityReport:
+        parent: App\Report\AbstractReport
+        tags: [ 'barometre.report' ]
+
+    App\Report\RemoteUsageEvolutionReport:
+        parent: App\Report\AbstractDistributionEvolutionReport
+
+    App\Report\RemoteUsageReport:
+        parent: App\Report\AbstractReport
+        calls:
+            - setChildReports: [ [ '@App\Report\RemoteUsageEvolutionReport' ] ]
+        tags: [ 'barometre.report' ]
+
+    App\Report\TechnologicalWatchReport:
+        parent: App\Report\AbstractReport
+        tags: [ 'barometre.report' ]
+
+    App\Report\MeetupParticipationEvolutionReport:
+        arguments: [ '@App\RequestModifier\RequestModifierCollection', '%minResult%' ]
+
+    App\Report\MeetupParticipationReport:
+        parent: App\Report\AbstractReport
+        calls:
+            - setChildReports: [ [ '@App\Report\MeetupParticipationEvolutionReport' ] ]
+        tags: [ 'barometre.report' ]
+
+    App\Report\TrainingParticipationReport:
+        parent: App\Report\AbstractReport
+        tags: [ 'barometre.report' ]
+
+    App\Report\ContainerEnvironmentUsageReport:
+        parent: App\Report\AbstractReport
+        tags: [ 'barometre.report' ]
+
+    App\Report\ContractWorkDurationReport:
+        parent: App\Report\AbstractReport
+        tags: [ 'barometre.report' ]
+
+    App\Report\HostingTypeReport:
+        parent: App\Report\AbstractReport
+        tags: [ 'barometre.report' ]
+
+    App\Report\WorkMethodReport:
+        parent: App\Report\AbstractReport
+        tags: [ 'barometre.report' ]
+
+    NumberFormatter:
+        class: \NumberFormatter
+        arguments: ['fr', '1']
+
+    App\Repository\CertificationRepository:
+        class: Doctrine\ORM\EntityRepository
+        factory: ['@doctrine.orm.entity_manager', 'getRepository']
+        arguments: ['App\Entity\Certification']
+
+    App\Repository\SpecialityRepository:
+        class: Doctrine\ORM\EntityRepository
+        factory: [ '@doctrine.orm.entity_manager', 'getRepository' ]
+        arguments: [ 'App\Entity\Speciality' ]
+
+    App\Repository\HostingTypeRepository:
+        class: Doctrine\ORM\EntityRepository
+        factory: [ '@doctrine.orm.entity_manager', 'getRepository' ]
+        arguments: [ 'App\Entity\HostingType' ]
+
+    App\Repository\ContainerEnvironmentUsageRepository:
+        class: Doctrine\ORM\EntityRepository
+        factory: [ '@doctrine.orm.entity_manager', 'getRepository' ]
+        arguments: [ 'App\Entity\ContainerEnvironmentUsage' ]
+
+    App\Campaign\ResponseFactory:
+        arguments:
+            - '@NumberFormatter'
+            - '@App\Enums\EnumsCollection'
+            - '@App\Repository\CertificationRepository'
+            - '@App\Repository\SpecialityRepository'
+            - '@App\Repository\HostingTypeRepository'
+            - '@App\Repository\ContainerEnvironmentUsageRepository'

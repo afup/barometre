@@ -1,0 +1,12 @@
+afup_barometre_homepage:
+  path: /
+  controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
+  defaults:
+    path: /about
+    permanent: false
+
+afup_barometre_form:
+  path: /campaign/2021
+  controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
+  defaults:
+    path: /about

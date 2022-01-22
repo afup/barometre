@@ -1,8 +1,0 @@
-{% extends "@AfupBarometre/Report/_php_versions_parent.html.twig" %}
-
-{% set fieldName = 'php_version' %}
-{% set title = 'Année' %}
-
-{% block report_content %}
-    {% include '@AfupBarometre/Report/_distribution_evolution_report.html.twig' with {'color': phpVersionColors, 'fieldName': fieldName} %}
-{% endblock %}

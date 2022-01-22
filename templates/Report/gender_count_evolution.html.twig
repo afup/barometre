@@ -1,0 +1,11 @@
+{%  set color = {
+(constant('App\\Enums\\GenderEnums::MALE')):'#343477',
+(constant('App\\Enums\\GenderEnums::FEMALE')):'#A14679',
+(constant('App\\Enums\\GenderEnums::NON_BINARY')):'#89A54E'
+}
+%}
+
+{% set fieldName = 'App\\Enums\\GenderEnums' %}
+{% set title = 'Salaire' %}
+
+{% include 'Report/_distribution_evolution_report.html.twig' with {'color': color, 'fieldName': fieldName} %}

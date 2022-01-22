@@ -1,0 +1,10 @@
+{% form_theme form "Filters/theme.html.twig" %}
+
+{{ form_start(form) }}
+    {{ form_errors(form) }}
+
+    {% for child in form %}
+        {{ form_row(child, { 'widget_attr': {'class' : 'hide'}}) }}
+    {% endfor %}
+
+{{ form_end(form) }}

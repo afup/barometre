@@ -1,0 +1,11 @@
+App\Entity\HostingType:
+    hosting_mutualise:
+        name: 'Mutualisé'
+    hosting_dedie:
+        name: 'Dédié'
+    hosting_paas:
+        name: 'PAAS'
+    hosting_iaas:
+        name: 'IAAS'
+    hosting_cloud:
+        name: 'Cloud'
