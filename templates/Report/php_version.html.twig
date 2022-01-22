@@ -1,0 +1,29 @@
+{% extends "Report/_php_versions_parent.html.twig" %}
+
+{% block report_content %}
+<table class="highchart highchart-align-xaxis-left-labels highchart-value-and-percent table table-striped tablesorter"
+       data-graph-datalabels-enabled="1"
+       data-graph-container-before="1"
+       data-graph-type="pie"
+       data-graph-legend-disabled="1"
+       data-graph-inverted="1"
+       data-graph-xaxis-labels-align="right">
+    <thead>
+    <tr>
+        <th>{{ "report.view.php_version" | trans }}</th>
+        <th>{{ "report.view.response_number" | trans }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in results %}
+        <tr>
+            <td>{{ row.phpVersion|enum_label('App\\Enums\\PHPVersionEnums') }}</td>
+            <td data-graph-item-color="{{ phpVersionColors[row.phpVersion] }}"
+                data-graph-name="{{ row.phpVersion|enum_label('App\\Enums\\PHPVersionEnums') }}"
+                class="text-right">{{ row.nbResponse }}
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

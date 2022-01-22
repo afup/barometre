@@ -1,0 +1,11 @@
+{%  set color = {
+(constant('App\\Enums\\MeetupParticipationEnums::ONE_PER_MONTH')):'#89A54E',
+(constant('App\\Enums\\MeetupParticipationEnums::ONE_PER_QUARTER')):'#80699B',
+(constant('App\\Enums\\MeetupParticipationEnums::NEVER')):'#DB843D'
+}
+%}
+
+{% set fieldName = 'App\\Enums\\MeetupParticipationEnums' %}
+{% set title = 'Année' %}
+
+{% include 'Report/_distribution_evolution_report.html.twig' with {'color': color, 'fieldName': fieldName} %}

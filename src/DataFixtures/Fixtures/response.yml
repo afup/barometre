@@ -1,0 +1,32 @@
+App\Entity\Response:
+  response{1..2600}:
+    campaign: '70%? @campaign1 : @campaign2'
+    grossAnnualSalary: <numberBetween(20000, 45000)>
+    variableAnnualSalary: <numberBetween(0, 4500)>
+    annualSalary: <numberBetween(20000, 45000)>
+    salarySatisfaction: <numberBetween(1, 5)>
+    status: <enums('App\Enums\StatusEnums')>
+    initialTraining: <enums('App\Enums\InitialTrainingEnums')>
+    jobTitle: <enums('App\Enums\JobTitleEnums')>
+    experience: <enums('App\Enums\ExperienceEnums')>
+    companyType: <enums('App\Enums\CompanyTypeEnums')>
+    companySize: <enums('App\Enums\CompanySizeEnums')>
+    companyDepartment: <fr_FR:departmentNumber()>
+    jobInterest: <enums('App\Enums\JobInterestEnums')>
+    phpVersion: <enums('App\Enums\PHPVersionEnums')>
+    phpStrength: <enums('App\Enums\PHPStrengthEnums')>
+    hasRecentTraining: <numberBetween(0, 1)>
+    recentTrainingHadSalaryImpact: <numberBetween(0, 1)>
+    specialities: ['@speciality<numberBetween(0, 3)>', '@speciality<numberBetween(4, 8)>', '@speciality<numberBetween(9, 16)>']
+    certifications: ['@certification<numberBetween(0, 2)>', '@certification<numberBetween(3, 4)>']
+    remoteUsage: <enums('App\Enums\RemoteUsageEnums')>
+    gender: <enums('App\Enums\GenderEnums')>
+    containerEnvironmentsUsage: '<numberBetween(0, 2)>x @container_in_*'
+    contractWorkDuration: <enums('App\Enums\ContractWorkDurationEnums')>
+    frenchPhpDocumentationQuality: <enums('App\Enums\FrenchPHPDocumentationQualityEnums')>
+    hostingTypes: '<numberBetween(0, 3)>x @hosting_*'
+    meetupParticipation: <enums('App\Enums\MeetupParticipationEnums')>
+    osDeveloppment: <enums('App\Enums\OsDeveloppmentEnums')>
+    phpDocumentationSource: <enums('App\Enums\PHPDocumentationUsageEnums')>
+    technologicalWatch: <enums('App\Enums\TechnologicalWatchEnums')>
+    workMethod: <enums('App\Enums\WorkMethodEnums')>

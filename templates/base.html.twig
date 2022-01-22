@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>{% block title 'Baromètre AFUP' %}</title>
+
+    {% include 'favicons.html' %}
+    {% include 'tarteaucitron.twig' %}
+
+    {% block meta %}
+        <meta name="description" content="{% block meta_description '' %}">
+        <meta name="viewport" content="width=device-width">
+        <meta property="og:image" content="{{ grunt_asset('logos/og-image.png') }}" />
+    {% endblock meta %}
+
+    {% block stylesheets %}
+        <link rel="stylesheet" href="{{ grunt_asset('css/main.css') }}" />
+    {% endblock stylesheets %}
+    <link rel="stylesheet" href="{{ global_menu_prefix }}/templates/site/css/global-menu.css" media="all" />
+    {% block ga '' %}
+</head>
+<body>
+<div id="afup-global-menu">
+    <a href="https://afup.org" class="lien-entete">AFUP</a>
+    <a href="https://event.afup.org" class="lien-entete">AFUP Day 2022</a>
+    <a href="https://barometre.afup.org" class="lien-entete lien-entete__active">Baromètre</a>
+    <a href="http://www.planete-php.fr" class="lien-entete">Planète PHP</a>
+</div>
+{% block body '' %}
+{% block body_javascript %}
+    <script src="{{ grunt_asset('js/main.js') }}"></script>
+{% endblock body_javascript %}
+{% include 'github_ribbon.twig' %}
+</body>
+</html>

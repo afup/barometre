@@ -1,0 +1,7 @@
+App\Entity\ContainerEnvironmentUsage:
+    container_in_dev:
+        name: 'En développement'
+    container_in_staging:
+        name: 'En recette'
+    container_in_prod:
+        name: 'En production'

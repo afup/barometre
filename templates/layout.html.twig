@@ -1,0 +1,67 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+
+    {% block header %}
+    <header class="navbar navbar-inverse" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                {% block brand %}
+                    <a class="navbar-brand" href="{{ path('afup_barometre_homepage') }}">
+                        <img src="{{ grunt_asset('logos/logo-barometre-blanc.png') }}" alt="Baromètre AFUP" class="logo barometre" />
+                        <span class="hidden-xs brand-name">Baromètre des salaires du PHP</span>
+                        <span class="visible-xs brand-name">Baromètre AFUP</span>
+                    </a>
+                {% endblock %}
+            </div>
+
+            <div class="navbar-collapse bs-navbar-collapse collapse" id="navbar-collapse">
+                <div class="hidden-xs">
+                    {% block menu knp_menu_render('complete_menu') %}
+                </div>
+                <div class="visible-xs">
+                    {% block menu2 knp_menu_render('menu') %}
+                </div>
+
+                <div class="navbar-right hidden-xs">
+                    <a href="http://www.afup.org" target="_blank">
+                        <img src="{{ grunt_asset('logos/logo-afup.svg') }}" alt="AFUP" class="logo afup" />
+                    </a>
+                    <a href="https://www.journaldunet.com/" target="_blank">
+                        <img src="{{ grunt_asset('logos/JDN-blanc.svg') }}" alt="JDN" class="logo jdn mr-right" />
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </header>
+    {% endblock header %}
+
+    {% block main %}
+    <div class="container-fluid main">
+        <section class="content">
+            {% block content '' %}
+        </section>
+    </div>
+    {% endblock main %}
+
+    {% block footer %}
+    <footer class="page-footer">
+        <div class="content">
+            <p>Baromètre <a href="http://www.afup.org" target="_blank">AFUP</a> et <a href="https://www.journaldunet.com/" target="_blank"> le JDN</a> {{ "now"|date("Y") }}</p>
+            <p><a href="http://creativecommons.org/licenses/by-nc-nd/3.0/fr/">Creative Commons  BY-NC-ND</a></p>
+        </div>
+    </footer>
+    {% endblock footer %}
+
+{% endblock body %}
+
+{% block ga %}
+    {{ include('Default/ga.html.twig') }}
+{% endblock %}

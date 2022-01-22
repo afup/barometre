@@ -4,18 +4,18 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
 
-    clean: ["web/assets", "var/cache/grunt", "src/Afup/BarometreBundle/Resources/assets/sass/vendor/"],
+    clean: ["public/assets", "var/cache/grunt", "assets/sass/vendor/"],
 
     copy: {
       main: {
         files: [
-          {expand: true, cwd: 'node_modules/bootstrap-sass/assets/stylesheets/', src: ['**'], dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/'},
-          {expand: true, cwd: 'node_modules/select2/dist/css/', src: ['select2.css'], dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/'},
-          {expand: true, cwd: 'node_modules/select2-bootstrap-theme/src/', src: ['select2-bootstrap.scss'], dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/'},
-          {expand: false, src: 'node_modules/tablesorter/dist/css/theme.bootstrap.css', dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/tablesorter.theme.bootstrap.scss'},
-          {expand: false, src: 'node_modules/colorbrewer/colorbrewer.css', dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/colorbrewer.scss'},
-          {expand: false, src: 'node_modules/github-fork-ribbon-css/gh-fork-ribbon.css',  dest: 'src/Afup/BarometreBundle/Resources/assets/sass/vendor/github-fork-ribbon/gh-fork-ribbon.scss'},
-          {expand: true, cwd: 'node_modules/tarteaucitronjs/', src: ['*.js', 'lang/tarteaucitron.fr.js'], dest: 'web/js/tarteaucitron/'},
+          {expand: true, cwd: 'node_modules/bootstrap-sass/assets/stylesheets/', src: ['**'], dest: 'assets/sass/vendor/'},
+          {expand: true, cwd: 'node_modules/select2/dist/css/', src: ['select2.css'], dest: 'assets/sass/vendor/'},
+          {expand: true, cwd: 'node_modules/select2-bootstrap-theme/src/', src: ['select2-bootstrap.scss'], dest: 'assets/sass/vendor/'},
+          {expand: false, src: 'node_modules/tablesorter/dist/css/theme.bootstrap.css', dest: 'assets/sass/vendor/tablesorter.theme.bootstrap.scss'},
+          {expand: false, src: 'node_modules/colorbrewer/colorbrewer.css', dest: 'assets/sass/vendor/colorbrewer.scss'},
+          {expand: false, src: 'node_modules/github-fork-ribbon-css/gh-fork-ribbon.css',  dest: 'assets/sass/vendor/github-fork-ribbon/gh-fork-ribbon.scss'},
+          {expand: true, cwd: 'node_modules/tarteaucitronjs/', src: ['*.js', 'lang/tarteaucitron.fr.js'], dest: 'public/js/tarteaucitron/'},
         ]
       }
     },
@@ -46,8 +46,8 @@ module.exports = function(grunt) {
     webfont: {
         icons: {
             src: 'var/cache/grunt/font/*.svg',
-            dest: 'web/assets/fonts',
-            destCss: 'src/Afup/BarometreBundle/Resources/assets/sass/generated',
+            dest: 'public/assets/fonts',
+            destCss: 'assets/sass/generated',
             options: {
                 templateOptions: {
                     baseClass: 'icon',
@@ -72,7 +72,7 @@ module.exports = function(grunt) {
           options: {
             style: 'expanded'
           },
-          src: 'src/Afup/BarometreBundle/Resources/assets/sass/main.scss',
+          src: 'assets/sass/main.scss',
           dest : 'var/cache/grunt/main.css'
        }
     },
@@ -95,11 +95,11 @@ module.exports = function(grunt) {
           'node_modules/tablesorter/js/jquery.tablesorter.js',
           'node_modules/tablesorter/js/jquery.tablesorter.widgets.js',
           'node_modules/d3/d3.v2.js',
-          'src/Afup/BarometreBundle/Resources/assets/js/tablesorter.js',
-          'src/Afup/BarometreBundle/Resources/assets/js/select2.js',
-          'src/Afup/BarometreBundle/Resources/assets/js/charts.js',
-          'src/Afup/BarometreBundle/Resources/assets/js/filters.js',
-          'src/Afup/BarometreBundle/Resources/assets/js/map.js'
+          'assets/js/tablesorter.js',
+          'assets/js/select2.js',
+          'assets/js/charts.js',
+          'assets/js/filters.js',
+          'assets/js/map.js'
         ],
         dest: 'var/cache/grunt/main.js'
       }
@@ -129,34 +129,34 @@ module.exports = function(grunt) {
       },
       js: {
           src: 'var/cache/grunt/main.js',
-          dest: 'web/assets/js/'
+          dest: 'public/assets/js/'
       },
       css: {
         src: 'var/cache/grunt/main.css',
-        dest: 'web/assets/css/'
+        dest: 'public/assets/css/'
       },
       logos: {
-        src: 'src/Afup/BarometreBundle/Resources/assets/logos/*',
-        dest: 'web/assets/logos/'
+        src: 'assets/logos/*',
+        dest: 'public/assets/logos/'
       }
     },
 
     watch: {
       js: {
-        files: ['src/Afup/BarometreBundle/Resources/assets/js/**'],
+        files: ['assets/js/**'],
         tasks: ['dev']
       },
       sass : {
         files: [
-          'src/Afup/BarometreBundle/Resources/assets/sass/*',
-          'src/Afup/BarometreBundle/Resources/assets/sass/ui/*'
+          'assets/sass/*',
+          'assets/sass/ui/*'
         ],
         tasks: ['dev']
       },
       sasslint : {
         files: [
-            'src/Afup/BarometreBundle/Resources/assets/sass/*',
-            'src/Afup/BarometreBundle/Resources/assets/sass/ui/*'
+            'assets/sass/*',
+            'assets/sass/ui/*'
         ],
         tasks: ['sasslint']
       },
@@ -167,14 +167,14 @@ module.exports = function(grunt) {
       options: {
         jshintrc: true
       },
-      src: ['src/Afup/BarometreBundle/Resources/assets/js/*']
+      src: ['assets/js/*']
     },
 
     sasslint: {
       options: {
           configFile: ".sass-lint.yml"
       },
-      target: ['src/Afup/BarometreBundle/Resources/assets/sass/**']
+      target: ['assets/sass/**']
     },
 
     githooks: {

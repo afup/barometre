@@ -1,0 +1,174 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}Résultats de la campagne 2017{% endblock %}
+
+{% block meta %}
+    {{ parent() }}
+    <meta property="og:title" content="Baromètre des salaires du PHP - Résultats 2017" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://barometre.afup.org/report/2017" />
+    <meta property="og:description" content="Les résultats du baromètre des salaires en PHP 2017 sont disponibles. Consultez les résultats de l’enquête de référence pour le milieu PHP menée par l’AFUP et Human Coders" />
+    <meta property="og:site_name" content="Baromètre des salaires - AFUP / Human Coders" />
+{% endblock %}
+
+
+{% block content %}
+    <div class="row report2015">
+        <div class="col-md-8">
+        <h1>Résultats de la campagne 2017</h1>
+
+        <h2>Introduction</h2>
+            <p>Comme tous les ans, l’AFUP a lancé son enquête sur l’état de monde du travail pour les développeurs et développeuses PHP. Nous vous dévoilons ici notre analyse de cette enquête. Vous pouvez par vous-même consulter les différents résultats détaillés sur les différents écrans du baromètre.</p>
+
+        <h2>Utilisation du baromètre</h2>
+            <p>Le baromètre est tout d'abord conçu pour être utilisé par le salarié ou l'indépendant, afin qu'il puisse se positionner correctement sur le marché du travail. Par exemple, un développeur ou une développeuse avec moins de 2 ans d'expérience sur Paris en emploi salarié, pourra très facilement évaluer sa situation grâce aux réponses des autres répondants. Cela permettra de chercher la spécialité la plus avantageuse, ou bien quel type d'entreprises embauche le plus.</p>
+
+            <p>Ainsi si il ou elle souhaite travailler hors Île-de-France et dans une startup, il est possible de :</p>
+            <ul>
+                <li>Visualiser géographiquement où sont situées les entreprises des répondants,</li>
+                <li>Observer la rémunération en fonction de l'expérience,</li>
+                <li>Choisir une spécialité adaptée.</li>
+            </ul>
+
+            <p>Les dirigeants d'entreprises pourront y trouver un outil précieux pour gérer la carrière de leurs collaborateurs, comme l'évolution de leur rémunération. Ils pourront aussi faire une recherche géographique afin d'approfondir les écarts entre départements sur une spécialité précise.</p>
+
+            <p>Les données présentées sont utilisables sous licence Creative Commons BY-NC-ND. Afin de garantir la confidentialité des répondants, le détail des réponses n'est pas affiché si celles-ci sont trop peu nombreuses.</p>
+
+        <h2>Profil</h2>
+            <p>D'après les résultats du baromètre nous pouvons établir un profil type du répondant. Le répondant :</p>
+            <ul>
+                <li>Est en CDI (à 92%)</li>
+                <li>Travaille dans des zones à forte densité démographique : l'Île-de-France et la région Auvergne-Rhône-Alpes sont les lieux où nous retrouvons le plus de réponses,</li>
+                <li>A majoritairement entre 6 et 10 ans d'expérience (pour 39% des répondants),</li>
+                <li>Est un homme (à plus de 94%)</li>
+                <li>A plutôt tendance à travailler dans des PME (48% des répondants travaillent dans des entreprises de moins de 50 salariés).</li>
+            </ul>
+
+            <p>Ces éléments ne changent pas ou très peu par rapport aux années précédentes.</p>
+
+        <h2>Salaires</h2>
+            <p>Au niveau des éléments qui changent par rapport aux années précédentes, nous pouvons constater une très nette augmentation des salaires.</p>
+            <p>Par exemple si l’on prend les développeurs en CDI, la médiane était de 32 700 euros brut, elle est maintenant à 35 000. Ce changement est global et touche même les salaires les plus bas : le 10ème percentile n’a eut de cesse d’augmenter depuis les 4 dernières années.</p>
+
+            <a href="{{ absolute_url('/report/salary?filter[campaign][0]=5') }}">
+                <img src="{{ asset('report/2017/evolution_des_salaires.png') }}" />
+            </a>
+
+        <h2>CDI toujours la norme</h2>
+            <p>Le CDI reste de loin le statut le plus utilisé, 93% des répondants de 2017 étant en CDI. À noter que si, sur les premières années de l’enquête, nous avions une infime partie des répondants indiquant ne pas avoir d’emploi, nous n’avons aucune réponse de ce type depuis 2016.</p>
+
+            <a href="{{ absolute_url('/report/status?filter[campaign][0]=5') }}">
+                <img src="{{ asset('report/2017/evolution_distribution_status.png') }}" />
+            </a>
+
+        <h2>Fin annoncée de la version 5 de PHP</h2>
+            <a href="{{ absolute_url('/report/php_version?filter[campaign][0]=5') }}">
+                <img src="{{ asset('report/2017/evolution_php_versions.png') }}" />
+            </a>
+
+            <p>Les mises-à-jour en PHP s'appliquent maintenant très rapidement. La version 7.0 n’est restée que peu de temps en production : en effet, la version 7.1 de PHP est sortie en décembre 2016, l’enquête 2017 se terminait pratiquement un an après. Il aura donc nécessité seulement un an pour atteindre les 43% d’utilisation parmi nos répondants.</p>
+
+            <p>L’usage de la version 5 de PHP continue de décliner : 36,64% des installations tournent sur une des versions 5 (la version 5.6 étant la plus utilisée, avec 28% des usages).</p>
+
+            <p>A noter que la question posée est la version de PHP utilisée au quotidien (la plus souvent) et que contrairement à des statistiques comme celles tirées de packagist, les résultats peuvent être biaisés.</p>
+
+        <h2>Différence par sexe</h2>
+            <p>Malgré l’augmentation globale, nous ne constatons toujours pas de diminution de l’écart de salaire entre les hommes et les femmes : les deux augmentent de la même façon, ce qui empêche une régularisation des salaires.</p>
+
+            <a href="{{ absolute_url('/report/gender?filter[campaign][0]=5') }}">
+                <img src="{{ asset('report/2017/evolution_salaire_par_sexe.png') }}" />
+            </a>
+
+            <p>Nous constatons une très légère augmentation de la part du nombre de femmes. C’est un chiffre qu’il faudra confirmer avec les prochaines enquêtes.</p>
+
+            <a href="{{ absolute_url('/report/gender?filter[campaign][0]=5') }}">
+                <img src="{{ asset('report/2017/evolution_reponses_par_sexe.png') }}" />
+            </a>
+
+        <h2>Départements</h2>
+
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6" style="text-align: center">
+                    <a href="{{ absolute_url('/report/company_department?filter[campaign][0]=5') }}">
+                        <img src="{{ asset('report/2017/repartition_geographique.png') }}" />
+                    </a>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+
+            <p>Comme l’année dernière, les départements des lieux de travail des répondants sont majoritairement Paris et le Rhône. À noter que cette année, la Loire-Atlantique est le 3ème département le plus représenté : cela pourrait être dû à l’attractivité de la région nantaise pour les développeurs, ou dû au PHP Tour 2017 à Nantes, ce qui aurait pu faire remonter plus de réponses.</p>
+
+            <p>Ci dessous vous trouverez le top des départements les plus représentés, par année :</p>
+
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <tr>
+                        <th></th><th>Top 2016</th><th>Top 2017</th>
+                    </tr>
+                    <tr>
+                        <th>1</th><th>Paris (24%)</th><th>Paris (20%)</th>
+                    </tr>
+                    <tr>
+                        <th>2</th><th>Rhône (19%)</th><th>Rhône (17%)</th>
+                    </tr>
+                    <tr>
+                        <th>3</th><th>Nord (9%)</th><th>Loire-Atlantique (8%)</th>
+                    </tr>
+                    <tr>
+                        <th>4</th><th>Loire-Atlantique (7%)</th><th>Hauts-de-Seine (7%)</th>
+                    </tr>
+                    <tr>
+                        <th>5</th><th>Hauts-de -Seine (7%)</th><th>Nord (6%)</th>
+                    </tr>
+                </table>
+            </div>
+
+        <h2>Augmentation du télétravail</h2>
+            <p>Nous pouvons constater une augmentation de la part des répondants effectuant du télétravail : en 2016, ils étaient 60% à indiquer ne jamais faire de télétravail. Ils sont maintenant 53% à être dans ce cas.</p>
+
+            <p>Les prochaines enquêtes nous permettront de confirmer cette augmentation de l’attrait pour cette pratique.</p>
+
+            <a href="{{ absolute_url('/report/remote_usage?filter[campaign][0]=5') }}">
+                <img src="{{ asset('report/2017/evolution_teletravail.png') }}" />
+            </a>
+
+        <h2>Qui sommes nous ?</h2>
+
+            <p>Le centre de formation pour développeurs <a href="https://www.humancoders.com/">Human Coders</a> et l’<a href="http://www.afup.org">association française des utilisateurs de PHP</a> (AFUP) vous présentent pour la cinquième année consécutive le baromètre AFUP – Human Coders 2017 : les salaires des développeurs en France.</p>
+
+            <p>Comme chaque année, le baromètre AFUP – Human Coders répond aux questions que tout le monde se pose :</p>
+            <ul>
+                <li>Combien gagne un développeur débutant ?</li>
+                <li>Comment les salaires évoluent-ils avec l’expérience ?</li>
+                <li>Quelles sont les technos qui rapportent le plus ?</li>
+                <li>Dans quelles villes peut-on avoir les meilleurs salaires ?</li>
+            </ul>
+
+            <p>Nous espérons que vous aurez une vision claire du marché après consultation de ce baromètre AFUP – Human Coders.</p>
+
+            <h3>Human Coders</h3>
+
+                <p>Chez Human Coders, nous avons toujours œuvré à aider les développeurs à faire de la veille, découvrir de nouveaux langages ou technologies, se rencontrer, trouver les meilleurs jobs… Nous le faisons évidement au travers de nos formations, mais aussi grâce notre site d’actu, notre forum, les événements mensuels organisés partout en France par notre communauté…<br />
+                C’est pourquoi il nous a paru tout à fait naturel d’accompagner l’AFUP pour la cinquième édition du baromètre puisque cela s’inscrit pleinement dans notre démarche d’ouverture et d’information.</p>
+
+                <p>Le baromètre des salaires vous propose une approche unique sur la question, très sensible, de la rémunération en France. Le baromètre est porté par l'AFUP, une association garantissant une collecte impartiale et aucune récupération mercantile des données. A l'aide d'un partenaire adhérant à cette éthique, notre but est de permettre à tous la plus grande transparence sur la problématique de la rémunération, tout en préservant l'anonymat des répondants.</p>
+
+            <h3>Le rapport 2017</h3>
+                <p>Le baromètre se base sur une enquête en ligne ouverte à toutes et à tous et dont les réponses ont été collectées sur la période du 25/09/2017 au 07/01/2018. Durant cette période, 919 personnes ont répondu aux questions proposées.</p>
+
+                <p>Cette année : pas de nouvelle question, mais de nouveaux graphiques ont été ajoutés au site du baromètre afin de comparer plus facilement les résultats avec ceux des années précédentes.</p>
+
+                <p>L'AFUP tient chaleureusement à remercier toutes les personnes ayant répondu à l'enquête 2017 !</p>
+        </div>
+
+        <div class="col-md-4">
+            <h1>Résultats détaillés</h1>
+
+            <div class="well">
+                {% block menu_reports knp_menu_render('reports_menu', {}, 'reports') %}
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
