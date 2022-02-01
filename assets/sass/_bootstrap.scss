@@ -6,7 +6,7 @@
 @import "vendor/bootstrap/normalize";
 @import "vendor/bootstrap/print";
 
-// Core C
+// Core CSS
 @import "vendor/bootstrap/scaffolding";
 @import "vendor/bootstrap/type";
 @import "vendor/bootstrap/grid";
@@ -15,7 +15,7 @@
 @import "vendor/bootstrap/buttons";
 @import "vendor/bootstrap/button-groups";
 
-// Compon
+// Components
 @import "vendor/bootstrap/component-animations";
 @import "vendor/bootstrap/navs";
 @import "vendor/bootstrap/navbar";
@@ -25,6 +25,6 @@
 @import "vendor/bootstrap/alerts";
 @import "vendor/bootstrap/list-group";
 
-// Utilit
+// Utility classes
 @import "vendor/bootstrap/utilities";
 @import "vendor/bootstrap/responsive-utilities";

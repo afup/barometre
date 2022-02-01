@@ -21,10 +21,10 @@ services:
             tags: ['barometre.enums']
 
         App\Filter\FilterInterface:
-            tags: [ 'barometre.filter' ]
+            tags: ['barometre.filter']
 
         App\RequestModifier\RequestModifierInterface:
-            tags: [ 'barometre.request_modifier' ]
+            tags: ['barometre.request_modifier']
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
@@ -65,27 +65,27 @@ services:
             - '@App\Filtering\DefaultContext'
 
     App\Filtering\DefaultContext:
-        factory: [ '@App\Filtering\DefaultContextFactory', 'createFromRequestStack' ]
-        arguments: [ '@request_stack' ]
+        factory: ['@App\Filtering\DefaultContextFactory', 'createFromRequestStack']
+        arguments: ['@request_stack']
 
     app.menu:
         class: Knp\Menu\MenuItem # the service definition requires setting the class
-        factory: [ '@App\Menu\MenuBuilder', 'createSimpleMenu' ]
-        arguments: [ "@request_stack" ]
+        factory: ['@App\Menu\MenuBuilder', 'createSimpleMenu']
+        arguments: ["@request_stack"]
         tags:
             - { name: knp_menu.menu, alias: menu } # The alias is what is used to retrieve the menu
 
     app.complete_menu:
         class: Knp\Menu\MenuItem # the service definition requires setting the class
-        factory: [ '@App\Menu\MenuBuilder', 'createMenu' ]
-        arguments: [ "@request_stack" ]
+        factory: ['@App\Menu\MenuBuilder', 'createMenu']
+        arguments: ["@request_stack"]
         tags:
             - { name: knp_menu.menu, alias: complete_menu } # The alias is what is used to retrieve the menu
 
     app.reports_menu:
         class: Knp\Menu\MenuItem # the service definition requires setting the class
-        factory: [ '@App\Menu\MenuBuilder', 'createReportsMenu' ]
-        arguments: [ "@request_stack" ]
+        factory: ['@App\Menu\MenuBuilder', 'createReportsMenu']
+        arguments: ["@request_stack"]
         tags:
             - { name: knp_menu.menu, alias: reports_menu } # The alias is what is used to retrieve the menu
 
@@ -101,8 +101,8 @@ services:
 
     afup.barometre.filter_form:
         class: Symfony\Component\Form\FormInterface
-        factory: [ "@form.factory", create]
-        arguments: [ App\Form\Type\FilterType ]
+        factory: ["@form.factory", create]
+        arguments: [App\Form\Type\FilterType]
         shared: false
 
     Symfony\Component\Form\FormInterface: '@afup.barometre.filter_form'
@@ -143,7 +143,7 @@ services:
         parent: App\Report\AbstractReport
         calls:
             - setChildReports: [['@App\Report\SalaryEvolutionReport']]
-        tags: [ 'barometre.report' ]
+        tags: ['barometre.report']
 
     App\Report\CompanyTypeReport:
         parent: App\Report\AbstractReport
@@ -151,7 +151,7 @@ services:
 
     App\Report\JobTitleReport:
         parent: App\Report\AbstractReport
-        tags: [ 'barometre.report' ]
+        tags: ['barometre.report']
 
     App\Report\StatusEvolutionReport:
         parent: App\Report\AbstractDistributionEvolutionReport
@@ -160,27 +160,27 @@ services:
         parent: App\Report\AbstractReport
         calls:
             - setChildReports: [ [ '@App\Report\StatusEvolutionReport' ] ]
-        tags: [ 'barometre.report' ]
+        tags: ['barometre.report']
 
     App\Report\CompanyDepartmentReport:
         parent: App\Report\AbstractReport
-        tags: [ 'barometre.report' ]
+        tags: ['barometre.report']
 
     App\Report\CompanyCountyReport:
         parent: App\Report\AbstractReport
-        tags: [ 'barometre.report' ]
+        tags: ['barometre.report']
 
     App\Report\SpecialityReport:
         parent: App\Report\AbstractReport
-        tags: [ 'barometre.report' ]
+        tags: ['barometre.report']
 
     App\Report\ExperienceSalaryReport:
         parent: App\Report\AbstractReport
-        tags: [ 'barometre.report' ]
+        tags: ['barometre.report']
 
     App\Report\VariableSalaryReport:
         parent: App\Report\AbstractReport
-        tags: [ 'barometre.report' ]
+        tags: ['barometre.report']
 
 #    App\Report\CompanyTypeReport: nom avec salary
 #        parent: App\Report\AbstractReport
@@ -188,11 +188,11 @@ services:
 
     App\Report\CompanySizeSalaryReport:
         parent: App\Report\AbstractReport
-        tags: [ 'barometre.report' ]
+        tags: ['barometre.report']
 
     App\Report\SpecialitySalaryReport:
         parent: App\Report\AbstractReport
-        tags: [ 'barometre.report' ]
+        tags: ['barometre.report']
 
     App\Report\SalarySatisfactionReport:
         parent: App\Report\AbstractReport
@@ -205,10 +205,10 @@ services:
         parent: App\Report\AbstractReport
         calls:
             - setChildReports: [ [ '@App\Report\PhpVersionEvolutionReport' ] ]
-        tags: [ 'barometre.report' ]
+        tags: ['barometre.report']
 
     App\Report\GenderSalaryEvolutionReport:
-        arguments: [ '@App\RequestModifier\RequestModifierCollection', '%minResult%' ]
+        arguments: ['@App\RequestModifier\RequestModifierCollection', '%minResult%']
 
     App\Report\GenderCountEvolutionReport:
         parent: App\Report\AbstractDistributionEvolutionReport
@@ -216,12 +216,12 @@ services:
     App\Report\GenderReport:
         parent: App\Report\AbstractReport
         calls:
-            - setChildReports: [ [ '@App\Report\GenderSalaryEvolutionReport', '@App\Report\GenderCountEvolutionReport'  ] ]
-        tags: [ 'barometre.report' ]
+            - setChildReports: [['@App\Report\GenderSalaryEvolutionReport', '@App\Report\GenderCountEvolutionReport']]
+        tags: ['barometre.report']
 
     App\Report\OsDeveloppmentReport:
         parent: App\Report\AbstractReport
-        tags: [ 'barometre.report' ]
+        tags: ['barometre.report']
 
     App\Report\PHPDocumentationSourceReport:
         parent: App\Report\AbstractReport
@@ -229,7 +229,7 @@ services:
 
     App\Report\FrenchPhpDocumentationQualityReport:
         parent: App\Report\AbstractReport
-        tags: [ 'barometre.report' ]
+        tags: ['barometre.report']
 
     App\Report\RemoteUsageEvolutionReport:
         parent: App\Report\AbstractDistributionEvolutionReport
@@ -237,41 +237,41 @@ services:
     App\Report\RemoteUsageReport:
         parent: App\Report\AbstractReport
         calls:
-            - setChildReports: [ [ '@App\Report\RemoteUsageEvolutionReport' ] ]
-        tags: [ 'barometre.report' ]
+            - setChildReports: [['@App\Report\RemoteUsageEvolutionReport']]
+        tags: ['barometre.report']
 
     App\Report\TechnologicalWatchReport:
         parent: App\Report\AbstractReport
-        tags: [ 'barometre.report' ]
+        tags: ['barometre.report']
 
     App\Report\MeetupParticipationEvolutionReport:
-        arguments: [ '@App\RequestModifier\RequestModifierCollection', '%minResult%' ]
+        arguments: ['@App\RequestModifier\RequestModifierCollection', '%minResult%']
 
     App\Report\MeetupParticipationReport:
         parent: App\Report\AbstractReport
         calls:
-            - setChildReports: [ [ '@App\Report\MeetupParticipationEvolutionReport' ] ]
-        tags: [ 'barometre.report' ]
+            - setChildReports: [['@App\Report\MeetupParticipationEvolutionReport']]
+        tags: ['barometre.report']
 
     App\Report\TrainingParticipationReport:
         parent: App\Report\AbstractReport
-        tags: [ 'barometre.report' ]
+        tags: ['barometre.report']
 
     App\Report\ContainerEnvironmentUsageReport:
         parent: App\Report\AbstractReport
-        tags: [ 'barometre.report' ]
+        tags: ['barometre.report']
 
     App\Report\ContractWorkDurationReport:
         parent: App\Report\AbstractReport
-        tags: [ 'barometre.report' ]
+        tags: ['barometre.report']
 
     App\Report\HostingTypeReport:
         parent: App\Report\AbstractReport
-        tags: [ 'barometre.report' ]
+        tags: ['barometre.report']
 
     App\Report\WorkMethodReport:
         parent: App\Report\AbstractReport
-        tags: [ 'barometre.report' ]
+        tags: ['barometre.report']
 
     NumberFormatter:
         class: \NumberFormatter
@@ -284,18 +284,18 @@ services:
 
     App\Repository\SpecialityRepository:
         class: Doctrine\ORM\EntityRepository
-        factory: [ '@doctrine.orm.entity_manager', 'getRepository' ]
-        arguments: [ 'App\Entity\Speciality' ]
+        factory: ['@doctrine.orm.entity_manager', 'getRepository']
+        arguments: ['App\Entity\Speciality']
 
     App\Repository\HostingTypeRepository:
         class: Doctrine\ORM\EntityRepository
-        factory: [ '@doctrine.orm.entity_manager', 'getRepository' ]
-        arguments: [ 'App\Entity\HostingType' ]
+        factory: ['@doctrine.orm.entity_manager', 'getRepository']
+        arguments: ['App\Entity\HostingType']
 
     App\Repository\ContainerEnvironmentUsageRepository:
         class: Doctrine\ORM\EntityRepository
         factory: [ '@doctrine.orm.entity_manager', 'getRepository' ]
-        arguments: [ 'App\Entity\ContainerEnvironmentUsage' ]
+        arguments: ['App\Entity\ContainerEnvironmentUsage']
 
     App\Campaign\ResponseFactory:
         arguments:
