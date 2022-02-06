@@ -42,19 +42,19 @@
             <li>
                 Au global pour les postes de développeuses/développeurs et lead developpeuses/développeurs (hors freelances) sur tout le pays, les salaires ont augmenté depuis l’année dernière. Le salaire médian passe de 37000€ à 39500€ et la moyenne passe de 39000€ à 45200€.<br/>
                 <a href="{{ absolute_url('/report/salary?filter[campaign][]='~campaignId~'&filter[job_title][]=4&filter[job_title][]=8&filter[status][]=1&filter[status][]=2&filter[status][]=4&filter[status][]=0') }}" class="report-image">
-                    <img src="{{ asset('report/2020/evolution_des_salaires.png') }}" alt="Distribution des salaires" />
+                    <img src="{{ asset('reports/2020/evolution_des_salaires.png') }}" alt="Distribution des salaires" />
                 </a><br/>
             </li>
             <li>
                 Les salaires pour les profils expérimentés sont également en hausse : le salaire médian pour les personnes ayant plus de 5 ans d’expérience a augmenté de 1500€, contre seulement 1000€ pour les profils moins expérimentés.<br/>
                 <a href="{{ absolute_url('/report/salary?filter[campaign][]='~campaignId~'&filter[job_title][]=4&filter[job_title][]=8&filter[experience][]=3&filter[experience][]=4&filter[status][]=1&filter[status][]=2&filter[status][]=4&filter[status][]=0') }}" class="report-image">
-                    <img src="{{ asset('report/2020/evolution_des_salaires_plus_experimentes.png') }}" alt="Augmentation des salaires sur les profils les plus expérimentés" />
+                    <img src="{{ asset('reports/2020/evolution_des_salaires_plus_experimentes.png') }}" alt="Augmentation des salaires sur les profils les plus expérimentés" />
                 </a><br/>
             </li>
             <li>
                 Nous constatons bien cette valorisation de l’expérience, sur le graphique ci-dessous qui montre la progression du salaire en fonction de l’expérience.<br/>
                 <a href="{{ absolute_url('/report/experience_salary?filter[campaign][]='~campaignId~'&filter[job_title][]=4&filter[job_title][]=8&filter[status][]=1&filter[status][]=2&filter[status][]=4&filter[status][]=0') }}" class="report-image">
-                    <img src="{{ asset('report/2020/salaire_par_experience.png') }}" alt="Progression des salaires en fonction de l'expérience" />
+                    <img src="{{ asset('reports/2020/salaire_par_experience.png') }}" alt="Progression des salaires en fonction de l'expérience" />
                 </a><br/>
             </li>
         </ul>
@@ -77,7 +77,7 @@
                     <p>En 2020, les développeurs et développeuses, tout comme les lead-développeuses et lead-développeurs, ont déclaré être en majorité aux 35H. Ces résultats tranchent avec les réponses de 2019, où la majorité indiquait être aux 39H.</p>
                     <p>
                         <a href="{{ absolute_url('/report/contract_work_duration_report?filter[campaign][]='~campaignId~'&filter[job_title][]=8&filter[job_title][]=4') }}" class="report-image">
-                            <img src="{{ asset('report/2020/duree_contrat_travail.png') }}" alt="Durée contractuelle du travail" />
+                            <img src="{{ asset('reports/2020/duree_contrat_travail.png') }}" alt="Durée contractuelle du travail" />
                         </a>
                     </p>
                 </li>
@@ -85,7 +85,7 @@
                     <p>Les profils encadrants sont surtout au forfait jour</p>
                     <p>
                         <a href="{{ absolute_url('/report/contract_work_duration_report?filter[campaign][]='~campaignId~'&filter[job_title][]=1&filter[job_title][]=2&filter[job_title][]=3&filter[job_title][]=5&filter[job_title][]=6') }}" class="report-image">
-                            <img src="{{ asset('report/2020/duree_contrat_travail_encadrant.png') }}" alt="Durée contractuelle du travail des profils encadrants" />
+                            <img src="{{ asset('reports/2020/duree_contrat_travail_encadrant.png') }}" alt="Durée contractuelle du travail des profils encadrants" />
                         </a>
                     </p>
                 </li>
@@ -94,13 +94,13 @@
         <h2>Le télétravail</h2>
             <p>En cette année de pandémie, un fort pourcentage de répondant·e·s font maintenant du télétravail. Le pourcentage de répondant·e·s indiquant ne jamais faire de télétravail est passé de 38% en 2019 à 7% en 2020.</p>
             <a href="{{ absolute_url('/report/remote_usage?filter[campaign][0]='~campaignId) }}" class="report-image">
-                <img src="{{ asset('report/2020/evolution_teletravail.png') }}" alt="Évolution du télétravail"/>
+                <img src="{{ asset('reports/2020/evolution_teletravail.png') }}" alt="Évolution du télétravail"/>
             </a>
 
             <p>Dans la question sur la période actuelle, nous avons posé une question sur le rythme idéal de télétravail en nombre de jours, vous avez été une majorité à répondre 3 jours par semaine (~40%).</p>
 
             <a href="{{ absolute_url('/report/remote_usage?filter[campaign][0]='~campaignId) }}" class="report-image">
-                <img src="{{ asset('report/2020/rythme_teletravail.png') }}" alt="Rythme idéal du télétravail" />
+                <img src="{{ asset('reports/2020/rythme_teletravail.png') }}" alt="Rythme idéal du télétravail" />
             </a>
 
         <h2>Documentation de PHP</h2>
@@ -111,7 +111,7 @@
         <h2>Versions de PHP</h2>
             <p>Comme chaque année,  notre communauté suit bien les mises à jour du langage, la version 7.4 représentant pratiquement 45% des réponses. La version 5 de PHP reste utilisée par 5% des personnes ayant répondu, contre 9% en 2019, alors que cette version n’est plus supportée depuis janvier 2019.</p>
             <a href="{{ absolute_url('/report/php_version?filter[campaign][0]='~campaignId) }}" class="report-image">
-                <img src="{{ asset('report/2020/evolution_php_versions.png') }}" alt="Versions de PHP utilisées" />
+                <img src="{{ asset('reports/2020/evolution_php_versions.png') }}" alt="Versions de PHP utilisées" />
             </a>
 
         <h2>Nouveauté: CMS headless</h2>
@@ -127,12 +127,12 @@
             <p>Nous remarquons une baisse de la participation aux meetups, 50% des personnes ayant répondu à notre enquête n’ont pas participé à des meetups durant l’année écoulée contre 40% l’année précédente. et seuls 5% des répondants/répondantes ont participé à au moins 1 meetup par mois en 2020 (contre 13% en 2019).</p>
 
             <a href="{{ absolute_url('/report/meetup_participation?filter[campaign][0]='~campaignId) }}" class="report-image">
-                <img src="{{ asset('report/2020/evolution_participations_meetup.png') }}" alt="Évolutions de la participations aux meetups" />
+                <img src="{{ asset('reports/2020/evolution_participations_meetup.png') }}" alt="Évolutions de la participations aux meetups" />
             </a>
 
             <p>Dans l’ensemble vous avez trouvé que votre entreprise a bien su gérer cette crise (73% ont répondu bien ou très bien, 17,5% ne se prononce pas).</p>
 
-            <img src="{{ asset('report/2020/entreprise_covid.png') }}" alt="Gestion du covid-19" />
+            <img src="{{ asset('reports/2020/entreprise_covid.png') }}" alt="Gestion du covid-19" />
 
             <p>Même si la majorité des entreprises de nos répondants/répondantes ont plutôt bien géré la crise, quelques-unes ont néanmoins dû licencier : environ 10% de nos répondants/répondantes et répondantes ont eu au moins un licenciement au sein de l’équipe technique de leur société, et 25% des répondants/répondantes ont été au chômage partiel.</p>
 
@@ -143,7 +143,7 @@
             <p>Cette pandémie a amplifié le recours au télétravail : ~80% de nos répondants/répondantes vivent plutôt bien le télétravail régulier hors période de confinement, 10% ne font pas de télétravail et 8% en font mais préféreraient travailler en présentiel.</p>
 
             <a href="" class="report-image">
-                <img src="{{ asset('report/2020/satifactions_teletravail_regulier.png') }}" alt="satifactions du télétravail régulier" />
+                <img src="{{ asset('reports/2020/satifactions_teletravail_regulier.png') }}" alt="satifactions du télétravail régulier" />
             </a>
 
         <h2>Qui sommes nous ?</h2>
@@ -172,7 +172,7 @@
             <h1>Résultats détaillés</h1>
 
             <div class="well">
-                {% block menu_reports knp_menu_render('reports_menu', {}, 'reports') %}
+               {% block menu_reports knp_menu_render('reports_menu', {}, 'reports') %}
             </div>
         </div>
 
