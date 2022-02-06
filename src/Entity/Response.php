@@ -71,6 +71,13 @@ class Response
      *
      * @var int
      */
+    private $retraining;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     *
+     * @var int
+     */
     private $status;
 
     /**
@@ -130,11 +137,11 @@ class Response
     private $companySize;
 
     /**
-     * @ORM\Column(type="integer", nullable=true)
+     * @ORM\ManyToMany (targetEntity="JobInterest")
      *
-     * @var int
+     * @var Collection
      */
-    private $jobInterest;
+    private $jobInterests;
 
     /**
      * @ORM\Column(type="string", nullable=true)
@@ -156,6 +163,13 @@ class Response
      * @var int
      */
     private $remoteUsage;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     *
+     * @var int
+     */
+    private $remotePace;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -323,6 +337,13 @@ class Response
      *
      * @var int
      */
+    private $covid19WorkCondition;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     *
+     * @var int
+     */
     private $gender;
 
     public function __construct()
@@ -331,6 +352,7 @@ class Response
         $this->specialities = new ArrayCollection();
         $this->containerEnvironmentsUsage = new ArrayCollection();
         $this->hostingTypes = new ArrayCollection();
+        $this->jobInterests = new ArrayCollection();
     }
 
     /**
@@ -566,19 +588,26 @@ class Response
      *
      * @return Response
      */
-    public function setJobInterest($jobInterest)
+    public function addJobInterest(JobInterest $jobInterest)
     {
-        $this->jobInterest = $jobInterest;
+        $this->jobInterests[] = $jobInterest;
+
+        return $this;
+    }
+
+    public function removeJobInterest(JobInterest $jobInterest)
+    {
+        $this->jobInterests->removeElement($jobInterest);
 
         return $this;
     }
 
     /**
-     * @return int
+     * @return Collection
      */
-    public function getJobInterest()
+    public function getJobInterests()
     {
-        return $this->jobInterest;
+        return $this->jobInterests;
     }
 
     /**
@@ -1060,5 +1089,35 @@ class Response
     public function setCovid19RemoteIdealPace(int $covid19RemoteIdealPace)
     {
         $this->covid19RemoteIdealPace = $covid19RemoteIdealPace;
+    }
+
+    public function getRetraining(): int
+    {
+        return $this->retraining;
+    }
+
+    public function setRetraining(int $retraining)
+    {
+        $this->retraining = $retraining;
+    }
+
+    public function getRemotePace(): int
+    {
+        return $this->remotePace;
+    }
+
+    public function setRemotePace(int $remotePace)
+    {
+        $this->remotePace = $remotePace;
+    }
+
+    public function getCovid19WorkCondition(): int
+    {
+        return $this->covid19WorkCondition;
+    }
+
+    public function setCovid19WorkCondition(int $covid19WorkCondition)
+    {
+        $this->covid19WorkCondition = $covid19WorkCondition;
     }
 }
