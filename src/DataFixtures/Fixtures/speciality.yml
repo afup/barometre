@@ -1,0 +1,35 @@
+App\Entity\Speciality:
+    speciality0:
+        name: Zend Framework
+    speciality1:
+        name: Symfony
+    speciality2:
+        name: CakePHP
+    speciality3:
+        name: Drupal
+    speciality4:
+        name: eZ Publish
+    speciality5:
+        name: Joomla
+    speciality6:
+        name: Wordpress
+    speciality7:
+        name: Magento
+    speciality8:
+        name: Prestashop
+    speciality9:
+        name: Framework propriétaire
+    speciality10:
+        name: Silex
+    speciality11:
+        name: Yii Framework
+    speciality12:
+        name: Laravel
+    speciality13:
+        name: Code Igniter
+    speciality14:
+        name: SPIP
+    speciality15:
+        name: Kohana
+    speciality16:
+        name: Jelix

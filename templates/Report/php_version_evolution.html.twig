@@ -1,0 +1,8 @@
+{% extends "Report/_php_versions_parent.html.twig" %}
+
+{% set fieldName = 'App\\Enums\\PHPVersionEnums' %}
+{% set title = 'Année' %}
+
+{% block report_content %}
+    {% include 'Report/_distribution_evolution_report.html.twig' with {'color': phpVersionColors, 'fieldName': fieldName} %}
+{% endblock %}

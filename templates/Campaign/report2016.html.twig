@@ -1,0 +1,141 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}Résultats de la campagne 2016{% endblock %}
+
+
+{% block content %}
+    <div class="row report2015">
+        <div class="col-md-8">
+            <h1>Résultats de la campagne 2016</h1>
+
+            <h2>Utilisation du baromètre</h2>
+
+            <p>Le baromètre est tout d'abord conçu pour être utilisé par le salarié ou l'indépendant, afin qu'il puisse se positionner correctement sur le marché du travail. Par exemple, un développeur de moins de 2 ans d'expérience sur Paris en emploi salarié, pourra très facilement trouver les réponses des autres répondants. Il pourra chercher la spécialité la plus avantageuse, ou bien quels types d'entreprises embauchent le plus.</p>
+
+            <p>Ainsi s'il souhaite travailler hors Île-de-France et dans une startup. Il peut :</p>
+            <ul>
+                <li>Visualiser géographiquement où sont situées les entreprises des répondants,</li>
+                <li>Observer la rémunération en fonction de l'expérience,</li>
+                <li>Choisir une spécialité adaptée.</li>
+            </ul>
+
+            <p>Le dirigeant d'entreprise pourra y trouver un outil précieux pour gérer la carrière de ses collaborateurs, comme l'évolution de leur rémunération. Il pourra aussi faire une recherche géographique afin d'approfondir les écarts entre départements sur une spécialité précise.</p>
+
+            <p>Les données présentées sont utilisables sous licence Creative Commons BY-NC-ND. Afin de garantir la confidentialité des répondants, le détail des réponses n'est pas affiché si celles-ci sont trop peu nombreuses.</p>
+
+
+            <h2>Profil du développeur</h2>
+
+            <p>D'après les résultats du baromètre nous pouvons établir un profil type du répondant. Le répondant est majoritairement :</p>
+            <ul>
+                <li>en CDI (à 93%),</li>
+                <li>travaille dans des zones à forte densité démographique : l'Île-de-France et la région Auvergne-Rhône-Alpes sont les lieux où nous retrouvons le plus de réponses,</li>
+                <li>a majoritairement entre 6 et 10 ans d'expérience (pour 40% des répondants),</li>
+                <li>un homme (à 95%),</li>
+                <li>pour finir le répondant à plutôt tendance à travailler dans des PME (52% des répondants travaillent dans des entreprises de moins de 50 salariés).</li>
+            </ul>
+
+            <div class="row">
+                <div class="col-md-6" style="text-align: center">
+                    <a href="http://barometre.afup.org/report/gender?filter[campaign][0]=4">
+                        <img src="{{ asset('report/2016/repartition_par_sexe.png') }}" />
+                    </a>
+                </div>
+                <div class="col-md-6" style="text-align: center">
+                    <a href="http://barometre.afup.org/report/company_department?filter[campaign][0]=4">
+                        <img src="{{ asset('report/2016/carte.png') }}" />
+                    </a>
+                </div>
+            </div>
+
+            <a href="http://barometre.afup.org/report/status?filter[campaign][0]=4">
+                <img src="{{ asset('report/2016/distribution_status.png') }}" />
+            </a>
+
+            <a href="http://barometre.afup.org/report/company_size?filter[campaign][0]=4">
+                <img src="{{ asset('report/2016/taille_entreprises.png') }}" />
+            </a>
+
+
+            <h2>Mises à jour de PHP</h2>
+
+            <p>Cela fait maintenant 4 ans que nous demandons chaque année aux développeurs la version de PHP utilisée en production.</p>
+
+            <p>Cette année nous pouvons constater un taux de mise à jour vers les version 5.6 et 7 de PHP plus important que les dernières versions des autres années : cela est probablement dû aux gains de performances amenés par cette mise à jour, qui a un fort impact business sur les applications. PHP 7 réalise en effet le meilleur démarrage des versions de PHP observé depuis le début de ce baromètre. Une version qui peut déjà être considérée comme un succès du point de vue de l’adhésion qu’elle a suscitée dans la communauté.</p>
+
+            <a href="http://barometre.afup.org/report/php_version?filter[campaign][0]=4">
+                <img src="{{ asset('report/2016/versions_php.png') }}" />
+            </a>
+
+
+            <h2>Les femmes dans le PHP</h2>
+
+            <p>Une part très faible des répondants sont des femmes : seulement 6,37% des participants à l'enquête sont des développeuses.</p>
+
+            <p>De grosses disparités sont à noter : les hommes sont généralement mieux payés que les femmes. Cet écart reste assez stable dans le temps. Cette disparité, bien qu’importante, est cependant nettement inférieure à l’écart de salaire moyen relevé par l’INSEE tous postes confondus. En effet, nous relevons dans ce baromètre un écart de 11,2% là où la moyenne relevée par l’INSEE est de 19,8% chez les cadres. Une marge de progression importante est tout de même présente.</p>
+
+            <a href="http://barometre.afup.org/report/gender?filter%5Bcampaign%5D%5B%5D=4&filter%5Bsalary%5D%5Bmin%5D=&filter%5Bsalary%5D%5Bmax%5D=&filter%5Bdistrict%5D%5B%5D=11&filter%5Bsubmit%5D=">
+                <img src="{{ asset('report/2016/evolution_salaire.png') }}" />
+            </a>
+
+            <p>En plus des disparités au niveau des salaires, il y a une disparité au niveau des types de postes. Comme indiqué dans les deux graphiques ci-dessous, les femmes sont présentes dans moins de types de postes que les hommes. 9 types de postes pour les hommes et 5 pour les femmes. Aucune réponse n’émane de femme architecte ou responsable d'équipe. De plus la part de lead développeuses est moins importante.</p>
+
+            <a href="http://barometre.afup.org/report/job_title?filter[campaign][]=4&filter[salary][min]=&filter[salary][max]=&filter[gender][]=1&filter[submit]=">
+                <img src="{{ asset('report/2016/intitule_poste_hommes.png') }}">
+            </a>
+
+            <a href="http://barometre.afup.org/report/job_title?filter[campaign][]=4&filter[salary][min]=&filter[salary][max]=&filter[gender][]=2&filter[submit]=">
+                <img src="{{ asset('report/2016/initule_poste_femmes.png') }}">
+            </a>
+
+
+            <h2>Table ronde sur l'emploi</h2>
+
+            <p>Lors du forum PHP 2016, a eu lieu une table ronde sur l'emploi dans PHP. Celle-ci a été filmée, vous pouvez la retrouver <a href="http://youtube.com/afupphp">sur la chaîne Youtube de l'AFUP</a> avec toutes les autres vidéos du Forum.</p>
+
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/NPO3TS17_8E" frameborder="0" allowfullscreen></iframe>
+
+            <h2>Qui sommes-nous</h2>
+
+            <p>Le centre de formation et de conseil Human Coders et l’association française des utilisateurs de PHP (AFUP) vous présentent pour la quatrième année consécutive le baromètre AFUP – Human Coders 2016 : les salaires des développeurs en France.</p>
+
+            <p>Comme chaque année, le baromètre AFUP – Human Coders répond aux questions que tout le monde se pose :</p>
+            <ul>
+                <li>Combien gagne un développeur débutant ?</li>
+                <li>Comment les salaires évoluent-ils avec l’expérience ?</li>
+                <li>Quelles sont les technos qui rapportent le plus ?</li>
+                <li>Dans quelles villes peut-on avoir les meilleurs salaires ?</li>
+            </ul>
+
+            <p>Nous espérons que vous aurez une vision claire du marché après consultation de ce baromètre AFUP – Human Coders.</p>
+
+            <h3>Human Coders</h3>
+
+            <p>Chez Human Coders, nous avons toujours œuvré à aider les développeurs à faire de la veille, découvrir de nouveaux langages ou technologies, se rencontrer, trouver les meilleurs jobs… Nous le faisons évidemment au travers de nos formations, mais aussi grâce notre site d’actu, notre forum, les évènements mensuels organisés partout en France par notre communauté…
+                C’est pourquoi il nous a paru tout à fait naturel d’accompagner l’AFUP pour la quatrième édition du baromètre puisque cela s’inscrit pleinement dans notre démarche d’ouverture et d’information.</p>
+
+            <p>Le baromètre des salaires vous propose une approche unique sur la question, très sensible, de la rémunération en France. Le baromètre est porté par l'AFUP, une association garantissant une collecte impartiale et aucune récupération mercantile des données. À l'aide d'un partenaire adhérant à cette éthique, notre but est de permettre à tous la plus grande transparence sur la problématique de la rémunération, tout en préservant l'anonymat des répondants.</p>
+
+            <p>L'AFUP tient chaleureusement à remercier toutes les personnes ayant répondu à l'enquête 2016 !</p>
+
+            <h3>Le rapport 2016</h3>
+
+            <p>Cette année nous avons posé de nouvelles questions. De nouveaux rapports sont alors disponibles :</p>
+            <ul>
+                <li>la participation à une formation,</li>
+                <li>la participation à un meetup,</li>
+                <li>la répartition des télétravailleurs,</li>
+            </ul>
+
+            <p> Nous vous invitons à consulter des rapports dans le menu "Rapports détaillés".</p>
+        </div>
+
+        <div class="col-md-4">
+            <h1>Résultats détaillés</h1>
+
+            <div class="well">
+                {% block menu_reports knp_menu_render('reports_menu', {}, 'reports') %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

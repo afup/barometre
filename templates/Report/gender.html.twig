@@ -1,0 +1,41 @@
+{% set icons =  {
+    "Hommes": { class: 'icon-male', size: '30px', color: "#343477"},
+    "Femmes": { class: 'icon-female', size: '30px', color: "#882D60"},
+    "Non précisé" : {color: "#999"},
+    "Personnes non-binaires": {color: "#89A54E"}
+} %}
+
+<table class="highchart highchart-emoticon highchart-align-xaxis-left-labels table table-striped"
+       data-graph-datalabels-enabled="1"
+       data-graph-container-before="1"
+       data-graph-type="pie"
+       data-graph-legend-disabled="1"
+       data-graph-inverted="1"
+       data-icons="{{ icons|json_encode }}"
+       data-graph-xaxis-labels-align="right">
+    <thead>
+    <tr>
+        <th>{{ "report.gender.label" | trans }}</th>
+        <th class="text-right">{{ "report.view.response_number" | trans }}</th>
+        <th data-graph-skip="1" class="text-right">{{ "report.view.average_salary" | trans }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in results %}
+        <tr {% if icons[row.gender|enum_label('App\\Enums\\GenderEnums')].color is defined %} style="color: {{ icons[row.gender|enum_label('App\\Enums\\GenderEnums')].color }}"{% endif %}>
+            <td>
+                {% if icons[row.gender|enum_label('App\\Enums\\GenderEnums')].class is defined %}
+                    <i class="icon {{ icons[row.gender|enum_label('App\\Enums\\GenderEnums')].class }}"></i>
+                {% endif %}
+                {{ row.gender|enum_label('App\\Enums\\GenderEnums') }}
+            </td>
+            <td {% if row.gender is null %}data-graph-item-highlight="1"{% endif %} {% if icons[row.gender|enum_label('App\\Enums\\GenderEnums')] is defined %}data-graph-item-color="{{ icons[row.gender|enum_label('App\\Enums\\GenderEnums')].color }}"{% endif %} data-graph-name='{{ row.gender|enum_label('App\\Enums\\GenderEnums') }}' class="text-right">{{ row.nbResponse }}</td>
+            <td class="text-right">{{ row.averageSalary|number_format(null, '', ' ') }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<div class="salary-info">
+    *{{ "report.view.info_annual_salary"|trans }}
+</div>
