@@ -297,6 +297,11 @@ services:
         factory: [ '@doctrine.orm.entity_manager', 'getRepository' ]
         arguments: ['App\Entity\ContainerEnvironmentUsage']
 
+    App\Repository\JobInterestRepository:
+        class: Doctrine\ORM\EntityRepository
+        factory: [ '@doctrine.orm.entity_manager', 'getRepository' ]
+        arguments: ['App\Entity\JobInterest']
+
     App\Campaign\ResponseFactory:
         arguments:
             - '@NumberFormatter'
@@ -305,3 +310,4 @@ services:
             - '@App\Repository\SpecialityRepository'
             - '@App\Repository\HostingTypeRepository'
             - '@App\Repository\ContainerEnvironmentUsageRepository'
+            - '@App\Repository\JobInterestRepository'
