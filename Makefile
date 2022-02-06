@@ -44,5 +44,4 @@ cs-fix:
 	docker run --rm -it -w=/app -v ${PWD}:/app oskarstark/php-cs-fixer-ga:latest
 
 deploy: node_modules asset_install
-	rm -f web/app_dev.php
 	php bin/console doctrine:migrations:migrate --env=prod --no-interaction
