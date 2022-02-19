@@ -41,10 +41,10 @@ class MenuBuilder
         $menu->setChildrenAttribute('class', 'nav navbar-nav');
 
         $menu->addChild(
-            'menu.result2020',
+            'menu.result2021',
             [
                 'route' => 'afup_barometre_campaign',
-                'routeParameters' => ['campaignName' => 2020],
+                'routeParameters' => ['campaignName' => 2021],
                 'routeAbsolute' => UrlGeneratorInterface::ABSOLUTE_URL,
             ]
         );

@@ -42,19 +42,19 @@
             <li>
                 Au global pour les postes de développeuses/développeurs et lead developpeuses/développeurs (hors freelances) sur tout le pays, les salaires ont globalement augmenté depuis l’année dernière. Le salaire médian passe de 39500€ à 41000€, mais la moyenne elle baisse légèrement en passant de 45200€ à 44300€.<br/>
                 <a href="{{ absolute_url('/report/salary?filter[campaign][]='~campaignId~'&filter[job_title][]=4&filter[job_title][]=8&filter[status][]=1&filter[status][]=2&filter[status][]=4&filter[status][]=0') }}" class="report-image">
-                    <img src="{{ asset('report/2021/evolution_des_salaires.png') }}" alt="Distribution des salaires" />
+                    <img src="{{ asset('reports/2021/evolution_des_salaires.png') }}" alt="Distribution des salaires" />
                 </a><br/>
             </li>
             <li>
                 Les salaires pour les profils expérimentés sont également en hausse : le salaire médian pour les personnes ayant plus de 5 ans d’expérience a augmenté de 2500€, contre seulement 1600€ pour les profils moins expérimentés.<br/>
                 <a href="{{ absolute_url('/report/salary?filter[campaign][]='~campaignId~'&filter[job_title][]=4&filter[job_title][]=8&filter[experience][]=3&filter[experience][]=4&filter[status][]=1&filter[status][]=2&filter[status][]=4&filter[status][]=0') }}" class="report-image">
-                    <img src="{{ asset('report/2021/evolution_des_salaires_plus_experimentes.png') }}" alt="Augmentation des salaires sur les profils les plus expérimentés" />
+                    <img src="{{ asset('reports/2021/evolution_des_salaires_plus_experimentes.png') }}" alt="Augmentation des salaires sur les profils les plus expérimentés" />
                 </a><br/>
             </li>
             <li>
                 Nous constatons bien cette valorisation de l’expérience, sur le graphique ci-dessous qui montre la progression du salaire en fonction de l’expérience.<br/>
                 <a href="{{ absolute_url('/report/experience_salary?filter[campaign][]='~campaignId~'&filter[job_title][]=4&filter[job_title][]=8&filter[status][]=1&filter[status][]=2&filter[status][]=4&filter[status][]=0') }}" class="report-image">
-                    <img src="{{ asset('report/2021/salaire_par_experience.png') }}" alt="Progression des salaires en fonction de l'expérience" />
+                    <img src="{{ asset('reports/2021/salaire_par_experience.png') }}" alt="Progression des salaires en fonction de l'expérience" />
                 </a><br/>
             </li>
         </ul>
@@ -77,7 +77,7 @@
                     <p>En 2021, les développeurs et développeuses, tout comme les lead-développeuses et lead-développeurs, ont déclaré être en majorité aux 35H. Ces résultats sont similaires a ceux que nous avons eu lors de l'enquête de 2020.</p>
                     <p>
                         <a href="{{ absolute_url('/report/contract_work_duration_report?filter[campaign][]='~campaignId~'&filter[job_title][]=8&filter[job_title][]=4') }}" class="report-image">
-                            <img src="{{ asset('report/2021/duree_contrat_travail.png') }}" alt="Durée contractuelle du travail" />
+                            <img src="{{ asset('reports/2021/duree_contrat_travail.png') }}" alt="Durée contractuelle du travail" />
                         </a>
                     </p>
                 </li>
@@ -85,7 +85,7 @@
                     <p>Les profils encadrants sont surtout au 35h dans les réponses de cette années, alors qu'ils etaient une majorité au forfait jour dans les réponses de l'année passée (39 contre 37 réponses).</p>
                     <p>
                         <a href="{{ absolute_url('/report/contract_work_duration_report?filter[campaign][]='~campaignId~'&filter[job_title][]=1&filter[job_title][]=2&filter[job_title][]=3&filter[job_title][]=5&filter[job_title][]=6') }}" class="report-image">
-                            <img src="{{ asset('report/2021/duree_contrat_travail_encadrant.png') }}" alt="Durée contractuelle du travail des profils encadrants" />
+                            <img src="{{ asset('reports/2021/duree_contrat_travail_encadrant.png') }}" alt="Durée contractuelle du travail des profils encadrants" />
                         </a>
                     </p>
                 </li>
@@ -94,42 +94,33 @@
         <h2>Le télétravail</h2>
             <p>En cette seconde année de pandémie, un fort pourcentage de répondant·e·s font maintenant du télétravail. Le pourcentage de répondant·e·s indiquant ne jamais faire de télétravail représente actuellement 5% des répondants.</p>
             <a href="{{ absolute_url('/report/remote_usage?filter[campaign][0]='~campaignId) }}" class="report-image">
-                <img src="{{ asset('report/2021/evolution_teletravail.png') }}" alt="Évolution du télétravail"/>
+                <img src="{{ asset('reports/2021/evolution_teletravail.png') }}" alt="Évolution du télétravail"/>
             </a>
 
-            TODO ajouter graphique sur le rythme idéal en teletravail
-            0 -> 2.2%
-            1 -> 6.7%
-            2 -> 20.8%
-            3 -> 30.1%
-            4 -> 18.8%
-            5 -> 21.3%
+            <p>Après une année 2020 avec du télétravail obligatoire et une année 2021 un peu plus souple, nous avons voulu connaitre votre rythme idéal de télétravail.</p>
+
+            <a href="{{ absolute_url('/report/remote_usage?filter[campaign][0]='~campaignId) }}" class="report-image">
+                <img src="{{ asset('reports/2021/rythme_teletravail.png') }}" alt="Rythme idéal du télétravail" />
+            </a>
 
         <h2>Versions de PHP</h2>
-            <p>Comme chaque année,  notre communauté suit bien les mises à jour du langage, la version 7.4 représentant pratiquement 45% des réponses. La version 5 de PHP reste utilisée par 5% des personnes ayant répondu, contre 9% en 2019, alors que cette version n’est plus supportée depuis janvier 2019.</p>
+            <p>Comme chaque année, notre communauté suit bien les mises à jour du langage, la version 7.4 représentant pratiquement 45% des réponses. La version 5 de PHP reste utilisée par 5% des personnes ayant répondu, contre 9% en 2019, alors que cette version n’est plus supportée depuis janvier 2019.</p>
             <a href="{{ absolute_url('/report/php_version?filter[campaign][0]='~campaignId) }}" class="report-image">
-                <img src="{{ asset('report/2021/evolution_php_versions.png') }}" alt="Versions de PHP utilisées" />
+                <img src="{{ asset('reports/2021/evolution_php_versions.png') }}" alt="Versions de PHP utilisées" />
             </a>
 
-        <h2>Nouveauté: Reconversion professionelle</h2>
-            <p>Cette année, nouvelle question par rapport à la reconversion professionelle.</p>
+        <h2>Nouveauté: Reconversion professionnelle</h2>
+            <p>Cette année, nouvelle question par rapport à la reconversion professionnelle.</p>
             <p>Un certain nombre de nouvelles formations proposant une reconversion dans le domaine de développements ont ouvert au cours des 5 dernières années, nous avons donc eu envie de connaitre un peu plus nos répondant·e·s.</p>
-            <p>82% ont eu une formation initial dans le domaine du developpement, et 9% ont eu une reconversion avec une formation longue (> 6 mois), 7% avec une formation courte (<= 6 mois) et 2% n'ont pas suivi de formation.</p>
 
-        <h2>Nouveauté: Aspects les plus important dans votre emplois actuel</h2>
+            <img src="{{ asset('reports/2021/reconversion.png') }}" alt="Reconversion professionnelle" />
 
-            <ul>
-                <li>interet technique de vos projets : 75%</li>
-                <li>ambiance dans votre entreprise : 72%</li>
-                <li>la qualité de vie autour de votre emploi : 62%</li>
-                <li>la rémuneration: 52%</li>
-                <li>le domaine metier de vos projets: 26%</li>
-            </ul>
+        <h2>Nouveauté: Aspects les plus importants dans votre emploi actuel</h2>
 
-        <h2>Origine de la maison mère de l'entreprise des répondant</h2>
+            <p>Une autre nouveauté de cette année, la possibilité de nous indiquer les aspects les plus importants de votre emploi actuel.</p>
+            <p>Pour 75% de nos répondant il s'agit de l'aspect technique, suivi de pres par l'ambiance.</p>
 
-        <p>lors du questionnaire 2020 nous avions 72% de nos répondant·e·s travaillant dans une entreprise d'origine française, cette année ce pourcentage chute a 61%.</p>
-        <p>Je ne sais pas quelles conclusions peuvent être tirés à partir de ces résultat, un plus grand adoption du télétravail peuvent avoir ouvert la possibilité de travailler dans des entreprise étrangères</p>
+            <img src="{{ asset('reports/2021/interet.png') }}" alt="Reconversion professionnelle" />
 
         <h2>Covid-19</h2>
 
@@ -139,19 +130,10 @@
             <p>La participation aux meetups déjà en baisse en 2020, continu sa chute sur 2021, 68% des personnes ayant répondu à notre enquête n’ont pas participé à des meetups durant l’année écoulée contre 50% l’année précédente (et 40% en 2019). et seuls 3% des répondants/répondantes ont participé à au moins 1 meetup par mois en 2021 (contre 13% en 2019).</p>
 
             <a href="{{ absolute_url('/report/meetup_participation?filter[campaign][0]='~campaignId) }}" class="report-image">
-                <img src="{{ asset('report/2021/evolution_participations_meetup.png') }}" alt="Évolutions de la participations aux meetups" />
+                <img src="{{ asset('reports/2021/evolution_participations_meetup.png') }}" alt="Évolutions de la participations aux meetups" />
             </a>
 
             <p>Dans l’ensemble vous avez trouvé que votre entreprise a bien su gérer cette crise (75% ont répondu bien ou très bien, 18,3% ne se prononce pas).</p>
-
-            TODO mettre a jour le graphique ci dessous
-
-            tres bien -> 36.3
-            bien -> 39.6
-            neutre -> 18.3
-            mal -> 4.5
-            tres mal -> 1.4
-            <img src="{{ asset('report/2020/entreprise_covid.png') }}" alt="Gestion du covid-19" />
 
             <p>En temps de pandémie, il est parfois difficile de penser au futur ou de réfléchir à un changement de poste : 32.5% de nos répondant ont dû changer leur projet de changement d’emploi (20.1% ont accéléré leur projet et 12.4% l'ont retardé).</p>
 

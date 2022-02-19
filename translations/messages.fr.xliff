@@ -22,6 +22,10 @@
                 <source>menu.result2020</source>
                 <target>Résultats 2020</target>
             </trans-unit>
+            <trans-unit id="menu.result2021">
+                <source>menu.result2021</source>
+                <target>Résultats 2021</target>
+            </trans-unit>
             <trans-unit id="menu.results">
                 <source>menu.results</source>
                 <target>Résultats détaillés</target>
@@ -93,6 +97,10 @@
             <trans-unit id="filter.status">
                 <source>filter.status</source>
                 <target>Statut</target>
+            </trans-unit>
+            <trans-unit id="filter.retraining">
+                <source>filter.retraining</source>
+                <target>Reconversion</target>
             </trans-unit>
             <trans-unit id="filter.meetup_participation">
                 <source>filter.meetup_participation</source>
