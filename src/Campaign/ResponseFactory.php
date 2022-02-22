@@ -9,6 +9,7 @@ use App\Entity\Campaign;
 use App\Entity\Certification;
 use App\Entity\ContainerEnvironmentUsage;
 use App\Entity\HostingType;
+use App\Entity\JobInterest;
 use App\Entity\Response;
 use App\Entity\Speciality;
 use App\Enums\CmsUsageInProjectEnums;
@@ -27,7 +28,6 @@ use App\Enums\ExperienceEnums;
 use App\Enums\FrenchPHPDocumentationQualityEnums;
 use App\Enums\GenderEnums;
 use App\Enums\InitialTrainingEnums;
-use App\Enums\JobInterestEnums;
 use App\Enums\JobTitleEnums;
 use App\Enums\MeetupParticipationEnums;
 use App\Enums\OsDeveloppmentEnums;
@@ -36,6 +36,7 @@ use App\Enums\PHPDocumentationUsageEnums;
 use App\Enums\PHPStrengthEnums;
 use App\Enums\PHPVersionEnums;
 use App\Enums\RemoteUsageEnums;
+use App\Enums\RetrainingEnums;
 use App\Enums\StatusEnums;
 use App\Enums\TechnologicalWatchEnums;
 use App\Enums\WorkMethodEnums;
@@ -44,54 +45,18 @@ use NumberFormatter;
 
 class ResponseFactory
 {
-    /**
-     * @var \NumberFormatter
-     */
-    private $numberFormatter;
-
-    /**
-     * @var EnumsCollection
-     */
-    private $enums;
-
-    /**
-     * @var ObjectRepository
-     */
-    private $certificationRepository;
-
-    /**
-     * @var ObjectRepository
-     */
-    private $specialityRepository;
-    /**
-     * @var ObjectRepository
-     */
-    private $hostingTypeRepository;
-    /**
-     * @var ObjectRepository
-     */
-    private $containerEnvironmentUsageRepository;
-
     public function __construct(
-        NumberFormatter $numberFormatter,
-        EnumsCollection $enums,
-        ObjectRepository $certificationRepository,
-        ObjectRepository $specialityRepository,
-        ObjectRepository $hostingTypeRepository,
-        ObjectRepository $containerEnvironmentUsageRepository
+        private NumberFormatter $numberFormatter,
+        private EnumsCollection $enums,
+        private ObjectRepository $certificationRepository,
+        private ObjectRepository $specialityRepository,
+        private ObjectRepository $hostingTypeRepository,
+        private ObjectRepository $containerEnvironmentUsageRepository,
+        private ObjectRepository $jobInterestRepository
     ) {
-        $this->numberFormatter = $numberFormatter;
-        $this->enums = $enums;
-        $this->certificationRepository = $certificationRepository;
-        $this->specialityRepository = $specialityRepository;
-        $this->hostingTypeRepository = $hostingTypeRepository;
-        $this->containerEnvironmentUsageRepository = $containerEnvironmentUsageRepository;
     }
 
-    /**
-     * @return Response
-     */
-    public function createResponse(array $data, Campaign $campaign)
+    public function createResponse(array $data, Campaign $campaign): Response
     {
         $response = new Response();
 
@@ -113,6 +78,9 @@ class ResponseFactory
             $this->enums->getEnums(InitialTrainingEnums::class)
                         ->getIdByLabel($data['initial_training'])
         );
+        if (isset($data['retraining'])) {
+            $response->setRetraining($this->enums->getEnums(RetrainingEnums::class)->getIdByLabel($data['retraining']));
+        }
         $response->setStatus(
             $this->enums->getEnums(StatusEnums::class)
                         ->getIdByLabel($data['status'])
@@ -126,13 +94,9 @@ class ResponseFactory
                         ->getIdByLabel($data['experience'])
         );
 
-        $response->setFreelanceTjm(
-            $data['freelance_tjm'] ?? null
-        );
+        $response->setFreelanceTjm($data['freelance_tjm'] ?? null);
 
-        $response->setFreelanceAverageWorkDayPerYear(
-            $data['freelance_average_work_day'] ?? null
-        );
+        $response->setFreelanceAverageWorkDayPerYear($data['freelance_average_work_day'] ?? null);
 
         if (isset($data['contract_work_duration'])) {
             $response->setContractWorkDuration(
@@ -157,10 +121,7 @@ class ResponseFactory
                         ->getIdByLabel($data['company_size'])
         );
 
-        $response->setJobInterest(
-            $this->enums->getEnums(JobInterestEnums::class)
-                        ->getIdByLabel($data['job_interest'])
-        );
+        $this->addJobInterest($response, explode(', ', $data['job_interest']));
 
         if (isset($data['company_origin'])) {
             $response->setCompanyOrigin($data['company_origin']);
@@ -175,6 +136,10 @@ class ResponseFactory
             $this->enums->getEnums(RemoteUsageEnums::class)
                         ->getIdByLabel($data['remote_usage'])
         );
+
+        if (isset($data['remote_pace'])) {
+            $response->setRemotePace((int) $data['remote_pace']);
+        }
 
         $response->setMeetupParticipation(
             $this->enums->getEnums(MeetupParticipationEnums::class)
@@ -191,14 +156,14 @@ class ResponseFactory
                         ->getIdByLabel($data['os_developpment'])
         );
 
-        if (\strlen(trim($data['hosting_type'])) !== 0) {
+        if (isset($data['hosting_type']) && \strlen(trim($data['hosting_type'])) !== 0) {
             $this->addHostingType(
                 $response,
                 explode(', ', $data['hosting_type'])
             );
         }
 
-        if (\strlen(trim($data['container_environment_usage'])) !== 0) {
+        if (isset($data['container_environment_usage']) && \strlen(trim($data['container_environment_usage'])) !== 0) {
             $this->addContainerEnvironmentUsage(
                 $response,
                 explode(', ', $data['container_environment_usage'])
@@ -322,6 +287,12 @@ class ResponseFactory
             );
         }
 
+        if (isset($data['covid19_work_condition'])) {
+            $response->setCovid19WorkCondition(
+                (int) $data['covid19_work_condition']
+            );
+        }
+
         return $response;
     }
 
@@ -378,6 +349,19 @@ class ResponseFactory
             }
 
             $response->addContainerEnvironmentUsage($containerEnvironmentUsage);
+        }
+    }
+
+    private function addJobInterest(Response $response, array $jobInterests)
+    {
+        foreach ($jobInterests as $name) {
+            $jobInterest = $this->jobInterestRepository->findOneBy(['name' => $name]);
+
+            if (!$jobInterest instanceof JobInterest) {
+                continue;
+            }
+
+            $response->addJobInterest($jobInterest);
         }
     }
 }
