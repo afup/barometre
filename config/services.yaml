@@ -223,14 +223,6 @@ services:
         parent: App\Report\AbstractReport
         tags: ['barometre.report']
 
-    App\Report\PHPDocumentationSourceReport:
-        parent: App\Report\AbstractReport
-        tags: [ 'barometre.report' ]
-
-    App\Report\FrenchPhpDocumentationQualityReport:
-        parent: App\Report\AbstractReport
-        tags: ['barometre.report']
-
     App\Report\RemoteUsageEvolutionReport:
         parent: App\Report\AbstractDistributionEvolutionReport
 
@@ -257,15 +249,7 @@ services:
         parent: App\Report\AbstractReport
         tags: ['barometre.report']
 
-    App\Report\ContainerEnvironmentUsageReport:
-        parent: App\Report\AbstractReport
-        tags: ['barometre.report']
-
     App\Report\ContractWorkDurationReport:
-        parent: App\Report\AbstractReport
-        tags: ['barometre.report']
-
-    App\Report\HostingTypeReport:
         parent: App\Report\AbstractReport
         tags: ['barometre.report']
 

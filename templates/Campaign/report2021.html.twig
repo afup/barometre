@@ -40,13 +40,13 @@
         <p>Nous pouvons noter plusieurs choses :</p>
         <ul>
             <li>
-                Au global pour les postes de développeuses/développeurs et lead developpeuses/développeurs (hors freelances) sur tout le pays, les salaires ont globalement augmenté depuis l’année dernière. Le salaire médian passe de 39500€ à 41000€, mais la moyenne elle baisse légèrement en passant de 45200€ à 44300€.<br/>
+                Au global pour les postes de développeuses/développeurs et lead developpeuses/développeurs (hors freelances) sur tout le pays, les salaires continue d'augmenter depuis quelques années. Le salaire médian passe de 39500€ à 41000€, mais la moyenne, elle baisse légèrement en passant de 45200€ à 44300€. Depuis 2019, nous constatons une augmentation du salaire médian de 11%<br/>
                 <a href="{{ absolute_url('/report/salary?filter[campaign][]='~campaignId~'&filter[job_title][]=4&filter[job_title][]=8&filter[status][]=1&filter[status][]=2&filter[status][]=4&filter[status][]=0') }}" class="report-image">
                     <img src="{{ asset('reports/2021/evolution_des_salaires.png') }}" alt="Distribution des salaires" />
                 </a><br/>
             </li>
             <li>
-                Les salaires pour les profils expérimentés sont également en hausse : le salaire médian pour les personnes ayant plus de 5 ans d’expérience a augmenté de 2500€, contre seulement 1600€ pour les profils moins expérimentés.<br/>
+                Les salaires pour les profils expérimentés sont également en hausse : le salaire médian pour les personnes ayant plus de 5 ans d’expérience a augmenté de 2500€, contre 1600€ pour les profils moins expérimentés.<br/>
                 <a href="{{ absolute_url('/report/salary?filter[campaign][]='~campaignId~'&filter[job_title][]=4&filter[job_title][]=8&filter[experience][]=3&filter[experience][]=4&filter[status][]=1&filter[status][]=2&filter[status][]=4&filter[status][]=0') }}" class="report-image">
                     <img src="{{ asset('reports/2021/evolution_des_salaires_plus_experimentes.png') }}" alt="Augmentation des salaires sur les profils les plus expérimentés" />
                 </a><br/>
@@ -71,28 +71,10 @@
 
             <p>Ces points ne changent pas ou peu par rapport aux années précédentes.</p>
 
-        <h2>Durée contractuelle du travail</h2>
-            <ul>
-                <li>
-                    <p>En 2021, les développeurs et développeuses, tout comme les lead-développeuses et lead-développeurs, ont déclaré être en majorité aux 35H. Ces résultats sont similaires a ceux que nous avons eu lors de l'enquête de 2020.</p>
-                    <p>
-                        <a href="{{ absolute_url('/report/contract_work_duration_report?filter[campaign][]='~campaignId~'&filter[job_title][]=8&filter[job_title][]=4') }}" class="report-image">
-                            <img src="{{ asset('reports/2021/duree_contrat_travail.png') }}" alt="Durée contractuelle du travail" />
-                        </a>
-                    </p>
-                </li>
-                <li>
-                    <p>Les profils encadrants sont surtout au 35h dans les réponses de cette années, alors qu'ils etaient une majorité au forfait jour dans les réponses de l'année passée (39 contre 37 réponses).</p>
-                    <p>
-                        <a href="{{ absolute_url('/report/contract_work_duration_report?filter[campaign][]='~campaignId~'&filter[job_title][]=1&filter[job_title][]=2&filter[job_title][]=3&filter[job_title][]=5&filter[job_title][]=6') }}" class="report-image">
-                            <img src="{{ asset('reports/2021/duree_contrat_travail_encadrant.png') }}" alt="Durée contractuelle du travail des profils encadrants" />
-                        </a>
-                    </p>
-                </li>
-            </ul>
-
         <h2>Le télétravail</h2>
             <p>En cette seconde année de pandémie, un fort pourcentage de répondant·e·s font maintenant du télétravail. Le pourcentage de répondant·e·s indiquant ne jamais faire de télétravail représente actuellement 5% des répondants.</p>
+
+            <p>On peut donc voir sur ce graphique que sur les 2 dernières années le télétravail s’est grandement généralisé pour atteindre 74% des personnes interrogées qui le pratiquent au moins régulièrement (contre 18% en 2019).</p>
             <a href="{{ absolute_url('/report/remote_usage?filter[campaign][0]='~campaignId) }}" class="report-image">
                 <img src="{{ asset('reports/2021/evolution_teletravail.png') }}" alt="Évolution du télétravail"/>
             </a>
@@ -103,22 +85,19 @@
                 <img src="{{ asset('reports/2021/rythme_teletravail.png') }}" alt="Rythme idéal du télétravail" />
             </a>
 
+            <p>La majorité d’entre vous pense donc qu’il est idéal de pratiquer 3 jours de télétravail par semaine.</p>
+
         <h2>Versions de PHP</h2>
             <p>Comme chaque année, notre communauté suit bien les mises à jour du langage, la version 7.4 représentant pratiquement 45% des réponses. La version 5 de PHP reste utilisée par 5% des personnes ayant répondu, contre 9% en 2019, alors que cette version n’est plus supportée depuis janvier 2019.</p>
             <a href="{{ absolute_url('/report/php_version?filter[campaign][0]='~campaignId) }}" class="report-image">
                 <img src="{{ asset('reports/2021/evolution_php_versions.png') }}" alt="Versions de PHP utilisées" />
             </a>
 
-        <h2>Nouveauté: Reconversion professionnelle</h2>
-            <p>Cette année, nouvelle question par rapport à la reconversion professionnelle.</p>
-            <p>Un certain nombre de nouvelles formations proposant une reconversion dans le domaine de développements ont ouvert au cours des 5 dernières années, nous avons donc eu envie de connaitre un peu plus nos répondant·e·s.</p>
-
-            <img src="{{ asset('reports/2021/reconversion.png') }}" alt="Reconversion professionnelle" />
-
         <h2>Nouveauté: Aspects les plus importants dans votre emploi actuel</h2>
 
-            <p>Une autre nouveauté de cette année, la possibilité de nous indiquer les aspects les plus importants de votre emploi actuel.</p>
-            <p>Pour 75% de nos répondant il s'agit de l'aspect technique, suivi de pres par l'ambiance.</p>
+            <p>Une nouveauté de cette année, la possibilité de nous indiquer les aspects les plus importants de votre emploi actuel.</p>
+            <p>Pour 75% de nos répondants il s'agit de l'aspect technique, suivi de pres par l'ambiance.</p>
+            <p>Le domaine metier lui ne représente que 27%</p>
 
             <img src="{{ asset('reports/2021/interet.png') }}" alt="Reconversion professionnelle" />
 
@@ -141,7 +120,7 @@
 
         <h2>Qui sommes nous ?</h2>
 
-            <p>Le <a href="https://www.journaldunet.com" title="Journal du Net">Journal du Net</a> (JDN) et l'<a href="http://www.afup.org" title="Association Française des Utilisateurs de PHP">association française des utilisateurs de PHP</a> (AFUP) vous présentent pour la huitième année consécutive le baromètre des salaires AFUP – JDN 2020 </p>
+            <p>Le <a href="https://www.journaldunet.com" title="Journal du Net">Journal du Net</a> (JDN) et l'<a href="http://www.afup.org" title="Association Française des Utilisateurs de PHP">association française des utilisateurs de PHP</a> (AFUP) vous présentent pour la neuvième année consécutive le baromètre des salaires AFUP – JDN 2021 </p>
 
             <p>Comme chaque année, le baromètre AFUP – JDN répond aux questions que se posent les professionnel·le·s de notre secteur :</p>
             <ul>
