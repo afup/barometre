@@ -6,6 +6,7 @@ RUN docker-php-ext-install pdo_mysql
 RUN apt-get update && apt-get install -y libicu-dev build-essential
 RUN docker-php-ext-install intl
 RUN echo "Include sites-enabled/" >> /etc/apache2/apache2.conf
+RUN a2enmod rewrite
 
 ARG uid=1008
 

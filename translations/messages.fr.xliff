@@ -22,6 +22,10 @@
                 <source>menu.result2020</source>
                 <target>Résultats 2020</target>
             </trans-unit>
+            <trans-unit id="menu.result2021">
+                <source>menu.result2021</source>
+                <target>Résultats 2021</target>
+            </trans-unit>
             <trans-unit id="menu.results">
                 <source>menu.results</source>
                 <target>Résultats détaillés</target>
@@ -93,6 +97,10 @@
             <trans-unit id="filter.status">
                 <source>filter.status</source>
                 <target>Statut</target>
+            </trans-unit>
+            <trans-unit id="filter.retraining">
+                <source>filter.retraining</source>
+                <target>Reconversion</target>
             </trans-unit>
             <trans-unit id="filter.meetup_participation">
                 <source>filter.meetup_participation</source>
@@ -352,11 +360,6 @@
                 <target>Si vous avez besoin d'information sur une fonctionnalité en PHP vous utilisez</target>
             </trans-unit>
 
-            <trans-unit id="report.french_php_documentation_quality_report.label">
-                <source>report.french_php_documentation_quality_report.label</source>
-                <target>Qualité de la documentation française de PHP</target>
-            </trans-unit>
-
             <trans-unit id="report.view.french_php_documentation_quality">
                 <source>report.view.french_php_documentation_quality</source>
                 <target>Vous trouvez que la qualité de la documentation en français de PHP est</target>
@@ -367,29 +370,9 @@
                 <target>Durée de travail contractuelle</target>
             </trans-unit>
 
-            <trans-unit id="report.container_environment_report.label">
-                <source>report.container_environment_report.label</source>
-                <target>Utilisation de container (ex: docker)</target>
-            </trans-unit>
-
             <trans-unit id="report.work_method_report.label">
                 <source>report.work_method_report.label</source>
                 <target>Méthodologie de travail</target>
-            </trans-unit>
-
-            <trans-unit id="report.hosting_type_report.label">
-                <source>report.hosting_type_report.label</source>
-                <target>Type d'hebergement</target>
-            </trans-unit>
-
-            <trans-unit id="report.view.container_environment_report">
-                <source>report.view.container_environment_report</source>
-                <target>Utilisation de container</target>
-            </trans-unit>
-
-            <trans-unit id="report.view.hosting_type">
-                <source>report.view.hosting_type</source>
-                <target>Type d'hebergement</target>
             </trans-unit>
 
             <trans-unit id="report.view.work_method">
