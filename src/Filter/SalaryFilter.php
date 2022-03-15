@@ -32,7 +32,7 @@ class SalaryFilter implements FilterInterface
             return;
         }
 
-        //Switch min and max salary if user has inverted the fields
+        // Switch min and max salary if user has inverted the fields
         if (isset($values['salary']['min'])
             && isset($values['salary']['max'])
             && $values['salary']['max'] < $values['salary']['min']
@@ -59,7 +59,7 @@ class SalaryFilter implements FilterInterface
      */
     public function convertValuesToLabels($value)
     {
-        //Switch min and max if user has inverted the fields
+        // Switch min and max if user has inverted the fields
         if (isset($value['min']) && isset($value['max']) && $value['max'] < $value['min']) {
             list($value['max'], $value['min']) = [$value['min'], $value['max']];
         }

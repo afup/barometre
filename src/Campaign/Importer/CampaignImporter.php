@@ -63,7 +63,7 @@ class CampaignImporter
         $columns = $format->getColumns();
 
         foreach ($file as $lineNumber => $line) {
-            //skip first line
+            // skip first line
             if (0 === $lineNumber) {
                 continue;
             }

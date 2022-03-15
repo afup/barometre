@@ -37,7 +37,7 @@ class Format2021 extends Format2014
             'php_version', // Quelle version de PHP utilisez-vous au quotidien ?
             'cms_usage_in_project', // Utilisez-vous un CMS dans votre/vos projet(s) courant?
             'has_certification', // Possédez-vous une ou plusieurs certifications PHP ?
-            'certification_list', //Si oui, merci d'indiquer lesquelles
+            'certification_list', // Si oui, merci d'indiquer lesquelles
             'php_strength', // D'après vous, quelle est la plus grande force de PHP ?
             'has_formation', // Avez-vous suivi une formation au cours de ces deux dernières années ?
             'formation_subject', // Sur quel(s) sujet(s) avez-vous été formés ?
