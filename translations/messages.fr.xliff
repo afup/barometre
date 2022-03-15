@@ -92,7 +92,7 @@
             </trans-unit>
             <trans-unit id="filter.gender">
                 <source>filter.gender</source>
-                <target>Sexe</target>
+                <target>Genre</target>
             </trans-unit>
             <trans-unit id="filter.status">
                 <source>filter.status</source>
@@ -176,15 +176,15 @@
             </trans-unit>
             <trans-unit id="report.gender.label">
                 <source>report.gender.label</source>
-                <target>Salaire moyen par sexe</target>
+                <target>Salaire moyen par genre</target>
             </trans-unit>
             <trans-unit id="reportreport.gender_salary_evolution.label">
                 <source>report.gender_salary_evolution.label</source>
-                <target>Évolution du salaire moyen par sexe</target>
+                <target>Évolution du salaire moyen par genre</target>
             </trans-unit>
             <trans-unit id="reportreport.gender_count_evolution.label">
                 <source>report.gender_count_evolution.label</source>
-                <target>Évolution du nombre de réponses par sexe</target>
+                <target>Évolution du nombre de réponses par genre</target>
             </trans-unit>
             <trans-unit id="report.company_size_salary.label">
                 <source>report.company_size_salary.label</source>

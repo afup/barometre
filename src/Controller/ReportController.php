@@ -55,7 +55,7 @@ class ReportController extends AbstractController
      * ce qui veut dire qu'on en récupère une nouvelle instance à chaque fois qu'on la demande au container
      * Ceci afin de pouvoir valider autant de fois le formulaire qu'il y a dedans ($form)
      * (on ne peut donc pas passer par l'injection de dépendances dans le constructeur du controller)
-     * Cela sert par exemple pour le rapport "Salaire Moyen Par Sexe" d'afficher en sous rapport des autres rapports
+     * Cela sert par exemple pour le rapport "Salaire Moyen Par Genre" d'afficher en sous rapport des autres rapports
      * qui n'ont pas le même filtrage (concerne toutes les campagnes)
      * ->get est déprécié, il faudra voir comment on pourra remplacer cette méthode.
      */
