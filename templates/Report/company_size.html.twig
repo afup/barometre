@@ -9,29 +9,11 @@
         </tr>
     </thead>
     <tbody>
-            <tr>
-                <td>Autre</td>
-                <td class="text-right">5</td>
-            </tr>
-            <tr>
-                <td>La qualité de vie autour de votre emploi</td>
-                <td class="text-right">62</td>
-            </tr>
-            <tr>
-                <td>L'intérêt technique de vos projets</td>
-                <td class="text-right">75</td>
-            </tr>
-            <tr>
-                <td>L'ambiance dans l'entreprise</td>
-                <td class="text-right">72</td>
-            </tr>
-            <tr>
-                <td>La rémunération</td>
-                <td class="text-right">52</td>
-            </tr>
-            <tr>
-                <td>Le domaine métier de vos projets</td>
-                <td class="text-right">27</td>
-            </tr>
+    {% for row in results %}
+        <tr>
+            <td>{{ row.companySize|enum_label('App\\Enums\\CompanySizeEnums') }}</td>
+            <td class="text-right">{{ row.nbResponse }}</td>
+        </tr>
+    {% endfor %}
     </tbody>
 </table>
