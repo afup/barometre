@@ -8,7 +8,6 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- *
  * @ORM\Table(name="container_environment_usage")
  */
 class ContainerEnvironmentUsage
