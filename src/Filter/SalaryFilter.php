@@ -36,7 +36,7 @@ class SalaryFilter implements FilterInterface
         if (isset($values['salary']['min'])
             && isset($values['salary']['max'])
             && $values['salary']['max'] < $values['salary']['min']
-            ) {
+        ) {
             list($values['salary']['min'], $values['salary']['max']) =
                 [$values['salary']['max'], $values['salary']['min']];
         }
