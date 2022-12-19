@@ -37,8 +37,6 @@ class CampaignRepository extends ServiceEntityRepository
     }
 
     /**
-     * @param $name
-     *
      * @throws Exception
      * @throws OptimisticLockException
      */

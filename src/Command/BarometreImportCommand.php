@@ -7,7 +7,6 @@ namespace App\Command;
 use App\Campaign\Format\FormatFactory;
 use App\Campaign\Importer\CampaignImporter;
 use App\Repository\CampaignRepository;
-use DateTime;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -59,8 +58,8 @@ class BarometreImportCommand extends Command
         $this->getCampaignImporter()->import(
             $format,
             $name,
-            DateTime::createFromFormat('d/m/Y', $startDate),
-            DateTime::createFromFormat('d/m/Y', $endDate),
+            \DateTime::createFromFormat('d/m/Y', $startDate),
+            \DateTime::createFromFormat('d/m/Y', $endDate),
             $filename,
             $separator
         );
