@@ -54,11 +54,6 @@ class SalaryEvolutionReport extends AbstractReport implements AlterableReportInt
         $this->data = $data;
     }
 
-    /**
-     * @param $campaignId
-     * @param $campaignCount
-     * @param $percentile
-     */
     protected function calculatePercentileForYear($campaignId, $campaignCount, $percentile)
     {
         $qb = clone $this->queryBuilder;

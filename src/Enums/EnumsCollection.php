@@ -16,8 +16,6 @@ class EnumsCollection
     }
 
     /**
-     * @param $alias
-     *
      * @throws \InvalidArgumentException
      */
     public function getEnums($alias): EnumsInterface
