@@ -7,10 +7,7 @@ namespace App\Campaign\Importer;
 use App\Campaign\Format\FormatInterface;
 use App\Campaign\ResponseFactory;
 use App\Entity\Campaign;
-use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
-use LogicException;
-use SplFileObject;
 
 class CampaignImporter
 {
@@ -38,8 +35,8 @@ class CampaignImporter
     public function import(
         FormatInterface $format,
         $name,
-        DateTime $startDate,
-        DateTime $endDate,
+        \DateTime $startDate,
+        \DateTime $endDate,
         $filename,
         $separator = ';'
     ) {
@@ -51,13 +48,13 @@ class CampaignImporter
 
         $this->objectManager->persist($campaign);
 
-        $file = new SplFileObject($filename, 'r');
+        $file = new \SplFileObject($filename, 'r');
         $file->setCsvControl($separator);
         $file->setFlags(
-            SplFileObject::READ_AHEAD
-            | SplFileObject::READ_CSV
-            | SplFileObject::SKIP_EMPTY
-            | SplFileObject::DROP_NEW_LINE
+            \SplFileObject::READ_AHEAD
+            | \SplFileObject::READ_CSV
+            | \SplFileObject::SKIP_EMPTY
+            | \SplFileObject::DROP_NEW_LINE
         );
 
         $columns = $format->getColumns();
@@ -69,7 +66,7 @@ class CampaignImporter
             }
 
             if (\count($columns) !== \count($line)) {
-                throw new LogicException('Invalid column count. Incorrect format ?');
+                throw new \LogicException('Invalid column count. Incorrect format ?');
             }
 
             $data = $format->alterData(array_combine($columns, $line));

@@ -41,12 +41,11 @@ use App\Enums\StatusEnums;
 use App\Enums\TechnologicalWatchEnums;
 use App\Enums\WorkMethodEnums;
 use Doctrine\Persistence\ObjectRepository;
-use NumberFormatter;
 
 class ResponseFactory
 {
     public function __construct(
-        private NumberFormatter $numberFormatter,
+        private \NumberFormatter $numberFormatter,
         private EnumsCollection $enums,
         private ObjectRepository $certificationRepository,
         private ObjectRepository $specialityRepository,
