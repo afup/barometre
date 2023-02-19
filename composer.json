@@ -6,7 +6,7 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
-        "php": ">=8.0",
+        "php": ">=8.1",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "agallou/departements": "^0.1.0",
@@ -18,20 +18,20 @@
         "knplabs/knp-menu-bundle": "^3.2",
         "sensio/framework-extra-bundle": "^6.2",
         "symfony/apache-pack": "^1.0",
-        "symfony/asset": "5.4.*",
-        "symfony/console": "5.4.*",
-        "symfony/dotenv": "5.4.*",
+        "symfony/asset": "^6.2",
+        "symfony/console": "^6.2",
+        "symfony/dotenv": "^6.2",
         "symfony/flex": "^1.17|^2",
-        "symfony/form": "5.4.*",
-        "symfony/framework-bundle": "5.4.*",
-        "symfony/proxy-manager-bridge": "5.4.*",
-        "symfony/runtime": "5.4.*",
-        "symfony/security-csrf": "5.4.*",
-        "symfony/translation": "5.4.*",
-        "symfony/twig-bundle": "5.4.*",
-        "symfony/yaml": "5.4.*",
-        "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0"
+        "symfony/form": "^6.2",
+        "symfony/framework-bundle": "^6.2",
+        "symfony/proxy-manager-bridge": "^6.2",
+        "symfony/runtime": "^6.2",
+        "symfony/security-csrf": "^6.2",
+        "symfony/translation": "^6.2",
+        "symfony/twig-bundle": "^6.2",
+        "symfony/yaml": "^6.2",
+        "twig/extra-bundle": "^3.5",
+        "twig/twig": "^3.5"
     },
     "config": {
         "allow-plugins": {
@@ -39,10 +39,13 @@
             "symfony/flex": true,
             "symfony/runtime": true
         },
-        "optimize-autoloader": true,
+        "platform": {
+            "php": "8.1.0"
+        },
         "preferred-install": {
             "*": "dist"
         },
+        "optimize-autoloader": true,
         "sort-packages": true
     },
     "autoload": {
@@ -78,7 +81,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "5.4.*"
+            "require": "6.2.*"
         }
     },
     "require-dev": {
@@ -86,7 +89,7 @@
         "doctrine/doctrine-fixtures-bundle": "^3.4",
         "nelmio/alice": "^3.10",
         "symfony/maker-bundle": "^1.36",
-        "symfony/stopwatch": "5.4.*",
-        "symfony/web-profiler-bundle": "5.4.*"
+        "symfony/stopwatch": "^6.2",
+        "symfony/web-profiler-bundle": "^6.2"
     }
 }

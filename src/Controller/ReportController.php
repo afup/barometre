@@ -68,7 +68,7 @@ class ReportController extends AbstractController
      * Bien que défini comme publique dans la définition (public=true), cette méthode indique à l'AbstractController
      * qu'on peut appeler directement le service App\ReportManager via le container
      */
-    public static function getSubscribedServices()
+    public static function getSubscribedServices(): array
     {
         return array_merge(parent::getSubscribedServices(), [
             'App\ReportManager' => 'App\ReportManager',
