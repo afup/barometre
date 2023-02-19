@@ -33,7 +33,7 @@ class Select2MultipleFilterType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getBlockPrefix()
+    public function getBlockPrefix(): string
     {
         return 'select2_multiple_filter';
     }
@@ -41,7 +41,7 @@ class Select2MultipleFilterType extends AbstractType
     /**
      * {@inheritdoc}
      */
-    public function getParent()
+    public function getParent(): ?string
     {
         return ChoiceType::class;
     }

@@ -42,7 +42,7 @@ class ReportCollection implements \IteratorAggregate
         return $this->reports[$name];
     }
 
-    public function getIterator()
+    public function getIterator(): \Traversable
     {
         return new \ArrayIterator($this->reports);
     }
