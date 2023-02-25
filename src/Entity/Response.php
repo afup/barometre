@@ -156,6 +156,19 @@ class Response
     #[ORM\Column(type: 'integer', nullable: true)]
     private ?int $gender = null;
 
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private ?int $salaryInflation = null;
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private ?int $experienceInYear = null;
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private ?int $experienceInCurrentJob = null;
+
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private ?int $remoteMoney = null;
+
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private ?int $numberMeetupParticipation = null;
+
     public function __construct()
     {
         $this->certifications = new ArrayCollection();
@@ -178,7 +191,7 @@ class Response
      *
      * @return Response
      */
-    public function setId(int $id): Response
+    public function setId(int $id): self
     {
         $this->id = $id;
 
@@ -198,7 +211,7 @@ class Response
      *
      * @return Response
      */
-    public function setCampaign(Campaign $campaign): Response
+    public function setCampaign(Campaign $campaign): self
     {
         $this->campaign = $campaign;
 
@@ -218,7 +231,7 @@ class Response
      *
      * @return Response
      */
-    public function setGrossAnnualSalary(?int $grossAnnualSalary): Response
+    public function setGrossAnnualSalary(?int $grossAnnualSalary): self
     {
         $this->grossAnnualSalary = $grossAnnualSalary;
 
@@ -238,7 +251,7 @@ class Response
      *
      * @return Response
      */
-    public function setVariableAnnualSalary(?int $variableAnnualSalary): Response
+    public function setVariableAnnualSalary(?int $variableAnnualSalary): self
     {
         $this->variableAnnualSalary = $variableAnnualSalary;
 
@@ -258,7 +271,7 @@ class Response
      *
      * @return Response
      */
-    public function setAnnualSalary(?int $annualSalary): Response
+    public function setAnnualSalary(?int $annualSalary): self
     {
         $this->annualSalary = $annualSalary;
 
@@ -278,7 +291,7 @@ class Response
      *
      * @return Response
      */
-    public function setSalarySatisfaction(?int $salarySatisfaction): Response
+    public function setSalarySatisfaction(?int $salarySatisfaction): self
     {
         $this->salarySatisfaction = $salarySatisfaction;
 
@@ -298,7 +311,7 @@ class Response
      *
      * @return Response
      */
-    public function setInitialTraining(?int $initialTraining): Response
+    public function setInitialTraining(?int $initialTraining): self
     {
         $this->initialTraining = $initialTraining;
 
@@ -318,7 +331,7 @@ class Response
      *
      * @return Response
      */
-    public function setRetraining(?int $retraining): Response
+    public function setRetraining(?int $retraining): self
     {
         $this->retraining = $retraining;
 
@@ -338,7 +351,7 @@ class Response
      *
      * @return Response
      */
-    public function setStatus(?int $status): Response
+    public function setStatus(?int $status): self
     {
         $this->status = $status;
 
@@ -358,7 +371,7 @@ class Response
      *
      * @return Response
      */
-    public function setJobTitle(?int $jobTitle): Response
+    public function setJobTitle(?int $jobTitle): self
     {
         $this->jobTitle = $jobTitle;
 
@@ -378,7 +391,7 @@ class Response
      *
      * @return Response
      */
-    public function setExperience(?int $experience): Response
+    public function setExperience(?int $experience): self
     {
         $this->experience = $experience;
 
@@ -398,7 +411,7 @@ class Response
      *
      * @return Response
      */
-    public function setFreelanceTjm(?int $freelanceTjm): Response
+    public function setFreelanceTjm(?int $freelanceTjm): self
     {
         $this->freelanceTjm = $freelanceTjm;
 
@@ -418,7 +431,7 @@ class Response
      *
      * @return Response
      */
-    public function setFreelanceAverageWorkDayPerYear(?int $freelanceAverageWorkDayPerYear): Response
+    public function setFreelanceAverageWorkDayPerYear(?int $freelanceAverageWorkDayPerYear): self
     {
         $this->freelanceAverageWorkDayPerYear = $freelanceAverageWorkDayPerYear;
 
@@ -438,7 +451,7 @@ class Response
      *
      * @return Response
      */
-    public function setContractWorkDuration(?int $contractWorkDuration): Response
+    public function setContractWorkDuration(?int $contractWorkDuration): self
     {
         $this->contractWorkDuration = $contractWorkDuration;
 
@@ -458,7 +471,7 @@ class Response
      *
      * @return Response
      */
-    public function setCompanyDepartment(?string $companyDepartment): Response
+    public function setCompanyDepartment(?string $companyDepartment): self
     {
         $this->companyDepartment = $companyDepartment;
 
@@ -478,7 +491,7 @@ class Response
      *
      * @return Response
      */
-    public function setCompanyType(?int $companyType): Response
+    public function setCompanyType(?int $companyType): self
     {
         $this->companyType = $companyType;
 
@@ -498,7 +511,7 @@ class Response
      *
      * @return Response
      */
-    public function setCompanySize(?int $companySize): Response
+    public function setCompanySize(?int $companySize): self
     {
         $this->companySize = $companySize;
 
@@ -518,7 +531,7 @@ class Response
      *
      * @return Response
      */
-    public function setJobInterests(Collection $jobInterests): Response
+    public function setJobInterests(Collection $jobInterests): self
     {
         $this->jobInterests = $jobInterests;
 
@@ -538,7 +551,7 @@ class Response
      *
      * @return Response
      */
-    public function setCompanyOrigin(?string $companyOrigin): Response
+    public function setCompanyOrigin(?string $companyOrigin): self
     {
         $this->companyOrigin = $companyOrigin;
 
@@ -558,7 +571,7 @@ class Response
      *
      * @return Response
      */
-    public function setOtherLanguage(?int $otherLanguage): Response
+    public function setOtherLanguage(?int $otherLanguage): self
     {
         $this->otherLanguage = $otherLanguage;
 
@@ -578,7 +591,7 @@ class Response
      *
      * @return Response
      */
-    public function setRemoteUsage(?int $remoteUsage): Response
+    public function setRemoteUsage(?int $remoteUsage): self
     {
         $this->remoteUsage = $remoteUsage;
 
@@ -598,7 +611,7 @@ class Response
      *
      * @return Response
      */
-    public function setRemotePace(?int $remotePace): Response
+    public function setRemotePace(?int $remotePace): self
     {
         $this->remotePace = $remotePace;
 
@@ -618,7 +631,7 @@ class Response
      *
      * @return Response
      */
-    public function setMeetupParticipation(?int $meetupParticipation): Response
+    public function setMeetupParticipation(?int $meetupParticipation): self
     {
         $this->meetupParticipation = $meetupParticipation;
 
@@ -638,7 +651,7 @@ class Response
      *
      * @return Response
      */
-    public function setTechnologicalWatch(?int $technologicalWatch): Response
+    public function setTechnologicalWatch(?int $technologicalWatch): self
     {
         $this->technologicalWatch = $technologicalWatch;
 
@@ -658,7 +671,7 @@ class Response
      *
      * @return Response
      */
-    public function setOsDeveloppment(?int $osDeveloppment): Response
+    public function setOsDeveloppment(?int $osDeveloppment): self
     {
         $this->osDeveloppment = $osDeveloppment;
 
@@ -678,7 +691,7 @@ class Response
      *
      * @return Response
      */
-    public function setHostingTypes(Collection $hostingTypes): Response
+    public function setHostingTypes(Collection $hostingTypes): self
     {
         $this->hostingTypes = $hostingTypes;
 
@@ -698,7 +711,7 @@ class Response
      *
      * @return Response
      */
-    public function setContainerEnvironmentsUsage(Collection $containerEnvironmentsUsage): Response
+    public function setContainerEnvironmentsUsage(Collection $containerEnvironmentsUsage): self
     {
         $this->containerEnvironmentsUsage = $containerEnvironmentsUsage;
 
@@ -718,7 +731,7 @@ class Response
      *
      * @return Response
      */
-    public function setWorkMethod(?int $workMethod): Response
+    public function setWorkMethod(?int $workMethod): self
     {
         $this->workMethod = $workMethod;
 
@@ -738,9 +751,16 @@ class Response
      *
      * @return Response
      */
-    public function setSpecialities(Collection $specialities): Response
+    public function setSpecialities(Collection $specialities): self
     {
         $this->specialities = $specialities;
+
+        return $this;
+    }
+
+    public function addSpeciality(Speciality $speciality): self
+    {
+        $this->specialities->add($speciality);
 
         return $this;
     }
@@ -758,7 +778,7 @@ class Response
      *
      * @return Response
      */
-    public function setPhpVersion(?int $phpVersion): Response
+    public function setPhpVersion(?int $phpVersion): self
     {
         $this->phpVersion = $phpVersion;
 
@@ -778,7 +798,7 @@ class Response
      *
      * @return Response
      */
-    public function setPhpDocumentationSource(?int $phpDocumentationSource): Response
+    public function setPhpDocumentationSource(?int $phpDocumentationSource): self
     {
         $this->phpDocumentationSource = $phpDocumentationSource;
 
@@ -798,7 +818,7 @@ class Response
      *
      * @return Response
      */
-    public function setFrenchPhpDocumentationQuality(?int $frenchPhpDocumentationQuality): Response
+    public function setFrenchPhpDocumentationQuality(?int $frenchPhpDocumentationQuality): self
     {
         $this->frenchPhpDocumentationQuality = $frenchPhpDocumentationQuality;
 
@@ -818,7 +838,7 @@ class Response
      *
      * @return Response
      */
-    public function setCmsUsageInProject(?int $cmsUsageInProject): Response
+    public function setCmsUsageInProject(?int $cmsUsageInProject): self
     {
         $this->cmsUsageInProject = $cmsUsageInProject;
 
@@ -833,12 +853,19 @@ class Response
         return $this->certifications;
     }
 
+    public function addCertification(Certification $certification): self
+    {
+        $this->certifications->add($certification);
+
+        return $this;
+    }
+
     /**
      * @param Collection $certifications
      *
      * @return Response
      */
-    public function setCertifications(Collection $certifications): Response
+    public function setCertifications(Collection $certifications): self
     {
         $this->certifications = $certifications;
 
@@ -858,7 +885,7 @@ class Response
      *
      * @return Response
      */
-    public function setPhpStrength(?int $phpStrength): Response
+    public function setPhpStrength(?int $phpStrength): self
     {
         $this->phpStrength = $phpStrength;
 
@@ -878,7 +905,7 @@ class Response
      *
      * @return Response
      */
-    public function setHasRecentTraining(bool $hasRecentTraining): Response
+    public function setHasRecentTraining(bool $hasRecentTraining): self
     {
         $this->hasRecentTraining = $hasRecentTraining;
 
@@ -898,7 +925,7 @@ class Response
      *
      * @return Response
      */
-    public function setIsRecentTrainingHadSalaryImpact(?bool $isRecentTrainingHadSalaryImpact): Response
+    public function setIsRecentTrainingHadSalaryImpact(?bool $isRecentTrainingHadSalaryImpact): self
     {
         $this->isRecentTrainingHadSalaryImpact = $isRecentTrainingHadSalaryImpact;
 
@@ -918,7 +945,7 @@ class Response
      *
      * @return Response
      */
-    public function setCovid19CompanyTrust(?int $covid19CompanyTrust): Response
+    public function setCovid19CompanyTrust(?int $covid19CompanyTrust): self
     {
         $this->covid19CompanyTrust = $covid19CompanyTrust;
 
@@ -938,7 +965,7 @@ class Response
      *
      * @return Response
      */
-    public function setCovid19CompanyHandle(?int $covid19CompanyHandle): Response
+    public function setCovid19CompanyHandle(?int $covid19CompanyHandle): self
     {
         $this->covid19CompanyHandle = $covid19CompanyHandle;
 
@@ -958,7 +985,7 @@ class Response
      *
      * @return Response
      */
-    public function setCovid19Layoff(?int $covid19Layoff): Response
+    public function setCovid19Layoff(?int $covid19Layoff): self
     {
         $this->covid19Layoff = $covid19Layoff;
 
@@ -978,7 +1005,7 @@ class Response
      *
      * @return Response
      */
-    public function setCovid19FuturePlan(?int $covid19FuturePlan): Response
+    public function setCovid19FuturePlan(?int $covid19FuturePlan): self
     {
         $this->covid19FuturePlan = $covid19FuturePlan;
 
@@ -998,7 +1025,7 @@ class Response
      *
      * @return Response
      */
-    public function setCovid19SalaryImpact(?int $covid19SalaryImpact): Response
+    public function setCovid19SalaryImpact(?int $covid19SalaryImpact): self
     {
         $this->covid19SalaryImpact = $covid19SalaryImpact;
 
@@ -1018,7 +1045,7 @@ class Response
      *
      * @return Response
      */
-    public function setCovid19PartialUnemployment(?int $covid19PartialUnemployment): Response
+    public function setCovid19PartialUnemployment(?int $covid19PartialUnemployment): self
     {
         $this->covid19PartialUnemployment = $covid19PartialUnemployment;
 
@@ -1038,7 +1065,7 @@ class Response
      *
      * @return Response
      */
-    public function setCovid19RegularRemoteFeeling(?int $covid19RegularRemoteFeeling): Response
+    public function setCovid19RegularRemoteFeeling(?int $covid19RegularRemoteFeeling): self
     {
         $this->covid19RegularRemoteFeeling = $covid19RegularRemoteFeeling;
 
@@ -1058,7 +1085,7 @@ class Response
      *
      * @return Response
      */
-    public function setCovid19RemoteIdealPace(?int $covid19RemoteIdealPace): Response
+    public function setCovid19RemoteIdealPace(?int $covid19RemoteIdealPace): self
     {
         $this->covid19RemoteIdealPace = $covid19RemoteIdealPace;
 
@@ -1078,7 +1105,7 @@ class Response
      *
      * @return Response
      */
-    public function setCovid19WorkCondition(?int $covid19WorkCondition): Response
+    public function setCovid19WorkCondition(?int $covid19WorkCondition): self
     {
         $this->covid19WorkCondition = $covid19WorkCondition;
 
@@ -1098,9 +1125,116 @@ class Response
      *
      * @return Response
      */
-    public function setGender(?int $gender): Response
+    public function setGender(?int $gender): self
     {
         $this->gender = $gender;
+
+        return $this;
+    }
+
+    public function getSalaryInflation(): ?int
+    {
+        return $this->salaryInflation;
+    }
+
+    public function setSalaryInflation(?int $salaryInflation): self
+    {
+        $this->salaryInflation = $salaryInflation;
+
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getExperienceInYear(): ?int
+    {
+        return $this->experienceInYear;
+    }
+
+    /**
+     * @param int|null $experienceInYear
+     */
+    public function setExperienceInYear(?int $experienceInYear): self
+    {
+        $this->experienceInYear = $experienceInYear;
+
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getExperienceInCurrentJob(): ?int
+    {
+        return $this->experienceInCurrentJob;
+    }
+
+    /**
+     * @param int|null $experienceInCurrentJob
+     */
+    public function setExperienceInCurrentJob(?int $experienceInCurrentJob): self
+    {
+        $this->experienceInCurrentJob = $experienceInCurrentJob;
+
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getRemoteMoney(): ?int
+    {
+        return $this->remoteMoney;
+    }
+
+    /**
+     * @param int|null $remoteMoney
+     *
+     * @return Response
+     */
+    public function setRemoteMoney(?int $remoteMoney): self
+    {
+        $this->remoteMoney = $remoteMoney;
+
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getNumberMeetupParticipation(): ?int
+    {
+        return $this->numberMeetupParticipation;
+    }
+
+    /**
+     * @param int|null $numberMeetupParticipation
+     */
+    public function setNumberMeetupParticipation(?int $numberMeetupParticipation): self
+    {
+        $this->numberMeetupParticipation = $numberMeetupParticipation;
+
+        return $this;
+    }
+
+    public function addHostingType(HostingType $hostingType): self
+    {
+        $this->hostingTypes->add($hostingType);
+
+        return $this;
+    }
+
+    public function addContainerEnvironmentUsage(ContainerEnvironmentUsage $containerEnvironmentUsage): self
+    {
+        $this->containerEnvironmentsUsage->add($containerEnvironmentUsage);
+
+        return $this;
+    }
+
+    public function addJobInterest(JobInterest $jobInterest): self
+    {
+        $this->jobInterests->add($jobInterest);
 
         return $this;
     }

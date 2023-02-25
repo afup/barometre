@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use App\Repository\JobInterestRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity]
+#[ORM\Entity(repositoryClass: JobInterestRepository::class)]
 #[ORM\Table(name: 'job_interest')]
 class JobInterest
 {

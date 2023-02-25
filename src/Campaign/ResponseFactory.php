@@ -35,23 +35,29 @@ use App\Enums\OtherLanguageEnums;
 use App\Enums\PHPDocumentationUsageEnums;
 use App\Enums\PHPStrengthEnums;
 use App\Enums\PHPVersionEnums;
+use App\Enums\RemoteMoneyEnums;
 use App\Enums\RemoteUsageEnums;
 use App\Enums\RetrainingEnums;
+use App\Enums\SalaryInflationEnums;
 use App\Enums\StatusEnums;
 use App\Enums\TechnologicalWatchEnums;
 use App\Enums\WorkMethodEnums;
-use Doctrine\Persistence\ObjectRepository;
+use App\Repository\CertificationRepository;
+use App\Repository\ContainerEnvironmentUsageRepository;
+use App\Repository\HostingTypeRepository;
+use App\Repository\JobInterestRepository;
+use App\Repository\SpecialityRepository;
 
 class ResponseFactory
 {
     public function __construct(
-        private \NumberFormatter $numberFormatter,
-        private EnumsCollection $enums,
-        private ObjectRepository $certificationRepository,
-        private ObjectRepository $specialityRepository,
-        private ObjectRepository $hostingTypeRepository,
-        private ObjectRepository $containerEnvironmentUsageRepository,
-        private ObjectRepository $jobInterestRepository
+        private readonly \NumberFormatter $numberFormatter,
+        private readonly EnumsCollection $enums,
+        private readonly CertificationRepository $certificationRepository,
+        private readonly SpecialityRepository $specialityRepository,
+        private readonly HostingTypeRepository $hostingTypeRepository,
+        private readonly ContainerEnvironmentUsageRepository $containerEnvironmentUsageRepository,
+        private readonly JobInterestRepository $jobInterestRepository,
     ) {
     }
 
@@ -73,6 +79,11 @@ class ResponseFactory
         $response->setSalarySatisfaction(
             $this->numberFormatter->parse($data['salary_satisfaction'])
         );
+
+        $response->setSalaryInflation(
+            $this->enums->getEnums(SalaryInflationEnums::class)->getIdByLabel($data['salary_inflation'])
+        );
+
         $response->setInitialTraining(
             $this->enums->getEnums(InitialTrainingEnums::class)
                         ->getIdByLabel($data['initial_training'])
@@ -92,6 +103,11 @@ class ResponseFactory
             $this->enums->getEnums(ExperienceEnums::class)
                         ->getIdByLabel($data['experience'])
         );
+
+        $response
+            ->setExperienceInYear($data['experience_in_year'] ?? null)
+            ->setExperienceInCurrentJob($data['experience_in_current_job'] ?? null)
+        ;
 
         $response->setFreelanceTjm($data['freelance_tjm'] ?? null);
 
@@ -136,9 +152,15 @@ class ResponseFactory
                         ->getIdByLabel($data['remote_usage'])
         );
 
+        $response->setRemoteMoney(
+            $this->enums->getEnums(RemoteMoneyEnums::class)->getIdByLabel($data['remote_money'])
+        );
+
         if (isset($data['remote_pace'])) {
             $response->setRemotePace((int) $data['remote_pace']);
         }
+
+        $response->setNumberMeetupParticipation($data['number_meetup_participation'] ?? null);
 
         $response->setMeetupParticipation(
             $this->enums->getEnums(MeetupParticipationEnums::class)
@@ -217,8 +239,8 @@ class ResponseFactory
             'oui' === mb_strtolower($data['has_formation'])
         );
 
-        if (\mb_strlen($data['formation_impact'])) {
-            $response->setRecentTrainingHadSalaryImpact(
+        if ($data['formation_impact'] !== '') {
+            $response->setIsRecentTrainingHadSalaryImpact(
                 'oui' === mb_strtolower($data['formation_impact'])
             );
         }

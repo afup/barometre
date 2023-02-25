@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use App\Repository\ContainerEnvironmentUsageRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity]
+#[ORM\Entity(repositoryClass: ContainerEnvironmentUsageRepository::class)]
 #[ORM\Table(name: 'container_environment_usage')]
 class ContainerEnvironmentUsage
 {

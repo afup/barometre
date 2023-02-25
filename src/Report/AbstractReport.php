@@ -18,22 +18,10 @@ abstract class AbstractReport implements ReportInterface
      */
     protected $queryBuilder;
 
-    /**
-     * @var int
-     */
-    protected $minResult;
-
-    /**
-     * @var ReportInterface[]
-     */
-    protected $childReports = [];
-
-    /**
-     * @param int $minResult
-     */
-    public function __construct($minResult = 10)
-    {
-        $this->minResult = $minResult;
+    public function __construct(
+        protected int $minResult = 10,
+        protected array $childReports = []
+    ) {
     }
 
     /**

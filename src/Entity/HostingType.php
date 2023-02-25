@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use App\Repository\HostingTypeRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity]
+#[ORM\Entity(repositoryClass: HostingTypeRepository::class)]
 #[ORM\Table(name: 'hosting_type')]
 class HostingType
 {
