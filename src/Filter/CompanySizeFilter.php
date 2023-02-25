@@ -64,7 +64,7 @@ class CompanySizeFilter implements FilterInterface
     }
 
     /**
-     * Filter weight
+     * Filter weight.
      *
      * @return int
      */

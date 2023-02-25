@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Report;
 
 /**
- * Report on Speciality
+ * Report on Speciality.
  */
 class SpecialityReport extends AbstractReport
 {
@@ -44,7 +44,7 @@ class SpecialityReport extends AbstractReport
     }
 
     /**
-     * report weight
+     * report weight.
      *
      * @return int
      */

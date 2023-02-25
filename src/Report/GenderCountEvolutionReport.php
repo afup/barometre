@@ -15,7 +15,7 @@ class GenderCountEvolutionReport extends AbstractDistributionEvolutionReport
     }
 
     /**
-     * report weight
+     * report weight.
      *
      * @return int
      */

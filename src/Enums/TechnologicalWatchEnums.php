@@ -6,10 +6,10 @@ namespace App\Enums;
 
 class TechnologicalWatchEnums extends AbstractEnums
 {
-    const NEVER = 0;
-    const LESS_THAN_ONCE_A_WEEK = 1;
-    const MULTIPLE_TIME_PER_WEEK = 2;
-    const EVERY_DAY = 3;
+    public const NEVER = 0;
+    public const LESS_THAN_ONCE_A_WEEK = 1;
+    public const MULTIPLE_TIME_PER_WEEK = 2;
+    public const EVERY_DAY = 3;
 
     /**
      * @var array

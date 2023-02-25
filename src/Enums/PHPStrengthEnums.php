@@ -6,11 +6,11 @@ namespace App\Enums;
 
 class PHPStrengthEnums extends AbstractEnums
 {
-    const ECOSYSTEME = 0;
-    const NOMBRE_UTILISATEUR = 1;
-    const QUALITE_DEVELOPPEUR = 2;
-    const PERFORMANCE = 3;
-    const FACILITE_UTILISATION = 4;
+    public const ECOSYSTEME = 0;
+    public const NOMBRE_UTILISATEUR = 1;
+    public const QUALITE_DEVELOPPEUR = 2;
+    public const PERFORMANCE = 3;
+    public const FACILITE_UTILISATION = 4;
 
     /**
      * @var array

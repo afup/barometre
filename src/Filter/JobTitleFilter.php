@@ -22,7 +22,7 @@ class JobTitleFilter implements FilterInterface
     }
 
     /**
-     * Add specific filter for this filter
+     * Add specific filter for this filter.
      */
     public function buildForm(FormBuilderInterface $builder)
     {
@@ -33,7 +33,7 @@ class JobTitleFilter implements FilterInterface
     }
 
     /**
-     * Build the query with active filters
+     * Build the query with active filters.
      */
     public function buildQuery(QueryBuilder $queryBuilder, array $values = [])
     {
@@ -55,7 +55,7 @@ class JobTitleFilter implements FilterInterface
     }
 
     /**
-     * The filter name
+     * The filter name.
      *
      * @return string
      */
@@ -65,7 +65,7 @@ class JobTitleFilter implements FilterInterface
     }
 
     /**
-     * Filter weight
+     * Filter weight.
      *
      * @return int
      */

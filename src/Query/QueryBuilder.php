@@ -47,7 +47,7 @@ class QueryBuilder extends BaseQueryBuilder
 
     /**
      * paramTypes is private, we need to redefine setParameter
-     * to access it
+     * to access it.
      *
      * @param string $key
      * @param string $value
@@ -57,7 +57,7 @@ class QueryBuilder extends BaseQueryBuilder
      */
     public function setParameter($key, $value, $type = null)
     {
-        if ($type !== null) {
+        if (null !== $type) {
             $this->paramTypes[$key] = $type;
         }
 
@@ -66,7 +66,7 @@ class QueryBuilder extends BaseQueryBuilder
 
     /**
      * paramTypes is private, we need to redefine setParameters
-     * to access it
+     * to access it.
      *
      * @return $this
      */

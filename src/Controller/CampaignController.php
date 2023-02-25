@@ -32,7 +32,7 @@ class CampaignController extends AbstractController
         $request->attributes->set('filter', $filter);
 
         return $this->render(
-            'Campaign/report' . $campaign->getName() . '.html.twig',
+            'Campaign/report'.$campaign->getName().'.html.twig',
             [
                 'campaignName' => $campaign->getName(),
                 'campaignId' => $campaign->getId(),

@@ -11,7 +11,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * Filter Type
+ * Filter Type.
  */
 class FilterType extends AbstractType
 {

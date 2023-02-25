@@ -31,7 +31,7 @@ class RemoteUsageReport extends AbstractReport
     }
 
     /**
-     * report weight
+     * report weight.
      *
      * @return int
      */

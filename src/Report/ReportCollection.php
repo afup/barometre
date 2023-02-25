@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Report;
 
 /**
- * A collection of report
+ * A collection of report.
  */
 class ReportCollection implements \IteratorAggregate
 {
@@ -19,7 +19,7 @@ class ReportCollection implements \IteratorAggregate
     }
 
     /**
-     * sort all reports by theirs keys
+     * sort all reports by theirs keys.
      */
     public function sortReports()
     {
@@ -27,7 +27,7 @@ class ReportCollection implements \IteratorAggregate
     }
 
     /**
-     * Find a report by his name
+     * Find a report by his name.
      *
      * @param string $name
      *

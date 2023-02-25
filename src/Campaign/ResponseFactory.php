@@ -155,14 +155,14 @@ class ResponseFactory
                         ->getIdByLabel($data['os_developpment'])
         );
 
-        if (isset($data['hosting_type']) && \strlen(trim($data['hosting_type'])) !== 0) {
+        if (isset($data['hosting_type']) && '' !== trim($data['hosting_type'])) {
             $this->addHostingType(
                 $response,
                 explode(', ', $data['hosting_type'])
             );
         }
 
-        if (isset($data['container_environment_usage']) && \strlen(trim($data['container_environment_usage'])) !== 0) {
+        if (isset($data['container_environment_usage']) && '' !== trim($data['container_environment_usage'])) {
             $this->addContainerEnvironmentUsage(
                 $response,
                 explode(', ', $data['container_environment_usage'])
@@ -176,7 +176,7 @@ class ResponseFactory
             );
         }
 
-        if (\strlen(trim($data['speciality'])) !== 0) {
+        if ('' !== trim($data['speciality'])) {
             $this->addSpeciality(
                 $response,
                 explode(', ', $data['speciality'])
@@ -201,7 +201,7 @@ class ResponseFactory
             );
         }
 
-        if ('oui' === strtolower($data['has_certification'])) {
+        if ('oui' === mb_strtolower($data['has_certification'])) {
             $this->addCertification(
                 $response,
                 explode(', ', $data['certification_list'])
@@ -214,12 +214,12 @@ class ResponseFactory
         );
 
         $response->setHasRecentTraining(
-            'oui' === strtolower($data['has_formation'])
+            'oui' === mb_strtolower($data['has_formation'])
         );
 
-        if (\strlen($data['formation_impact'])) {
+        if (\mb_strlen($data['formation_impact'])) {
             $response->setRecentTrainingHadSalaryImpact(
-                'oui' === strtolower($data['formation_impact'])
+                'oui' === mb_strtolower($data['formation_impact'])
             );
         }
 

@@ -23,7 +23,7 @@ class ExperienceSalaryReport extends AbstractReport
     }
 
     /**
-     * The report name (used for url)
+     * The report name (used for url).
      *
      * @return string
      */
@@ -33,7 +33,7 @@ class ExperienceSalaryReport extends AbstractReport
     }
 
     /**
-     * report weight
+     * report weight.
      *
      * @return int
      */

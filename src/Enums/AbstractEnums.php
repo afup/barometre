@@ -6,7 +6,7 @@ namespace App\Enums;
 
 abstract class AbstractEnums implements EnumsInterface
 {
-    const AUTRE = 0;
+    public const AUTRE = 0;
 
     protected $choices = [];
 
@@ -23,7 +23,7 @@ abstract class AbstractEnums implements EnumsInterface
      */
     public function getIdByLabel($label)
     {
-        $key = array_search(trim($label), $this->choices);
+        $key = array_search(trim($label), $this->choices, true);
 
         return false === $key ? $this->getDefaultValue() : $key;
     }

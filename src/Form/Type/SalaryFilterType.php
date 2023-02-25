@@ -9,7 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 /**
- * Salary Filter Type
+ * Salary Filter Type.
  */
 class SalaryFilterType extends AbstractType
 {

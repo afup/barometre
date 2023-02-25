@@ -10,13 +10,16 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
+ *
  * @ORM\Table(name="response")
  */
 class Response
 {
     /**
      * @ORM\Column(type="integer")
+     *
      * @ORM\Id
+     *
      * @ORM\GeneratedValue(strategy="AUTO")
      *
      * @var int
@@ -25,6 +28,7 @@ class Response
 
     /**
      * @ORM\ManyToOne(targetEntity="Campaign")
+     *
      * @ORM\JoinColumn(name="campaign_id", referencedColumnName="id")
      *
      * @var Campaign
@@ -570,7 +574,7 @@ class Response
      */
     public function setCompanyDepartment($companyDepartment)
     {
-        $this->companyDepartment = str_pad((string) $companyDepartment, 2, '0', STR_PAD_LEFT);
+        $this->companyDepartment = str_pad((string) $companyDepartment, 2, '0', \STR_PAD_LEFT);
 
         return $this;
     }

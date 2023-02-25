@@ -82,7 +82,7 @@ class SalaryEvolutionReport extends AbstractReport implements AlterableReportInt
     }
 
     /**
-     * report weight
+     * report weight.
      *
      * @return int
      */

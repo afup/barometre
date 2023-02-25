@@ -6,10 +6,10 @@ namespace App\Enums;
 
 class RemoteUsageEnums extends AbstractEnums
 {
-    const ALWAYS = 1;
-    const OFTEN = 2;
-    const SOME_TIMES = 3;
-    const NEVER = 4;
+    public const ALWAYS = 1;
+    public const OFTEN = 2;
+    public const SOME_TIMES = 3;
+    public const NEVER = 4;
 
     /**
      * @var array

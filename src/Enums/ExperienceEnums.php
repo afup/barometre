@@ -6,10 +6,10 @@ namespace App\Enums;
 
 class ExperienceEnums extends AbstractEnums
 {
-    const XP_0_2 = 1;
-    const XP_2_5 = 2;
-    const XP_5_10 = 3;
-    const XP_10 = 4;
+    public const XP_0_2 = 1;
+    public const XP_2_5 = 2;
+    public const XP_5_10 = 3;
+    public const XP_10 = 4;
 
     /**
      * @var array

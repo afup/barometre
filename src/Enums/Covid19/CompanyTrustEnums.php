@@ -8,9 +8,9 @@ use App\Enums\AbstractEnums;
 
 class CompanyTrustEnums extends AbstractEnums
 {
-    const LIKE_BEFORE = 1;
-    const LESSER = 2;
-    const BETTER = 3;
+    public const LIKE_BEFORE = 1;
+    public const LESSER = 2;
+    public const BETTER = 3;
 
     protected $choices = [
         self::LIKE_BEFORE => 'Comme avant',

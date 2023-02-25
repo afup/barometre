@@ -9,7 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 /**
- * Default configuration for Select2 multi choice
+ * Default configuration for Select2 multi choice.
  */
 class Select2MultipleFilterType extends AbstractType
 {

@@ -4,15 +4,14 @@ namespace App\Tests\unit\Campaign;
 
 use App\Entity\Campaign;
 use App\Entity\Response;
-use atoum;
 use App\Enums\CompanySizeEnums;
 use App\Enums\CompanyTypeEnums;
 use App\Enums\ExperienceEnums;
-use App\Enums\MeetupParticipationEnums;
 use App\Enums\GenderEnums;
 use App\Enums\InitialTrainingEnums;
 use App\Enums\JobInterestEnums;
 use App\Enums\JobTitleEnums;
+use App\Enums\MeetupParticipationEnums;
 use App\Enums\OsDeveloppmentEnums;
 use App\Enums\OtherLanguageEnums;
 use App\Enums\PHPStrengthEnums;
@@ -22,7 +21,7 @@ use App\Enums\StatusEnums;
 use App\Enums\TechnologicalWatchEnums;
 use Doctrine\Persistence\ObjectRepository;
 
-class ResponseFactory extends atoum
+class ResponseFactory extends \atoum
 {
     public function testCreateResponse()
     {
@@ -59,10 +58,10 @@ class ResponseFactory extends atoum
             $containerEnvironmentUsageRepository
         );
 
-        $data = array (
-            'gross_annual_salary' => '42 000',
+        $data = [
+            'gross_annual_salary' => "42\u{a0}000",
             'variable_annual_salary' => '',
-            'annual_salary' => '42 000',
+            'annual_salary' => "42\u{a0}000",
             'salary_satisfaction' => '4',
             'status' => 'Contrat à durée indéterminée',
             'initial_training' => 'Niveau Master2 ou ingénieur',
@@ -88,8 +87,8 @@ class ResponseFactory extends atoum
             'meetup_participation' => '',
             'remote_usage' => '',
             'hosting_type' => '',
-            'container_environment_usage' => ''
-        );
+            'container_environment_usage' => '',
+        ];
 
         $campaign = new Campaign();
 
@@ -97,7 +96,7 @@ class ResponseFactory extends atoum
             ->object($response = $testedClass->createResponse($data, $campaign))
               ->isInstanceof(Response::class)
               ->float($response->getGrossAnnualSalary())
-                  ->isEqualTo((float)42000)
+                  ->isEqualTo((float) 42000)
               ->integer($response->getStatus())
                   ->isEqualTo(StatusEnums::CDI)
               ->integer($response->getInitialTraining())

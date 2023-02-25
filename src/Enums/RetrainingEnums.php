@@ -6,10 +6,10 @@ namespace App\Enums;
 
 class RetrainingEnums extends AbstractEnums
 {
-    const YES_SHORT = 1;
-    const YES_LONG = 2;
-    const NO = 3;
-    const YES_WITHOUT_TRAINING = 4;
+    public const YES_SHORT = 1;
+    public const YES_LONG = 2;
+    public const NO = 3;
+    public const YES_WITHOUT_TRAINING = 4;
 
     /**
      * @var array

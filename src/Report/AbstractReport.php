@@ -57,7 +57,7 @@ abstract class AbstractReport implements ReportInterface
      */
     public function getLabel()
     {
-        return 'report.' . $this->getName() . '.label';
+        return 'report.'.$this->getName().'.label';
     }
 
     /**
@@ -65,11 +65,11 @@ abstract class AbstractReport implements ReportInterface
      */
     public function hasResults()
     {
-        return $this->data !== null && \count($this->getData());
+        return null !== $this->data && \count($this->getData());
     }
 
     /**
-     * report weight
+     * report weight.
      *
      * @return null
      */
@@ -79,7 +79,7 @@ abstract class AbstractReport implements ReportInterface
     }
 
     /**
-     * comparaison function for reports
+     * comparaison function for reports.
      *
      * @param AbstractReport $report1
      * @param AbstractReport $report2
@@ -88,7 +88,7 @@ abstract class AbstractReport implements ReportInterface
      */
     public static function cmpReport($report1, $report2)
     {
-        if ($report1->getWeight() == $report2->getWeight()) {
+        if ($report1->getWeight() === $report2->getWeight()) {
             return 0;
         }
 
@@ -118,7 +118,7 @@ abstract class AbstractReport implements ReportInterface
     {
         $totalResponseNumber = $this->calculateTotalResponseNumber($data);
 
-        if ($totalResponseNumber == 0) {
+        if (0 === $totalResponseNumber) {
             return array_map(
                 function ($response) {
                     $response['percentResponse'] = 0;

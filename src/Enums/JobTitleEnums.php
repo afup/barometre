@@ -6,16 +6,16 @@ namespace App\Enums;
 
 class JobTitleEnums extends AbstractEnums
 {
-    const DIRECTEUR = 1;
-    const RESPONSABLE_EQUIPE = 2;
-    const CHEF_PROJET = 3;
-    const LEAD_DEVELOPPEUR = 4;
-    const ARCHITECTE = 5;
-    const CONSULTANT = 6;
-    const FORMATEUR = 7;
-    const DEVELOPPEUR = 8;
-    const SYSADMIN = 9;
-    const DEVOPS = 10;
+    public const DIRECTEUR = 1;
+    public const RESPONSABLE_EQUIPE = 2;
+    public const CHEF_PROJET = 3;
+    public const LEAD_DEVELOPPEUR = 4;
+    public const ARCHITECTE = 5;
+    public const CONSULTANT = 6;
+    public const FORMATEUR = 7;
+    public const DEVELOPPEUR = 8;
+    public const SYSADMIN = 9;
+    public const DEVOPS = 10;
 
     /**
      * @var array

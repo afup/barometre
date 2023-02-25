@@ -31,7 +31,7 @@ class MeetupParticipationReport extends AbstractReport
     }
 
     /**
-     * report weight
+     * report weight.
      *
      * @return int
      */
