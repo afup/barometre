@@ -4,120 +4,70 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use App\Repository\CampaignRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass="App\Repository\CampaignRepository")
- *
- * @ORM\Table(name="campaign")
- */
+#[ORM\Entity(repositoryClass: CampaignRepository::class)]
+#[ORM\Table(name: 'campaign')]
 class Campaign
 {
-    /**
-     * @ORM\Column(type="integer")
-     *
-     * @ORM\Id
-     *
-     * @ORM\GeneratedValue(strategy="AUTO")
-     *
-     * @var int
-     */
-    protected $id;
+    #[ORM\Column(type: 'integer')]
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    protected int $id;
 
-    /**
-     * @ORM\Column(type="string", length=100)
-     *
-     * @var string
-     */
-    protected $name;
+    #[ORM\Column(type: 'string', length: 100)]
+    protected string $name;
 
-    /**
-     * @ORM\Column(type="date")
-     *
-     * @var \DateTime
-     */
-    protected $startDate;
+    #[ORM\Column(type: 'date')]
+    protected \DateTime $startDate;
 
-    /**
-     * @ORM\Column(type="date")
-     *
-     * @var \DateTime
-     */
-    protected $endDate;
+    #[ORM\Column(type: 'date')]
+    protected \DateTime $endDate;
 
-    /**
-     * @return int
-     */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
 
-    /**
-     * @param string $name
-     *
-     * @return Campaign
-     */
-    public function setName($name)
+    public function setName(string $name): self
     {
         $this->name = $name;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @param \DateTime $startDate
-     *
-     * @return Campaign
-     */
-    public function setStartDate($startDate)
+    public function setStartDate(\DateTime $startDate): self
     {
         $this->startDate = $startDate;
 
         return $this;
     }
 
-    /**
-     * @return \DateTime
-     */
-    public function getStartDate()
+    public function getStartDate(): \DateTime
     {
         return $this->startDate;
     }
 
-    /**
-     * @param \DateTime $endDate
-     *
-     * @return Campaign
-     */
-    public function setEndDate($endDate)
+    public function setEndDate(\DateTime $endDate): self
     {
         $this->endDate = $endDate;
 
         return $this;
     }
 
-    /**
-     * @return \DateTime
-     */
-    public function getEndDate()
+    public function getEndDate(): \DateTime
     {
         return $this->endDate;
     }
 
-    /**
-     * @return string
-     */
     public function __toString()
     {
-        return $this->getName();
+        return $this->name;
     }
 }

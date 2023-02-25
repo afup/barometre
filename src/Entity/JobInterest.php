@@ -6,62 +6,37 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity
- *
- * @ORM\Table(name="job_interest")
- */
+#[ORM\Entity]
+#[ORM\Table(name: 'job_interest')]
 class JobInterest
 {
-    /**
-     * @ORM\Column(type="integer")
-     *
-     * @ORM\Id
-     *
-     * @var int
-     */
-    protected $id;
 
-    /**
-     * @ORM\Column(type="string", length=100)
-     *
-     * @var string
-     */
-    protected $name;
+    #[ORM\Column(type: 'integer')]
+    #[ORM\Id]
+    protected int $id;
 
-    /**
-     * @return int
-     */
-    public function getId()
+    #[ORM\Column(type: 'string', length: 100)]
+    protected string $name;
+
+    public function getId(): int
     {
         return $this->id;
     }
 
-    /**
-     * @param string $name
-     *
-     * @return JobInterest
-     */
-    public function setName($name)
+    public function setName(string $name): self
     {
         $this->name = $name;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @return string
-     */
-    public function __toString()
+    public function __toString(): string
     {
-        return $this->getName();
+        return $this->name;
     }
 }
