@@ -7,33 +7,29 @@ namespace App\Command;
 use App\Campaign\Format\FormatFactory;
 use App\Campaign\Importer\CampaignImporter;
 use App\Repository\CampaignRepository;
+use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
+#[AsCommand(
+    name: 'barometre:imports',
+    description: 'Importe une nouvelle campagne',
+)]
 class BarometreImportCommand extends Command
 {
-    /** @var CampaignRepository */
-    private $campaignRepository;
-
-    /** @var CampaignImporter */
-    private $campaignImporter;
-
-    public function __construct(CampaignRepository $campaignRepository, CampaignImporter $campaignImporter)
-    {
+    public function __construct(
+        private readonly CampaignRepository $campaignRepository,
+        private readonly CampaignImporter $campaignImporter
+    ) {
         parent::__construct();
-
-        $this->campaignRepository = $campaignRepository;
-        $this->campaignImporter = $campaignImporter;
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this
-            ->setName('barometre:imports')
-            ->setDescription('Importe une nouvelle campagne')
             ->addOption('format', 'f', InputOption::VALUE_REQUIRED, 'Format du fichier ("2013" ou "2014")')
             ->addOption('separator', '', InputOption::VALUE_OPTIONAL, 'separateur csv (";" par défaut)', ';')
             ->addArgument('name', InputArgument::REQUIRED, 'Nom de la campagne')
@@ -53,9 +49,9 @@ class BarometreImportCommand extends Command
         $formatFactory = new FormatFactory();
         $format = $formatFactory->createFromCode($input->getOption('format'));
 
-        $this->getCampaignRepository()->removeCampaign($name);
+        $this->campaignRepository->removeCampaign($name);
 
-        $this->getCampaignImporter()->import(
+        $this->campaignImporter->import(
             $format,
             $name,
             \DateTime::createFromFormat('d/m/Y', $startDate),
@@ -65,21 +61,5 @@ class BarometreImportCommand extends Command
         );
 
         return Command::SUCCESS;
-    }
-
-    /**
-     * @return CampaignImporter
-     */
-    protected function getCampaignImporter()
-    {
-        return $this->campaignImporter;
-    }
-
-    /**
-     * @return CampaignRepository
-     */
-    protected function getCampaignRepository()
-    {
-        return $this->campaignRepository;
     }
 }

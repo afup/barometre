@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Entity\Campaign;
-use App\Repository\CampaignRepository;
+use Symfony\Bridge\Doctrine\Attribute\MapEntity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -13,34 +13,28 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CampaignController extends AbstractController
 {
-    private CampaignRepository $campaignRepository;
-
-    public function __construct(CampaignRepository $campaignRepository)
-    {
-        $this->campaignRepository = $campaignRepository;
-    }
-
     public function formAction(): Response
     {
         return $this->render('Campaign/form.html.twig');
     }
 
-    #[Route('/report/{campaignName}', name: 'afup_barometre_campaign', requirements: ['campaignName' => '\d+'])]
-    public function reportAction(Request $request, $campaignName): Response
-    {
-        $campaign = $this->campaignRepository->findOneBy(['name' => $campaignName]);
-
-        if (!$campaign instanceof Campaign) {
-            throw $this->createNotFoundException("La campagne demandée n'existe pas");
-        }
-
+    #[Route(
+        path: '/report/{campaignName}',
+        name: 'afup_barometre_campaign',
+        requirements: ['campaignName' => '\d+'],
+    )]
+    public function reportAction(
+        Request $request,
+        #[MapEntity(mapping: ['campaignName' => 'name'])]
+        Campaign $campaign,
+    ): Response {
         $filter = ['campaign' => [$campaign->getId()]];
         $request->attributes->set('filter', $filter);
 
         return $this->render(
-            'Campaign/report' . $campaignName . '.html.twig',
+            'Campaign/report' . $campaign->getName() . '.html.twig',
             [
-                'campaignName' => $campaignName,
+                'campaignName' => $campaign->getName(),
                 'campaignId' => $campaign->getId(),
             ]
         );

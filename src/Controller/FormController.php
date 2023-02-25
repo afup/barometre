@@ -11,16 +11,9 @@ use Symfony\Component\HttpFoundation\Response;
 
 class FormController extends AbstractController
 {
-    private ReportManager $reportManager;
-
-    public function __construct(ReportManager $reportManager)
+    public function indexAction(ReportManager $reportManager, RequestStack $requestStack): Response
     {
-        $this->reportManager = $reportManager;
-    }
-
-    public function indexAction(RequestStack $requestStack): Response
-    {
-        $this->reportManager->handleRequest($requestStack->getMainRequest());
+        $reportManager->handleRequest($requestStack->getMainRequest());
 
         return $this->render('Form/index.html.twig', [
             'form' => $this->reportManager->getForm()->createView(),
