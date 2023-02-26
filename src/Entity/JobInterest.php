@@ -11,7 +11,6 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Table(name: 'job_interest')]
 class JobInterest
 {
-
     #[ORM\Column(type: 'integer')]
     #[ORM\Id]
     protected int $id;

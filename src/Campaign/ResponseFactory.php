@@ -47,7 +47,6 @@ use App\Repository\ContainerEnvironmentUsageRepository;
 use App\Repository\HostingTypeRepository;
 use App\Repository\JobInterestRepository;
 use App\Repository\SpecialityRepository;
-use Symfony\Component\PropertyAccess\PropertyAccessor;
 use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
 
 class ResponseFactory
@@ -89,7 +88,7 @@ class ResponseFactory
                 continue;
             }
 
-            $this->propertyAccessor->setValue($response, $field, (int)$this->numberFormatter->parse((string) $data[$dataKey]));
+            $this->propertyAccessor->setValue($response, $field, (int) $this->numberFormatter->parse((string) $data[$dataKey]));
         }
 
         $enumValues = [
@@ -109,7 +108,7 @@ class ResponseFactory
             'TechnologicalWatch' => ['key' => 'technological_watch', 'class' => TechnologicalWatchEnums::class],
             'OsDeveloppment' => ['key' => 'os_developpment', 'class' => OsDeveloppmentEnums::class],
             'WorkMethod' => ['key' => 'work_method', 'class' => WorkMethodEnums::class],
-            'PhpVersion' => ['key' => 'php_version', 'class' => WorkMethodEnums::class],
+            'PhpVersion' => ['key' => 'php_version', 'class' => PHPVersionEnums::class],
             'phpDocumentationSource' => ['key' => 'php_documentation_source', 'class' => PHPDocumentationUsageEnums::class],
             'FrenchPhpDocumentationQuality' => ['key' => 'french_php_documentation_quality', 'class' => FrenchPHPDocumentationQualityEnums::class],
             'PhpStrength' => ['key' => 'php_strength', 'class' => PHPStrengthEnums::class],
@@ -133,6 +132,10 @@ class ResponseFactory
         }
 
         $department = new Departments();
+        if (1 === \mb_strlen($data['company_department'])) {
+            $data['company_department'] = '0'.$data['company_department'];
+        }
+
         if (\array_key_exists($data['company_department'], $department->getAll())) {
             $response->setCompanyDepartment(
                 $data['company_department']

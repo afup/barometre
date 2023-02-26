@@ -11,9 +11,6 @@ class ExperienceEnums extends AbstractEnums
     public const XP_5_10 = 3;
     public const XP_10 = 4;
 
-    /**
-     * @var array
-     */
     protected array $choices = [
         self::XP_0_2 => '0 à 2 ans',
         self::XP_2_5 => '2 à 5 ans',
