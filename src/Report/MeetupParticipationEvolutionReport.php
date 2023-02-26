@@ -84,7 +84,7 @@ class MeetupParticipationEvolutionReport extends AbstractDistributionEvolutionRe
             return MeetupParticipationEnums::NEVER;
         }
 
-        if ($response['numberMeetupParticipation'] < 6) {
+        if ($response['numberMeetupParticipation'] < 12) {
             return MeetupParticipationEnums::ONE_PER_QUARTER;
         }
 

@@ -10,5 +10,5 @@ interface EnumsInterface
 
     public function getIdByLabel(?string $label): ?int;
 
-    public function getLabelById(string $id): ?string;
+    public function getLabelById(int $id): ?string;
 }

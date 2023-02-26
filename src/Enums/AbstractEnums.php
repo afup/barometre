@@ -22,7 +22,7 @@ abstract class AbstractEnums implements EnumsInterface
         return false === $key ? $this->getDefaultValue() : $key;
     }
 
-    public function getLabelById(?string $id): ?string
+    public function getLabelById(int $id): ?string
     {
         return $this->choices[$id] ?? null;
     }

@@ -47,6 +47,10 @@ class MeetupParticipationReport extends AbstractReport
             ];
         }
 
+        if (null === $this->data) {
+            return;
+        }
+
         uasort($this->data, static function (array $experienceA, array $experienceB): int {
             return $experienceB['meetupParticipation'] <=> $experienceA['meetupParticipation'];
         });
@@ -80,7 +84,7 @@ class MeetupParticipationReport extends AbstractReport
             return MeetupParticipationEnums::NEVER;
         }
 
-        if ($response['numberMeetupParticipation'] < 6) {
+        if ($response['numberMeetupParticipation'] < 12) {
             return MeetupParticipationEnums::ONE_PER_QUARTER;
         }
 

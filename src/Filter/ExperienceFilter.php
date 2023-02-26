@@ -11,14 +11,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class ExperienceFilter implements FilterInterface
 {
-    /**
-     * @var ExperienceEnums
-     */
-    private $experience;
-
-    public function __construct(ExperienceEnums $experience)
+    public function __construct(private readonly ExperienceEnums $experience)
     {
-        $this->experience = $experience;
     }
 
     /**
@@ -41,8 +35,32 @@ class ExperienceFilter implements FilterInterface
             return;
         }
 
-        $queryBuilder
-            ->andWhere($queryBuilder->expr()->in('response.experience', $values[$this->getName()]));
+        if (count($values[$this->getName()]) === count($this->experience->getChoices())) {
+            return;
+        }
+
+        $conditions = [];
+        foreach ($values[$this->getName()] as $enum) {
+            $conditions[] = match ($enum) {
+                ExperienceEnums::XP_0_2 => $queryBuilder->expr()->lt('response.experienceInYear', 2),
+                ExperienceEnums::XP_2_5 => $queryBuilder->expr()->and($queryBuilder->expr()->gte('response.experienceInYear', 2), $queryBuilder->expr()->lt('response.experienceInYear', 5)),
+                ExperienceEnums::XP_5_10 => $queryBuilder->expr()->and($queryBuilder->expr()->gte('response.experienceInYear', 5), $queryBuilder->expr()->lt('response.experienceInYear', 10)),
+                ExperienceEnums::XP_10 => $queryBuilder->expr()->gte('response.experienceInYear', 10),
+            };
+        }
+        $queryBuilder->andWhere(
+            $queryBuilder->expr()->or(
+                $queryBuilder->expr()->isNull('response.experienceInYear'),
+                ...$conditions,
+            )
+        );
+
+        $queryBuilder->andWhere(
+            $queryBuilder->expr()->or(
+                $queryBuilder->expr()->isNull('response.experience'),
+                $queryBuilder->expr()->in('response.experience', $values[$this->getName()])
+            )
+        );
     }
 
     /**
