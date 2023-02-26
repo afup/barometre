@@ -35,9 +35,10 @@ class SpecialitySalaryReport extends AbstractReport
 
         $results = $this->queryBuilder->fetchAllAssociative();
 
-        // top 4 technos
+        // top 5 technos
         $framework = [
             'Symfony',
+            'Laravel',
             'Zend Framework',
             'Wordpress',
             'Drupal',

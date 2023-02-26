@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Filter;
 
-use App\Enums\ExperienceEnums;
 use App\Enums\MeetupParticipationEnums;
 use App\Form\Type\Select2MultipleFilterType;
 use Doctrine\DBAL\Query\QueryBuilder;
@@ -41,7 +40,7 @@ class MeetupParticipationFilter implements FilterInterface
         if (!\array_key_exists($this->getName(), $values) || 0 === \count($values[$this->getName()])) {
             return;
         }
-        if (count($values[$this->getName()]) === count($this->meetupParticipationEnums->getChoices())) {
+        if (\count($values[$this->getName()]) === \count($this->meetupParticipationEnums->getChoices())) {
             return;
         }
 

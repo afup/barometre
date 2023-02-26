@@ -132,7 +132,7 @@ class ResponseFactory
         }
 
         $department = new Departments();
-        if (1 === \mb_strlen($data['company_department'])) {
+        if (1 === mb_strlen($data['company_department'])) {
             $data['company_department'] = '0'.$data['company_department'];
         }
 

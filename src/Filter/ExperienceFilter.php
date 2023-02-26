@@ -35,7 +35,7 @@ class ExperienceFilter implements FilterInterface
             return;
         }
 
-        if (count($values[$this->getName()]) === count($this->experience->getChoices())) {
+        if (\count($values[$this->getName()]) === \count($this->experience->getChoices())) {
             return;
         }
 
