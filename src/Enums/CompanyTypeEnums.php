@@ -14,10 +14,7 @@ class CompanyTypeEnums extends AbstractEnums
     public const EDITEUR = 6;
     public const AGENCE_WEB = 7;
 
-    /**
-     * @var array
-     */
-    protected $choices = [
+    protected array $choices = [
         self::PRESSE_MEDIA => 'Presse / média',
         self::SSII => 'SSII / conseil',
         self::AGENCE_COMM => 'Agence de communication',
@@ -28,10 +25,7 @@ class CompanyTypeEnums extends AbstractEnums
         self::AUTRE => 'Autre',
     ];
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function getDefaultValue()
+    protected function getDefaultValue(): ?int
     {
         return null;
     }

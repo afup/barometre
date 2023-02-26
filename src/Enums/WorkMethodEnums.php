@@ -11,7 +11,7 @@ class WorkMethodEnums extends AbstractEnums
     public const KANBAN = 3;
     public const EXTREME_PROGRAMMING = 4;
 
-    protected $choices = [
+    protected array $choices = [
         self::CYCLE_EN_V => 'Cycle en V',
         self::SCRUM => 'Scrum',
         self::KANBAN => 'Kanban',

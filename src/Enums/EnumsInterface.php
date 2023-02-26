@@ -6,22 +6,9 @@ namespace App\Enums;
 
 interface EnumsInterface
 {
-    /**
-     * @return array
-     */
-    public function getChoices();
+    public function getChoices(): array;
 
-    /**
-     * @param string $label
-     *
-     * @return int|null
-     */
-    public function getIdByLabel($label);
+    public function getIdByLabel(?string $label): ?int;
 
-    /**
-     * @param string $id
-     *
-     * @return string|null
-     */
-    public function getLabelById($id);
+    public function getLabelById(string $id): ?string;
 }

@@ -10,19 +10,13 @@ class SalaryInflationEnums extends AbstractEnums
     public const NO = 2;
     public const NC = 3;
 
-    /**
-     * @var array
-     */
-    protected $choices = [
+    protected array $choices = [
         self::YES => 'Oui',
         self::NO => 'Non',
         self::NC => 'Non concerné',
     ];
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function getDefaultValue()
+    protected function getDefaultValue(): ?int
     {
         return null;
     }

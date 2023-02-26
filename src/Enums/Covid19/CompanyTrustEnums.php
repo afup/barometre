@@ -12,7 +12,7 @@ class CompanyTrustEnums extends AbstractEnums
     public const LESSER = 2;
     public const BETTER = 3;
 
-    protected $choices = [
+    protected array $choices = [
         self::LIKE_BEFORE => 'Comme avant',
         self::LESSER => 'Moins bon',
         self::BETTER => 'Meilleur',

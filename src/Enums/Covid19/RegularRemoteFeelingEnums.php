@@ -13,7 +13,7 @@ class RegularRemoteFeelingEnums extends AbstractEnums
     public const NEW_LIKE_IT = 3;
     public const DONT_DO_REMOTE = 4;
 
-    protected $choices = [
+    protected array $choices = [
         self::HAPPY_AND_ALREADY_DOING_REMOTE => "J'en faisais déjà, je suis satisfait",
         self::NEW_BUT_PREFER_OFFICE => "C'est nouveau, je préfère être au bureau",
         self::NEW_LIKE_IT => "C'est nouveau, j'apprécie",

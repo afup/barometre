@@ -12,7 +12,7 @@ class FrenchPHPDocumentationQualityEnums extends AbstractEnums
     public const MAUVAISE = 4;
     public const TRES_MAUVAISE = 5;
 
-    protected $choices = [
+    protected array $choices = [
         self::TRES_BONNE => 'Très bonne',
         self::BONNE => 'Bonne',
         self::ACCEPTABLE => 'Acceptable',

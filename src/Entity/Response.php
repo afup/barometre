@@ -1152,9 +1152,6 @@ class Response
         return $this->experienceInYear;
     }
 
-    /**
-     * @param int|null $experienceInYear
-     */
     public function setExperienceInYear(?int $experienceInYear): self
     {
         $this->experienceInYear = $experienceInYear;

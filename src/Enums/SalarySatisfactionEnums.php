@@ -12,10 +12,7 @@ class SalarySatisfactionEnums extends AbstractEnums
     public const STATISFAIT = 4;
     public const TRES_SATISFAIT = 5;
 
-    /**
-     * @var array
-     */
-    protected $choices = [
+    protected array $choices = [
         self::TRES_INSATISFAIT => 'Très insatisfait',
         self::INSATISFAIT => 'Insatisfait',
         self::SANS_OPINION => 'Sans opinion',

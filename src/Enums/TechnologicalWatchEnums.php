@@ -11,20 +11,14 @@ class TechnologicalWatchEnums extends AbstractEnums
     public const MULTIPLE_TIME_PER_WEEK = 2;
     public const EVERY_DAY = 3;
 
-    /**
-     * @var array
-     */
-    protected $choices = [
+    protected array $choices = [
         self::NEVER => 'jamais',
         self::LESS_THAN_ONCE_A_WEEK => 'moins d\'une fois par semaine',
         self::MULTIPLE_TIME_PER_WEEK => 'quelques fois par semaine',
         self::EVERY_DAY => 'tous les jours',
     ];
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function getDefaultValue()
+    protected function getDefaultValue(): ?int
     {
         return null;
     }

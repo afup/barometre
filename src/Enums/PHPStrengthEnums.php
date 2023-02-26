@@ -12,10 +12,7 @@ class PHPStrengthEnums extends AbstractEnums
     public const PERFORMANCE = 3;
     public const FACILITE_UTILISATION = 4;
 
-    /**
-     * @var array
-     */
-    protected $choices = [
+    protected array $choices = [
         self::ECOSYSTEME => 'Son écosystème (outils, frameworks, documentation)',
         self::NOMBRE_UTILISATEUR => "Le nombre de développeurs et de sociétés l'utilisant",
         self::QUALITE_DEVELOPPEUR => 'La qualité des développeurs sur le marché',
@@ -23,10 +20,7 @@ class PHPStrengthEnums extends AbstractEnums
         self::FACILITE_UTILISATION => "Sa facilité d'utilisation",
     ];
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function getDefaultValue()
+    protected function getDefaultValue(): ?int
     {
         return null;
     }

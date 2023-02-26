@@ -17,10 +17,7 @@ class JobTitleEnums extends AbstractEnums
     public const SYSADMIN = 9;
     public const DEVOPS = 10;
 
-    /**
-     * @var array
-     */
-    protected $choices = [
+    protected array $choices = [
         self::DIRECTEUR => 'Directeur, cadre dirigeant',
         self::RESPONSABLE_EQUIPE => "Cadre intermédiaire, responsable d'équipe",
         self::CHEF_PROJET => 'Chef de projet',

@@ -14,7 +14,7 @@ class CompanyHandleEnums extends AbstractEnums
     public const BAD = 4;
     public const VERY_BAD = 5;
 
-    protected $choices = [
+    protected array $choices = [
         self::GOOD => 'Bien',
         self::VERY_GOOD => 'Très bien',
         self::NEUTRAL => 'Neutre',

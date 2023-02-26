@@ -11,20 +11,14 @@ class RemoteMoneyEnums extends AbstractEnums
     public const YES_PER_DAY = 3;
     public const NO = 4;
 
-    /**
-     * @var array
-     */
-    protected $choices = [
+    protected array $choices = [
         self::YES_FIX => 'oui, forfait fixe',
         self::YES_INVOICE => 'oui, frais réel',
         self::YES_PER_DAY => 'oui, au prorata du nombre de jour de télétravail',
         self::NO => 'Non',
     ];
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function getDefaultValue()
+    protected function getDefaultValue(): ?int
     {
         return null;
     }

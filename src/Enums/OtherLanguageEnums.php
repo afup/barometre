@@ -16,10 +16,7 @@ class OtherLanguageEnums extends AbstractEnums
     public const GO = 8;
     public const RUST = 9;
 
-    /**
-     * @var array
-     */
-    protected $choices = [
+    protected array $choices = [
         self::JAVASCRIPT => 'Javascript',
         self::DOT_NET => '.Net',
         self::JAVA => 'Java',
@@ -31,10 +28,7 @@ class OtherLanguageEnums extends AbstractEnums
         self::AUTRE => 'Autre',
     ];
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function getDefaultValue()
+    protected function getDefaultValue(): ?int
     {
         return null;
     }

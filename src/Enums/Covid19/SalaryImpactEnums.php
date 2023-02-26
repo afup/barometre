@@ -12,7 +12,7 @@ class SalaryImpactEnums extends AbstractEnums
     public const NO = 2;
     public const DOES_NO_SAY = 3;
 
-    protected $choices = [
+    protected array $choices = [
         self::YES => 'Oui',
         self::NO => 'Non',
         self::DOES_NO_SAY => 'Ne se prononce pas',

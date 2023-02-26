@@ -20,10 +20,7 @@ class PHPVersionEnums extends AbstractEnums
     public const PHP_80 = 11;
     public const PHP_81 = 12;
 
-    /**
-     * @var array
-     */
-    protected $choices = [
+    protected array $choices = [
         self::PHP_4 => 'PHP 4',
         self::PHP_52 => 'PHP 5.2',
         self::PHP_53 => 'PHP 5.3',
@@ -39,10 +36,7 @@ class PHPVersionEnums extends AbstractEnums
         self::PHP_81 => 'PHP 8.1',
     ];
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function getDefaultValue()
+    protected function getDefaultValue(): ?int
     {
         return null;
     }

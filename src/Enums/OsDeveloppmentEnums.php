@@ -10,19 +10,13 @@ class OsDeveloppmentEnums extends AbstractEnums
     public const WINDOWS = 2;
     public const MACOS = 3;
 
-    /**
-     * @var array
-     */
-    protected $choices = [
+    protected array $choices = [
         self::LINUX => 'Linux',
         self::WINDOWS => 'Windows',
         self::MACOS => 'MacOS',
     ];
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function getDefaultValue()
+    protected function getDefaultValue(): ?int
     {
         return null;
     }

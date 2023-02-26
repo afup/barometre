@@ -10,7 +10,7 @@ class PHPDocumentationUsageEnums extends AbstractEnums
     public const IN_ENGLISH = 2;
     public const FIRST_FRENCH_THEN_ENGLISH = 3;
 
-    protected $choices = [
+    protected array $choices = [
         self::IN_FRENCH => 'La documentation de php.net en français',
         self::IN_ENGLISH => 'La documentation de php.net en anglais',
         self::FIRST_FRENCH_THEN_ENGLISH => 'La documentation de php.net en français puis en anglais si elle est incomplète/incompréhensible',
