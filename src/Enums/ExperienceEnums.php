@@ -17,4 +17,9 @@ class ExperienceEnums extends AbstractEnums
         self::XP_5_10 => '5 à 10 ans',
         self::XP_10 => 'Plus de 10 ans',
     ];
+
+    protected function getDefaultValue(): ?int
+    {
+        return null;
+    }
 }

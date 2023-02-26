@@ -13,16 +13,10 @@ use Symfony\Component\HttpFoundation\Request;
 abstract class AbstractDistributionEvolutionReport extends AbstractReport implements AlterableReportInterface
 {
     /**
-     * @var RequestModifierCollection
-     */
-    private $requestModifierCollection;
-
-    /**
      * @param int $minResult
      */
-    public function __construct(RequestModifierCollection $requestModifierCollection, $minResult = 10)
+    public function __construct(private readonly RequestModifierCollection $requestModifierCollection, $minResult = 10)
     {
-        $this->requestModifierCollection = $requestModifierCollection;
         parent::__construct($minResult);
     }
 

@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Report;
 
+use App\Enums\MeetupParticipationEnums;
+
 class MeetupParticipationReport extends AbstractReport
 {
     /**
@@ -13,13 +15,41 @@ class MeetupParticipationReport extends AbstractReport
     {
         $this->queryBuilder
             ->select('response.meetupParticipation')
-            ->addSelect('COUNT(response.id) as nbResponse')
-            ->having('nbResponse >= :minResult')
-            ->setParameter('minResult', $this->minResult)
-            ->groupBy('response.meetupParticipation')
-            ->orderBy('nbResponse', 'desc');
+            ->addSelect('response.numberMeetupParticipation')
+        ;
 
-        $this->data = $this->queryBuilder->fetchAllAssociative();
+        $data = $this->queryBuilder->fetchAllAssociative();
+
+        $reportData = [];
+
+        foreach ($data as $response) {
+            $meetupParticipation = $response['meetupParticipation'] ?? $this->computeMeetupParticipation($response);
+
+            if (null === $meetupParticipation) {
+                continue;
+            }
+
+            if (!isset($reportData[$meetupParticipation])) {
+                $reportData[$meetupParticipation] = 0;
+            }
+
+            ++$reportData[$meetupParticipation];
+        }
+
+        foreach ($reportData as $meetupParticipation => $count) {
+            if ($count <= $this->minResult) {
+                continue;
+            }
+
+            $this->data[] = [
+                'meetupParticipation' => $meetupParticipation,
+                'nbResponse' => $count,
+            ];
+        }
+
+        uasort($this->data, static function (array $experienceA, array $experienceB): int {
+            return $experienceB['meetupParticipation'] <=> $experienceA['meetupParticipation'];
+        });
     }
 
     /**
@@ -38,5 +68,22 @@ class MeetupParticipationReport extends AbstractReport
     public function getWeight()
     {
         return -30;
+    }
+
+    private function computeMeetupParticipation(array $response): ?int
+    {
+        if (null === $response['numberMeetupParticipation']) {
+            return null;
+        }
+
+        if (0 === $response['numberMeetupParticipation']) {
+            return MeetupParticipationEnums::NEVER;
+        }
+
+        if ($response['numberMeetupParticipation'] < 6) {
+            return MeetupParticipationEnums::ONE_PER_QUARTER;
+        }
+
+        return MeetupParticipationEnums::ONE_PER_MONTH;
     }
 }
