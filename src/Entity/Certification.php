@@ -4,63 +4,40 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use App\Repository\CertificationRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity
- * @ORM\Table(name="certification")
- */
+#[ORM\Entity(repositoryClass: CertificationRepository::class)]
+#[ORM\Table(name: 'certification')]
 class Certification
 {
-    /**
-     * @ORM\Column(type="integer")
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
-     *
-     * @var int
-     */
-    protected $id;
+    #[ORM\Column(type: 'integer')]
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    protected int $id;
 
-    /**
-     * @ORM\Column(type="string", length=100)
-     *
-     * @var string
-     */
-    protected $name;
+    #[ORM\Column(type: 'string', length: 100)]
+    protected string $name;
 
-    /**
-     * @return int
-     */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
 
-    /**
-     * @param string $name
-     *
-     * @return Certification
-     */
-    public function setName($name)
+    public function setName(string $name): self
     {
         $this->name = $name;
 
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @return string
-     */
-    public function __toString()
+    public function __toString(): string
     {
-        return (string) $this->getName();
+        return $this->getName();
     }
 }

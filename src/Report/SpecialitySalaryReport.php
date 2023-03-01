@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Report;
 
 /**
- * Report on Speciality Salary
+ * Report on Speciality Salary.
  */
 class SpecialitySalaryReport extends AbstractReport
 {
@@ -35,9 +35,10 @@ class SpecialitySalaryReport extends AbstractReport
 
         $results = $this->queryBuilder->fetchAllAssociative();
 
-        // top 4 technos
+        // top 5 technos
         $framework = [
             'Symfony',
+            'Laravel',
             'Zend Framework',
             'Wordpress',
             'Drupal',
@@ -59,7 +60,7 @@ class SpecialitySalaryReport extends AbstractReport
                 $data['data'][$experience][$otherFramework] = ['annualSalary' => 0, 'nbResponse' => 0];
             }
 
-            if (\in_array($specialityName, $framework)) {
+            if (\in_array($specialityName, $framework, true)) {
                 if ($result['nbResponse'] >= $this->minResult) {
                     $data['data'][$experience][$specialityName] = $result['annualSalary'] / $result['nbResponse'];
                 }
@@ -100,7 +101,7 @@ class SpecialitySalaryReport extends AbstractReport
     }
 
     /**
-     * report weight
+     * report weight.
      *
      * @return int
      */

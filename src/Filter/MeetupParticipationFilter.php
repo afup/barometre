@@ -40,9 +40,32 @@ class MeetupParticipationFilter implements FilterInterface
         if (!\array_key_exists($this->getName(), $values) || 0 === \count($values[$this->getName()])) {
             return;
         }
+        if (\count($values[$this->getName()]) === \count($this->meetupParticipationEnums->getChoices())) {
+            return;
+        }
 
-        $queryBuilder
-            ->andWhere($queryBuilder->expr()->in('response.meetupParticipation', $values[$this->getName()]));
+        $conditions = [];
+        foreach ($values[$this->getName()] as $enum) {
+            $conditions[] = match ($enum) {
+                MeetupParticipationEnums::ONE_PER_MONTH => $queryBuilder->expr()->gte('response.numberMeetupParticipation', 12),
+                MeetupParticipationEnums::ONE_PER_QUARTER => $queryBuilder->expr()->and($queryBuilder->expr()->gt('response.numberMeetupParticipation', 0), $queryBuilder->expr()->lt('response.numberMeetupParticipation', 12)),
+                MeetupParticipationEnums::NEVER => $queryBuilder->expr()->eq('response.numberMeetupParticipation', 0),
+            };
+        }
+
+        $queryBuilder->andWhere(
+            $queryBuilder->expr()->or(
+                $queryBuilder->expr()->isNull('response.numberMeetupParticipation'),
+                ...$conditions,
+            )
+        );
+
+        $queryBuilder->andWhere(
+            $queryBuilder->expr()->or(
+                $queryBuilder->expr()->isNull('response.meetupParticipation'),
+                $queryBuilder->expr()->in('response.meetupParticipation', $values[$this->getName()])
+            )
+        );
     }
 
     /**
@@ -64,7 +87,7 @@ class MeetupParticipationFilter implements FilterInterface
     }
 
     /**
-     * Filter weight
+     * Filter weight.
      *
      * @return int
      */

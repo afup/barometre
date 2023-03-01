@@ -58,7 +58,7 @@ class GenderSalaryEvolutionReport extends AbstractReport implements AlterableRep
     }
 
     /**
-     * report weight
+     * report weight.
      *
      * @return int
      */

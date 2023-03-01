@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 /**
- * Salary satisfaction
+ * Salary satisfaction.
  */
 
 namespace App\Report;
@@ -35,7 +35,7 @@ class SalarySatisfactionReport extends AbstractReport
     }
 
     /**
-     * report weight
+     * report weight.
      *
      * @return int
      */

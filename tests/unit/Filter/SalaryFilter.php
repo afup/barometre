@@ -2,11 +2,7 @@
 
 namespace App\Tests\unit\Filter;
 
-use agallou\Departements\Collection;
-use atoum;
-
-
-class SalaryFilter extends atoum
+class SalaryFilter extends \atoum
 {
     public function testConvertValuesToLabelDisplayOnlySettedValues()
     {
@@ -44,7 +40,7 @@ class SalaryFilter extends atoum
                 ->call('setParameter')
                     ->withArguments('minSalary', 20000)->once()
                     ->withArguments('maxSalary', 25000)->once()
-            ;
+        ;
     }
 
     public function testBuildQuerySwitchParameterForMinAndMaxInverted()
@@ -64,10 +60,10 @@ class SalaryFilter extends atoum
     {
         $this->mockGenerator->orphanize('__construct');
         $this->mockGenerator->shuntParentClassCalls();
-        $mock = new \mock\Doctrine\DBAL\Query\QueryBuilder;
+        $mock = new \mock\Doctrine\DBAL\Query\QueryBuilder();
         $this
             ->calling($mock)->methodsMatching('/^./')->return = $mock;
+
         return $mock;
     }
-
 }

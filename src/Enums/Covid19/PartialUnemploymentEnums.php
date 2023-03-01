@@ -8,11 +8,11 @@ use App\Enums\AbstractEnums;
 
 class PartialUnemploymentEnums extends AbstractEnums
 {
-    const NO = 1;
-    const YES_BUT_STARTED_BACK = 2;
-    const YES_STILL_IN_PARTIAL_UNEMPLOYMENT = 3;
+    public const NO = 1;
+    public const YES_BUT_STARTED_BACK = 2;
+    public const YES_STILL_IN_PARTIAL_UNEMPLOYMENT = 3;
 
-    protected $choices = [
+    protected array $choices = [
         self::NO => 'Non',
         self::YES_BUT_STARTED_BACK => "Oui et depuis j'ai repris à temps plein",
         self::YES_STILL_IN_PARTIAL_UNEMPLOYMENT => "Oui encore aujourd'hui",

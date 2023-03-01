@@ -20,7 +20,7 @@ class DepartmentExtension extends AbstractExtension
         $this->translator = $translator;
     }
 
-    public function getFilters()
+    public function getFilters(): array
     {
         return [
             new TwigFilter('department_label', [$this, 'departmentLabel']),

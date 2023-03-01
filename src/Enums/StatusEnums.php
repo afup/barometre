@@ -6,15 +6,12 @@ namespace App\Enums;
 
 class StatusEnums extends AbstractEnums
 {
-    const CDD = 1;
-    const CDI = 2;
-    const FREELANCE = 3;
-    const SANS_EMPLOI = 4;
+    public const CDD = 1;
+    public const CDI = 2;
+    public const FREELANCE = 3;
+    public const SANS_EMPLOI = 4;
 
-    /**
-     * @var array
-     */
-    protected $choices = [
+    protected array $choices = [
         self::CDD => 'Contrat à durée déterminée',
         self::CDI => 'Contrat à durée indéterminée',
         self::FREELANCE => 'Freelance / entreprise individuelle',

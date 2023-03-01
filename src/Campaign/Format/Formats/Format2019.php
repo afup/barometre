@@ -51,11 +51,11 @@ class Format2019 extends Format2014
     {
         $data = parent::alterData($data);
 
-        if ($data['gender'] === 'Une personne non-binaire') {
+        if ('Une personne non-binaire' === $data['gender']) {
             $data['gender'] = 'Personnes non-binaires';
         }
 
-        if ($data['status'] === 'Freelance / entreprise individuelle'
+        if ('Freelance / entreprise individuelle' === $data['status']
             && '' !== trim($data['freelance_tjm'])
             && '' !== trim($data['freelance_average_work_day'])
         ) {

@@ -90,7 +90,7 @@ class CompanyCountyReport extends AbstractReport
     }
 
     /**
-     * report weight
+     * report weight.
      *
      * @return int
      */

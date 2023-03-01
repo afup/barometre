@@ -35,262 +35,146 @@ use App\Enums\OtherLanguageEnums;
 use App\Enums\PHPDocumentationUsageEnums;
 use App\Enums\PHPStrengthEnums;
 use App\Enums\PHPVersionEnums;
+use App\Enums\RemoteMoneyEnums;
 use App\Enums\RemoteUsageEnums;
 use App\Enums\RetrainingEnums;
+use App\Enums\SalaryInflationEnums;
 use App\Enums\StatusEnums;
 use App\Enums\TechnologicalWatchEnums;
 use App\Enums\WorkMethodEnums;
-use Doctrine\Persistence\ObjectRepository;
+use App\Repository\CertificationRepository;
+use App\Repository\ContainerEnvironmentUsageRepository;
+use App\Repository\HostingTypeRepository;
+use App\Repository\JobInterestRepository;
+use App\Repository\SpecialityRepository;
+use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
 
 class ResponseFactory
 {
     public function __construct(
-        private \NumberFormatter $numberFormatter,
-        private EnumsCollection $enums,
-        private ObjectRepository $certificationRepository,
-        private ObjectRepository $specialityRepository,
-        private ObjectRepository $hostingTypeRepository,
-        private ObjectRepository $containerEnvironmentUsageRepository,
-        private ObjectRepository $jobInterestRepository
+        private readonly \NumberFormatter $numberFormatter,
+        private readonly EnumsCollection $enums,
+        private readonly CertificationRepository $certificationRepository,
+        private readonly SpecialityRepository $specialityRepository,
+        private readonly HostingTypeRepository $hostingTypeRepository,
+        private readonly ContainerEnvironmentUsageRepository $containerEnvironmentUsageRepository,
+        private readonly JobInterestRepository $jobInterestRepository,
+        private readonly PropertyAccessorInterface $propertyAccessor,
     ) {
     }
 
     public function createResponse(array $data, Campaign $campaign): Response
     {
         $response = new Response();
-
         $response->setCampaign($campaign);
 
-        $response->setGrossAnnualSalary(
-            $this->numberFormatter->parse((string) $data['gross_annual_salary'])
-        );
-        $response->setVariableAnnualSalary(
-            $this->numberFormatter->parse((string) $data['variable_annual_salary'])
-        );
-        $response->setAnnualSalary(
-            $this->numberFormatter->parse((string) $data['annual_salary'])
-        );
-        $response->setSalarySatisfaction(
-            $this->numberFormatter->parse($data['salary_satisfaction'])
-        );
-        $response->setInitialTraining(
-            $this->enums->getEnums(InitialTrainingEnums::class)
-                        ->getIdByLabel($data['initial_training'])
-        );
-        if (isset($data['retraining'])) {
-            $response->setRetraining($this->enums->getEnums(RetrainingEnums::class)->getIdByLabel($data['retraining']));
+        $numberValues = [
+            'grossAnnualSalary' => 'gross_annual_salary',
+            'variableAnnualSalary' => 'variable_annual_salary',
+            'annualSalary' => 'annual_salary',
+            'salarySatisfaction' => 'salary_satisfaction',
+            'experienceInYear' => 'experience_in_year',
+            'experienceInCurrentJob' => 'experience_in_current_job',
+            'freelanceTjm' => 'freelance_tjm',
+            'freelanceAverageWorkDayPerYear' => 'freelance_average_work_day',
+            'RemotePace' => 'remote_pace',
+            'NumberMeetupParticipation' => 'number_meetup_participation',
+            'Covid19RemoteIdealPace' => 'covid19_remote_ideal_pace',
+            'Covid19WorkCondition' => 'covid19_work_condition',
+        ];
+
+        foreach ($numberValues as $field => $dataKey) {
+            if (!isset($data[$dataKey])) {
+                continue;
+            }
+
+            $this->propertyAccessor->setValue($response, $field, (int) $this->numberFormatter->parse((string) $data[$dataKey]));
         }
-        $response->setStatus(
-            $this->enums->getEnums(StatusEnums::class)
-                        ->getIdByLabel($data['status'])
-        );
-        $response->setJobTitle(
-            $this->enums->getEnums(JobTitleEnums::class)
-                        ->getIdByLabel($data['job_title'])
-        );
-        $response->setExperience(
-            $this->enums->getEnums(ExperienceEnums::class)
-                        ->getIdByLabel($data['experience'])
-        );
 
-        $response->setFreelanceTjm($data['freelance_tjm'] ?? null);
+        $enumValues = [
+            'salaryInflation' => ['key' => 'salary_inflation', 'class' => SalaryInflationEnums::class],
+            'initialTraining' => ['key' => 'initial_training', 'class' => InitialTrainingEnums::class],
+            'retraining' => ['key' => 'retraining', 'class' => RetrainingEnums::class],
+            'status' => ['key' => 'status', 'class' => StatusEnums::class],
+            'jobTitle' => ['key' => 'job_title', 'class' => JobTitleEnums::class],
+            'experience' => ['key' => 'experience', 'class' => ExperienceEnums::class],
+            'contractWorkDuration' => ['key' => 'contract_work_duration', 'class' => ContractWorkDurationEnums::class],
+            'companyType' => ['key' => 'company_type', 'class' => CompanyTypeEnums::class],
+            'companySize' => ['key' => 'company_size', 'class' => CompanySizeEnums::class],
+            'OtherLanguage' => ['key' => 'other_language', 'class' => OtherLanguageEnums::class],
+            'RemoteUsage' => ['key' => 'remote_usage', 'class' => RemoteUsageEnums::class],
+            'RemoteMoney' => ['key' => 'remote_money', 'class' => RemoteMoneyEnums::class],
+            'MeetupParticipation' => ['key' => 'meetup_participation', 'class' => MeetupParticipationEnums::class],
+            'TechnologicalWatch' => ['key' => 'technological_watch', 'class' => TechnologicalWatchEnums::class],
+            'OsDeveloppment' => ['key' => 'os_developpment', 'class' => OsDeveloppmentEnums::class],
+            'WorkMethod' => ['key' => 'work_method', 'class' => WorkMethodEnums::class],
+            'PhpVersion' => ['key' => 'php_version', 'class' => PHPVersionEnums::class],
+            'phpDocumentationSource' => ['key' => 'php_documentation_source', 'class' => PHPDocumentationUsageEnums::class],
+            'FrenchPhpDocumentationQuality' => ['key' => 'french_php_documentation_quality', 'class' => FrenchPHPDocumentationQualityEnums::class],
+            'PhpStrength' => ['key' => 'php_strength', 'class' => PHPStrengthEnums::class],
+            'Gender' => ['key' => 'gender', 'class' => GenderEnums::class],
+            'CmsUsageInProject' => ['key' => 'cms_usage_in_project', 'class' => CmsUsageInProjectEnums::class],
+            'Covid19CompanyTrust' => ['key' => 'covid19_company_trust', 'class' => CompanyTrustEnums::class],
+            'Covid19CompanyHandle' => ['key' => 'covid19_company_handle', 'class' => CompanyHandleEnums::class],
+            'Covid19Layoff' => ['key' => 'covid19_layoff', 'class' => LayoffEnums::class],
+            'Covid19FuturePlan' => ['key' => 'covid19_future_plan', 'class' => FuturePlanEnums::class],
+            'Covid19SalaryImpact' => ['key' => 'covid19_salary_impact', 'class' => SalaryImpactEnums::class],
+            'Covid19PartialUnemployment' => ['key' => 'covid19_partial_unemployment', 'class' => PartialUnemploymentEnums::class],
+            'Covid19RegularRemoteFeeling' => ['key' => 'covid19_regular_remote_feeling', 'class' => RegularRemoteFeelingEnums::class],
+        ];
 
-        $response->setFreelanceAverageWorkDayPerYear($data['freelance_average_work_day'] ?? null);
-
-        if (isset($data['contract_work_duration'])) {
-            $response->setContractWorkDuration(
-                $this->enums->getEnums(ContractWorkDurationEnums::class)
-                            ->getIdByLabel($data['contract_work_duration'])
+        foreach ($enumValues as $field => $enum) {
+            $this->propertyAccessor->setValue(
+                $response,
+                $field,
+                $this->enums->getEnums($enum['class'])->getIdByLabel($data[$enum['key']] ?? null)
             );
         }
 
         $department = new Departments();
+        if (1 === mb_strlen($data['company_department'])) {
+            $data['company_department'] = '0'.$data['company_department'];
+        }
+
         if (\array_key_exists($data['company_department'], $department->getAll())) {
             $response->setCompanyDepartment(
                 $data['company_department']
             );
         }
 
-        $response->setCompanyType(
-            $this->enums->getEnums(CompanyTypeEnums::class)
-                        ->getIdByLabel($data['company_type'])
-        );
-        $response->setCompanySize(
-            $this->enums->getEnums(CompanySizeEnums::class)
-                        ->getIdByLabel($data['company_size'])
-        );
+        $this->addJobInterest($response, explode(', ', $data['job_interest'] ?? ''));
 
-        $this->addJobInterest($response, explode(', ', $data['job_interest']));
+        $response->setCompanyOrigin($data['company_origin'] ?? null);
 
-        if (isset($data['company_origin'])) {
-            $response->setCompanyOrigin($data['company_origin']);
-        }
-
-        $response->setOtherLanguage(
-            $this->enums->getEnums(OtherLanguageEnums::class)
-                        ->getIdByLabel($data['other_language'])
+        $this->addHostingType(
+            $response,
+            explode(', ', $data['hosting_type'] ?? '')
         );
 
-        $response->setRemoteUsage(
-            $this->enums->getEnums(RemoteUsageEnums::class)
-                        ->getIdByLabel($data['remote_usage'])
+        $this->addContainerEnvironmentUsage(
+            $response,
+            explode(', ', $data['container_environment_usage'] ?? '')
         );
 
-        if (isset($data['remote_pace'])) {
-            $response->setRemotePace((int) $data['remote_pace']);
-        }
-
-        $response->setMeetupParticipation(
-            $this->enums->getEnums(MeetupParticipationEnums::class)
-                        ->getIdByLabel($data['meetup_participation'])
+        $this->addSpeciality(
+            $response,
+            explode(', ', $data['speciality'] ?? '')
         );
 
-        $response->setTechnologicalWatch(
-            $this->enums->getEnums(TechnologicalWatchEnums::class)
-                        ->getIdByLabel($data['technological_watch'])
-        );
-
-        $response->setOsDeveloppment(
-            $this->enums->getEnums(OsDeveloppmentEnums::class)
-                        ->getIdByLabel($data['os_developpment'])
-        );
-
-        if (isset($data['hosting_type']) && \strlen(trim($data['hosting_type'])) !== 0) {
-            $this->addHostingType(
-                $response,
-                explode(', ', $data['hosting_type'])
-            );
-        }
-
-        if (isset($data['container_environment_usage']) && \strlen(trim($data['container_environment_usage'])) !== 0) {
-            $this->addContainerEnvironmentUsage(
-                $response,
-                explode(', ', $data['container_environment_usage'])
-            );
-        }
-
-        if (isset($data['work_method'])) {
-            $response->setWorkMethod(
-                $this->enums->getEnums(WorkMethodEnums::class)
-                            ->getIdByLabel($data['work_method'])
-            );
-        }
-
-        if (\strlen(trim($data['speciality'])) !== 0) {
-            $this->addSpeciality(
-                $response,
-                explode(', ', $data['speciality'])
-            );
-        }
-
-        $response->setPhpVersion(
-            $this->enums->getEnums(PHPVersionEnums::class)
-                        ->getIdByLabel($data['php_version'])
-        );
-
-        if (isset($data['php_documentation_source'])) {
-            $response->setPhpDocumentationSource(
-                $this->enums->getEnums(PHPDocumentationUsageEnums::class)
-                            ->getIdByLabel($data['php_documentation_source'])
-            );
-        }
-        if (isset($data['french_php_documentation_quality'])) {
-            $response->setFrenchPhpDocumentationQuality(
-                $this->enums->getEnums(FrenchPHPDocumentationQualityEnums::class)
-                            ->getIdByLabel($data['french_php_documentation_quality'])
-            );
-        }
-
-        if ('oui' === strtolower($data['has_certification'])) {
+        if ('oui' === mb_strtolower($data['has_certification'])) {
             $this->addCertification(
                 $response,
-                explode(', ', $data['certification_list'])
+                explode(', ', $data['certification_list'] ?? null)
             );
         }
-
-        $response->setPhpStrength(
-            $this->enums->getEnums(PHPStrengthEnums::class)
-                        ->getIdByLabel($data['php_strength'])
-        );
 
         $response->setHasRecentTraining(
-            'oui' === strtolower($data['has_formation'])
+            'oui' === mb_strtolower($data['has_formation'] ?? null)
         );
 
-        if (\strlen($data['formation_impact'])) {
-            $response->setRecentTrainingHadSalaryImpact(
-                'oui' === strtolower($data['formation_impact'])
-            );
-        }
-
-        $response->setGender(
-            $this->enums->getEnums(GenderEnums::class)
-                        ->getIdByLabel($data['gender'])
+        $response->setIsRecentTrainingHadSalaryImpact(
+            'oui' === mb_strtolower($data['formation_impact'] ?? null)
         );
-
-        // added in campaign 2020
-        if (isset($data['cms_usage_in_project'])) {
-            $response->setCmsUsageInProject(
-                $this
-                    ->enums
-                    ->getEnums(CmsUsageInProjectEnums::class)
-                    ->getIdByLabel($data['cms_usage_in_project'])
-            );
-        }
-
-        if (isset($data['covid19_company_trust'])) {
-            $response->setCovid19CompanyTrust(
-                $this->enums->getEnums(CompanyTrustEnums::class)->getIdByLabel($data['covid19_company_trust'])
-            );
-        }
-
-        if (isset($data['covid19_company_handle'])) {
-            $response->setCovid19CompanyHandle(
-                $this->enums->getEnums(CompanyHandleEnums::class)->getIdByLabel($data['covid19_company_handle'])
-            );
-        }
-
-        if (isset($data['covid19_layoff'])) {
-            $response->setCovid19Layoff(
-                $this->enums->getEnums(LayoffEnums::class)->getIdByLabel($data['covid19_layoff'])
-            );
-        }
-
-        if (isset($data['covid19_future_plan'])) {
-            $response->setCovid19FuturePlan(
-                $this->enums->getEnums(FuturePlanEnums::class)->getIdByLabel($data['covid19_future_plan'])
-            );
-        }
-
-        if (isset($data['covid19_salary_impact'])) {
-            $response->setCovid19SalaryImpact(
-                $this->enums->getEnums(SalaryImpactEnums::class)->getIdByLabel($data['covid19_salary_impact'])
-            );
-        }
-
-        if (isset($data['covid19_partial_unemployment'])) {
-            $response->setCovid19PartialUnemployment(
-                $this->enums->getEnums(PartialUnemploymentEnums::class)->getIdByLabel($data['covid19_partial_unemployment'])
-            );
-        }
-
-        if (isset($data['covid19_regular_remote_feeling'])) {
-            $response->setCovid19RegularRemoteFeeling(
-                $this->enums->getEnums(RegularRemoteFeelingEnums::class)->getIdByLabel($data['covid19_regular_remote_feeling'])
-            );
-        }
-
-        if (isset($data['covid19_remote_ideal_pace'])) {
-            $response->setCovid19RemoteIdealPace(
-                (int) $data['covid19_remote_ideal_pace']
-            );
-        }
-
-        if (isset($data['covid19_work_condition'])) {
-            $response->setCovid19WorkCondition(
-                (int) $data['covid19_work_condition']
-            );
-        }
 
         return $response;
     }

@@ -33,7 +33,7 @@ class GenderReport extends AbstractReport
     }
 
     /**
-     * report weight
+     * report weight.
      *
      * @return int
      */

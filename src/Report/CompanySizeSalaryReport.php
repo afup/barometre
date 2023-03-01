@@ -31,7 +31,7 @@ class CompanySizeSalaryReport extends AbstractReport
                 $data['data'][$result['experience']] = [];
             }
 
-            if (!\in_array($result['companySize'], $data['columns'])) {
+            if (!\in_array($result['companySize'], $data['columns'], true)) {
                 $data['columns'][] = $result['companySize'];
             }
 
@@ -42,7 +42,7 @@ class CompanySizeSalaryReport extends AbstractReport
     }
 
     /**
-     * The report name (used for url)
+     * The report name (used for url).
      *
      * @return string
      */

@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Report;
 
 /**
- * Report on company Type
+ * Report on company Type.
  */
 class CompanyTypeReport extends AbstractReport
 {

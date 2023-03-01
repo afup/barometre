@@ -53,7 +53,7 @@ class Format2013 implements FormatInterface
 
         $data['gender'] = '';
 
-        if ($data['initial_training'] === 'Niveau Master2  ou ingénieur') {
+        if ('Niveau Master2  ou ingénieur' === $data['initial_training']) {
             $data['initial_training'] = 'Niveau Master2 ou ingénieur';
         }
 

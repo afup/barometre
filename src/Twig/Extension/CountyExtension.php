@@ -20,7 +20,7 @@ class CountyExtension extends AbstractExtension
         $this->translator = $translator;
     }
 
-    public function getFilters()
+    public function getFilters(): array
     {
         return [
             new TwigFilter('county_label', [$this, 'countyLabel']),

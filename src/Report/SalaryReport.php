@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace App\Report;
 
 /**
- * Report on salary
+ * Report on salary.
  */
 class SalaryReport extends AbstractReport
 {
-    const SLICE = 5000;
+    public const SLICE = 5000;
 
     /**
      * {@inheritdoc}
@@ -41,7 +41,7 @@ class SalaryReport extends AbstractReport
         $min = min(array_keys($results));
         $max = max(array_keys($results));
 
-        if ($max != $min) {
+        if ($max !== $min) {
             $baseResults = array_fill($min, $max - $min, $baseResult);
         } else {
             $baseResults = [];
@@ -67,7 +67,7 @@ class SalaryReport extends AbstractReport
     }
 
     /**
-     * report weight
+     * report weight.
      *
      * @return int
      */

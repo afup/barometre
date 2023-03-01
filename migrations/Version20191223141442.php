@@ -2,21 +2,18 @@
 
 namespace Application\Migrations;
 
-use Doctrine\Migrations\AbstractMigration;
 use Doctrine\DBAL\Schema\Schema;
+use Doctrine\Migrations\AbstractMigration;
 
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
 class Version20191223141442 extends AbstractMigration
 {
-    /**
-     * @param Schema $schema
-     */
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->abortIf($this->connection->getDatabasePlatform()->getName() != 'mysql', 'Migration can only be executed safely on \'mysql\'.');
+        $this->abortIf('mysql' !== $this->connection->getDatabasePlatform()->getName(), 'Migration can only be executed safely on \'mysql\'.');
 
         $this->addSql('CREATE TABLE hosting_type (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(100) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE response_hostingtype (response_id INT NOT NULL, hostingtype_id INT NOT NULL, INDEX IDX_4AC9A7EDFBF32840 (response_id), INDEX IDX_4AC9A7ED61CE1A05 (hostingtype_id), PRIMARY KEY(response_id, hostingtype_id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
@@ -29,13 +26,10 @@ class Version20191223141442 extends AbstractMigration
         $this->addSql('ALTER TABLE response ADD freelanceTjm INT DEFAULT NULL, ADD freelanceAverageWorkDayPerYear INT DEFAULT NULL, ADD contractWorkDuration INT DEFAULT NULL, ADD workMethod INT DEFAULT NULL, ADD phpDocumentationSource INT DEFAULT NULL, ADD frenchPhpDocumentationQuality INT DEFAULT NULL');
     }
 
-    /**
-     * @param Schema $schema
-     */
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->abortIf($this->connection->getDatabasePlatform()->getName() != 'mysql', 'Migration can only be executed safely on \'mysql\'.');
+        $this->abortIf('mysql' !== $this->connection->getDatabasePlatform()->getName(), 'Migration can only be executed safely on \'mysql\'.');
 
         $this->addSql('ALTER TABLE response_hostingtype DROP FOREIGN KEY FK_4AC9A7ED61CE1A05');
         $this->addSql('ALTER TABLE response_containerenvironmentusage DROP FOREIGN KEY FK_6608F85E443CCD38');

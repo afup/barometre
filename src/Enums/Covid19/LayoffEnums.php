@@ -8,10 +8,10 @@ use App\Enums\AbstractEnums;
 
 class LayoffEnums extends AbstractEnums
 {
-    const YES = 1;
-    const NO = 2;
+    public const YES = 1;
+    public const NO = 2;
 
-    protected $choices = [
+    protected array $choices = [
         self::YES => 'Oui',
         self::NO => 'Non',
     ];

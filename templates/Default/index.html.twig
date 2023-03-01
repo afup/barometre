@@ -5,7 +5,7 @@
 {% block content %}
     <div class="row">
         <div class="col-md-9">
-            {{ render(controller('App\\Controller\\ReportController:indexAction', {reportName: report_name })) }}
+            {{ render(path('afup_barometre_report_detail', {reportName: report_name })) }}
         </div>
         <div class="col-md-3">
             <h1>Filtres</h1>

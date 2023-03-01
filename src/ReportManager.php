@@ -41,7 +41,7 @@ class ReportManager
     }
 
     /**
-     * Handle the request
+     * Handle the request.
      */
     public function handleRequest(Request $request)
     {
@@ -49,7 +49,7 @@ class ReportManager
     }
 
     /**
-     * Get current selected filters
+     * Get current selected filters.
      */
     public function getSelectedFilters()
     {
@@ -61,7 +61,7 @@ class ReportManager
     }
 
     /**
-     * Internal cleaning function for form filter data
+     * Internal cleaning function for form filter data.
      *
      * @return bool
      */
@@ -81,7 +81,7 @@ class ReportManager
     }
 
     /**
-     * Find a report and set the querybuilder
+     * Find a report and set the querybuilder.
      *
      * @param string $reportName
      *

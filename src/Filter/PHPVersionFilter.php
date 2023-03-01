@@ -64,7 +64,7 @@ class PHPVersionFilter implements FilterInterface
     }
 
     /**
-     * Filter weight
+     * Filter weight.
      *
      * @return int
      */

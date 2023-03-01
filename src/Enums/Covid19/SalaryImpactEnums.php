@@ -8,11 +8,11 @@ use App\Enums\AbstractEnums;
 
 class SalaryImpactEnums extends AbstractEnums
 {
-    const YES = 1;
-    const NO = 2;
-    const DOES_NO_SAY = 3;
+    public const YES = 1;
+    public const NO = 2;
+    public const DOES_NO_SAY = 3;
 
-    protected $choices = [
+    protected array $choices = [
         self::YES => 'Oui',
         self::NO => 'Non',
         self::DOES_NO_SAY => 'Ne se prononce pas',
