@@ -51,8 +51,8 @@ class MeetupParticipationReport extends AbstractReport
             return;
         }
 
-        uasort($this->data, static function (array $experienceA, array $experienceB): int {
-            return $experienceB['meetupParticipation'] <=> $experienceA['meetupParticipation'];
+        uasort($this->data, static function (array $meetupParticipationA, array $meetupParticipationB): int {
+            return $meetupParticipationB['meetupParticipation'] <=> $meetupParticipationA['meetupParticipation'];
         });
     }
 
