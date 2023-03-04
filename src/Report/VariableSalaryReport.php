@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace App\Report;
 
-use App\Enums\ExperienceEnums;
+use App\Trait\ExperienceComputer;
 
 class VariableSalaryReport extends AbstractReport
 {
+    use ExperienceComputer;
+
     /**
      * {@inheritdoc}
      */
@@ -24,7 +26,7 @@ class VariableSalaryReport extends AbstractReport
         $reportData = [];
 
         foreach ($data as $response) {
-            $experience = $response['experience'] ?? $this->computeExperience($response);
+            $experience = $this->computeExperience($response);
 
             if (!isset($reportData[$experience])) {
                 $reportData[$experience] = [];
@@ -71,22 +73,5 @@ class VariableSalaryReport extends AbstractReport
     public function getWeight()
     {
         return -20;
-    }
-
-    private function computeExperience(array $response)
-    {
-        if ($response['experienceInYear'] < 2) {
-            return ExperienceEnums::XP_0_2;
-        }
-
-        if ($response['experienceInYear'] < 5) {
-            return ExperienceEnums::XP_2_5;
-        }
-
-        if ($response['experienceInYear'] < 10) {
-            return ExperienceEnums::XP_5_10;
-        }
-
-        return ExperienceEnums::XP_10;
     }
 }
