@@ -26,6 +26,10 @@
                 <source>menu.result2021</source>
                 <target>Résultats 2021</target>
             </trans-unit>
+            <trans-unit id="menu.result2022">
+                <source>menu.result2022</source>
+                <target>Résultats 2022</target>
+            </trans-unit>
             <trans-unit id="menu.results">
                 <source>menu.results</source>
                 <target>Résultats détaillés</target>
@@ -157,6 +161,14 @@
             <trans-unit id="report.meetup_participation_evolution.label">
                 <source>report.meetup_participation_evolution.label</source>
                 <target>Évolution de la participation aux meetups</target>
+            </trans-unit>
+            <trans-unit id="report.salary_satisfaction_evolution.label">
+                <source>report.salary_satisfaction_evolution.label</source>
+                <target>Évolution de la satisfaction de la rémunération</target>
+            </trans-unit>
+            <trans-unit id="report.speciality_evolution.label">
+                <source>report.speciality_evolution.label</source>
+                <target>Évolution des spécialités</target>
             </trans-unit>
             <trans-unit id="report.speciality.label">
                 <source>report.speciality.label</source>
