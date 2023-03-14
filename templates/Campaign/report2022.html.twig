@@ -1,0 +1,160 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}Résultats de la campagne {{ campaignName }}{% endblock %}
+
+{% block meta %}
+    {{ parent() }}
+    <meta property="og:title" content="Baromètre des salaires du PHP - Résultats {{ campaignName }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{{ absolute_url('/report/'~campaignName) }}" />
+    <meta property="og:description" content="Les résultats du baromètre des salaires en PHP {{ campaignName }} sont disponibles. Consultez les résultats de l’enquête de référence pour le milieu PHP menée par l’AFUP" />
+    <meta property="og:site_name" content="Baromètre des salaires - AFUP" />
+{% endblock %}
+
+
+{% block content %}
+    <div class="row report2015">
+        <div class="col-md-8">
+        <h1>Résultats de la campagne {{ campaignName }}</h1>
+
+        <h2>Introduction</h2>
+            <p>Comme chaque année l’AFUP, effectue une enquête auprès des développeurs et développeuses PHP. Cette enquête a eu lieu en 2022, du 18 septembre 2022 au 20 décembre 2022.</p>
+            <p>Nous remercions les 654 personnes qui ont répondu : votre participation permet d’obtenir des chiffres affinés et une étude pertinente.</p>
+
+        <h2>Utilisation</h2>
+            <p>Le baromètre est tout d'abord conçu pour être utilisé par le/la salarié(e) ou l'indépendant(e), afin qu'il puisse se positionner correctement sur le marché du travail. Par exemple, un développeur ou une développeuse avec moins de 2 ans d'expérience sur Paris en emploi salarié, pourra très facilement évaluer sa situation grâce aux réponses des autres répondants. Cela permettra de chercher la spécialité la plus avantageuse, ou bien quel type d'entreprises embauche le plus.</p>
+
+            <p>Ainsi s'il ou elle souhaite travailler hors Île-de-France et dans une startup, il est possible de :</p>
+            <ul>
+                <li>Visualiser géographiquement où sont situées les entreprises des répondants,</li>
+                <li>Observer la rémunération en fonction de l'expérience,</li>
+                <li>Choisir une spécialité adaptée.</li>
+            </ul>
+
+            <p>Les dirigeantes et dirigeants d'entreprises pourront y trouver un outil précieux pour gérer la carrière de leurs collaborateurs, comme l'évolution de leur rémunération. Ils pourront aussi faire une recherche géographique afin d'approfondir les écarts entre départements sur une spécialité précise.</p>
+
+            <p>Les données présentées sont utilisables sous licence Creative Commons BY-NC-ND. Afin de garantir la confidentialité des répondantes et répondants, le détail des réponses n'est pas affiché si celles-ci sont trop peu nombreuses.</p>
+
+        <h2>Profil des personnes ayant répondu</h2>
+            <p>Les répondants sont :</p>
+            <ul>
+                <li>en majorité des hommes : pour 92% des hommes et 7% de femmes.</li>
+                <li>en CDI, qui reste de loin, le contrat le plus utilisé avec 93% des personnes ayant un contrat de travail.</li>
+                <li>dans une zone géographique à forte densité (l’Ile de France et Rhône-Alpes représentent la majorité des réponses)</li>
+                <li>en majorité dans une PME (pour 83%)</li>
+                <li>en majorité des spécialistes Symfony (pour 78%)</li>
+            </ul>
+
+            <p>Ces points ne changent pas ou peu par rapport aux années précédentes.</p>
+
+
+        <h2>Augmentation du salaire moyen pour les postes de dev en CDI</h2>
+            <a href="{{ absolute_url('/report/gender?filter[campaign][]='~campaignId~'&filter[job_title][]=8&filter[salary][min]=&filter[salary][max]=&filter[status][]=2') }}" class="report-image">
+                <img src="{{ asset('reports/2022/evolution_salaire_genre.png') }}" alt="Évolution du salaire moyen par genre"/>
+            </a>
+
+            <p>En étudiant le salaire moyen par genre, on peut constater que, pour les hommes, on passe d'un salaire annuel brut moyen de 42 677€ à 43 653€, soit une augmentation de 2,2%. Pour les femmes, au vu du nombre de réponses nous ne pouvons nous assurer de la pertinence de l’augmentation. Par contre, on peut noter que l’écart salarial annuel entre hommes et les femmes reste très élevé (ici 3 747€ en moyenne sur l’année).</p>
+
+            <a href="{{ absolute_url('/report/salary?filter[campaign][0]='~campaignId~'&filter[job_title][0]=8&filter[salary][min]=&filter[salary][max]=&filter[status][0]=2') }}" class="report-image">
+                <img src="{{ asset('reports/2022/evolution_salaire.png') }}" alt="Évolution du salaire"/>
+            </a>
+
+            <p>Ces chiffres concernent la moyenne des salaires. Ils sont intéressants dans notre étude de l'écart salarial en fonction du genre. Afin de valider l'évolution du salaire, mieux vaut s'intéresser à un autre indicateur, la médiane.</p>
+
+            <p>Nous pouvons ici constater que la médiane pour les postes de dev en CDI tous genres confondus à augmentée pour passer den 2021 de 39 500€ à 40 000€, soit une augmentation de 1,2%</p>
+
+            <p>C'est une augmentation mais moins nette que la moyenne (qui elle passe de 42 557€ à 43 347€), soit 1,8%.</p>
+
+            <p>Les salaires les plus élevés bénéficient le plus de cette augmentation avec une augmentation à 1,8% sur le 90ème percentile.</p>
+
+            <p>L’enquête porte sur les salaires en fin d’année 2022, et ne prend donc pas en compte les possibles revalorisations qui auraient eu lieu début 2023. Il sera intéressant l’année prochaine d’étudier les évolutions salariales et de les mettre en rapport avec le niveau de l’inflation.</p>
+
+        <h2>Un hausse de la satisfaction de la rémunération</h2>
+
+            <p>TODO</p>
+
+
+            <p>L'enquête, comme les 2 précédentes, a été menée dans une période de crise et d'instabilité économique. Comment cela a t il impacté la satisfaction de la rémunération sur les postes de développeur et développeuses en CDI ?</p>
+
+            <p>Nous pouvons constater que depuis 2020 le nombre de personnes majoritairement satisfaites (qui ont indiquées être satisfaites ou très satisfaites) de leur salaire a nettement augmenté. Sur les années 2016 à 2019 elles étaient environ à 33%, sur la période de 2020 à 2022 elles sont passées à 47% environ.</p>
+
+
+        <h2>Le retour de la participation aux meetups</h2>
+
+            <a href="{{ absolute_url('/report/meetup_participation?filter[campaign][]='~campaignId) }}" class="report-image">
+                <img src="{{ asset('reports/2022/evolution_meetup.png') }}" alt="Évolution participation meetup"/>
+            </a>
+
+            <p>En 2022, ce sont 42% des personnes interrogées qui ont indiqué ne jamais avoir assisté à un meetup. Cet indicateur retourne à son niveau pré-covid (40% en 2019), et ce après avoir atteint les chiffres de 68% en 2021 et de 50% en 2020. </p>
+
+            <p>Ces résultats ne concernent pas seulement les meetups gérés par les antennes AFUP, par contre nous constatons le même dynamisme auprès de celles-ci. En effet, en 2019 les antennes AFUP ont organisé environ 100 événements. Après une année 2021 où seulement 18 événements en présentiel ont été organisés, 2022 aura été une étape importante de la reprise avec 58 événements préparés au sein des antennes AFUP. Nous constatons donc le même retour et engouement pour les meetups en présentiel.</p>
+
+        <h2>Une communauté qui suit toujours fortement les mises à jour du langage</h2>
+
+            <a href="{{ absolute_url('/report/php_version?filter[campaign][0]='~campaignId) }}" class="report-image">
+                <img src="{{ asset('reports/2022/evolution_php.png') }}" alt="Évolution utilisation PHP"/>
+            </a>
+
+            <p>En 2022 et comme quasiment tous les ans, nous suivons l’émergence d’une nouvelle version de PHP, ici la version 8.1 indiquée comme utilisée par 46% des personnes ayant répondu. Cette version est sortie en novembre 2021. L’adoption d’une nouvelle version est toujours assez rapide, ce qui est remonté comme une force du langage et montre sa facilité de maintenance dans le cas des montées de version. Cela peut aussi être rapproché avec le fait que 70% des répondants et répondantes indiquent que la plus grande force de PHP est son écosystème.</p>
+
+        <h2>La tendance du télétravail qui se confirme</h2>
+
+
+            <a href="{{ absolute_url('/report/remote_usage?filter[campaign][]='~campaignId) }}" class="report-image">
+                <img src="{{ asset('reports/2022/evolution_remote.png') }}" alt="Évolution du télétravail"/>
+            </a>
+
+
+            <p>En 2019, 6,3% de répondants et répondantes indiquent faire exclusivement du télétravail.</p>
+
+            <p>Depuis 2020, la tendance au télétravail à temps complet n'a eu de cesse de se confirmer, pour passer de 19% en 2020 à 28% en 2021 pour atteindre 34% en 2022.</p>
+
+            <p>Ce n'est pas seulement le télétravail à temps complet qui augmente. En 2019, 19% des personnes interrogées font du télétravail tout le temps ou régulièrement. En 2023, après avoir continuellement augmenté en 2020 et 2021, ce chiffre atteint les 80%.</p>
+
+            <p>Ces deux tendances qui augmentent légèrement sur les périodes de 2016 à 2019, progressent fortement à partir de 2020.</p>
+
+        <h2>La fin des frameworks propriétaires</h2>
+
+            <p>Cette année sur le site du baromètre vous pouvez retrouver l’évolution de l’usage des différents frameworks à travers le temps.</p>
+
+            <p>D’après celui-ci nous pouvons constater que nous sommes définitivement entrés dans l'ère du framework : en 2017, nous avons encore 11% d’usage de frameworks propriétaires. Ce chiffre baisse pour atteindre 5% en 2022. </p>
+
+            <p>On peut noter aussi la confirmation de l’usage de Laravel auprès de la communauté en France, restant stable ces 3 dernières années, mais ayant quasiment doublé depuis 5 ans.</p>
+
+        <h2>Une hausse des reconversions</h2>
+
+            <p>Depuis 2 ans, nous demandons aux personnes interrogées si elles ont effectué une reconversion professionnelle. En 2021, elles sont 19% à nous répondre par l’affirmative. En 2022, ce nombre passe à 23%. Nous constatons donc une hausse des répondants et répondantes en reconversion.</p>
+
+            <p>Les personnes en reconversion ont généralement moins d’expérience que le reste des répondants. En 2022, 60% des personnes en reconversion ont 5 ans d’expérience ou moins tandis que seulement 20% des personnes n’ayant pas fait de reconversion ont 5 ans d’expérience ou moins.</p>
+
+            <p>Nous récoltons des informations à ce propos depuis seulement 2 ans. Ce seront des indicateurs qu’il sera intéressant de suivre à travers le temps et nous ne manquerons pas de vous en faire part lors des prochaines enquêtes.</p>
+
+        <h2>Qui sommes-nous ?</h2>
+
+            <p>l'<a href="http://www.afup.org" title="Association Française des Utilisateurs de PHP">association française des utilisateurs de PHP</a> (AFUP) vous présentent pour la dixième année consécutive le baromètre des salaires AFUP – 2022 </p>
+
+            <p>Comme chaque année, le baromètre AFUP répond aux questions que se posent les professionnel·le·s de notre secteur :</p>
+            <ul>
+                <li>Combien gagne un·e développeur·euse débutant·e ?</li>
+                <li>Comment les salaires évoluent-ils avec l’expérience ?</li>
+                <li>Quelles sont les technos qui rapportent le plus ?</li>
+                <li>Dans quelles villes touche-t-on les meilleurs salaires ?</li>
+            </ul>
+
+            <p>Nous espérons que vous aurez une vision claire du marché après consultation de ce baromètre des salaires en PHP AFUP 2021.</p>
+
+            <h3>AFUP</h3>
+            <p>L'<a href="http://www.afup.org" title="Association Française des Utilisateurs de PHP">AFUP</a>, Association Française des Utilisateurs de PHP, est une association loi 1901, qui a pour objectif principal de promouvoir le langage PHP auprès des professionnel·le·s et de participer à son développement. Elle organise ainsi de nombreux événements tout au long de l’année, elle diffuse et partage les connaissances auprès des utilisateurs et utilisatrices de PHP, et participe à la valorisation des développeurs et développeuses PHP sur le marché du travail.</p>
+
+        </div>
+
+        <div class="col-md-4">
+            <h1>Résultats détaillés</h1>
+
+            <div class="well">
+                {% block menu_reports knp_menu_render('reports_menu', {}, 'reports') %}
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

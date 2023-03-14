@@ -26,6 +26,10 @@
                 <source>menu.result2021</source>
                 <target>Résultats 2021</target>
             </trans-unit>
+            <trans-unit id="menu.result2022">
+                <source>menu.result2022</source>
+                <target>Résultats 2022</target>
+            </trans-unit>
             <trans-unit id="menu.results">
                 <source>menu.results</source>
                 <target>Résultats détaillés</target>
