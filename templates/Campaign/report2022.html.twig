@@ -71,8 +71,9 @@
 
         <h2>Un hausse de la satisfaction de la rémunération</h2>
 
-            <p>TODO</p>
-
+            <a href="{{ absolute_url('/report/salary_satisfaction?filter[campaign][0]='~campaignId) }}" class="report-image">
+                <img src="{{ asset('reports/2022/evolution_satisfaction_salaire.png') }}" alt="Évolution du salaire"/>
+            </a>
 
             <p>L'enquête, comme les 2 précédentes, a été menée dans une période de crise et d'instabilité économique. Comment cela a t il impacté la satisfaction de la rémunération sur les postes de développeur et développeuses en CDI ?</p>
 
@@ -99,11 +100,9 @@
 
         <h2>La tendance du télétravail qui se confirme</h2>
 
-
             <a href="{{ absolute_url('/report/remote_usage?filter[campaign][]='~campaignId) }}" class="report-image">
                 <img src="{{ asset('reports/2022/evolution_remote.png') }}" alt="Évolution du télétravail"/>
             </a>
-
 
             <p>En 2019, 6,3% de répondants et répondantes indiquent faire exclusivement du télétravail.</p>
 
@@ -114,6 +113,10 @@
             <p>Ces deux tendances qui augmentent légèrement sur les périodes de 2016 à 2019, progressent fortement à partir de 2020.</p>
 
         <h2>La fin des frameworks propriétaires</h2>
+
+            <a href="{{ absolute_url('/report/speciality?filter[campaign][]='~campaignId) }}" class="report-image">
+                <img src="{{ asset('reports/2022/evolution_specialites.png') }}" alt="Évolution des spécialités"/>
+            </a>
 
             <p>Cette année sur le site du baromètre vous pouvez retrouver l’évolution de l’usage des différents frameworks à travers le temps.</p>
 

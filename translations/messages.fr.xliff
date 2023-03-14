@@ -162,6 +162,14 @@
                 <source>report.meetup_participation_evolution.label</source>
                 <target>Évolution de la participation aux meetups</target>
             </trans-unit>
+            <trans-unit id="report.salary_satisfaction_evolution.label">
+                <source>report.salary_satisfaction_evolution.label</source>
+                <target>Évolution de la satisfaction de la rémunération</target>
+            </trans-unit>
+            <trans-unit id="report.speciality_evolution.label">
+                <source>report.speciality_evolution.label</source>
+                <target>Évolution des spécialités</target>
+            </trans-unit>
             <trans-unit id="report.speciality.label">
                 <source>report.speciality.label</source>
                 <target>Distribution des spécialités</target>

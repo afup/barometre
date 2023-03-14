@@ -172,6 +172,8 @@ services:
 
     App\Report\SpecialityReport:
         parent: App\Report\AbstractReport
+        calls:
+            - setChildReports: [ [ '@App\Report\SpecialityEvolutionReport' ] ]
         tags: ['barometre.report']
 
     App\Report\ExperienceSalaryReport:
@@ -196,6 +198,8 @@ services:
 
     App\Report\SalarySatisfactionReport:
         parent: App\Report\AbstractReport
+        calls:
+            - setChildReports: [ [ '@App\Report\SalarySatisfactionEvolutionReport' ] ]
         tags: [ 'barometre.report' ]
 
     App\Report\PhpVersionEvolutionReport:
