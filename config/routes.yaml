@@ -3,7 +3,7 @@ afup_barometre_homepage:
   methods: GET
   controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
   defaults:
-    path: /about
+    path: /report/2022
     permanent: false
 
 afup_barometre_form:
