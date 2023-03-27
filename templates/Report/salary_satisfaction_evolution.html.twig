@@ -1,0 +1,15 @@
+{%  set color = {
+    (constant('App\\Enums\\SalarySatisfactionEnums::TRES_INSATISFAIT')):'#550000',
+    (constant('App\\Enums\\SalarySatisfactionEnums::INSATISFAIT')):'#b73030',
+    (constant('App\\Enums\\SalarySatisfactionEnums::SANS_OPINION')):'#999999',
+    (constant('App\\Enums\\SalarySatisfactionEnums::STATISFAIT')):'#259433',
+    (constant('App\\Enums\\SalarySatisfactionEnums::TRES_SATISFAIT')):'#008110'
+}
+%}
+
+{% set fieldName = 'App\\Enums\\SalarySatisfactionEnums' %}
+{% set title = 'Année' %}
+
+{% block report_content %}
+    {% include 'Report/_distribution_evolution_report.html.twig' with {'color': color, 'fieldName': fieldName} %}
+{% endblock %}

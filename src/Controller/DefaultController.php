@@ -12,22 +12,15 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends AbstractController
 {
-    private ReportManager $reportManager;
-
-    public function __construct(ReportManager $reportManager)
-    {
-        $this->reportManager = $reportManager;
-    }
-
     #[Route('/report/{reportName}', name: 'afup_barometre_report')]
-    public function indexAction(Request $request, $reportName): Response
+    public function indexAction(ReportManager $reportManager, Request $request, $reportName): Response
     {
-        $this->reportManager->handleRequest($request);
+        $reportManager->handleRequest($request);
 
-        $report = $this->reportManager->getReport($reportName);
+        $report = $reportManager->getReport($reportName);
 
         return $this->render('Default/index.html.twig', [
-            'form' => $this->reportManager->getForm()->createView(),
+            'form' => $reportManager->getForm()->createView(),
             'report' => $report,
             'report_name' => $reportName,
         ]);

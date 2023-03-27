@@ -47,13 +47,13 @@ class Format2014 implements FormatInterface
     {
         $data['annual_salary'] = $data['gross_annual_salary'] + $data['variable_annual_salary'];
 
-        if ($data['gender'] == 'Un homme' || $data['gender'] == 'Homme') {
+        if ('Un homme' === $data['gender'] || 'Homme' === $data['gender']) {
             $data['gender'] = 'Hommes';
-        } elseif ($data['gender'] == 'Une femme' || $data['gender'] == 'Femme') {
+        } elseif ('Une femme' === $data['gender'] || 'Femme' === $data['gender']) {
             $data['gender'] = 'Femmes';
         }
 
-        if (0 == $data['salary_satisfaction']) {
+        if (0 === $data['salary_satisfaction']) {
             $data['salary_satisfaction'] = SalarySatisfactionEnums::SANS_OPINION;
         }
 
@@ -61,11 +61,11 @@ class Format2014 implements FormatInterface
 
         $data['status'] = isset($status[0]) ? ucfirst($status[0]) : 'Autre';
 
-        if ($data['initial_training'] === 'Niveau Master2  ou ingénieur') {
+        if ('Niveau Master2  ou ingénieur' === $data['initial_training']) {
             $data['initial_training'] = 'Niveau Master2 ou ingénieur';
         }
 
-        if ($data['initial_training'] === 'Maitrise ou équivalent') {
+        if ('Maitrise ou équivalent' === $data['initial_training']) {
             $data['initial_training'] = 'Autre';
         }
 

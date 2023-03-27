@@ -172,6 +172,8 @@ services:
 
     App\Report\SpecialityReport:
         parent: App\Report\AbstractReport
+        calls:
+            - setChildReports: [ [ '@App\Report\SpecialityEvolutionReport' ] ]
         tags: ['barometre.report']
 
     App\Report\ExperienceSalaryReport:
@@ -196,6 +198,8 @@ services:
 
     App\Report\SalarySatisfactionReport:
         parent: App\Report\AbstractReport
+        calls:
+            - setChildReports: [ [ '@App\Report\SalarySatisfactionEvolutionReport' ] ]
         tags: [ 'barometre.report' ]
 
     App\Report\PhpVersionEvolutionReport:
@@ -260,38 +264,3 @@ services:
     NumberFormatter:
         class: \NumberFormatter
         arguments: ['fr', '1']
-
-    App\Repository\CertificationRepository:
-        class: Doctrine\ORM\EntityRepository
-        factory: ['@doctrine.orm.entity_manager', 'getRepository']
-        arguments: ['App\Entity\Certification']
-
-    App\Repository\SpecialityRepository:
-        class: Doctrine\ORM\EntityRepository
-        factory: ['@doctrine.orm.entity_manager', 'getRepository']
-        arguments: ['App\Entity\Speciality']
-
-    App\Repository\HostingTypeRepository:
-        class: Doctrine\ORM\EntityRepository
-        factory: ['@doctrine.orm.entity_manager', 'getRepository']
-        arguments: ['App\Entity\HostingType']
-
-    App\Repository\ContainerEnvironmentUsageRepository:
-        class: Doctrine\ORM\EntityRepository
-        factory: [ '@doctrine.orm.entity_manager', 'getRepository' ]
-        arguments: ['App\Entity\ContainerEnvironmentUsage']
-
-    App\Repository\JobInterestRepository:
-        class: Doctrine\ORM\EntityRepository
-        factory: [ '@doctrine.orm.entity_manager', 'getRepository' ]
-        arguments: ['App\Entity\JobInterest']
-
-    App\Campaign\ResponseFactory:
-        arguments:
-            - '@NumberFormatter'
-            - '@App\Enums\EnumsCollection'
-            - '@App\Repository\CertificationRepository'
-            - '@App\Repository\SpecialityRepository'
-            - '@App\Repository\HostingTypeRepository'
-            - '@App\Repository\ContainerEnvironmentUsageRepository'
-            - '@App\Repository\JobInterestRepository'

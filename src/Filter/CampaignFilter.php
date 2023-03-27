@@ -65,7 +65,7 @@ class CampaignFilter implements FilterInterface
     }
 
     /**
-     * Filter weight
+     * Filter weight.
      *
      * @return int
      */

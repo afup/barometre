@@ -9,7 +9,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Form\FormInterface;
 
 /**
- * A collection of filter
+ * A collection of filter.
  */
 class FilterCollection
 {
@@ -30,7 +30,7 @@ class FilterCollection
     }
 
     /**
-     * Get a filter by its name
+     * Get a filter by its name.
      *
      * @param string $name
      */
@@ -40,7 +40,7 @@ class FilterCollection
     }
 
     /**
-     * Build Form
+     * Build Form.
      *
      * @return FormInterface
      */
@@ -53,7 +53,7 @@ class FilterCollection
     }
 
     /**
-     * Build the query with active filters
+     * Build the query with active filters.
      */
     public function buildQuery(QueryBuilder $queryBuilder, array $values = [])
     {

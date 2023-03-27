@@ -6,40 +6,28 @@ namespace App\Enums;
 
 abstract class AbstractEnums implements EnumsInterface
 {
-    const AUTRE = 0;
+    public const AUTRE = 0;
 
-    protected $choices = [];
+    protected array $choices = [];
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getChoices()
+    public function getChoices(): array
     {
         return $this->choices;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getIdByLabel($label)
+    public function getIdByLabel(?string $label): ?int
     {
-        $key = array_search(trim($label), $this->choices);
+        $key = array_search(trim($label ?? ''), $this->choices, true);
 
         return false === $key ? $this->getDefaultValue() : $key;
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function getLabelById($id)
+    public function getLabelById(int $id): ?string
     {
-        return isset($this->choices[$id]) ? $this->choices[$id] : null;
+        return $this->choices[$id] ?? null;
     }
 
-    /**
-     * @return int
-     */
-    protected function getDefaultValue()
+    protected function getDefaultValue(): ?int
     {
         return self::AUTRE;
     }

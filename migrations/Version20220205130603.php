@@ -16,7 +16,7 @@ final class Version20220205130603 extends AbstractMigration
 
     public function up(Schema $schema): void
     {
-        $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
+        $this->abortIf('mysql' !== $this->connection->getDatabasePlatform()->getName(), 'Migration can only be executed safely on \'mysql\'.');
 
         $this->addSql('CREATE TABLE job_interest (id INT NOT NULL, name VARCHAR(100) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE response_jobinterest (response_id INT NOT NULL, jobinterest_id INT NOT NULL, INDEX IDX_2240560EFBF32840 (response_id), INDEX IDX_2240560E53A99FEC (jobinterest_id), PRIMARY KEY(response_id, jobinterest_id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
@@ -26,7 +26,7 @@ final class Version20220205130603 extends AbstractMigration
 
         $this->addSql(<<<SQL
 INSERT INTO job_interest (id, name)
-VALUES 
+VALUES
        (0, 'Autre'),
        (1, 'La qualité de vie autour de votre emploi'),
        (2, 'L\'intérêt technique de vos projets'),
@@ -38,13 +38,12 @@ SQL
 
         $this->addSql('INSERT INTO response_jobinterest (response_id, jobinterest_id) SELECT id, jobInterest FROM response');
 
-
         $this->addSql('ALTER TABLE response DROP jobInterest');
     }
 
     public function down(Schema $schema): void
     {
-        $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
+        $this->abortIf('mysql' !== $this->connection->getDatabasePlatform()->getName(), 'Migration can only be executed safely on \'mysql\'.');
 
         $this->addSql('ALTER TABLE response_jobinterest DROP FOREIGN KEY FK_2240560E53A99FEC');
         $this->addSql('DROP TABLE job_interest');

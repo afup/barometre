@@ -6,23 +6,17 @@ namespace App\Enums;
 
 class OsDeveloppmentEnums extends AbstractEnums
 {
-    const LINUX = 1;
-    const WINDOWS = 2;
-    const MACOS = 3;
+    public const LINUX = 1;
+    public const WINDOWS = 2;
+    public const MACOS = 3;
 
-    /**
-     * @var array
-     */
-    protected $choices = [
+    protected array $choices = [
         self::LINUX => 'Linux',
         self::WINDOWS => 'Windows',
         self::MACOS => 'MacOS',
     ];
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function getDefaultValue()
+    protected function getDefaultValue(): ?int
     {
         return null;
     }

@@ -4,11 +4,12 @@ declare(strict_types=1);
 
 namespace App\Report;
 
-/**
- * Report on Speciality Salary
- */
+use App\Trait\ExperienceComputer;
+
 class SpecialitySalaryReport extends AbstractReport
 {
+    use ExperienceComputer;
+
     /**
      * {@inheritdoc}
      */
@@ -21,23 +22,25 @@ class SpecialitySalaryReport extends AbstractReport
                 'response_speciality',
                 'response.id = response_speciality.response_id'
             )
-            ->join(
-                'response_speciality',
-                'speciality',
-                'speciality',
-                'response_speciality.speciality_id = speciality.id'
-            )
-            ->select('count(distinct response.id) as nbResponse')
-            ->addSelect('response.experience as experience')
-            ->addSelect('speciality.name as specialityName')
-            ->addSelect('SUM(response.annualSalary) as annualSalary')
-            ->addGroupBy('experience, specialityName');
+           ->join(
+               'response_speciality',
+               'speciality',
+               'speciality',
+               'response_speciality.speciality_id = speciality.id'
+           )
+           ->select('response.id')
+           ->addSelect('response.experience')
+           ->addSelect('response.experienceInYear')
+           ->addSelect('speciality.name as specialityName')
+           ->addSelect('annualSalary')
+        ;
 
         $results = $this->queryBuilder->fetchAllAssociative();
 
-        // top 4 technos
+        // top 5 technos
         $framework = [
             'Symfony',
+            'Laravel',
             'Zend Framework',
             'Wordpress',
             'Drupal',
@@ -47,36 +50,42 @@ class SpecialitySalaryReport extends AbstractReport
 
         $data = [
             'columns' => array_merge($framework, [$otherFramework]),
-            'data' => [],
         ];
 
-        foreach ($results as $result) {
-            $experience = $result['experience'];
-            $specialityName = $result['specialityName'];
+        $reportData = [];
 
-            if (!\array_key_exists($experience, $data['data'])) {
-                $data['data'][$experience] = array_flip($data['columns']);
-                $data['data'][$experience][$otherFramework] = ['annualSalary' => 0, 'nbResponse' => 0];
+        foreach ($results as $response) {
+            $experience = $this->computeExperience($response);
+            $specialityName = $otherFramework;
+
+            if (\in_array($response['specialityName'], $framework, true)) {
+                $specialityName = $response['specialityName'];
             }
 
-            if (\in_array($specialityName, $framework)) {
-                if ($result['nbResponse'] >= $this->minResult) {
-                    $data['data'][$experience][$specialityName] = $result['annualSalary'] / $result['nbResponse'];
+            if (!isset($reportData[$experience])) {
+                $reportData[$experience] = [];
+            }
+
+            if (!isset($reportData[$experience][$specialityName])) {
+                $reportData[$experience][$specialityName] = [];
+            }
+
+            $reportData[$experience][$specialityName][$response['id']] = $response['annualSalary'];
+        }
+
+        $data['data'] = array_fill_keys(array_keys($reportData), array_fill_keys($data['columns'], 0));
+
+        foreach ($reportData as $experience => $specialities) {
+            foreach ($specialities as $speciality => $salaries) {
+                if (\count($salaries) <= $this->minResult) {
+                    continue;
                 }
-            } else {
-                $data['data'][$experience][$otherFramework]['annualSalary'] += $result['annualSalary'];
-                $data['data'][$experience][$otherFramework]['nbResponse'] += $result['nbResponse'];
+
+                $data['data'][$experience][$speciality] = array_sum($salaries) / \count($salaries);
             }
         }
 
-        foreach ($data['data'] as $experience => $line) {
-            if ($line[$otherFramework]['nbResponse'] >= $this->minResult) {
-                $salary = $line[$otherFramework]['annualSalary'] / $line[$otherFramework]['nbResponse'];
-                $data['data'][$experience][$otherFramework] = $salary;
-            } else {
-                $data['data'][$experience][$otherFramework] = null;
-            }
-        }
+        ksort($data['data']);
 
         $this->data = $data;
     }
@@ -100,7 +109,7 @@ class SpecialitySalaryReport extends AbstractReport
     }
 
     /**
-     * report weight
+     * report weight.
      *
      * @return int
      */

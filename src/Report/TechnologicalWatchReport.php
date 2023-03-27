@@ -31,7 +31,7 @@ class TechnologicalWatchReport extends AbstractReport
     }
 
     /**
-     * report weight
+     * report weight.
      *
      * @return int
      */

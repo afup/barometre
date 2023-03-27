@@ -4,45 +4,10 @@ declare(strict_types=1);
 
 namespace App\Report;
 
-class CompanySizeSalaryReport extends AbstractReport
+class CompanySizeSalaryReport extends AbstractSalaryExperienceWithColumnReport
 {
     /**
-     * {@inheritdoc}
-     */
-    public function execute()
-    {
-        $results = $this->queryBuilder
-            ->select('response.experience')
-            ->addSelect('response.companySize as companySize')
-            ->addSelect('AVG(response.annualSalary) as annualSalary')
-            ->addSelect('COUNT(response.id) as nbResponse')
-            ->having('nbResponse >= :minResult')
-            ->setParameter('minResult', $this->minResult)
-            ->groupBy('response.experience, response.companySize')
-            ->fetchAllAssociative();
-
-        $data = [
-            'columns' => [],
-            'data' => [],
-        ];
-
-        foreach ($results as $result) {
-            if (!\array_key_exists($result['experience'], $data['data'])) {
-                $data['data'][$result['experience']] = [];
-            }
-
-            if (!\in_array($result['companySize'], $data['columns'])) {
-                $data['columns'][] = $result['companySize'];
-            }
-
-            $data['data'][$result['experience']][$result['companySize']] = $result;
-        }
-
-        $this->data = $data;
-    }
-
-    /**
-     * The report name (used for url)
+     * The report name (used for url).
      *
      * @return string
      */
@@ -51,13 +16,8 @@ class CompanySizeSalaryReport extends AbstractReport
         return 'company_size_salary';
     }
 
-    /**
-     * {@inheritdoc}
-     */
-    public function hasResults()
+    protected function getColumn(): string
     {
-        $data = $this->getData();
-
-        return \count($data['data']);
+        return 'companySize';
     }
 }

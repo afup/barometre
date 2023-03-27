@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 /**
- * Salary satisfaction
+ * Salary satisfaction.
  */
 
 namespace App\Report;
@@ -15,8 +15,7 @@ class SalarySatisfactionReport extends AbstractReport
     public function execute()
     {
         $this->queryBuilder
-            ->select('response.experience')
-            ->addSelect('response.salarySatisfaction as salarySatisfaction')
+            ->select('response.salarySatisfaction as salarySatisfaction')
             ->addSelect('COUNT(response.id) as nbResponse')
             ->having('nbResponse >= :minResult')
             ->setParameter('minResult', $this->minResult)
@@ -35,7 +34,7 @@ class SalarySatisfactionReport extends AbstractReport
     }
 
     /**
-     * report weight
+     * report weight.
      *
      * @return int
      */

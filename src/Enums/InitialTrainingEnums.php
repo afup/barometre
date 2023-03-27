@@ -6,16 +6,13 @@ namespace App\Enums;
 
 class InitialTrainingEnums extends AbstractEnums
 {
-    const AUTODIDACTE = 1;
-    const BAC = 2;
-    const BTS_DUT = 3;
-    const LICENCE = 4;
-    const MASTER = 5;
+    public const AUTODIDACTE = 1;
+    public const BAC = 2;
+    public const BTS_DUT = 3;
+    public const LICENCE = 4;
+    public const MASTER = 5;
 
-    /**
-     * @var array
-     */
-    protected $choices = [
+    protected array $choices = [
         self::AUTODIDACTE => 'Autodidacte',
         self::BAC => 'Bac',
         self::BTS_DUT => 'BTS - DUT - DEUST ou équivalent',
@@ -24,10 +21,7 @@ class InitialTrainingEnums extends AbstractEnums
         self::AUTRE => 'Autre',
     ];
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function getDefaultValue()
+    protected function getDefaultValue(): ?int
     {
         return null;
     }

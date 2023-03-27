@@ -6,12 +6,12 @@ namespace App\Enums;
 
 class ContractWorkDurationEnums extends AbstractEnums
 {
-    const HORAIRE_35 = 1;
-    const HORAIRE_37 = 2;
-    const HORAIRE_39 = 3;
-    const FORFAIT_JOUR = 4;
+    public const HORAIRE_35 = 1;
+    public const HORAIRE_37 = 2;
+    public const HORAIRE_39 = 3;
+    public const FORFAIT_JOUR = 4;
 
-    protected $choices = [
+    protected array $choices = [
         self::HORAIRE_35 => '35h',
         self::HORAIRE_37 => '37h',
         self::HORAIRE_39 => '39h',

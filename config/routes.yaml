@@ -12,3 +12,9 @@ afup_barometre_form:
   controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
   defaults:
     path: /about
+
+controllers:
+    resource:
+        path: ../src/Controller/
+        namespace: App\Controller
+    type: attribute

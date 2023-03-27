@@ -13,7 +13,7 @@ class FormatFactory
      */
     public function createFromCode($code)
     {
-        $class = '\App\Campaign\Format\Formats\Format' . $code;
+        $class = '\App\Campaign\Format\Formats\Format'.$code;
         if (!class_exists($class)) {
             throw new \InvalidArgumentException(sprintf('Code %s invalid', $code));
         }

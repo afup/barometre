@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 /**
- * Gender Filter
+ * Gender Filter.
  */
 
 namespace App\Filter;
@@ -14,7 +14,7 @@ use Doctrine\DBAL\Query\QueryBuilder;
 use Symfony\Component\Form\FormBuilderInterface;
 
 /**
- * Class GenderFilter
+ * Class GenderFilter.
  */
 class GenderFilter implements FilterInterface
 {
@@ -29,7 +29,7 @@ class GenderFilter implements FilterInterface
     }
 
     /**
-     * Build the query with active filters
+     * Build the query with active filters.
      */
     public function buildQuery(QueryBuilder $queryBuilder, array $values = [])
     {
@@ -39,7 +39,7 @@ class GenderFilter implements FilterInterface
 
         $condition = array_map(
             function ($value) use ($queryBuilder) {
-                if ($value === '') {
+                if ('' === $value) {
                     return $queryBuilder->expr()->isNull('response.gender');
                 }
 
@@ -54,7 +54,7 @@ class GenderFilter implements FilterInterface
     }
 
     /**
-     * Add specific filter for this filter
+     * Add specific filter for this filter.
      */
     public function buildForm(FormBuilderInterface $builder)
     {
@@ -75,7 +75,7 @@ class GenderFilter implements FilterInterface
     }
 
     /**
-     * Filter weight
+     * Filter weight.
      *
      * @return int
      */
@@ -85,7 +85,7 @@ class GenderFilter implements FilterInterface
     }
 
     /**
-     * The filter name
+     * The filter name.
      *
      * @return string
      */

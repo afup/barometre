@@ -6,15 +6,12 @@ namespace App\Enums;
 
 class GenderEnums extends AbstractEnums
 {
-    const NONE = null;
-    const MALE = 1;
-    const FEMALE = 2;
-    const NON_BINARY = 3;
+    public const NONE = null;
+    public const MALE = 1;
+    public const FEMALE = 2;
+    public const NON_BINARY = 3;
 
-    /**
-     * @var array
-     */
-    protected $choices = [
+    protected array $choices = [
         self::MALE => 'Hommes',
         self::FEMALE => 'Femmes',
         self::NONE => 'Non précisé',
@@ -22,10 +19,7 @@ class GenderEnums extends AbstractEnums
         self::AUTRE => 'Autre',
     ];
 
-    /**
-     * {@inheritdoc}
-     */
-    protected function getDefaultValue()
+    protected function getDefaultValue(): ?int
     {
         return self::NONE;
     }

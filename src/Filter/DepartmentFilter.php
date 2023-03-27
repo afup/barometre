@@ -13,8 +13,8 @@ use Symfony\Component\Form\FormBuilderInterface;
 
 class DepartmentFilter implements FilterInterface
 {
-    const ALL_BUT_PARIS = 'all_but_paris';
-    const ALL_BUT_PARIS_REGION_CODE = '11';
+    public const ALL_BUT_PARIS = 'all_but_paris';
+    public const ALL_BUT_PARIS_REGION_CODE = '11';
 
     /**
      * {@inheritdoc}
@@ -53,11 +53,11 @@ class DepartmentFilter implements FilterInterface
 
         $codes = $values[$this->getName()];
 
-        if (\in_array('all_but_paris', $codes)) {
+        if (\in_array('all_but_paris', $codes, true)) {
             $departements = new Departments();
             $regions = new Regions();
 
-            unset($codes[array_search('all_but_paris', $codes)]);
+            unset($codes[array_search('all_but_paris', $codes, true)]);
 
             $codes = array_merge(
                 $codes,
@@ -97,7 +97,7 @@ class DepartmentFilter implements FilterInterface
     }
 
     /**
-     * Filter weight
+     * Filter weight.
      *
      * @return int
      */

@@ -9,7 +9,7 @@ use Doctrine\DBAL\Query\QueryBuilder;
 use Symfony\Component\Form\FormBuilderInterface;
 
 /**
- * Filter on Salary Min & max
+ * Filter on Salary Min & max.
  */
 class SalaryFilter implements FilterInterface
 {
@@ -66,11 +66,11 @@ class SalaryFilter implements FilterInterface
 
         $labels = [];
         if (isset($value['min'])) {
-            $labels['min'] = '>= ' . $value['min'];
+            $labels['min'] = '>= '.$value['min'];
         }
 
         if (isset($value['max'])) {
-            $labels['max'] = '<= ' . $value['max'];
+            $labels['max'] = '<= '.$value['max'];
         }
 
         return $labels;
@@ -85,7 +85,7 @@ class SalaryFilter implements FilterInterface
     }
 
     /**
-     * Filter weight
+     * Filter weight.
      *
      * @return int
      */

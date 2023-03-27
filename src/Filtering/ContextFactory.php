@@ -19,7 +19,7 @@ class ContextFactory
         }
 
         foreach ($request->get('filter', []) as $key => $parameter) {
-            if ($key == 'submit') {
+            if ('submit' === $key) {
                 continue;
             }
             $context->setParameter($key, $parameter);

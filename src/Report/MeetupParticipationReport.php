@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Report;
 
+use App\Enums\MeetupParticipationEnums;
+
 class MeetupParticipationReport extends AbstractReport
 {
     /**
@@ -13,13 +15,45 @@ class MeetupParticipationReport extends AbstractReport
     {
         $this->queryBuilder
             ->select('response.meetupParticipation')
-            ->addSelect('COUNT(response.id) as nbResponse')
-            ->having('nbResponse >= :minResult')
-            ->setParameter('minResult', $this->minResult)
-            ->groupBy('response.meetupParticipation')
-            ->orderBy('nbResponse', 'desc');
+            ->addSelect('response.numberMeetupParticipation')
+        ;
 
-        $this->data = $this->queryBuilder->fetchAllAssociative();
+        $data = $this->queryBuilder->fetchAllAssociative();
+
+        $reportData = [];
+
+        foreach ($data as $response) {
+            $meetupParticipation = $response['meetupParticipation'] ?? $this->computeMeetupParticipation($response);
+
+            if (null === $meetupParticipation) {
+                continue;
+            }
+
+            if (!isset($reportData[$meetupParticipation])) {
+                $reportData[$meetupParticipation] = 0;
+            }
+
+            ++$reportData[$meetupParticipation];
+        }
+
+        foreach ($reportData as $meetupParticipation => $count) {
+            if ($count <= $this->minResult) {
+                continue;
+            }
+
+            $this->data[] = [
+                'meetupParticipation' => $meetupParticipation,
+                'nbResponse' => $count,
+            ];
+        }
+
+        if (null === $this->data) {
+            return;
+        }
+
+        uasort($this->data, static function (array $meetupParticipationA, array $meetupParticipationB): int {
+            return $meetupParticipationB['meetupParticipation'] <=> $meetupParticipationA['meetupParticipation'];
+        });
     }
 
     /**
@@ -31,12 +65,29 @@ class MeetupParticipationReport extends AbstractReport
     }
 
     /**
-     * report weight
+     * report weight.
      *
      * @return int
      */
     public function getWeight()
     {
         return -30;
+    }
+
+    private function computeMeetupParticipation(array $response): ?int
+    {
+        if (null === $response['numberMeetupParticipation']) {
+            return null;
+        }
+
+        if (0 === $response['numberMeetupParticipation']) {
+            return MeetupParticipationEnums::NEVER;
+        }
+
+        if ($response['numberMeetupParticipation'] < 12) {
+            return MeetupParticipationEnums::ONE_PER_QUARTER;
+        }
+
+        return MeetupParticipationEnums::ONE_PER_MONTH;
     }
 }

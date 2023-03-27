@@ -11,17 +11,10 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AboutController extends AbstractController
 {
-    private CampaignRepository $campaignRepository;
-
-    public function __construct(CampaignRepository $campaignRepository)
-    {
-        $this->campaignRepository = $campaignRepository;
-    }
-
     #[Route('/about', name: 'afup_barometre_about')]
-    public function indexAction(): Response
+    public function indexAction(CampaignRepository $campaignRepository): Response
     {
-        $campaigns = $this->campaignRepository->findAllOrderedByDate();
+        $campaigns = $campaignRepository->findAllOrderedByDate();
 
         return $this->render('About/index.html.twig', ['campaigns' => $campaigns]);
     }
