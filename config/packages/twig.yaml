@@ -3,6 +3,7 @@ twig:
     globals:
         ga_enabled: "%env(bool:GA_ENABLED)%"
         global_menu_prefix: "%env(string:AFUP_GLOBAL_MENU_PREFIX)%"
+        global_menu_label: "%env(string:AFUP_GLOBAL_MENU_EVENT_LABEL)%"
 when@test:
     twig:
         strict_variables: true
