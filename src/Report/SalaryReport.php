@@ -47,7 +47,7 @@ class SalaryReport extends AbstractReport
             $baseResults = [];
         }
 
-        $results = $results + $baseResults;
+        $results += $baseResults;
         ksort($results);
 
         foreach ($results as $key => &$result) {
