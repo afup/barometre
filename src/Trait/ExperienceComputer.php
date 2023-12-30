@@ -26,6 +26,30 @@ trait ExperienceComputer
             return ExperienceEnums::XP_5_10;
         }
 
-        return ExperienceEnums::XP_10;
+        if ($response['experienceInYear'] < 15) {
+            return ExperienceEnums::XP_10_15;
+        }
+
+        if ($response['experienceInYear'] < 20) {
+            return ExperienceEnums::XP_15_20;
+        }
+
+        if ($response['experienceInYear'] < 25) {
+            return ExperienceEnums::XP_20_25;
+        }
+
+        if ($response['experienceInYear'] < 30) {
+            return ExperienceEnums::XP_25_30;
+        }
+
+        if ($response['experienceInYear'] < 35) {
+            return ExperienceEnums::XP_30_35;
+        }
+
+        if ($response['experienceInYear'] < 40) {
+            return ExperienceEnums::XP_35_40;
+        }
+
+        return ExperienceEnums::XP_40;
     }
 }

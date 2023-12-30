@@ -169,6 +169,18 @@ class Response
     #[ORM\Column(type: 'integer', nullable: true)]
     private ?int $numberMeetupParticipation = null;
 
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private ?int $leaveJob = null;
+
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private ?int $discriminationDuringHiring = null;
+
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private ?int $communityInclusion = null;
+
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private ?int $age = null;
+
     public function __construct()
     {
         $this->certifications = new ArrayCollection();
@@ -833,6 +845,54 @@ class Response
     public function addJobInterest(JobInterest $jobInterest): self
     {
         $this->jobInterests->add($jobInterest);
+
+        return $this;
+    }
+
+    public function getLeaveJob(): ?int
+    {
+        return $this->leaveJob;
+    }
+
+    public function setLeaveJob(?int $leaveJob): Response
+    {
+        $this->leaveJob = $leaveJob;
+
+        return $this;
+    }
+
+    public function getDiscriminationDuringHiring(): ?int
+    {
+        return $this->discriminationDuringHiring;
+    }
+
+    public function setDiscriminationDuringHiring(?int $discriminationDuringHiring): Response
+    {
+        $this->discriminationDuringHiring = $discriminationDuringHiring;
+
+        return $this;
+    }
+
+    public function getCommunityInclusion(): ?int
+    {
+        return $this->communityInclusion;
+    }
+
+    public function setCommunityInclusion(?int $communityInclusion): Response
+    {
+        $this->communityInclusion = $communityInclusion;
+
+        return $this;
+    }
+
+    public function getAge(): ?int
+    {
+        return $this->age;
+    }
+
+    public function setAge(?int $age): Response
+    {
+        $this->age = $age;
 
         return $this;
     }
