@@ -134,8 +134,8 @@ class ResponseFactory
             $enumClass = $this->enums->getEnums($enum['class']);
             $enumId = $enumClass->getIdByLabel($data[$enum['key']] ?? null);
 
-            if ($enumClass instanceof JobTitleEnums && null === $enumId) {
-                $enumId = $enumClass->oldChoices[$data[$enum['key']]] ?? null;
+            if ($enumClass instanceof JobTitleEnums && 0 === $enumId) {
+                $enumId = $enumClass->oldChoices[$data[$enum['key']]] ?? 0;
             }
 
             if ($enumClass instanceof PHPVersionEnums && 'PHP 5.6 ou inférieur' === $data[$enum['key']]) {

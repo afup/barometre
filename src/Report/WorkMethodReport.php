@@ -29,4 +29,9 @@ class WorkMethodReport extends AbstractReport
 
         $this->data = $this->queryBuilder->fetchAllAssociative();
     }
+
+    public function getWeight()
+    {
+        return null;
+    }
 }
