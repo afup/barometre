@@ -854,7 +854,7 @@ class Response
         return $this->leaveJob;
     }
 
-    public function setLeaveJob(?int $leaveJob): Response
+    public function setLeaveJob(?int $leaveJob): self
     {
         $this->leaveJob = $leaveJob;
 
@@ -866,7 +866,7 @@ class Response
         return $this->discriminationDuringHiring;
     }
 
-    public function setDiscriminationDuringHiring(?int $discriminationDuringHiring): Response
+    public function setDiscriminationDuringHiring(?int $discriminationDuringHiring): self
     {
         $this->discriminationDuringHiring = $discriminationDuringHiring;
 
@@ -878,7 +878,7 @@ class Response
         return $this->communityInclusion;
     }
 
-    public function setCommunityInclusion(?int $communityInclusion): Response
+    public function setCommunityInclusion(?int $communityInclusion): self
     {
         $this->communityInclusion = $communityInclusion;
 
@@ -890,7 +890,7 @@ class Response
         return $this->age;
     }
 
-    public function setAge(?int $age): Response
+    public function setAge(?int $age): self
     {
         $this->age = $age;
 

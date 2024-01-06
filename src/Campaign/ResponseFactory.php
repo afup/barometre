@@ -13,7 +13,6 @@ use App\Entity\JobInterest;
 use App\Entity\Response;
 use App\Entity\Speciality;
 use App\Enums\CmsUsageInProjectEnums;
-use App\Enums\CommunityInclusionEnums;
 use App\Enums\CompanySizeEnums;
 use App\Enums\CompanyTypeEnums;
 use App\Enums\ContractWorkDurationEnums;
@@ -24,7 +23,6 @@ use App\Enums\Covid19\LayoffEnums;
 use App\Enums\Covid19\PartialUnemploymentEnums;
 use App\Enums\Covid19\RegularRemoteFeelingEnums;
 use App\Enums\Covid19\SalaryImpactEnums;
-use App\Enums\DiscriminationDuringHiringEnums;
 use App\Enums\EnumsCollection;
 use App\Enums\ExperienceEnums;
 use App\Enums\FrenchPHPDocumentationQualityEnums;
@@ -55,6 +53,7 @@ use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
 class ResponseFactory
 {
     public static $job_title = [];
+
     public function __construct(
         private readonly \NumberFormatter $numberFormatter,
         private readonly EnumsCollection $enums,
@@ -135,12 +134,12 @@ class ResponseFactory
             $enumClass = $this->enums->getEnums($enum['class']);
             $enumId = $enumClass->getIdByLabel($data[$enum['key']] ?? null);
 
-            if ($enumClass instanceof JobTitleEnums && $enumId === null) {
+            if ($enumClass instanceof JobTitleEnums && null === $enumId) {
                 $enumId = $enumClass->oldChoices[$data[$enum['key']]] ?? null;
             }
 
-            if ($enumClass instanceof PHPVersionEnums && $data[$enum['key']] === 'PHP 5.6 ou inférieur') {
-               $enumId = $enumClass::PHP_56;
+            if ($enumClass instanceof PHPVersionEnums && 'PHP 5.6 ou inférieur' === $data[$enum['key']]) {
+                $enumId = $enumClass::PHP_56;
             }
 
             $this->propertyAccessor->setValue(
