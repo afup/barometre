@@ -45,7 +45,13 @@ class ExperienceFilter implements FilterInterface
                 ExperienceEnums::XP_0_2 => $queryBuilder->expr()->lt('response.experienceInYear', 2),
                 ExperienceEnums::XP_2_5 => $queryBuilder->expr()->and($queryBuilder->expr()->gte('response.experienceInYear', 2), $queryBuilder->expr()->lt('response.experienceInYear', 5)),
                 ExperienceEnums::XP_5_10 => $queryBuilder->expr()->and($queryBuilder->expr()->gte('response.experienceInYear', 5), $queryBuilder->expr()->lt('response.experienceInYear', 10)),
-                ExperienceEnums::XP_10 => $queryBuilder->expr()->gte('response.experienceInYear', 10),
+                ExperienceEnums::XP_10_15 => $queryBuilder->expr()->and($queryBuilder->expr()->gte('response.experienceInYear', 10), $queryBuilder->expr()->lt('response.experienceInYear', 15)),
+                ExperienceEnums::XP_15_20 => $queryBuilder->expr()->and($queryBuilder->expr()->gte('response.experienceInYear', 15), $queryBuilder->expr()->lt('response.experienceInYear', 20)),
+                ExperienceEnums::XP_20_25 => $queryBuilder->expr()->and($queryBuilder->expr()->gte('response.experienceInYear', 20), $queryBuilder->expr()->lt('response.experienceInYear', 25)),
+                ExperienceEnums::XP_25_30 => $queryBuilder->expr()->and($queryBuilder->expr()->gte('response.experienceInYear', 25), $queryBuilder->expr()->lt('response.experienceInYear', 30)),
+                ExperienceEnums::XP_30_35 => $queryBuilder->expr()->and($queryBuilder->expr()->gte('response.experienceInYear', 30), $queryBuilder->expr()->lt('response.experienceInYear', 35)),
+                ExperienceEnums::XP_35_40 => $queryBuilder->expr()->and($queryBuilder->expr()->gte('response.experienceInYear', 35), $queryBuilder->expr()->lt('response.experienceInYear', 40)),
+                ExperienceEnums::XP_40 => $queryBuilder->expr()->gte('response.experienceInYear', 40),
             };
         }
         $queryBuilder->andWhere(

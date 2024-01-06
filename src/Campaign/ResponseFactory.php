@@ -13,6 +13,7 @@ use App\Entity\JobInterest;
 use App\Entity\Response;
 use App\Entity\Speciality;
 use App\Enums\CmsUsageInProjectEnums;
+use App\Enums\CommunityInclusionEnums;
 use App\Enums\CompanySizeEnums;
 use App\Enums\CompanyTypeEnums;
 use App\Enums\ContractWorkDurationEnums;
@@ -23,12 +24,14 @@ use App\Enums\Covid19\LayoffEnums;
 use App\Enums\Covid19\PartialUnemploymentEnums;
 use App\Enums\Covid19\RegularRemoteFeelingEnums;
 use App\Enums\Covid19\SalaryImpactEnums;
+use App\Enums\DiscriminationDuringHiringEnums;
 use App\Enums\EnumsCollection;
 use App\Enums\ExperienceEnums;
 use App\Enums\FrenchPHPDocumentationQualityEnums;
 use App\Enums\GenderEnums;
 use App\Enums\InitialTrainingEnums;
 use App\Enums\JobTitleEnums;
+use App\Enums\LeaveJobEnums;
 use App\Enums\MeetupParticipationEnums;
 use App\Enums\OsDeveloppmentEnums;
 use App\Enums\OtherLanguageEnums;
@@ -51,6 +54,7 @@ use Symfony\Component\PropertyAccess\PropertyAccessorInterface;
 
 class ResponseFactory
 {
+    public static $job_title = [];
     public function __construct(
         private readonly \NumberFormatter $numberFormatter,
         private readonly EnumsCollection $enums,
@@ -81,6 +85,9 @@ class ResponseFactory
             'NumberMeetupParticipation' => 'number_meetup_participation',
             'Covid19RemoteIdealPace' => 'covid19_remote_ideal_pace',
             'Covid19WorkCondition' => 'covid19_work_condition',
+            'age' => 'age',
+            'communityInclusion' => 'community_inclusion',
+            'discriminationDuringHiring' => 'discrimination_during_hiring',
         ];
 
         foreach ($numberValues as $field => $dataKey) {
@@ -99,6 +106,7 @@ class ResponseFactory
             'jobTitle' => ['key' => 'job_title', 'class' => JobTitleEnums::class],
             'experience' => ['key' => 'experience', 'class' => ExperienceEnums::class],
             'contractWorkDuration' => ['key' => 'contract_work_duration', 'class' => ContractWorkDurationEnums::class],
+            'leaveJob' => ['key' => 'leave_job', 'class' => LeaveJobEnums::class],
             'companyType' => ['key' => 'company_type', 'class' => CompanyTypeEnums::class],
             'companySize' => ['key' => 'company_size', 'class' => CompanySizeEnums::class],
             'OtherLanguage' => ['key' => 'other_language', 'class' => OtherLanguageEnums::class],
@@ -124,10 +132,21 @@ class ResponseFactory
         ];
 
         foreach ($enumValues as $field => $enum) {
+            $enumClass = $this->enums->getEnums($enum['class']);
+            $enumId = $enumClass->getIdByLabel($data[$enum['key']] ?? null);
+
+            if ($enumClass instanceof JobTitleEnums && $enumId === null) {
+                $enumId = $enumClass->oldChoices[$data[$enum['key']]] ?? null;
+            }
+
+            if ($enumClass instanceof PHPVersionEnums && $data[$enum['key']] === 'PHP 5.6 ou inférieur') {
+               $enumId = $enumClass::PHP_56;
+            }
+
             $this->propertyAccessor->setValue(
                 $response,
                 $field,
-                $this->enums->getEnums($enum['class'])->getIdByLabel($data[$enum['key']] ?? null)
+                $enumId
             );
         }
 
@@ -161,7 +180,7 @@ class ResponseFactory
             explode(', ', $data['speciality'] ?? '')
         );
 
-        if ('oui' === mb_strtolower($data['has_certification'])) {
+        if (isset($data['has_certification']) && 'oui' === mb_strtolower($data['has_certification'])) {
             $this->addCertification(
                 $response,
                 explode(', ', $data['certification_list'] ?? null)

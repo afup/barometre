@@ -39,9 +39,6 @@
             "symfony/flex": true,
             "symfony/runtime": true
         },
-        "platform": {
-            "php": "8.1.0"
-        },
         "preferred-install": {
             "*": "dist"
         },

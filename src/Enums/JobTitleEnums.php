@@ -18,6 +18,20 @@ class JobTitleEnums extends AbstractEnums
     public const DEVOPS = 10;
 
     protected array $choices = [
+        self::DIRECTEUR => 'Directeur et Directrice, cadre dirigeant',
+        self::RESPONSABLE_EQUIPE => "Cadre intermédiaire, responsable d'équipe",
+        self::CHEF_PROJET => 'Chef/Cheffe de projet',
+        self::LEAD_DEVELOPPEUR => 'Lead développeur/Lead développeuse',
+        self::ARCHITECTE => 'Architecte',
+        self::CONSULTANT => 'Consultant',
+        self::FORMATEUR => 'Formateur/Formatrice',
+        self::DEVELOPPEUR => 'Développeur/Développeuse',
+        self::SYSADMIN => 'Sysadmin',
+        self::DEVOPS => 'Devops',
+        self::AUTRE => 'Autre',
+    ];
+
+    public array $oldChoices = [
         self::DIRECTEUR => 'Directeur, cadre dirigeant',
         self::RESPONSABLE_EQUIPE => "Cadre intermédiaire, responsable d'équipe",
         self::CHEF_PROJET => 'Chef de projet',
