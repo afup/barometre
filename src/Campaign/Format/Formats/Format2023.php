@@ -29,14 +29,14 @@ class Format2023 extends Format2021
             'company_size', // Taille de votre entreprise,
             'job_interest', // Quels sont les aspects les plus importants dans votre emploi actuel ?
             'company_origin', // "Si elle n'est pas française, quelle est l'origine de votre entreprise ou maison mère ?"
-            'discrimination_during_hiring', //Avez-vous le sentiment d'avoir été victime de discrimination à l'embauche ?
+            'discrimination_during_hiring', // Avez-vous le sentiment d'avoir été victime de discrimination à l'embauche ?
             'other_language', // "Développez-vous dans d'autres langages que PHP ? Si oui, quel est le principal ?"
             'remote_usage', // Travaillez-vous en télétravail ?,
             'remote_pace', // Quel serait le rythme idéal en télétravail pour vous ? (en nombre de jour par semaine),
             'technological_watch', // Faites-vous régulièrement de la veille technique ?,
             'os_developpment', // Sous quel OS développez-vous principalement ?,
             'number_meetup_participation', // À combien d'événement / meetup tech avez-vous participé sur la dernière année ?,
-            'community_inclusion', //Est-ce que vous pensez que l'AFUP, sa communauté et ses événements sont inclusifs ?
+            'community_inclusion', // Est-ce que vous pensez que l'AFUP, sa communauté et ses événements sont inclusifs ?
             'speciality', // Quelle est votre plus grande spécialité ?,
             'php_version', // Quelle version de PHP utilisez-vous au quotidien ?,
             'php_strength', // "D'après vous, quelle est la plus grande force de PHP ?"
@@ -44,7 +44,7 @@ class Format2023 extends Format2021
             'formation_subject', // Sur quel(s) sujet(s) avez-vous été formés ?,
             'formation_impact', // Cela a-t-il eu une incidence sur votre emploi/rémunération ?,
             'gender', // Vous êtes
-            'age', //Quel âge avez-vous ?
+            'age', // Quel âge avez-vous ?
         ];
     }
 }
