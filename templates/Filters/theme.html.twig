@@ -36,6 +36,13 @@
     </div>
 {% endblock %}
 
+{% block age_widget %}
+    <div class="row">
+        <div class="col-md-6">{{ form_widget(form.min) }}</div>
+        <div class="col-md-6">{{ form_widget(form.max) }}</div>
+    </div>
+{% endblock %}
+
 
 {% block salary_row %}
     <div class="form-group">
