@@ -46,6 +46,10 @@ abstract class AbstractExperienceReport extends AbstractReport
             ];
         }
 
+        if (null === $this->data) {
+            $this->data = [];
+        }
+
         uasort($this->data, static function (array $experienceA, array $experienceB): int {
             return $experienceA['experience'] <=> $experienceB['experience'];
         });
