@@ -196,6 +196,14 @@ services:
         parent: App\Report\AbstractReport
         tags: ['barometre.report']
 
+    App\Report\LeaveJobReport:
+        parent: App\Report\AbstractReport
+        tags: ['barometre.report']
+
+    App\Report\ExperienceInCurrentJobReport:
+        parent: App\Report\AbstractReport
+        tags: ['barometre.report']
+
     App\Report\RetrainingReport:
         parent: App\Report\AbstractReport
         tags: ['barometre.report']
