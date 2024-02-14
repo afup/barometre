@@ -178,6 +178,14 @@
                 <source>report.age.label</source>
                 <target>Distribution de l'âge des répondants</target>
             </trans-unit>
+            <trans-unit id="report.leave_job.label">
+                <source>report.leave_job.label</source>
+                <target>Avez-vous cherché à changer de poste en cette année ?</target>
+            </trans-unit>
+            <trans-unit id="report.experience_in_current_job.label">
+                <source>report.experience_in_current_job.label</source>
+                <target>Ancienneté dans l'entreprise</target>
+            </trans-unit>
             <trans-unit id="report.retraining.label">
                 <source>report.retraining.label</source>
                 <target>Venez-vous d'une reconversion ?</target>
@@ -296,6 +304,16 @@
             <trans-unit id="report.view.info_annual_salary">
                 <source>report.view.info_annual_salary</source>
                 <target>Le salaire indiqué est le salaire brut fixe et variable</target>
+            </trans-unit>
+
+            <trans-unit id="report.view.leave_job">
+                <source>report.view.leave_job</source>
+                <target>Changement poste de cette année</target>
+            </trans-unit>
+
+            <trans-unit id="report.view.experience_in_current_job">
+                <source>report.view.experience_in_current_job</source>
+                <target>Ancienneté dans l'entreprise</target>
             </trans-unit>
 
             <trans-unit id="report.view.speciality">
