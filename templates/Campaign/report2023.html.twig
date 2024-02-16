@@ -7,7 +7,7 @@
     <meta property="og:title" content="Baromètre des salaires du PHP - Résultats {{ campaignName }}" />
     <meta property="og:type" content="article" />
     <meta property="og:url" content="{{ absolute_url('/report/'~campaignName) }}" />
-    <meta property="og:description" content="Les résultats du baromètre des salaires en PHP {{ campaignName }} sont disponibles. Consultez les résultats de l’enquête de référence pour le milieu PHP menée par l’AFUP et WeLoveDevs" />
+    <meta property="og:description" content="Les résultats du baromètre des salaires en PHP {{ campaignName }} sont disponibles. Consultez les résultats de l'enquête de référence pour le milieu PHP menée par l'AFUP et WeLoveDevs" />
     <meta property="og:site_name" content="Baromètre des salaires - AFUP - WeLoveDevs" />
 {% endblock %}
 
@@ -18,8 +18,8 @@
         <h1>Résultats de la campagne {{ campaignName }}</h1>
 
         <h2>Introduction</h2>
-            <p>Comme chaque année l’AFUP effectue une enquête auprès des développeurs et développeuses PHP. Cette enquête a eu lieu du 18 septembre au 18 décembre 2023.</p>
-            <p>Nous remercions les 1042 personnes qui ont répondu. Cette année la récolte d’informations a été exceptionnelle : vous n’aviez jamais été autant de personnes à répondre à l’enquête depuis son lancement. Ce sont vos participations et un panel aussi important qui permettent d’obtenir des chiffres affinés et une étude pertinente.</p>
+            <p>Comme chaque année l'AFUP effectue une enquête auprès des développeurs et développeuses PHP. Cette enquête a eu lieu du 18 septembre au 18 décembre 2023.</p>
+            <p>Nous remercions les 1042 personnes qui ont répondu. Cette année la récolte d'informations a été exceptionnelle : vous n'aviez jamais été autant de personnes à répondre à l'enquête depuis son lancement. Ce sont vos participations et un panel aussi important qui permettent d'obtenir des chiffres affinés et une étude pertinente.</p>
 
         <h2>Utilisation</h2>
             <p>Le baromètre est tout d'abord conçu pour être utilisé par le/la salarié(e) ou l'indépendant(e), afin qu'il puisse se positionner correctement sur le marché du travail. Par exemple, un développeur ou une développeuse avec moins de 2 ans d'expérience sur Paris en emploi salarié, pourra très facilement évaluer sa situation grâce aux réponses des autres répondants. Cela permettra de chercher la spécialité la plus avantageuse, ou bien quel type d'entreprises embauche le plus.</p>
@@ -41,13 +41,13 @@
                 <li>sont en majorité des hommes : pour 91%, les femmes étant représentées à hauteur de 8% et les personnes non binaires à 1% ; </li>
                 <li>ont pour âge médian 34 ans ;</li>
                 <li>sont en CDI : cela reste de loin, le statut le plus représenté avec 93% des personnes ayant un contrat de travail de ce type ;</li>
-                <li>dans une zone géographique à forte densité (l’Ile-de-France et la région Rhône-Alpes représentent à elles seules 56% des réponses) ;</li>
+                <li>dans une zone géographique à forte densité (l'Ile-de-France et la région Rhône-Alpes représentent à elles seules 56% des réponses) ;</li>
                 <li>travaillent en majorité dans une PME (pour 80%) ;</li>
                 <li>utilisent en majorité Symfony (pour 75%) ;</li>
                 <li>sont sur un poste opérationnel : devops, dev et lead dév représentent 80% des réponses ;</li>
                 <li>utilisent à 52% une distribution Linux ;</li>
                 <li>font de la veille technique chaque semaine (pour 64%) ;</li>
-                <li>26 % sont issues d’une reconversion ;</li>
+                <li>26 % sont issues d'une reconversion ;</li>
                 <li>96% font du télétravail, et ces personnes le font à 31% à temps plein ;</li>
                 <li>19% ont suivi une formation au cours des deux dernières années, et pour 24% de ces derniers, cela a eu un impact sur leur rémunération ; </li>
                 <li>utilisent à 74% PHP 8</li>
@@ -59,31 +59,31 @@
                 <img src="{{ asset('reports/2023/evolution_salaire_genre.png') }}" alt="Évolution du salaire moyen par genre"/>
             </a>
 
-            <p>En étudiant le salaire moyen par genre, on peut constater que, pour les hommes, on passe d'un salaire annuel brut moyen de 43 653€ à 45 518€, soit une augmentation de 4%. Pour les femmes, cette année pas d’augmentation (0.5%). Par contre, on peut noter que l’écart salarial annuel entre hommes et les femmes interrogées a augmenté en passant de 3 747€ à 4 805€ en moyenne sur l’année. Cependant au vu du nombre de femmes ayant répondu nous ne pouvons nous assurer de la pertinence de ces résultats. </p>
+            <p>En étudiant le salaire moyen par genre, on peut constater que, pour les hommes, on passe d'un salaire annuel brut moyen de 43 653€ à 45 518€, soit une augmentation de 4%. Pour les femmes, cette année, nous ne relevons pas d'augmentation notable (0.5%). L'écart annuel entre hommes et femmes interrogées se creuse donc encore davantage, en passant de 3 747€ à 4 805€ en moyenne sur l'année. Attention cependant, au vu du nombre de femmes ayant répondu, nous ne pouvons nous assurer de la pertinence de ces résultats. </p>
+            <p>Ces chiffres concernent la moyenne des salaires. Ils sont intéressants dans notre étude de l'écart salarial en fonction du genre. Afin de valider l'évolution du salaire, mieux vaut s'intéresser à un autre indicateur, la médiane.</p>
 
             <a href="{{ absolute_url('/report/salary?filter[campaign][0]='~campaignId~'&filter[job_title][0]=8&filter[salary][min]=&filter[salary][max]=&filter[status][0]=2') }}" class="report-image">
                 <img src="{{ asset('reports/2023/evolution_salaire.png') }}" alt="Évolution du salaire"/>
             </a>
 
-            <p>Ces chiffres concernent la moyenne des salaires. Ils sont intéressants dans notre étude de l'écart salarial en fonction du genre. Afin de valider l'évolution du salaire, mieux vaut s'intéresser à un autre indicateur, la médiane.</p>
             <p>Nous pouvons ici constater que la médiane pour les postes de dev en CDI tous genres confondus a augmenté pour passer de 40 000€ à 42 000€, soit une augmentation de 4,7%.</p>
-            <p>Les salaires les plus élevés (le 90ème percentile) bénéficient cette année d’une augmentation de 3,5%, le pourcentage d’augmentation est donc équivalent à l’augmentation moyenne constatée cette année.</p>
-            <p>Le salaire médian des personnes en CDI sur des postes de dev a augmenté de 4,7%, augmentation très proche du taux d’inflation constaté par l’INSEE en 2023 (<a href="https://www.insee.fr/fr/statistiques/2122401">https://www.insee.fr/fr/statistiques/2122401</a>).</p>
+            <p>Les salaires les plus élevés (le 90ème percentile) bénéficient cette année d'une augmentation de 3,5%, le pourcentage d'augmentation est donc équivalent à l'augmentation moyenne constatée cette année.</p>
+            <p>Le salaire médian des personnes en CDI sur des postes de dev a augmenté de 4,7%, augmentation très proche du taux d'inflation constaté par l'INSEE en 2023 (<a href="https://www.insee.fr/fr/statistiques/2122401">https://www.insee.fr/fr/statistiques/2122401</a>).</p>
 
         <h2>Des reconversions qui ont la tendance</h2>
 
             <a href="{{ absolute_url('/report/retraining?filter[campaign][]='~campaignId) }}" class="report-image">
                 <img src="{{ asset('reports/2023/evolution_retraining.png') }}" alt="Des reconversions qui ont la tendance"/>
             </a>
-            <p>Depuis 2021 nous demandons si les personnes viennent d’une reconversion. En 2021, 18% des personnes venaient d’une reconversion. Maintenant elles sont 26% à venir.</p>
-            <p>Le nombre de personnes issues d’une reconversion a donc augmenté, ce qui est une bonne chose en termes de diversité et représentativité dans notre industrie.</p>
+            <p>Depuis 2021 nous demandons si les personnes viennent d'une reconversion. En 2021, 18% des personnes venaient d'une reconversion. Maintenant, elles sont 26% à en venir.</p>
+            <p>Le nombre de personnes issues d'une reconversion a donc augmenté, ce qui est une bonne chose en termes de diversité et représentativité dans notre industrie.</p>
 
         <h2>Le développement, une profession de trentenaire</h2>
 
             <a href="{{ absolute_url('/report/age?filter[campaign][]='~campaignId~'&filter[job_title][]=4&filter[job_title][]=8') }}" class="report-image">
                 <img src="{{ asset('reports/2023/evolution_age.png') }}" alt="Le développement, une profession de trentenaire"/>
             </a>
-            <p>Depuis cette année nous demandons l'âge des répondants et répondantes. Si nous regardons les postes de dev et lead dev, 90% des personnes ont moins de 42 ans, ces postes sont donc beaucoup moins occupés à partir d’un certain âge.</p>
+            <p>Depuis cette année nous demandons l'âge des répondants et répondantes. Si nous regardons les postes de dev et lead dev, 90% des personnes ont moins de 42 ans, ces postes sont donc beaucoup moins occupés à partir d'un certain âge.</p>
             <p>Cela confirme ce que certains et certaines ont pu constater de façon empirique sur l'âge au sein de notre secteur.</p>
 
         <h2>Ancienneté et changement de poste</h2>
@@ -94,7 +94,7 @@
                 <img src="{{ asset('reports/2023/leave_job.png') }}" alt="Changement de poste"/>
             </a>
 
-            <p>Notre secteur est souvent connu pour avoir un turn-over assez important. Cette année nous avons posé la question de l’ancienneté dans leur entreprise : 60% des répondants ont 3 ans ou moins d’ancienneté dans leur entreprise, ce qui semble confirmer cette réputation de turn-over important.</p>
+            <p>Notre secteur est souvent connu pour avoir un turn-over assez important. Cette année nous avons posé la question de l'ancienneté dans leur entreprise : 60% des répondants ont 3 ans ou moins d'ancienneté dans leur entreprise, ce qui semble confirmer cette réputation de turn-over important.</p>
 
             <a href="{{ absolute_url('/report/experience_in_current_job?filter[campaign][]='~campaignId) }}" class="report-image">
                 <img src="{{ asset('reports/2023/experience_in_current_job.png') }}" alt="Ancienneté dans l'entreprise"/>
@@ -102,7 +102,7 @@
 
         <h2>Emploi, Discrimination et Inclusivité</h2>
 
-            <p>Cette année nous vous avons demandé votre sentiment d’avoir été victime de discrimination à l’embauche. Vous êtes 93% à avoir indiqué ne pas avoir connu de situation de discrimination à l’embauche. Le profil type du répondant décrit en début d’enquête fausse très probablement les résultats (la discrimination à l’embauche pourrait être plus élevée), il faudrait faire une enquête plus poussée auprès des minorités discriminées pour avoir un vrai aperçu de la situation.</p>
+            <p>Cette année nous vous avons demandé votre sentiment d'avoir été victime de discrimination à l'embauche. Vous êtes 93% à avoir indiqué ne pas avoir connu de situation de discrimination à l'embauche. Le profil type du répondant décrit en début d'enquête fausse très probablement les résultats (la discrimination à l'embauche pourrait être plus élevée), il faudrait faire une enquête plus poussée auprès des minorités discriminées pour avoir un vrai aperçu de la situation.</p>
 
         <h2>Version de PHP : une adoption toujours suivie</h2>
             <a href="{{ absolute_url('/report/php_version?filter[campaign][0]='~campaignId) }}" class="report-image">
@@ -117,7 +117,7 @@
                 <img src="{{ asset('reports/2023/speciality.png') }}" alt="Évolution des spécialités"/>
             </a>
 
-            <p>Symfony reste la spécialité des personnes répondantes avec cette année 67% des personnes répondant indiquant Symfony comme spécialité.</p>
+            <p>Symfony reste la spécialité des personnes répondantes avec cette année 67% des personnes répondantes indiquant Symfony comme spécialité.</p>
 
             <p>Deux faits notables cette année :</p>
             <ul>
@@ -127,29 +127,29 @@
 
         <h2>Qui sommes-nous ?</h2>
 
-            <p>l'<a href="http://www.afup.org" title="Association Française des Utilisateurs de PHP">association française des utilisateurs de PHP</a> (AFUP) vous présentent pour la onzième année consécutive le baromètre des salaires AFUP – 2023 </p>
+            <p>L'<a href="http://www.afup.org" title="Association Française des Utilisateurs de PHP">association française des utilisateurs de PHP</a> (AFUP) vous présentent pour la onzième année consécutive le baromètre des salaires AFUP – 2023, en partenariat cette année avec WeLoveDevs.</p>
 
             <p>Comme chaque année, le baromètre AFUP répond aux questions que se posent les professionnel·le·s de notre secteur :</p>
             <ul>
                 <li>Combien gagne un·e développeur·euse débutant·e ?</li>
-                <li>Comment les salaires évoluent-ils avec l’expérience ?</li>
+                <li>Comment les salaires évoluent-ils avec l'expérience ?</li>
                 <li>Quelles sont les technos qui rapportent le plus ?</li>
                 <li>Dans quelles villes touche-t-on les meilleurs salaires ?</li>
             </ul>
 
-            <p>Nous espérons que vous aurez une vision claire du marché après consultation de ce baromètre des salaires en PHP AFUP 2023.</p>
+            <p>Nous espérons que vous aurez une vision claire du marché après consultation de ce baromètre des salaires en PHP.</p>
 
             <h3>AFUP</h3>
-            <p>L'<a href="http://www.afup.org" title="Association Française des Utilisateurs de PHP">AFUP</a>, Association Française des Utilisateurs de PHP, est une association loi 1901, qui a pour objectif principal de promouvoir le langage PHP auprès des professionnel·le·s et de participer à son développement. Elle organise de nombreux événements tout au long de l’année, notamment le Forum PHP et les AFUP Day, elle diffuse et partage les connaissances auprès des utilisateurs et utilisatrices de PHP, et participe à la valorisation des développeurs et développeuses PHP sur le marché du travail.</p>
+            <p>L'<a href="http://www.afup.org" title="Association Française des Utilisateurs de PHP">AFUP</a>, Association Française des Utilisateurs de PHP, est une association loi 1901, qui a pour objectif principal de promouvoir le langage PHP auprès des professionnel·le·s et de participer à son développement. Elle organise de nombreux événements tout au long de l'année, notamment le Forum PHP et les AFUP Day, elle diffuse et partage les connaissances auprès des utilisateurs et utilisatrices de PHP, et participe à la valorisation des développeurs et développeuses PHP sur le marché du travail.</p>
 
             <h3>WeLoveDevs</h3>
 
             <p><a href="https://welovedevs.com/fr" title="WeLoveDevs.com : Découvrez le job qui vous rendra heureux">WeLoveDevs.com</a> est le média emploi qui rassemble les techs à la recherche du bonheur au travail.</p>
-            <p>C’est le site d’emploi favori des développeurs en France avec 25K nouveaux inscrits par an.</p>
+            <p>C'est le site d'emploi favori des développeurs en France avec 25K nouveaux inscrits par an.</p>
 
         <h2>A propos de la prochaine enquête</h2>
 
-        <p>Cela fait maintenant plusieurs années que l’enquête du baromètre à lieu de septembre à décembre et nous sommes globalement satisfaits de cela. Mais nous pouvons faire mieux, en effet nombre d’entre-vous nous ont signalé que l’enquête arrivait tard dans l’année, bien après une période d’entretiens annuels arrivant généralement en décembre et janvier. C’est une des raisons qui a poussé l’équipe du baromètre à changer la période d’enquête : en 2024 l’enquête aura lieu plus tôt dans l’année. Pour en savoir plus, tenez-vous au courant des nouveautés à propos de l’AFUP sur notre site
+        <p>Cela fait maintenant plusieurs années que l'enquête du baromètre à lieu de septembre à décembre et nous sommes globalement satisfaits de cela. Mais nous pouvons faire mieux, en effet nombre d'entre-vous nous ont signalé que l'enquête arrivait tard dans l'année, bien après une période d'entretiens annuels arrivant généralement en décembre et janvier. C'est une des raisons qui a poussé l'équipe du baromètre à changer la période d'enquête : en 2024 l'enquête aura lieu plus tôt dans l'année. Pour en savoir plus, tenez-vous au courant des nouveautés à propos de l'AFUP sur notre site
             <a href="https://afup.org"  title="Association Française des Utilisateurs de PHP">https://afup.org</a> et sur nos réseaux sociaux (<a href="https://twitter.com/afup">Twitter @afup</a>,
             <a href="https://mastodon.online/@afup">Mastodon @afup</a> ou <a href="https://www.linkedin.com/groups/43478/">LinkedIn</a>).</p>
         </div>
