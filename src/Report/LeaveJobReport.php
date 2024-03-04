@@ -1,17 +1,15 @@
 <?php
 
-declare(strict_types=1);
-
 namespace App\Report;
 
-class WorkMethodReport extends AbstractReport
+class LeaveJobReport extends AbstractReport
 {
     /**
      * {@inheritdoc}
      */
     public function getName()
     {
-        return 'work_method_report';
+        return 'leave_job';
     }
 
     /**
@@ -20,18 +18,13 @@ class WorkMethodReport extends AbstractReport
     public function execute()
     {
         $this->queryBuilder
-            ->select('response.workMethod')
+            ->select('response.leaveJob')
             ->addSelect('COUNT(response.id) as nbResponse')
             ->having('nbResponse >= :minResult')
             ->setParameter('minResult', $this->minResult)
-            ->groupBy('response.workMethod')
+            ->groupBy('response.leaveJob')
             ->orderBy('nbResponse', 'desc');
 
         $this->data = $this->queryBuilder->fetchAllAssociative();
-    }
-
-    public function getWeight()
-    {
-        return null;
     }
 }

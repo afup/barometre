@@ -1,0 +1,14 @@
+{%  set color = {
+    (constant('App\\Enums\\RetrainingEnums::YES_SHORT')):'#3D96AE',
+    (constant('App\\Enums\\RetrainingEnums::YES_LONG')):'#89A54E',
+    (constant('App\\Enums\\RetrainingEnums::YES_WITHOUT_TRAINING')):'#80699B',
+    (constant('App\\Enums\\RetrainingEnums::NO')):'#4C6EAF',
+}
+%}
+
+{% set fieldName = 'App\\Enums\\RetrainingEnums' %}
+{% set title = 'Année' %}
+
+{% block report_content %}
+    {% include 'Report/_distribution_evolution_report.html.twig' with {'color': color, 'fieldName': fieldName} %}
+{% endblock %}

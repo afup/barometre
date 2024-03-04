@@ -192,6 +192,24 @@ services:
         parent: App\Report\AbstractReport
         tags: ['barometre.report']
 
+    App\Report\AgeReport:
+        parent: App\Report\AbstractReport
+        tags: ['barometre.report']
+
+    App\Report\LeaveJobReport:
+        parent: App\Report\AbstractReport
+        tags: ['barometre.report']
+
+    App\Report\ExperienceInCurrentJobReport:
+        parent: App\Report\AbstractReport
+        tags: ['barometre.report']
+
+    App\Report\RetrainingReport:
+        parent: App\Report\AbstractReport
+        tags: ['barometre.report']
+        calls:
+            - setChildReports: [ [ '@App\Report\RetrainingEvolutionReport' ] ]
+
     App\Report\SpecialitySalaryReport:
         parent: App\Report\AbstractReport
         tags: ['barometre.report']
@@ -203,6 +221,9 @@ services:
         tags: [ 'barometre.report' ]
 
     App\Report\PhpVersionEvolutionReport:
+        parent: App\Report\AbstractDistributionEvolutionReport
+
+    App\Report\RetrainingEvolutionReport:
         parent: App\Report\AbstractDistributionEvolutionReport
 
     App\Report\PhpVersionReport:

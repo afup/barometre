@@ -15,7 +15,7 @@ class GenderEnums extends AbstractEnums
         self::MALE => 'Hommes',
         self::FEMALE => 'Femmes',
         self::NONE => 'Non précisé',
-        self::NON_BINARY => 'Personnes non-binaires',
+        self::NON_BINARY => 'Une personne non-binaire',
         self::AUTRE => 'Autre',
     ];
 
