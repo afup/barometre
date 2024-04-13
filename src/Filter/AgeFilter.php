@@ -19,7 +19,7 @@ class AgeFilter implements FilterInterface
     public function buildForm(FormBuilderInterface $builder)
     {
         $builder->add('age', AgeFilterType::class, [
-                'label' => 'filter.age',
+            'label' => 'filter.age',
         ]);
     }
 

@@ -19,7 +19,7 @@ class SalaryFilter implements FilterInterface
     public function buildForm(FormBuilderInterface $builder)
     {
         $builder->add('salary', SalaryFilterType::class, [
-                'label' => 'filter.salary',
+            'label' => 'filter.salary',
         ]);
     }
 
