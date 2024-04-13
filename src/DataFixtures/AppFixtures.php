@@ -25,8 +25,7 @@ class AppFixtures extends Fixture
             __DIR__.'/fixtures/container_environment_usage.yml',
             __DIR__.'/fixtures/hosting_type.yml',
             __DIR__.'/fixtures/response.yml',
-            ]
-        );
+        ]);
 
         $objects = $objectSet->getObjects();
         foreach ($objects as $object) {
