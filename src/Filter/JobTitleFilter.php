@@ -54,7 +54,7 @@ class JobTitleFilter implements FilterInterface
             JobTitleEnums::DEV_JUNIOR,
             JobTitleEnums::DEV_CONFIRME,
             JobTitleEnums::DEV_SENIOR,
-            JobTitleEnums::DEV_EXPERT
+            JobTitleEnums::DEV_EXPERT,
         ];
 
         $oldTitle = [
@@ -65,6 +65,7 @@ class JobTitleFilter implements FilterInterface
         if ([] !== array_intersect($values, $mapping)) {
             $values = array_merge($values, $oldTitle);
         }
+
         return $values;
     }
 
