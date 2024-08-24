@@ -133,7 +133,9 @@ class ResponseFactory
         foreach ($enumValues as $field => $enum) {
             $enumClass = $this->enums->getEnums($enum['class']);
             $enumId = $enumClass->getIdByLabel($data[$enum['key']] ?? null);
-
+            if ($field === 'PhpVersion' && 0 === $enumId) {
+                dump($data[$enum['key']] ?? null, '---');
+            }
             if ($enumClass instanceof JobTitleEnums && 0 === $enumId) {
                 $enumId = $enumClass->oldChoices[$data[$enum['key']]] ?? 0;
             }

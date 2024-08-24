@@ -17,17 +17,24 @@ class JobTitleEnums extends AbstractEnums
     public const SYSADMIN = 9;
     public const DEVOPS = 10;
 
+    public const DEV_JUNIOR = 11;
+    public const DEV_CONFIRME = 12;
+    public const DEV_SENIOR = 13;
+    public const DEV_EXPERT = 14;
+    public const TECH_LEAD = 15;
+
     protected array $choices = [
         self::DIRECTEUR => 'Directeur et Directrice, cadre dirigeant',
-        self::RESPONSABLE_EQUIPE => "Cadre intermédiaire, responsable d'équipe",
-        self::CHEF_PROJET => 'Chef/Cheffe de projet',
-        self::LEAD_DEVELOPPEUR => 'Lead développeur/Lead développeuse',
+        self::DEV_JUNIOR => 'Développeuse / Développeur Junior',
+        self::DEV_CONFIRME => 'Développeuse / Développeur confirmé',
+        self::DEV_SENIOR => 'Développeuse / Développeur Senior',
+        self::DEV_EXPERT => 'Développeuse / Développeur Expert',
+        self::TECH_LEAD => 'Tech Lead',
+        self::RESPONSABLE_EQUIPE => "Responsable d'équipe",
+        self::CONSULTANT => 'Consultante / Consultant',
         self::ARCHITECTE => 'Architecte',
-        self::CONSULTANT => 'Consultant',
-        self::FORMATEUR => 'Formateur/Formatrice',
-        self::DEVELOPPEUR => 'Développeur/Développeuse',
-        self::SYSADMIN => 'Sysadmin',
-        self::DEVOPS => 'Devops',
+        self::CHEF_PROJET => 'Chef/Cheffe de projet',
+        self::FORMATEUR => 'Formatrice / Formateur',
         self::AUTRE => 'Autre',
     ];
 
