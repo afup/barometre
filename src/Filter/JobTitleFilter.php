@@ -41,7 +41,32 @@ class JobTitleFilter implements FilterInterface
             return;
         }
 
-        $queryBuilder->andWhere($queryBuilder->expr()->in('response.jobTitle', $values[$this->getName()]));
+        $filterValue = $values[$this->getName()];
+
+        $filterValue = $this->supportOldValues($filterValue);
+
+        $queryBuilder->andWhere($queryBuilder->expr()->in('response.jobTitle', $filterValue));
+    }
+
+    private function supportOldValues(array $values): array
+    {
+        $mapping = [
+            JobTitleEnums::DEV_JUNIOR,
+            JobTitleEnums::DEV_CONFIRME,
+            JobTitleEnums::DEV_SENIOR,
+            JobTitleEnums::DEV_EXPERT,
+        ];
+
+        $oldTitle = [
+            JobTitleEnums::DEVELOPPEUR,
+            JobTitleEnums::LEAD_DEVELOPPEUR,
+        ];
+
+        if ([] !== array_intersect($values, $mapping)) {
+            $values = array_merge($values, $oldTitle);
+        }
+
+        return $values;
     }
 
     /**

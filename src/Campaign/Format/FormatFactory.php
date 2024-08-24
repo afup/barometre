@@ -15,7 +15,7 @@ class FormatFactory
     {
         $class = '\App\Campaign\Format\Formats\Format'.$code;
         if (!class_exists($class)) {
-            throw new \InvalidArgumentException(sprintf('Code %s invalid', $code));
+            throw new \InvalidArgumentException(\sprintf('Code %s invalid', $code));
         }
 
         return new $class();

@@ -36,7 +36,7 @@ class DepartmentFilter implements FilterInterface
         $choices[self::ALL_BUT_PARIS] = 'Tous sauf île-de-France';
 
         foreach (new Departments() as $number => $label) {
-            $choices[$number] = sprintf('%s - %s', $number, $label);
+            $choices[$number] = \sprintf('%s - %s', $number, $label);
         }
 
         return $choices;
