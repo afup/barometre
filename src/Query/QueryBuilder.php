@@ -30,7 +30,7 @@ class QueryBuilder extends BaseQueryBuilder
      */
     public function createTemporaryTable($tablename)
     {
-        $sql = sprintf('CREATE TEMPORARY TABLE `%s` %s', $tablename, $this->getSQL());
+        $sql = \sprintf('CREATE TEMPORARY TABLE `%s` %s', $tablename, $this->getSQL());
 
         $this->connection->executeStatement($sql, $this->getParameters(), $this->paramTypes);
     }
@@ -40,7 +40,7 @@ class QueryBuilder extends BaseQueryBuilder
      */
     public function dropTemporaryTable($tablename)
     {
-        $sql = sprintf('DROP TEMPORARY TABLE IF EXISTS `%s`', $tablename);
+        $sql = \sprintf('DROP TEMPORARY TABLE IF EXISTS `%s`', $tablename);
 
         $this->connection->executeStatement($sql);
     }

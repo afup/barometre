@@ -21,7 +21,7 @@ class EnumsCollection
     public function getEnums($alias): EnumsInterface
     {
         if (!isset($this->enums[$alias])) {
-            throw new \InvalidArgumentException(sprintf('Enums %s inconnu', $alias));
+            throw new \InvalidArgumentException(\sprintf('Enums %s inconnu', $alias));
         }
 
         return $this->enums[$alias];
