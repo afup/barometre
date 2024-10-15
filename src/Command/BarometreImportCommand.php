@@ -22,7 +22,7 @@ class BarometreImportCommand extends Command
 {
     public function __construct(
         private readonly CampaignRepository $campaignRepository,
-        private readonly CampaignImporter $campaignImporter
+        private readonly CampaignImporter $campaignImporter,
     ) {
         parent::__construct();
     }
