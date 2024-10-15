@@ -34,6 +34,10 @@
                 <source>menu.result2023</source>
                 <target>Résultats 2023</target>
             </trans-unit>
+            <trans-unit id="menu.result2024">
+                <source>menu.result2024</source>
+                <target>Résultats 2024</target>
+            </trans-unit>
             <trans-unit id="menu.results">
                 <source>menu.results</source>
                 <target>Résultats détaillés</target>

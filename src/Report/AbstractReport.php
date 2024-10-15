@@ -20,7 +20,7 @@ abstract class AbstractReport implements ReportInterface
 
     public function __construct(
         protected int $minResult = 10,
-        protected array $childReports = []
+        protected array $childReports = [],
     ) {
     }
 

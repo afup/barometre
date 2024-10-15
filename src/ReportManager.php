@@ -24,7 +24,7 @@ class ReportManager
         Connection $connection,
         FormInterface $form,
         ReportCollection $reportCollection,
-        FilterCollection $filterCollection
+        FilterCollection $filterCollection,
     ) {
         $this->connection = $connection;
         $this->form = $form;
