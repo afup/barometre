@@ -17,7 +17,7 @@ class SalaryReport extends AbstractReport
     public function execute()
     {
         $this->queryBuilder->select('count(distinct response.id) as nbResponse');
-        $this->queryBuilder->addSelect(sprintf('ROUND(response.grossAnnualSalary / %s)  as salarySlice', self::SLICE));
+        $this->queryBuilder->addSelect(\sprintf('ROUND(response.grossAnnualSalary / %s)  as salarySlice', self::SLICE));
         $this->queryBuilder->having('nbResponse >= :minResult');
         $this->queryBuilder->setParameter('minResult', $this->minResult);
         $this->queryBuilder->addGroupBy('salarySlice');

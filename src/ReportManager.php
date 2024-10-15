@@ -24,7 +24,7 @@ class ReportManager
         Connection $connection,
         FormInterface $form,
         ReportCollection $reportCollection,
-        FilterCollection $filterCollection
+        FilterCollection $filterCollection,
     ) {
         $this->connection = $connection;
         $this->form = $form;
@@ -134,7 +134,7 @@ class ReportManager
 
         $this->filterCollection->buildQuery($filterTableBuilder, $data);
 
-        $temporaryTablename = sprintf('tmp_%s', md5(serialize($data)));
+        $temporaryTablename = \sprintf('tmp_%s', md5(serialize($data)));
         $filterTableBuilder->dropTemporaryTable($temporaryTablename);
         $filterTableBuilder->createTemporaryTable($temporaryTablename);
 

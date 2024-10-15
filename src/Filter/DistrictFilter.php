@@ -31,7 +31,7 @@ class DistrictFilter implements FilterInterface
         $choices = [];
 
         foreach (new Regions() as $number => $label) {
-            $choices[$number] = sprintf('%s - %s', $number, $label->getLabel());
+            $choices[$number] = \sprintf('%s - %s', $number, $label->getLabel());
         }
 
         return $choices;

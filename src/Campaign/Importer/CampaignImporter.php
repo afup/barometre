@@ -38,7 +38,7 @@ class CampaignImporter
         \DateTime $startDate,
         \DateTime $endDate,
         $filename,
-        $separator = ';'
+        $separator = ';',
     ) {
         $campaign = new Campaign();
         $campaign

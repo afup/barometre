@@ -1,0 +1,129 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}Résultats de la campagne {{ campaignName }}{% endblock %}
+
+{% block meta %}
+    {{ parent() }}
+    <meta property="og:title" content="Baromètre des salaires du PHP - Résultats {{ campaignName }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{{ absolute_url('/report/'~campaignName) }}" />
+    <meta property="og:description" content="Les résultats du baromètre des salaires en PHP {{ campaignName }} sont disponibles. Consultez les résultats de l'enquête de référence pour le milieu PHP menée par l'AFUP" />
+    <meta property="og:site_name" content="Baromètre des salaires - AFUP" />
+{% endblock %}
+
+
+{% block content %}
+    <div class="row report2015">
+        <div class="col-md-8">
+        <h1>Résultats de la campagne {{ campaignName }}</h1>
+
+        <p>
+            L’AFUP est ravie de vous présenter les résultats de son enquête effectuée en début d’année auprès d’environ 600 devs. Cette année est marquée par une stagnation des salaires, sur fond d’écart des salaires entre les hommes et les femmes ne se réduisant pas, une parité loin d’être atteinte, et Laravel qui gagne en popularité. On vous explique tout cela en détail.
+        </p>
+
+        <h2>A propos de la campagne 2024</h2>
+        <p>Comme chaque année l’AFUP effectue une enquête auprès des développeurs et développeuses PHP. Cette enquête a eu lieu du 15 avril au 15 juillet 2024.</p>
+        <p>Jusqu’à présent l’enquête du baromètre avait lieu de septembre à décembre et nous étions globalement satisfaits de cela. Mais nous savions que nous pouvions faire mieux, en effet nombre d’entre-vous nous ont signalé que l’enquête arrivait tard dans l’année, bien après une période d’entretiens annuels arrivant généralement en décembre et janvier. C’est une des raisons qui a poussé l’équipe du baromètre à changer la période d’enquête : cela a donc eu un impact sur le nombre de réponses, très probablement dû avec la proximité avec l'enquête précédente. Nous espérons qu'en 2025 nous atteindrons un nombre de réponses similaire à 2023. Le nombre de réponses (595 personnes) de cette enquête nous permet tout de même d’en faire des analyses intéressantes.</p>
+
+        <p>Cette année, nous n’avons pas ajouté de nouvelle question à l’enquête. Le seul changement notable et la précision sur les postes de dev, nous demandons maintenant aux répondants et répondantes s’ils/elles sont junior/confirmé/senior ou expert. Cela ne change rien pour l’analyse cette année, mais espérons en tirer des analyses de tendances intéressantes dans les prochaines années.</p>
+
+        <h2>Profil des personnes ayant répondu</h2>
+        <p>Les personnes ayant répondu :</p>
+        <ul>
+            <li>sont en majorité des hommes : pour 90%, les femmes étant représentées à hauteur de 9% et les personnes non binaires à 1% ;</li>
+            <li>ont pour l’âge médian 34 ans ;</li>
+            <li>sont en CDI : cela reste de loin, le statut le plus représenté avec 93% des personnes ayant un contrat de travail de ce type ;</li>
+            <li>dans une zone géographique à forte densité (l’Ile-de-France et la région Rhône-Alpes représentent à elles seules 44% des réponses (elles représentaient 56% des réponses en 2023)) ;</li>
+            <li>travaillent en majorité dans une PME (pour 82%) ;</li>
+            <li>utilisent en majorité Symfony (pour 70%, -5 points par rapport à l’année prochaine) ;</li>
+            <li>utilisent à 56% une distribution Linux ;</li>
+            <li>font de la veille technique chaque semaine (pour 58%) ;</li>
+            <li>25 % sont issues d’une reconversion ;</li>
+            <li>96% font du télétravail, et ces personnes le font à 34% à temps plein ;</li>
+            <li>19% ont suivi une formation au cours des deux dernières années, et pour 15% (-9 points) de ces derniers, cela a eu un impact sur leur rémunération ;</li>
+            <li>utilisent à 85% PHP 8 (+11 points)</li>
+        </ul>
+
+
+        <h1>Analyse</h1>
+
+        <h2>Une stagnation, voire une baisse des salaires</h2>
+
+        <p>Cette année, nous constatons pour la première fois depuis 10 ans une baisse des salaires sur les postes de développeur/développeuse. Là où la médiane était à 44,5k l’année dernière, elle est à 44k, cette année. Cette baisse fait suite à neuf années successives d'augmentation. Nous pouvons noter que le salaire moyen stagne pour passer de 48,3k à 48,4k. Les 10% des salaires les plus bas stagnent eux en passant de 32,9k à 33,6k.</p>
+
+        <a href="{{ absolute_url('/report/salary?filter[campaign][]='~campaignId~'&filter[job_title][]=11&filter[job_title][]=12&filter[job_title][]=13&filter[job_title][]=14') }}" class="report-image">
+            <img src="{{ asset('reports/2024/evolution_salaire.png') }}" alt="Évolution des salaires"/>
+        </a>
+
+        <h2>Toujours pas de réduction de l’écart de salaire entre les femmes et les hommes</h2>
+
+        <p>Comme tous les ans, nous étudions les écarts de salaire par genre. Malgré une augmentation constatée du salaire des femmes depuis 2023, l’écart du salaire entre les hommes et les femmes persiste et reste très élevé : il y a plus de 4k de différence pour le même poste.</p>
+
+            <p>Nous constatons une réduction de 10% du salaire entre les hommes et les femmes. En début d’année, l’INSEE a publié une étude sur l’écart des salaires dans le privée (<a href="https://www.insee.fr/fr/statistiques/7766515" title="Écart de salaire entre femmes et hommes en 2022 ">https://www.insee.fr/fr/statistiques/7766515</a>), qui calculait une réduction de 23% sur toute la population du privé. Malgré une forte différence, celle-ci semble moins importante que sur les autres métiers (mais n’en est pas moins un problème).</p>
+
+        <a href="{{ absolute_url('/report/gender?filter[campaign][]='~campaignId~'&filter[job_title][]=11&filter[job_title][]=12&filter[job_title][]=13&filter[job_title][]=14') }}" class="report-image">
+            <img src="{{ asset('reports/2024/evolution_salaire_moyen_genre.png') }}" alt="Évolution du salaire moyen par genre"/>
+        </a>
+
+        <h2>Un très long chemin vers la parité</h2>
+
+        <p>Nous pouvons constater que, pour les postes de développeur/développeuse de junior à senior, la part des hommes se réduit. Sur les trois dernières années, la réduction est de 2 points, et de 6 points sur les six dernières années. Bien que ce changement soit encourageant pour renforcer la parité dans notre secteur, sa lenteur reste regrettable : à ce rythme, l'égalité ne serait atteinte qu'aux alentours de 2055 !</p>
+
+        <a href="{{ absolute_url('/report/gender?filter[campaign][]='~campaignId~'&filter[job_title][]=11&filter[job_title][]=12&filter[job_title][]=13&filter[job_title][]=14') }}" class="report-image">
+            <img src="{{ asset('reports/2024/nombre_reponse_genre.png') }}" alt="Évolution du nombre de réponses par genre"/>
+        </a>
+
+        <h2>Le télétravail est définitivement entré dans les mœurs</h2>
+
+        <p>Malgré une légère diminution du télétravail permanent (ou 100% télétravail), qui a reculé d’un peu plus d’un point depuis 2022, 80 % des dévs interrogés continuent de pratiquer régulièrement le télétravail. La très forte hausse observée depuis 2020 fait désormais partie intégrante des habitudes professionnelles.</p>
+
+        <a href="{{ absolute_url('/report/remote_usage?filter[campaign][]='~campaignId~'&filter[job_title][]=11&filter[job_title][]=12&filter[job_title][]=13&filter[job_title][]=14') }}" class="report-image">
+            <img src="{{ asset('reports/2024/repartition_teletravailleurs.png') }}" alt="Évolution de la répartition des télétravailleurs"/>
+        </a>
+
+        <h2>La tendance Laravel en France se confirme</h2>
+
+        <p>Nous pouvons noter que maintenant 15% des devs se disent spécialistes de Laravel. C’est plus de 3 points depuis l’année dernière. En France, Symfony reste le framework de prédilection avec plus de 67% de répondantes se disant spécialistes de ce framework.</p>
+
+        <p>Depuis maintenant 2 ans nous n’avons plus aucune personne répondante spécialiste du framework Zend/Laminas. Il y a 11 ans, celui-ci représentait 22% des réponses.</p>
+
+        <p>A noter que le nombre de spécialistes Wordpress et Drupal continue de se réduire. Pour ce point nous avons pour hypothèse que la communauté touchée par l’AFUP et répondant au baromètre est généralement moins portée sur ces frameworks. Cela pourra être un axe d’amélioration des prochaines enquêtes, de tenter de mieux toucher ces communautés.</p>
+
+        <a href="{{ absolute_url('/report/speciality?filter[campaign][]='~campaignId~'&filter[job_title][]=11&filter[job_title][]=12&filter[job_title][]=13&filter[job_title][]=14') }}" class="report-image">
+            <img src="{{ asset('reports/2024/repartition_specialite.png') }}" alt="Évolution des spécialités"/>
+        </a>
+
+
+        <h2>A propos du baromètre</h2>
+
+        <p>Le baromètre des salaires AFUP est un projet open-source porté par des bénévoles. Nous sommes toujours à la recherche de personnes pour aider sur ce projet, que ça soit côté technique, pour le lancement de l’enquête ou l’analyse des résultats. Si vous souhaitez participer vous pouvez envoyer un message à barometre@afup.org.</p>
+
+
+        <h2>A propos de l’AFUP</h2>
+
+            <p>L'<a href="http://www.afup.org" title="Association Française des Utilisateurs de PHP">association française des utilisateurs de PHP</a> (AFUP) vous présentent pour la douzième année consécutive le baromètre des salaires AFUP – 2024.</p>
+
+            <p>Comme chaque année, le baromètre AFUP répond aux questions que se posent les professionnel·le·s de notre secteur :</p>
+            <ul>
+                <li>Combien gagne un·e développeur·euse débutant·e ?</li>
+                <li>Comment les salaires évoluent-ils avec l'expérience ?</li>
+                <li>Quelles sont les technos qui rapportent le plus ?</li>
+                <li>Dans quelles villes touche-t-on les meilleurs salaires ?</li>
+            </ul>
+
+            <p>Nous espérons que vous aurez une vision claire du marché après consultation de ce baromètre des salaires en PHP.</p>
+
+            <h3>AFUP</h3>
+            <p>L'<a href="http://www.afup.org" title="Association Française des Utilisateurs de PHP">AFUP</a>, Association Française des Utilisateurs de PHP, est une association loi 1901, qui a pour objectif principal de promouvoir le langage PHP auprès des professionnel·le·s et de participer à son développement. Elle organise de nombreux événements tout au long de l'année, notamment le Forum PHP et les AFUP Day, elle diffuse et partage les connaissances auprès des utilisateurs et utilisatrices de PHP, et participe à la valorisation des développeurs et développeuses PHP sur le marché du travail.</p>
+
+
+        <div class="col-md-4">
+            <h1>Résultats détaillés</h1>
+
+            <div class="well">
+                {% block menu_reports knp_menu_render('reports_menu', {}, 'reports') %}
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
