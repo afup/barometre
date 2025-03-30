@@ -28,7 +28,7 @@
     "highcharts": "^5.0.0",
     "highchartTable": "highchartTable/jquery-highchartTable-plugin",
     "jquery": "^1.12.4",
-    "node-sass": "^7.0.0",
+    "node-sass": "^7.0.3",
     "sass-lint": "^1.13.1",
     "select2": "4.0.5",
     "select2-bootstrap-theme": "0.1.0-beta.10",
