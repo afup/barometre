@@ -252,3 +252,35 @@ parameters:
                 title: Quel est le salaire moyen en PHP ? Le baromètre 2019 vient de sortir
                 media_logo: toolinux.png
                 date: "2020-02-27"
+
+        2021:
+            -
+                url: https://www.journaldunet.com/web-tech/developpeur/1506857-barometre-des-salaires-php-l-enquete-2021-est-lancee/
+                title: "Baromètre des salaires PHP : l'enquête 2021 est lancée"
+                media_logo: jdn.svg
+                date: "2021-11-04"
+            -
+                url: https://www.journaldunet.com/solutions/dsi/1509971-la-hausse-des-salaires-des-developpeurs-php-s-inflechit-en-2021/
+                title: La hausse des salaires des développeurs PHP s'infléchit en 2021
+                media_logo: jdn.svg
+                date: "2022-03-15"
+            -
+                url: https://goodtech.info/barometre-des-salaires-php-participez-a-l-enquete-2021/
+                title: "Baromètre des salaires PHP : participez à l’enquête 2021"
+                media_logo: goodtech.png
+                date: "2021-09-24"
+
+        2022:
+            -
+                url: https://goodtech.info/barometre-salaires-php-2022/
+                title: "Baromètre des salaires PHP 2022 : enquête lancée"
+                media_logo: goodtech.png
+                date: "2022-09-29"
+
+        2023:
+            -
+                url: https://welovedevs.com/fr/articles/salaire-des-developpeurs-php-participez-au-barometre-de-lafup-2023/
+                title: Participez au baromètre des salaires en PHP mené par l’AFUP
+                media_logo: we_love_devs.svg
+                date: "2023-10-18"
+
