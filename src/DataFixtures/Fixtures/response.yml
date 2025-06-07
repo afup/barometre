@@ -12,21 +12,26 @@ App\Entity\Response:
     companyType: <enums('App\Enums\CompanyTypeEnums')>
     companySize: <enums('App\Enums\CompanySizeEnums')>
     companyDepartment: <fr_FR:departmentNumber()>
-    jobInterest: <enums('App\Enums\JobInterestEnums')>
     phpVersion: <enums('App\Enums\PHPVersionEnums')>
     phpStrength: <enums('App\Enums\PHPStrengthEnums')>
     hasRecentTraining: <numberBetween(0, 1)>
-    recentTrainingHadSalaryImpact: <numberBetween(0, 1)>
-    specialities: ['@speciality<numberBetween(0, 3)>', '@speciality<numberBetween(4, 8)>', '@speciality<numberBetween(9, 16)>']
-    certifications: ['@certification<numberBetween(0, 2)>', '@certification<numberBetween(3, 4)>']
+    isRecentTrainingHadSalaryImpact: <numberBetween(0, 1)>
     remoteUsage: <enums('App\Enums\RemoteUsageEnums')>
-    gender: <enums('App\Enums\GenderEnums')>
-    containerEnvironmentsUsage: '<numberBetween(0, 2)>x @container_in_*'
+    gender: <enumIds('App\Enums\GenderEnums')>
+    containerEnvironmentsUsage: <containerEnvironmentsUsage()>
     contractWorkDuration: <enums('App\Enums\ContractWorkDurationEnums')>
     frenchPhpDocumentationQuality: <enums('App\Enums\FrenchPHPDocumentationQualityEnums')>
-    hostingTypes: '<numberBetween(0, 3)>x @hosting_*'
+    hostingTypes: <hostingTypes()>
     meetupParticipation: <enums('App\Enums\MeetupParticipationEnums')>
     osDeveloppment: <enums('App\Enums\OsDeveloppmentEnums')>
     phpDocumentationSource: <enums('App\Enums\PHPDocumentationUsageEnums')>
     technologicalWatch: <enums('App\Enums\TechnologicalWatchEnums')>
     workMethod: <enums('App\Enums\WorkMethodEnums')>
+    __calls:
+      # specialities
+      - addSpeciality: [ '@speciality<numberBetween(0, 3)>' ]
+      - addSpeciality: [ '@speciality<numberBetween(4, 8)>' ]
+      - addSpeciality: [ '@speciality<numberBetween(9, 16)>' ]
+      # certifications
+      - addCertification: [ '@certification<numberBetween({0, 2})>' ]
+      - addCertification: [ '@certification<numberBetween({3, 4})>' ]

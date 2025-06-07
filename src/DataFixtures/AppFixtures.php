@@ -19,12 +19,12 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager): void
     {
         $objectSet = $this->loader->loadFiles([
-            __DIR__.'/fixtures/campaign.yml',
-            __DIR__.'/fixtures/speciality.yml',
-            __DIR__.'/fixtures/certification.yml',
-            __DIR__.'/fixtures/container_environment_usage.yml',
-            __DIR__.'/fixtures/hosting_type.yml',
-            __DIR__.'/fixtures/response.yml',
+            __DIR__.'/Fixtures/campaign.yml',
+            __DIR__.'/Fixtures/speciality.yml',
+            __DIR__.'/Fixtures/certification.yml',
+            __DIR__.'/Fixtures/container_environment_usage.yml',
+            __DIR__.'/Fixtures/hosting_type.yml',
+            __DIR__.'/Fixtures/response.yml',
         ]);
 
         $objects = $objectSet->getObjects();
