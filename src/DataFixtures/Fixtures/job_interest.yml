@@ -1,0 +1,13 @@
+App\Entity\JobInterest:
+  interest0:
+    name: "La rémuneration"
+  interest1:
+    name: "L'intérêt technique de vos projets"
+  interest2:
+    name: "L'ambiance dans l'entreprise"
+  interest3:
+    name: "La qualité de vie autour de votre emploi"
+  interest4:
+    name: "Le domaine métier de vos projets"
+  interest5:
+    name: "Autre"

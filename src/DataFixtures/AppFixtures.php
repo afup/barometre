@@ -24,6 +24,7 @@ class AppFixtures extends Fixture
             __DIR__.'/Fixtures/certification.yml',
             __DIR__.'/Fixtures/container_environment_usage.yml',
             __DIR__.'/Fixtures/hosting_type.yml',
+            __DIR__.'/Fixtures/job_interest.yml',
             __DIR__.'/Fixtures/response.yml',
         ]);
 
