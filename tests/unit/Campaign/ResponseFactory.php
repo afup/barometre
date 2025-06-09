@@ -9,7 +9,6 @@ use App\Enums\CompanyTypeEnums;
 use App\Enums\ExperienceEnums;
 use App\Enums\GenderEnums;
 use App\Enums\InitialTrainingEnums;
-use App\Enums\JobInterestEnums;
 use App\Enums\JobTitleEnums;
 use App\Enums\MeetupParticipationEnums;
 use App\Enums\OsDeveloppmentEnums;
@@ -31,7 +30,6 @@ class ResponseFactory extends \atoum
             new InitialTrainingEnums(),
             new CompanyTypeEnums(),
             new CompanySizeEnums(),
-            new JobInterestEnums(),
             new PHPVersionEnums(),
             new PHPStrengthEnums(),
             new JobTitleEnums(),
@@ -105,8 +103,6 @@ class ResponseFactory extends \atoum
                   ->isEqualTo(CompanyTypeEnums::AGENCE_COMM)
               ->integer($response->getCompanySize())
                   ->isEqualTo(CompanySizeEnums::DE_50_A_199)
-              ->integer($response->getJobInterest())
-                  ->isEqualTo(JobInterestEnums::QUALITE_DE_VIE)
               ->integer($response->getPhpVersion())
                   ->isEqualTo(PHPVersionEnums::PHP_53)
               ->integer($response->getPhpStrength())
