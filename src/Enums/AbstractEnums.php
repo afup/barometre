@@ -15,6 +15,11 @@ abstract class AbstractEnums implements EnumsInterface
         return $this->choices;
     }
 
+    public function getIds(): array
+    {
+        return array_keys($this->choices);
+    }
+
     public function getIdByLabel(?string $label): ?int
     {
         $key = array_search(trim($label ?? ''), $this->choices, true);

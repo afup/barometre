@@ -13,6 +13,7 @@ class JobInterest
 {
     #[ORM\Column(type: 'integer')]
     #[ORM\Id]
+    #[ORM\GeneratedValue]
     protected int $id;
 
     #[ORM\Column(type: 'string', length: 100)]
