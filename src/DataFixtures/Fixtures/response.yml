@@ -5,28 +5,52 @@ App\Entity\Response:
     variableAnnualSalary: <numberBetween(0, 4500)>
     annualSalary: <numberBetween(20000, 45000)>
     salarySatisfaction: <numberBetween(1, 5)>
-    status: <enums('App\Enums\StatusEnums')>
     initialTraining: <enums('App\Enums\InitialTrainingEnums')>
+    retraining: <enumIds('App\Enums\RetrainingEnums')>
+    status: <enums('App\Enums\StatusEnums')>
     jobTitle: <enums('App\Enums\JobTitleEnums')>
     experience: <enums('App\Enums\ExperienceEnums')>
+    freelanceTjm: <numberBetween(200, 800)>
+    freelanceAverageWorkDayPerYear: <numberBetween(30, 300)>
+    contractWorkDuration: <enums('App\Enums\ContractWorkDurationEnums')>
+    companyDepartment: <fr_FR:departmentNumber()>
     companyType: <enums('App\Enums\CompanyTypeEnums')>
     companySize: <enums('App\Enums\CompanySizeEnums')>
-    companyDepartment: <fr_FR:departmentNumber()>
-    jobInterest: <enums('App\Enums\JobInterestEnums')>
+    jobInterests: <randomArrayCollection(@interest{0..5}, 0, 3)>
+    companyOrigin: <countryCode()> # two letters country code
+    otherLanguage: <enumIds('App\Enums\OtherLanguageEnums')>
+    remoteUsage: <enums('App\Enums\RemoteUsageEnums')>
+    remotePace: <numberBetween(1, 5)>
+    meetupParticipation: <enums('App\Enums\MeetupParticipationEnums')>
+    technologicalWatch: <enums('App\Enums\TechnologicalWatchEnums')>
+    osDeveloppment: <enums('App\Enums\OsDeveloppmentEnums')>
+    hostingTypes: '<randomArrayCollection(@hosting{0..4}, 0, 3)>'
+    containerEnvironmentsUsage: <containerEnvironmentsUsage()>
+    workMethod: <enums('App\Enums\WorkMethodEnums')>
+    # specialities (cf. __calls)
     phpVersion: <enums('App\Enums\PHPVersionEnums')>
+    phpDocumentationSource: <enums('App\Enums\PHPDocumentationUsageEnums')>
+    frenchPhpDocumentationQuality: <enums('App\Enums\FrenchPHPDocumentationQualityEnums')>
+    cmsUsageInProject: 70%? <enumIds(App\Enums\CmsUsageInProjectEnums)>
+    # certifications (cf. __calls)
     phpStrength: <enums('App\Enums\PHPStrengthEnums')>
     hasRecentTraining: <numberBetween(0, 1)>
-    recentTrainingHadSalaryImpact: <numberBetween(0, 1)>
-    specialities: ['@speciality<numberBetween(0, 3)>', '@speciality<numberBetween(4, 8)>', '@speciality<numberBetween(9, 16)>']
-    certifications: ['@certification<numberBetween(0, 2)>', '@certification<numberBetween(3, 4)>']
-    remoteUsage: <enums('App\Enums\RemoteUsageEnums')>
-    gender: <enums('App\Enums\GenderEnums')>
-    containerEnvironmentsUsage: '<numberBetween(0, 2)>x @container_in_*'
-    contractWorkDuration: <enums('App\Enums\ContractWorkDurationEnums')>
-    frenchPhpDocumentationQuality: <enums('App\Enums\FrenchPHPDocumentationQualityEnums')>
-    hostingTypes: '<numberBetween(0, 3)>x @hosting_*'
-    meetupParticipation: <enums('App\Enums\MeetupParticipationEnums')>
-    osDeveloppment: <enums('App\Enums\OsDeveloppmentEnums')>
-    phpDocumentationSource: <enums('App\Enums\PHPDocumentationUsageEnums')>
-    technologicalWatch: <enums('App\Enums\TechnologicalWatchEnums')>
-    workMethod: <enums('App\Enums\WorkMethodEnums')>
+    isRecentTrainingHadSalaryImpact: <numberBetween(0, 1)>
+    gender: <enumIds('App\Enums\GenderEnums')>
+    salaryInflation: <enumIds('App\Enums\SalaryInflationEnums')>
+    experienceInYear: '70%? <numberBetween(1, 20)>'
+    experienceInCurrentJob: '70%? <numberBetween(1, 20)>'
+    remoteMoney: <enumIds('App\Enums\RemoteMoneyEnums')>
+    numberMeetupParticipation: '70%? <numberBetween(1, 5)>'
+    leaveJob: <enumIds('App\Enums\LeaveJobEnums')>
+    discriminationDuringHiring: '70%? <enumIds(App\Enums\DiscriminationDuringHiringEnums)>'
+    communityInclusion: <numberBetween(1, 5)>
+    age: '70%? <numberBetween(18, 50)>'
+    __calls:
+      # specialities
+      - addSpeciality: [ '@speciality<numberBetween(0, 3)>' ]
+      - addSpeciality: [ '@speciality<numberBetween(4, 8)>' ]
+      - addSpeciality: [ '@speciality<numberBetween(9, 16)>' ]
+      # certifications
+      - addCertification: [ '@certification<numberBetween({0, 2})>' ]
+      - addCertification: [ '@certification<numberBetween({3, 4})>' ]

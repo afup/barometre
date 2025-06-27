@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\DataFixtures;
+namespace App\DataFixtures\Provider;
 
 use App\Enums\EnumsCollection;
 use Faker\Generator;
@@ -24,5 +24,12 @@ class EnumsProvider extends Base
         $choices = $this->collection->getEnums($alias)->getChoices();
 
         return array_rand($choices);
+    }
+
+    public function enumIds(string $alias)
+    {
+        $ids = $this->collection->getEnums($alias)->getIds();
+
+        return array_rand($ids);
     }
 }
