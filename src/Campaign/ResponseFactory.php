@@ -194,6 +194,14 @@ class ResponseFactory
             'oui' === mb_strtolower($data['formation_impact'] ?? null)
         );
 
+        $response->setUseGenerativeAI(
+            'oui' === mb_strtolower($data['use_generative_ai'] ?? null)
+        );
+
+        $response->setIncludeAiInProject(
+            'oui' === mb_strtolower($data['include_ai_in_project'] ?? null)
+        );
+
         return $response;
     }
 
