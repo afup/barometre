@@ -911,6 +911,7 @@ class Response
     public function setUseGenerativeAI(?bool $useGenerativeAI): self
     {
         $this->useGenerativeAI = $useGenerativeAI;
+
         return $this;
     }
 
@@ -922,6 +923,7 @@ class Response
     public function setIncludeAiInProject(?bool $includeAiInProject): self
     {
         $this->includeAiInProject = $includeAiInProject;
+
         return $this;
     }
 }

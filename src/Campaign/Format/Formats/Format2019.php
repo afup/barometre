@@ -56,8 +56,8 @@ class Format2019 extends Format2014
         }
 
         if ('Freelance / entreprise individuelle' === $data['status']
-            && '' !== trim($data['freelance_tjm'])
-            && '' !== trim($data['freelance_average_work_day'])
+            && '' !== mb_trim($data['freelance_tjm'])
+            && '' !== mb_trim($data['freelance_average_work_day'])
         ) {
             // calcul basic du brut d'un freelance
             $freelanceAnnualSalary = $data['freelance_tjm'] * $data['freelance_average_work_day'];

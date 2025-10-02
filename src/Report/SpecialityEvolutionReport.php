@@ -54,7 +54,7 @@ class SpecialityEvolutionReport extends AbstractReport implements AlterableRepor
             'Laravel',
             'Wordpress',
             'Drupal',
-            'Laminas'
+            'Laminas',
         ];
 
         $laminas = [

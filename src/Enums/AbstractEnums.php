@@ -22,7 +22,7 @@ abstract class AbstractEnums implements EnumsInterface
 
     public function getIdByLabel(?string $label): ?int
     {
-        $key = array_search(trim($label ?? ''), $this->choices, true);
+        $key = array_search(mb_trim($label ?? ''), $this->choices, true);
 
         return false === $key ? $this->getDefaultValue() : $key;
     }
