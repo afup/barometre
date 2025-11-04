@@ -142,6 +142,14 @@
                 <source>filter.submit</source>
                 <target>Filtrer</target>
             </trans-unit>
+            <trans-unit id="report.use_generative_ai.label">
+                <source>report.use_generative_ai.label</source>
+                <target>Utilisez-vous l’IA générative pour développer vos projets?</target>
+            </trans-unit>
+            <trans-unit id="report.include_ai_in_project.label">
+                <source>report.include_ai_in_project.label</source>
+                <target>Vos projets intègrent-ils des fonctionnalités liées à l'IA générative?</target>
+            </trans-unit>
             <trans-unit id="report.company_departement.label">
                 <source>report.company_department.label</source>
                 <target>Répartition géographique</target>

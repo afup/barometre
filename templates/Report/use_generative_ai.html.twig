@@ -1,0 +1,30 @@
+{% set icons =  {
+    "Oui": { color: "#4c6eaf"},
+    "Non": { color: "#e55039"},
+} %}
+
+<table class="highchart highchart-emoticon highchart-align-xaxis-left-labels table table-striped"
+       data-graph-datalabels-enabled="1"
+       data-graph-container-before="1"
+       data-graph-type="pie"
+       data-graph-legend-disabled="1"
+       data-graph-inverted="1"
+       data-icons="{{ icons|json_encode }}"
+       data-graph-xaxis-labels-align="right">
+    <thead>
+    <tr>
+        <th>{{ "report.use_generative_ai.label" | trans }}</th>
+        <th class="text-right">{{ "report.view.response_number" | trans }}</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in results %}
+        <tr>
+            <td>
+                {{ row.useGenerativeAI|enum_label('App\\Enums\\OuiNonEnums') }}
+            </td>
+            <td class="text-right">{{ row.nbResponse|number_format(null, '', ' ') }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
