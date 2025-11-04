@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace App\Filter;
 
 use App\Enums\OuiNonEnums;
-use App\Enums\RetrainingEnums;
 use App\Form\Type\Select2MultipleFilterType;
 use Doctrine\DBAL\Query\QueryBuilder;
 use Symfony\Component\Form\FormBuilderInterface;
