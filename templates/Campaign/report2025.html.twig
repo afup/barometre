@@ -94,8 +94,8 @@
 
         <p>Nous continuerons de suivre l’évolution de cette métrique au cours des prochaines enquêtes.</p>
 
-        <a href="{{ absolute_url('/report/ia_usage?filter[campaign][]='~campaignId~'&filter[job_title][]=11&filter[job_title][]=12&filter[job_title][]=13&filter[job_title][]=14') }}" class="report-image">
-            <img src="{{ asset('reports/2025/ia_usage.png') }}" alt="Utilisez vous l'IA générative pour développer vos projets "/>
+        <a href="{{ absolute_url('/report/use_generative_ai?filter[campaign][]='~campaignId) }}" class="report-image">
+            <img src="{{ asset('reports/2025/use_generative_ai.png') }}" alt="Utilisez vous l'IA générative pour développer vos projets "/>
         </a>
 
         <h2>Une intégration significative de l’IA générative dans les projets</h2>
@@ -106,7 +106,7 @@
 
         <p>Là aussi nous continuerons de suivre cet indicateur à travers le temps.</p>
 
-        <a href="{{ absolute_url('/report/ia_usage?filter[campaign][]='~campaignId~'&filter[job_title][]=11&filter[job_title][]=12&filter[job_title][]=13&filter[job_title][]=14') }}" class="report-image">
+        <a href="{{ absolute_url('/report/include_ai_in_project?filter[campaign][]='~campaignId) }}" class="report-image">
             <img src="{{ asset('reports/2025/ia_usage_in_project.png') }}" alt="Vos projets intègrent-ils des fonctionnalités liées à l'IA générative?"/>
         </a>
 
