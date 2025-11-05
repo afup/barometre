@@ -18,13 +18,13 @@
         <h1>Résultats de la campagne {{ campaignName }}</h1>
 
         <p>
-            L’AFUP est ravie de vous présenter les résultats de son enquête effectuée en début d’année auprès d’environ 721 devs. Cette année est marquée par des salaires augmentés du niveau de l’inflation, sur fond d’écart des salaires entre les hommes et les femmes ne se réduisant pas, et sur une forte utilisation de l’IA générative.. On vous explique tout cela en détail.
+            L’AFUP est ravie de vous présenter les résultats de son enquête effectuée en début d’année auprès d’environ 721 devs. Cette année est marquée par des salaires augmentés du niveau de l’inflation, sur fond d’écart des salaires entre les hommes et les femmes ne se réduisant pas, et sur une forte utilisation de l’IA générative. On vous explique tout cela en détail.
         </p>
 
-        <h2>A propos de la campagne 2025</h2>
+        <h2>À propos de la campagne 2025</h2>
         <p>Comme chaque année l’AFUP effectue une enquête auprès des développeurs et développeuses PHP. Cette enquête a eu lieu du 17 mars au 17 juin 2025.</p>
 
-        <p>Cette année nous avons ajouté deux questions liées à l’IA générative dont vous trouverez les résultats dans cette étude. Une page et 2 filtres dédiés ont été ajoutés sur le baromètre.</p>
+        <p>Cette année nous avons ajouté deux questions liées à l’IA générative dont vous trouverez les résultats dans cette étude. Une page et deux filtres dédiés ont été ajoutés sur le baromètre.</p>
 
         <h2>Profil des personnes ayant répondu</h2>
         <p>Les personnes ayant répondu :</p>
@@ -32,7 +32,7 @@
             <li>sont en majorité des hommes, pour 93%, les femmes étant représentées à hauteur de 6% et les personnes non binaires à 1% ;</li>
             <li>ont pour l’âge médian 35 ans ;</li>
             <li>sont en CDI : cela reste de loin, le statut le plus représenté avec 92% des personnes ayant un contrat de travail de ce type ;</li>
-            <li>dans une zone géographique à forte densité (l’Ile-de-France et la région Rhône-Alpes représentent à elles seules 47% des réponses (elles représentaient 44% des réponses en 2024)) ;</li>
+            <li>dans une zone géographique à forte densité (l’Île-de-France et la région Rhône-Alpes représentent à elles seules 47% des réponses (elles représentaient 44% des réponses en 2024)) ;</li>
             <li>travaillent en majorité dans une PME (pour 82%) ;</li>
             <li>utilisent en majorité Symfony (pour 67%, stable sur les 5 dernières années) ;</li>
             <li>utilisent à 53% Linux en tant que système d’exploitation principal;</li>
@@ -58,9 +58,9 @@
 
         <p>Le salaire médian augmente de +2,17 % en 2025, après +4,55 % en 2024. Ces évolutions suivent de près l’inflation des années précédentes (2 % en 2024 ; 4,9 % en 2023)</p>
 
-        <p>Depuis que le baromètre des salaires existe, nous avions plutôt constaté des augmentations de salaires bien plus fortes que l’inflation comme en 2015, 2017 2020 et 2021. Depuis 2022 ces augmentations sont équivalentes à l’inflation, à l’exception de 2023 où l’augmentation était inférieure à l’inflation.</p>
+        <p>Depuis que le baromètre des salaires existe, nous avions plutôt constaté des augmentations de salaire bien plus fortes que l’inflation, comme en 2015, 2017, 2020 et 2021. Depuis 2022 ces augmentations sont équivalentes à l’inflation, à l’exception de 2023 où l’augmentation était inférieure à l’inflation.</p>
 
-        <img src="{{ asset('reports/2025/comparatif_avec_inflation.png') }}" alt="Comparaison de salaire median des devs/tech lead en CDI avec l'inflation de l'année précédente"/>
+        <img src="{{ asset('reports/2025/comparatif_avec_inflation.png') }}" alt="Comparaison du salaire médian des devs/tech lead en CDI avec l'inflation de l'année précédente"/>
 
         <p>Si l’on regarde la période de 2013 à 2025, le salaire médian en euros courants a gagné environ 12 000 €. Rapporté en euros constants, le gain net tourne autour de 1 151 €.</p>
 
@@ -71,7 +71,7 @@
 
         <p>Le salaire moyen des hommes dev/tech lead en CDI est de 53k, il a connu une augmentation de 5,1%, alors que le salaire moyen des femmes dev/tech lead en CDI est de 47k, et a connu une augmentation de 5,6%.</p>
 
-        <p>Ces salaires moyens ont augmenté de façon similaire, ce qui fait que l’écart reste toujours le même à travers le temps et pour l’instant il n’y a pas de tendance à ce que le salaire des femmes rejoigne celui des hommes.</p>
+        <p>Ces salaires moyens ont augmenté de façon similaire, ce qui fait que l’écart reste toujours le même à travers le temps et, pour l'instant, il n’y a pas de tendance à ce que le salaire des femmes rejoigne celui des hommes.</p>
 
         <a href="{{ absolute_url('/report/gender?filter[campaign][]='~campaignId~'&filter[job_title][]=11&filter[job_title][]=12&filter[job_title][]=13&filter[job_title][]=14') }}" class="report-image">
             <img src="{{ asset('reports/2025/evolution_salaire_moyen_genre.png') }}" alt="Évolution du salaire moyen par genre"/>
@@ -80,7 +80,7 @@
 
         <h2>Une pratique du télétravail stable depuis 4 ans</h2>
 
-        <p>Le télétravail s’est installé avec 81 % des répondant·es qui le pratiquent régulièrement ou à temps plein contre 16 % seulement en 2019. Après le pic de 2020‑2021, on observe un plateau haut depuis 2022.</p>
+        <p>Le télétravail s’est installé avec 81 % des répondant·es qui le pratiquent régulièrement ou à temps plein, contre 16 % seulement en 2019. Après le pic de 2020‑2021, on observe un plateau haut depuis 2022.</p>
 
         <a href="{{ absolute_url('/report/remote_usage?filter[campaign][]='~campaignId~'&filter[job_title][]=11&filter[job_title][]=12&filter[job_title][]=13&filter[job_title][]=14') }}" class="report-image">
             <img src="{{ asset('reports/2025/repartition_teletravailleurs.png') }}" alt="Évolution de la répartition des télétravailleurs"/>
@@ -95,7 +95,7 @@
         <p>Nous continuerons de suivre l’évolution de cette métrique au cours des prochaines enquêtes.</p>
 
         <a href="{{ absolute_url('/report/use_generative_ai?filter[campaign][]='~campaignId) }}" class="report-image">
-            <img src="{{ asset('reports/2025/use_generative_ai.png') }}" alt="Utilisez vous l'IA générative pour développer vos projets "/>
+            <img src="{{ asset('reports/2025/use_generative_ai.png') }}" alt="Utilisez-vous l'IA générative pour développer vos projets"/>
         </a>
 
         <h2>Une intégration significative de l’IA générative dans les projets</h2>
@@ -111,7 +111,7 @@
         </a>
 
 
-        <h2>A propos du baromètre</h2>
+        <h2>À propos du baromètre</h2>
 
         <p>Le baromètre des salaires AFUP est un projet open-source porté par des bénévoles. Nous sommes toujours à la recherche de personnes pour aider sur ce projet, que ça soit côté technique, pour le lancement de l’enquête ou l’analyse des résultats. Si vous souhaitez participer vous pouvez envoyer un message à barometre@afup.org.</p>
 
