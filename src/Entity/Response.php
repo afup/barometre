@@ -181,6 +181,12 @@ class Response
     #[ORM\Column(type: 'integer', nullable: true)]
     private ?int $age = null;
 
+    #[ORM\Column(type: 'boolean', nullable: true)]
+    private ?bool $useGenerativeAI = null;
+
+    #[ORM\Column(type: 'boolean', nullable: true)]
+    private ?bool $includeAiInProject = null;
+
     public function __construct()
     {
         $this->certifications = new ArrayCollection();
@@ -893,6 +899,30 @@ class Response
     public function setAge(?int $age): self
     {
         $this->age = $age;
+
+        return $this;
+    }
+
+    public function getUseGenerativeAI(): ?bool
+    {
+        return $this->useGenerativeAI;
+    }
+
+    public function setUseGenerativeAI(?bool $useGenerativeAI): self
+    {
+        $this->useGenerativeAI = $useGenerativeAI;
+
+        return $this;
+    }
+
+    public function getIncludeAiInProject(): ?bool
+    {
+        return $this->includeAiInProject;
+    }
+
+    public function setIncludeAiInProject(?bool $includeAiInProject): self
+    {
+        $this->includeAiInProject = $includeAiInProject;
 
         return $this;
     }

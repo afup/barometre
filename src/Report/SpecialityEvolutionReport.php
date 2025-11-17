@@ -52,9 +52,14 @@ class SpecialityEvolutionReport extends AbstractReport implements AlterableRepor
         $framework = [
             'Symfony',
             'Laravel',
-            'Zend Framework',
             'Wordpress',
             'Drupal',
+            'Laminas',
+        ];
+
+        $laminas = [
+            'Zend Framework',
+            'Laminas (ex Zend Framework)',
         ];
 
         $otherFramework = 'Autre';
@@ -69,6 +74,10 @@ class SpecialityEvolutionReport extends AbstractReport implements AlterableRepor
 
             if (\in_array($row['specialityName'], $framework, true)) {
                 $specialityName = $row['specialityName'];
+            }
+
+            if (\in_array($row['specialityName'], $laminas, true)) {
+                $specialityName = 'Laminas';
             }
 
             if (!isset($data[$row['name']][$specialityName])) {

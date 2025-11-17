@@ -194,6 +194,14 @@ class ResponseFactory
             'oui' === mb_strtolower($data['formation_impact'] ?? null)
         );
 
+        $response->setUseGenerativeAI(
+            'oui' === mb_strtolower($data['use_generative_ai'] ?? null)
+        );
+
+        $response->setIncludeAiInProject(
+            'oui' === mb_strtolower($data['include_ai_in_project'] ?? null)
+        );
+
         return $response;
     }
 
@@ -202,7 +210,7 @@ class ResponseFactory
         foreach ($certificationList as $certification) {
             $certification = $this->certificationRepository->findOneBy(
                 [
-                    'name' => trim($certification),
+                    'name' => mb_trim($certification),
                 ]
             );
 
@@ -217,7 +225,7 @@ class ResponseFactory
     protected function addSpeciality(Response $response, array $specialityList)
     {
         foreach ($specialityList as $speciality) {
-            $speciality = $this->specialityRepository->findOneBy(['name' => trim($speciality)]);
+            $speciality = $this->specialityRepository->findOneBy(['name' => mb_trim($speciality)]);
 
             if (!$speciality instanceof Speciality) {
                 continue;
@@ -230,7 +238,7 @@ class ResponseFactory
     private function addHostingType(Response $response, array $hostingType)
     {
         foreach ($hostingType as $hostingTypeName) {
-            $hostingType = $this->hostingTypeRepository->findOneBy(['name' => trim($hostingTypeName)]);
+            $hostingType = $this->hostingTypeRepository->findOneBy(['name' => mb_trim($hostingTypeName)]);
 
             if (!$hostingType instanceof HostingType) {
                 continue;
@@ -243,7 +251,7 @@ class ResponseFactory
     private function addContainerEnvironmentUsage(Response $response, array $containerEnvironmentsUsage)
     {
         foreach ($containerEnvironmentsUsage as $name) {
-            $containerEnvironmentUsage = $this->containerEnvironmentUsageRepository->findOneBy(['name' => trim($name)]);
+            $containerEnvironmentUsage = $this->containerEnvironmentUsageRepository->findOneBy(['name' => mb_trim($name)]);
 
             if (!$containerEnvironmentUsage instanceof ContainerEnvironmentUsage) {
                 continue;

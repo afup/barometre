@@ -38,6 +38,10 @@
                 <source>menu.result2024</source>
                 <target>Résultats 2024</target>
             </trans-unit>
+            <trans-unit id="menu.result2025">
+                <source>menu.result2025</source>
+                <target>Résultats 2025</target>
+            </trans-unit>
             <trans-unit id="menu.results">
                 <source>menu.results</source>
                 <target>Résultats détaillés</target>
@@ -134,9 +138,21 @@
                 <source>filter.remote_work</source>
                 <target>Travail à distance</target>
             </trans-unit>
+            <trans-unit id="filter.use_generative_ai">
+                <source>filter.use_generative_ai</source>
+                <target>Utilisation de l'ia générative</target>
+            </trans-unit>
             <trans-unit id="filter.submit">
                 <source>filter.submit</source>
                 <target>Filtrer</target>
+            </trans-unit>
+            <trans-unit id="report.use_generative_ai.label">
+                <source>report.use_generative_ai.label</source>
+                <target>Utilisez-vous l’IA générative pour développer vos projets?</target>
+            </trans-unit>
+            <trans-unit id="report.include_ai_in_project.label">
+                <source>report.include_ai_in_project.label</source>
+                <target>Vos projets intègrent-ils des fonctionnalités liées à l'IA générative?</target>
             </trans-unit>
             <trans-unit id="report.company_departement.label">
                 <source>report.company_department.label</source>

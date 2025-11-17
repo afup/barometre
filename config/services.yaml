@@ -282,6 +282,14 @@ services:
         parent: App\Report\AbstractReport
         tags: ['barometre.report']
 
+    App\Report\UseGenerativeAiReport:
+      parent: App\Report\AbstractReport
+      tags: ['barometre.report']
+
+    App\Report\IncludeAiInProjectReport:
+      parent: App\Report\AbstractReport
+      tags: [ 'barometre.report' ]
+
     NumberFormatter:
         class: \NumberFormatter
         arguments: ['fr', '1']

@@ -1,0 +1,150 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}Résultats de la campagne {{ campaignName }}{% endblock %}
+
+{% block meta %}
+    {{ parent() }}
+    <meta property="og:title" content="Baromètre des salaires du PHP - Résultats {{ campaignName }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{{ absolute_url('/report/'~campaignName) }}" />
+    <meta property="og:description" content="Les résultats du baromètre des salaires en PHP {{ campaignName }} sont disponibles. Consultez les résultats de l'enquête de référence pour le milieu PHP menée par l'AFUP" />
+    <meta property="og:site_name" content="Baromètre des salaires - AFUP" />
+{% endblock %}
+
+
+{% block content %}
+    <div class="row report2015">
+        <div class="col-md-8">
+        <h1>Résultats de la campagne {{ campaignName }}</h1>
+
+        <p>
+            L’AFUP est ravie de vous présenter les résultats de son enquête effectuée en début d’année auprès d’environ 721 devs. Cette année est marquée par des salaires augmentés du niveau de l’inflation, sur fond d’écart des salaires entre les hommes et les femmes ne se réduisant pas, et sur une forte utilisation de l’IA générative. On vous explique tout cela en détail.
+        </p>
+
+        <h2>À propos de la campagne 2025</h2>
+        <p>Comme chaque année l’AFUP effectue une enquête auprès des développeurs et développeuses PHP. Cette enquête a eu lieu du 17 mars au 17 juin 2025.</p>
+
+        <p>Cette année nous avons ajouté deux questions liées à l’IA générative dont vous trouverez les résultats dans cette étude. Une page et deux filtres dédiés ont été ajoutés sur le baromètre.</p>
+
+        <h2>Profil des personnes ayant répondu</h2>
+        <p>Les personnes ayant répondu :</p>
+        <ul>
+            <li>sont en majorité des hommes, pour 93%, les femmes étant représentées à hauteur de 6% et les personnes non binaires à 1% ;</li>
+            <li>ont pour l’âge médian 35 ans ;</li>
+            <li>sont en CDI : cela reste de loin, le statut le plus représenté avec 92% des personnes ayant un contrat de travail de ce type ;</li>
+            <li>dans une zone géographique à forte densité (l’Île-de-France et la région Rhône-Alpes représentent à elles seules 47% des réponses (elles représentaient 44% des réponses en 2024)) ;</li>
+            <li>travaillent en majorité dans une PME (pour 82%) ;</li>
+            <li>utilisent en majorité Symfony (pour 67%, stable sur les 5 dernières années) ;</li>
+            <li>utilisent à 53% Linux en tant que système d’exploitation principal;</li>
+            <li>font de la veille technique chaque semaine (pour 63%) ;</li>
+            <li>26 % sont issues d’une reconversion ;</li>
+            <li>96% font du télétravail, et ces personnes le font à 35% à temps plein ;</li>
+            <li>16% ont suivi une formation au cours des deux dernières années, et pour 16% de ces derniers, cela a eu un impact sur leur rémunération ; </li>
+            <li>utilisent à 90% PHP 8</li>
+        </ul>
+
+
+        <h1>Analyse</h1>
+
+        <h2>Une augmentation des salaires qui suit l’inflation</h2>
+
+        <p>Nous pouvons constater sur </p>
+
+        <a href="{{ absolute_url('/report/salary?filter[campaign][]='~campaignId~'&filter[job_title][]=11&filter[job_title][]=12&filter[job_title][]=13&filter[job_title][]=14') }}" class="report-image">
+            <img src="{{ asset('reports/2025/evolution_salaire.png') }}" alt="Évolution des salaires"/>
+        </a>
+
+        <p>que les profils de dev/lead tech en CDI ont vu sur les deux dernières années des augmentations de salaire similaires au taux d’inflation (<a href="https://www.insee.fr/fr/statistiques/2414942#tableau-figure1">https://www.insee.fr/fr/statistiques/2414942#tableau-figure1</a>) de l’année précédente.</p>
+
+        <p>Le salaire médian augmente de +2,17 % en 2025, après +4,55 % en 2024. Ces évolutions suivent de près l’inflation des années précédentes (2 % en 2024 ; 4,9 % en 2023)</p>
+
+        <p>Depuis que le baromètre des salaires existe, nous avions plutôt constaté des augmentations de salaire bien plus fortes que l’inflation, comme en 2015, 2017, 2020 et 2021. Depuis 2022 ces augmentations sont équivalentes à l’inflation, à l’exception de 2023 où l’augmentation était inférieure à l’inflation.</p>
+
+        <img src="{{ asset('reports/2025/comparatif_avec_inflation.png') }}" alt="Comparaison du salaire médian des devs/tech lead en CDI avec l'inflation de l'année précédente"/>
+
+        <p>Si l’on regarde la période de 2013 à 2025, le salaire médian en euros courants a gagné environ 12 000 €. Rapporté en euros constants, le gain net tourne autour de 1 151 €.</p>
+
+        <img src="{{ asset('reports/2025/salaire_median_euros_constants.png') }}" alt="Salaire médian et salaire médian en euros constants" />
+
+
+        <h2>Un écart hommes/femmes qui ne se réduit toujours pas</h2>
+
+        <p>Le salaire moyen des hommes dev/tech lead en CDI est de 53k, il a connu une augmentation de 5,1%, alors que le salaire moyen des femmes dev/tech lead en CDI est de 47k, et a connu une augmentation de 5,6%.</p>
+
+        <p>Ces salaires moyens ont augmenté de façon similaire, ce qui fait que l’écart reste toujours le même à travers le temps et, pour l'instant, il n’y a pas de tendance à ce que le salaire des femmes rejoigne celui des hommes.</p>
+
+        <a href="{{ absolute_url('/report/gender?filter[campaign][]='~campaignId~'&filter[job_title][]=11&filter[job_title][]=12&filter[job_title][]=13&filter[job_title][]=14') }}" class="report-image">
+            <img src="{{ asset('reports/2025/evolution_salaire_moyen_genre.png') }}" alt="Évolution du salaire moyen par genre"/>
+        </a>
+
+
+        <h2>Une pratique du télétravail stable depuis 4 ans</h2>
+
+        <p>Le télétravail s’est installé avec 81 % des répondant·es qui le pratiquent régulièrement ou à temps plein, contre 16 % seulement en 2019. Après le pic de 2020‑2021, on observe un plateau haut depuis 2022.</p>
+
+        <a href="{{ absolute_url('/report/remote_usage?filter[campaign][]='~campaignId~'&filter[job_title][]=11&filter[job_title][]=12&filter[job_title][]=13&filter[job_title][]=14') }}" class="report-image">
+            <img src="{{ asset('reports/2025/repartition_teletravailleurs.png') }}" alt="Évolution de la répartition des télétravailleurs"/>
+        </a>
+
+        <h2>Un fort usage de l’IA générative pour développer les projets</h2>
+
+        <p>Comme indiqué précédemment nous avons cette année ajouté 2 questions, la première concernait l’usage de l’IA générative pour développer les projets.</p>
+
+        <p>Cet usage est fortement répandu parmi les répondants et répondantes. Deux personnes sur trois déclarent utiliser l'IA pour développer leurs projets.</p>
+
+        <p>Nous continuerons de suivre l’évolution de cette métrique au cours des prochaines enquêtes.</p>
+
+        <a href="{{ absolute_url('/report/use_generative_ai?filter[campaign][]='~campaignId) }}" class="report-image">
+            <img src="{{ asset('reports/2025/use_generative_ai.png') }}" alt="Utilisez-vous l'IA générative pour développer vos projets"/>
+        </a>
+
+        <h2>Une intégration significative de l’IA générative dans les projets</h2>
+
+        <p>Pour ce qui est de l’intégration de l’IA générative dans les projets, même si celle-ci est bien moindre que l’usage de l’IA générative pour développer les projets, elle est tout de même très forte.</p>
+
+        <p>En effet, 28% des projets des personnes interrogées intègrent des fonctionnalités d’IA générative dans leur projets. </p>
+
+        <p>Là aussi nous continuerons de suivre cet indicateur à travers le temps.</p>
+
+        <a href="{{ absolute_url('/report/include_ai_in_project?filter[campaign][]='~campaignId) }}" class="report-image">
+            <img src="{{ asset('reports/2025/ia_usage_in_project.png') }}" alt="Vos projets intègrent-ils des fonctionnalités liées à l'IA générative?"/>
+        </a>
+
+
+        <h2>À propos du baromètre</h2>
+
+        <p>Le baromètre des salaires AFUP est un projet open-source porté par des bénévoles. Nous sommes toujours à la recherche de personnes pour aider sur ce projet, que ça soit côté technique, pour le lancement de l’enquête ou l’analyse des résultats. Si vous souhaitez participer vous pouvez envoyer un message à barometre@afup.org.</p>
+
+
+        <h2>A propos de l’AFUP</h2>
+
+            <p>L'<a href="http://www.afup.org" title="Association Française des Utilisateurs de PHP">association française des utilisateurs de PHP</a> (AFUP) et <a href="https://www.humancoders.com/">Human Coders</a> vous présentent pour la 13ème année consécutive le baromètre des salaires AFUP – 2025.</p>
+
+            <p>Comme chaque année, le baromètre AFUP répond aux questions que se posent les professionnel·le·s de notre secteur :</p>
+            <ul>
+                <li>Combien gagne un·e développeur·euse débutant·e ?</li>
+                <li>Comment les salaires évoluent-ils avec l'expérience ?</li>
+                <li>Quelles sont les technos qui rapportent le plus ?</li>
+                <li>Dans quelles villes touche-t-on les meilleurs salaires ?</li>
+            </ul>
+
+            <p>Nous espérons que vous aurez une vision claire du marché après consultation de ce baromètre des salaires en PHP.</p>
+
+            <h3>AFUP</h3>
+            <p>L'<a href="http://www.afup.org" title="Association Française des Utilisateurs de PHP">AFUP</a>,  Association Française des Utilisateurs de PHP, est une association loi 1901, qui a pour objectif principal de promouvoir le langage PHP auprès des professionnel·le·s et de participer à son développement. Elle organise de nombreux événements tout au long de l'année, notamment le Forum PHP et les AFUP Day, elle diffuse et partage les connaissances auprès des utilisateurs et utilisatrices de PHP, et participe à la valorisation des développeurs et développeuses PHP sur le marché du travail.</p>
+
+            <h3>Human Coders</h3>
+
+            <p><a href="https://www.humancoders.com/">Human Coders</a> est un centre de formation pour développeur·euse·s. Fondé par 2 développeurs web il y a 13 ans, il forme sur plus de 150 langages / frameworks / méthodologies dont bien sûr PHP, Symfony et Laravel, mais aussi sur d’autres domaines comme le frontend, l’IA ou encore devops.</p>
+
+            <p>Convaincu de l’importance de faire de la veille pour rester à jour, Human Coders, c’est aussi un podcast pour développeur·euse·s, un site d’actualité et des événements mensuels dans toute la France.</p>
+        </div>
+        <div class="col-md-4">
+            <h1>Résultats détaillés</h1>
+
+            <div class="well">
+                {% block menu_reports knp_menu_render('reports_menu', {}, 'reports') %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
