@@ -1,2 +1,2 @@
-docker-compose exec db mysql -uroot -proot barometre
+docker compose exec db mysql -uroot -proot barometre
 

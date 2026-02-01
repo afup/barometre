@@ -1,1 +1,1 @@
-docker-compose run cli /bin/bash -l
+docker compose run cli /bin/bash -l
