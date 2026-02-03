@@ -10,29 +10,3 @@ services:
       MYSQL_DATABASE: barometre
     volumes:
       - ./docker/data/mysql:/var/lib/mysql
-
-  web:
-    build:
-      context: ./docker/dockerfiles/web
-      args:
-        uid: "${CURRENT_UID:-1001}"
-    volumes:
-      - .:/var/www/html
-    depends_on:
-      - db
-    env_file:
-      - .env
-
-  cli:
-    build:
-      context: ./docker/dockerfiles/cli
-      args:
-        uid: "${CURRENT_UID:-1001}"
-    volumes:
-      - .:/var/www/html
-    command: "false"
-    working_dir: /var/www/html
-    depends_on:
-      - db
-    env_file:
-      - .env

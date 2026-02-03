@@ -8,24 +8,29 @@ Lors du forum PHP 2013 l’Association Française des Utilisateurs de PHP (AFUP)
 
 Ce site a pour vocation de présenter les résultats de cette enquête en permettant de filtrer sur différents critères (le département, la rémunération, le type d'entreprise...) pour ainsi présenter des résultats plus en accord avec la situation du développeur les consultant.
 
-## Installation via docker
+## Installation locale (Symfony CLI + MySQL Docker)
 
 * cloner le dépot
-* effectuer un `make docker-up` pour la création de l'infrastructure sous docker
-* effectuer un `make init` pour la copie des fichiers de config par défaut, l'installation des dépendances et le build des assets.
+* installer Symfony CLI : https://symfony.com/download
+* démarrer MySQL : `make docker-up`
+* installer les dépendances et initialiser la base : `make init`
 
-_Les ports utilisés peuvent être modifiés dans le fichier `docker-compose.override.yml`._
+_Le port MySQL exposé est `3399` via `docker-compose.override.yml`._
 
-### Problème connus
-
-Lors de l'installation du projet avec docker, nous utilisons l'id de l'utilisateurs courant pour palier les différents problèmes de droits,
-Avec docker-machine, l'id de l'utilisateurs courant ne correspond pas à celui de docker-machine,
-pour que cela fonctionne correctement il faut surcharger la variable d'envirronement CURRENT_UID avec la valeur 1000.
-
-exemple:
+### Lancer l'application avec Symfony CLI
 
 ```
-CURRENT_UID=1000 make docker-up
+symfony server:start
+```
+
+Par défaut, Symfony CLI sert le dossier `public/`. Vous pouvez ensuite accéder au site via l’URL indiquée par la commande.
+
+Commandes utiles :
+
+```
+symfony server:stop
+symfony server:status
+symfony server:log
 ```
 
 ## Installation manuelle
