@@ -73,7 +73,7 @@ class DistrictFilter implements FilterInterface
     {
         $choices = $this->getChoices();
 
-        return array_map(function ($code) use ($choices) {
+        return array_map(static function ($code) use ($choices) {
             return $choices[$code];
         }, $value);
     }

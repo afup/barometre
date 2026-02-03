@@ -6,7 +6,7 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
-        "php": ">=8.1",
+        "php": ">=8.5",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "agallou/departements": "^0.1.0",
