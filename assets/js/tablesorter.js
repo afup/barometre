@@ -7,10 +7,10 @@ $(document).ready(function () {
         header     : 'bootstrap-header', // give the header a gradient background
         footerRow  : '',
         footerCells: '',
-        icons      : '', // add "icon-white" to make them white; this icon class is added to the <i> in the header
-        sortNone   : 'icon-unsorted icon icon-chevron-up',
-        sortAsc    : 'icon-sorted icon icon-chevron-up ',     // includes classes for Bootstrap v2 & v3
-        sortDesc   : 'icon-sorted icon icon-chevron-down ', // includes classes for Bootstrap v2 & v3
+        icons        : 'fa', // base icon class added to the <i> in the header
+        iconSortNone : 'fa-chevron-up fa-unsorted',
+        iconSortAsc  : 'fa-chevron-up',     // includes classes for Bootstrap v2 & v3
+        iconSortDesc : 'fa-chevron-down', // includes classes for Bootstrap v2 & v3
         active     : '', // applied when column is sorted
         hover      : '', // use custom css here - bootstrap class may not override it
         filterRow  : '', // filter row class
@@ -21,7 +21,7 @@ $(document).ready(function () {
 
     $('table.tablesorter').tablesorter({
         theme : "bootstrap",
-        headerTemplate : '{icon} {content}',
+        headerTemplate : '{content} {icon}',
         widgets : [ "uitheme"]
     });
 });

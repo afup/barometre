@@ -1,8 +1,12 @@
-.icon-unsorted {
+.fa-unsorted {
   opacity: .2;
+}
+
+.tablesorter-header-inner .tablesorter-icon {
+  display: inline-block;
+  margin-left: 0.35em;
 }
 
 .tablesorter-header-inner {
   cursor: pointer;
 }
-
