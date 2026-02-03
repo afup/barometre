@@ -286,7 +286,7 @@ parameters:
 
         2025:
             -
-                url: https://blog.humancoders.com/quel-est-le-salaire-moyen-dun%c2%b7e-developpeur%c2%b7euse-php-le-barometre-2025-vient-de-sortir-3913/
+                url: "https://blog.humancoders.com/quel-est-le-salaire-moyen-dun·%b7e-developpeur·euse-php-le-barometre-2025-vient-de-sortir-3913/"
                 title: "Le salaire moyen d’un·e développeur·se PHP : Le baromètre 2025 vient de sortir"
                 media_logo: human_coders.png
                 date: "2025-11-18"
