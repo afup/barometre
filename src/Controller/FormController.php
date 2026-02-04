@@ -16,7 +16,7 @@ class FormController extends AbstractController
         $reportManager->handleRequest($requestStack->getMainRequest());
 
         return $this->render('Form/index.html.twig', [
-            'form' => $this->reportManager->getForm()->createView(),
+            'form' => $reportManager->getForm()->createView(),
         ]);
     }
 }

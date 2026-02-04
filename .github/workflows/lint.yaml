@@ -1,12 +1,45 @@
 on: [push, pull_request]
-name: Lint
+name: CI
+
 jobs:
     php-cs-fixer:
         name: PHP-CS-Fixer
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@master
+            - uses: actions/checkout@v4
             - name: PHP-CS-Fixer
               uses: docker://oskarstark/php-cs-fixer-ga
               with:
                   args: --diff --dry-run
+
+    phpstan:
+        name: PHPStan
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: '8.5'
+                  extensions: intl, pdo_mysql
+            - name: Install dependencies
+              run: composer install --prefer-dist --no-progress
+            - name: Generate Symfony cache
+              run: php bin/console cache:warmup --env=dev
+            - name: Run PHPStan
+              run: vendor/bin/phpstan analyse --no-progress
+
+    tests:
+        name: Tests
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: '8.5'
+                  extensions: intl, pdo_mysql
+            - name: Install dependencies
+              run: composer install --prefer-dist --no-progress
+            - name: Run tests
+              run: vendor/bin/atoum -d tests/

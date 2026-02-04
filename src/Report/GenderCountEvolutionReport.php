@@ -19,7 +19,7 @@ class GenderCountEvolutionReport extends AbstractDistributionEvolutionReport
      *
      * @return int
      */
-    public function getWeight()
+    public function getWeight(): int
     {
         return -20;
     }

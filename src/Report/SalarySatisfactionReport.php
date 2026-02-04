@@ -38,7 +38,7 @@ class SalarySatisfactionReport extends AbstractReport
      *
      * @return int
      */
-    public function getWeight()
+    public function getWeight(): int
     {
         return 5;
     }

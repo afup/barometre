@@ -92,8 +92,7 @@ class ReportManager
         $report = $this->reportCollection->getReport($reportName);
 
         if (!$report) {
-            // exception
-            return;
+            throw new \InvalidArgumentException(\sprintf('Report "%s" not found.', $reportName));
         }
 
         $reportQueryBuilder = $this->createBaseQueryBuilder();

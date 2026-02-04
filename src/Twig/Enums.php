@@ -30,14 +30,12 @@ class Enums extends AbstractExtension
     /**
      * @param int    $enumId
      * @param string $enumName
-     *
-     * @return string
      */
-    public function enumLabel($enumId, $enumName)
+    public function enumLabel($enumId, $enumName): string
     {
         $choices = $this->enums->getEnums($enumName)->getChoices();
         if (!isset($choices[$enumId])) {
-            return $enumId;
+            return (string) $enumId;
         }
 
         return $choices[$enumId];

@@ -42,7 +42,7 @@ class SpecialityFilter implements FilterInterface
 
         $specialities = $values[$this->getName()]->toArray();
         $specialities = array_map(static function (Speciality $item) {
-            return $item->getId();
+            return (string) $item->getId();
         }, $specialities);
 
         $queryBuilder

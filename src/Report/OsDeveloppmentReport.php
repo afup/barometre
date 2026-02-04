@@ -35,7 +35,7 @@ class OsDeveloppmentReport extends AbstractReport
      *
      * @return int
      */
-    public function getWeight()
+    public function getWeight(): int
     {
         return -20;
     }

@@ -94,7 +94,7 @@ class CompanyCountyReport extends AbstractReport
      *
      * @return int
      */
-    public function getWeight()
+    public function getWeight(): ?int
     {
         return null;
     }

@@ -49,10 +49,7 @@ interface ReportInterface
      */
     public function execute();
 
-    /**
-     * @return int|null
-     */
-    public function getWeight();
+    public function getWeight(): ?int;
 
     /**
      * @return ReportInterface[]

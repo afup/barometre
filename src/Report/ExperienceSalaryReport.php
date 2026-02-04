@@ -21,7 +21,7 @@ class ExperienceSalaryReport extends AbstractExperienceReport
      *
      * @return int
      */
-    public function getWeight()
+    public function getWeight(): int
     {
         return 4;
     }

@@ -41,10 +41,8 @@ class FilterCollection
 
     /**
      * Build Form.
-     *
-     * @return FormInterface
      */
-    public function buildForm(FormBuilderInterface $builder)
+    public function buildForm(FormBuilderInterface $builder): void
     {
         ksort($this->filters);
         foreach ($this->filters as $filter) {
