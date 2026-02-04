@@ -23,7 +23,7 @@ class SpecialityFilter implements FilterInterface
             'attr' => ['class' => 'select2'],
             'multiple' => true,
             'required' => false,
-            'query_builder' => function (EntityRepository $repository) {
+            'query_builder' => static function (EntityRepository $repository) {
                 return $repository
                     ->createQueryBuilder('speciality')
                     ->orderBy('speciality.name', 'ASC');
@@ -41,7 +41,7 @@ class SpecialityFilter implements FilterInterface
         }
 
         $specialities = $values[$this->getName()]->toArray();
-        $specialities = array_map(function (Speciality $item) {
+        $specialities = array_map(static function (Speciality $item) {
             return $item->getId();
         }, $specialities);
 

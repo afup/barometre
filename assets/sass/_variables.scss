@@ -1,6 +1,7 @@
 $bootstrap-sass-asset-helper: false;
+@use "sass:color";
 $icon-font-path: "../fonts/";
 
 // Colors:
 $afup-blue: #4c6eaf;
-$afup-blue-light: lighten($afup-blue, 33%);
+$afup-blue-light: color.adjust($afup-blue, $lightness: 33%);

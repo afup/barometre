@@ -23,7 +23,7 @@ class CampaignFilter implements FilterInterface
             'attr' => ['class' => 'select2'],
             'multiple' => true,
             'required' => false,
-            'query_builder' => function (EntityRepository $repository) {
+            'query_builder' => static function (EntityRepository $repository) {
                 return $repository
                     ->createQueryBuilder('campaign')
                     ->orderBy('campaign.name', 'ASC');
@@ -40,7 +40,7 @@ class CampaignFilter implements FilterInterface
             return;
         }
 
-        $campaigns = array_map(function (Campaign $item) {
+        $campaigns = array_map(static function (Campaign $item) {
             return $item->getId();
         }, $values[$this->getName()]->toArray());
 

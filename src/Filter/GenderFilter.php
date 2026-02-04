@@ -38,7 +38,7 @@ class GenderFilter implements FilterInterface
         }
 
         $condition = array_map(
-            function ($value) use ($queryBuilder) {
+            static function ($value) use ($queryBuilder) {
                 if ('' === $value) {
                     return $queryBuilder->expr()->isNull('response.gender');
                 }

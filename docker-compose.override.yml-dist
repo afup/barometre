@@ -4,7 +4,3 @@ services:
   db:
     ports:
       - "3399:3306"
-
-  web:
-    ports:
-      - "9008:80"

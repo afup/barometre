@@ -108,7 +108,7 @@ abstract class AbstractReport implements ReportInterface
 
         if (0 === $totalResponseNumber) {
             return array_map(
-                function ($response) {
+                static function ($response) {
                     $response['percentResponse'] = 0;
 
                     return $response;
@@ -118,7 +118,7 @@ abstract class AbstractReport implements ReportInterface
         }
 
         return array_map(
-            function ($response) use ($totalResponseNumber) {
+            static function ($response) use ($totalResponseNumber) {
                 $response['percentResponse'] = $response['nbResponse'] * 100 / $totalResponseNumber;
 
                 return $response;
@@ -134,7 +134,7 @@ abstract class AbstractReport implements ReportInterface
     {
         return array_reduce(
             $data,
-            function ($totalResponseNumber, $response) {
+            static function ($totalResponseNumber, $response) {
                 return $totalResponseNumber += $response['nbResponse'];
             },
             0

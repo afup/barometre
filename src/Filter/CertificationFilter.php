@@ -23,7 +23,7 @@ class CertificationFilter implements FilterInterface
             'attr' => ['class' => 'select2'],
             'multiple' => true,
             'required' => false,
-            'query_builder' => function (EntityRepository $repository) {
+            'query_builder' => static function (EntityRepository $repository) {
                 return $repository
                     ->createQueryBuilder('certification')
                     ->orderBy('certification.name', 'ASC');
@@ -41,7 +41,7 @@ class CertificationFilter implements FilterInterface
         }
 
         $certifications = $values[$this->getName()]->toArray();
-        $certifications = array_map(function (Certification $item) {
+        $certifications = array_map(static function (Certification $item) {
             return $item->getId();
         }, $certifications);
 

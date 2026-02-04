@@ -1,3 +1,6 @@
+@use "sass:color";
+@use "sass:math";
+
 // Bootstrap overide:
 $brand-primary: $afup-blue;
 $font-family-title: "Glegoo", Helvetica, Arial, sans-serif;
@@ -6,15 +9,15 @@ $font-size-base: 14px;
 // Navbar
 $navbar-height: 60px;
 $navbar-inverse-bg: $afup-blue;
-$navbar-inverse-link-color: lighten(#000, 93.5%);
+$navbar-inverse-link-color: color.adjust(#000, $lightness: 93.5%);
 $navbar-margin-bottom: 0;
 
 // Titles
-$font-size-h1: floor($font-size-base * 2.4); // ~36px
-$font-size-h2: floor($font-size-base * 2); // ~30px
-$font-size-h3: ceil($font-size-base * 1.5); // ~24px
-$font-size-h4: ceil($font-size-base * 1.2); // ~18px
+$font-size-h1: math.floor($font-size-base * 2.4); // ~36px
+$font-size-h2: math.floor($font-size-base * 2); // ~30px
+$font-size-h3: math.ceil($font-size-base * 1.5); // ~24px
+$font-size-h4: math.ceil($font-size-base * 1.2); // ~18px
 $font-size-h5: $font-size-base;
-$font-size-h6: ceil($font-size-base * .85); // ~12px
+$font-size-h6: math.ceil($font-size-base * 0.85); // ~12px
 
 $btn-info-bg: $afup-blue;

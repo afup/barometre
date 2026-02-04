@@ -16,6 +16,15 @@ services:
         autowire: true      # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
 
+    knp_menu.twig.extension:
+        class: Knp\Menu\Twig\MenuExtension
+        arguments:
+            - '@knp_menu.helper'
+            - '@knp_menu.matcher'
+            - '@knp_menu.manipulator'
+        tags:
+            - { name: twig.extension }
+
     _instanceof:
         App\Enums\EnumsInterface:
             tags: ['barometre.enums']
@@ -90,7 +99,7 @@ services:
             - { name: knp_menu.menu, alias: reports_menu } # The alias is what is used to retrieve the menu
 
     afup.barometre.reports_menu.renderer:
-        class: '%knp_menu.renderer.twig.class%'
+        class: Knp\Menu\Renderer\TwigRenderer
         arguments:
             - '@twig'
             - 'Default/knp_menu_reports.html.twig'

@@ -3,10 +3,10 @@
 CURRENT_UID ?= $(shell id -u)
 
 init:
-	docker-compose run --rm cli /bin/bash -l -c "make vendors"
-	docker-compose run --rm cli /bin/bash -l -c "./node_modules/grunt-cli/bin/grunt"
-	docker-compose run --rm cli /bin/bash -l -c "php bin/console doctrine:schema:update --force"
-	docker-compose run --rm cli /bin/bash -l -c "php -d "memory_limit=-1" bin/console doctrine:fixtures:load --no-interaction"
+	make vendors
+	./node_modules/grunt-cli/bin/grunt
+	php bin/console doctrine:schema:update --force
+	php -d "memory_limit=-1" bin/console doctrine:fixtures:load --no-interaction
 
 vendors: node_modules vendor
 
@@ -19,15 +19,8 @@ node_modules:
 asset_install:
 	node_modules/grunt-cli/bin/grunt
 
-docker-up: var/logs/.docker-build data_dirs
-	docker-compose up
-
-docker-build: var/logs/.docker-build
-
-var/logs/.docker-build: docker-compose.yml docker-compose.override.yml $(shell find docker/dockerfiles -type f)
-	docker-compose rm --force
-	CURRENT_UID=$(CURRENT_UID) docker-compose build
-	touch var/logs/.docker-build
+docker-up: data_dirs
+	docker-compose up -d db
 
 data_dirs: docker/data docker/data/composer
 

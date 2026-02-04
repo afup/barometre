@@ -9,7 +9,7 @@
     <div class="form-group">
         <a href="#" class="filter-toggler">
             {{ label|trans({}, translation_domain) }}
-            <i class="icon {% if value is empty %}icon-chevron-down{% else %}icon-chevron-up{% endif %}"></i>
+            <i class="fa {% if value is empty %}fa-chevron-down{% else %}fa-chevron-up{% endif %}"></i>
         </a>
         {{ form_errors(form) }}
         <div class="form-row-content" {% if value is empty %}style="display: none"{% endif %}>
@@ -48,7 +48,7 @@
     <div class="form-group">
         <a href="#" class="filter-toggler">
             {{ label|trans({}, translation_domain) }}
-            <i class="icon {% if form.min.vars.value is empty and form.max.vars.value is empty %}icon-chevron-down{% else %}icon-chevron-up{% endif %}"></i>
+            <i class="fa {% if form.min.vars.value is empty and form.max.vars.value is empty %}fa-chevron-down{% else %}fa-chevron-up{% endif %}"></i>
         </a>
         {{ form_errors(form) }}
         <div class="form-row-content" {% if form.min.vars.value is empty and form.max.vars.value is empty %}style="display: none"{% endif %}>

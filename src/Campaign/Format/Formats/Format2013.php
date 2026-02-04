@@ -47,7 +47,7 @@ class Format2013 implements FormatInterface
      */
     public function alterData(array $data)
     {
-        array_walk($data, function (&$item) {
+        array_walk($data, static function (&$item) {
             $item = utf8_encode($item);
         });
 
