@@ -59,8 +59,6 @@ class GenderSalaryEvolutionReport extends AbstractReport implements AlterableRep
 
     /**
      * report weight.
-     *
-     * @return int
      */
     public function getWeight(): int
     {

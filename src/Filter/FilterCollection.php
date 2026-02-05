@@ -6,7 +6,6 @@ namespace App\Filter;
 
 use Doctrine\DBAL\Query\QueryBuilder;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\FormInterface;
 
 /**
  * A collection of filter.

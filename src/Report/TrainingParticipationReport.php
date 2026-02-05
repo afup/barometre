@@ -49,8 +49,6 @@ class TrainingParticipationReport extends AbstractReport
 
     /**
      * report weight.
-     *
-     * @return int
      */
     public function getWeight(): int
     {

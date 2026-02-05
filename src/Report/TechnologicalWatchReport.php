@@ -32,8 +32,6 @@ class TechnologicalWatchReport extends AbstractReport
 
     /**
      * report weight.
-     *
-     * @return int
      */
     public function getWeight(): int
     {
