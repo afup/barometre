@@ -22,12 +22,15 @@ jobs:
               with:
                   php-version: '8.5'
                   extensions: intl, pdo_mysql
-            - name: Install dependencies
+            - name: Install project dependencies
               run: composer install --prefer-dist --no-progress
+            - name: Install PHPStan
+              run: composer install --prefer-dist --no-progress
+              working-directory: tools/phpstan
             - name: Generate Symfony cache
               run: php bin/console cache:warmup --env=dev
             - name: Run PHPStan
-              run: vendor/bin/phpstan analyse --no-progress
+              run: tools/phpstan/vendor/bin/phpstan analyse --no-progress
 
     tests:
         name: Tests

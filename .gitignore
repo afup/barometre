@@ -29,3 +29,7 @@
 /.php-cs-fixer.php
 /.php-cs-fixer.cache
 ###< friendsofphp/php-cs-fixer ###
+
+###> tools ###
+/tools/*/vendor/
+###< tools ###

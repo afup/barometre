@@ -86,9 +86,6 @@
         "doctrine/doctrine-fixtures-bundle": "^3.4",
         "friendsofphp/php-cs-fixer": "^3.75",
         "nelmio/alice": "^3.10",
-        "phpstan/phpstan": "^2.0",
-        "phpstan/phpstan-doctrine": "^2.0",
-        "phpstan/phpstan-symfony": "^2.0",
         "symfony/maker-bundle": "^1.36",
         "symfony/stopwatch": "^6.4",
         "symfony/web-profiler-bundle": "^6.4"
