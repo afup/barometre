@@ -84,7 +84,6 @@
     "require-dev": {
         "atoum/atoum": "^4.0",
         "doctrine/doctrine-fixtures-bundle": "^3.4",
-        "friendsofphp/php-cs-fixer": "^3.75",
         "nelmio/alice": "^3.10",
         "symfony/maker-bundle": "^1.36",
         "symfony/stopwatch": "^6.4",
