@@ -46,10 +46,11 @@ class MeetupParticipationFilter implements FilterInterface
 
         $conditions = [];
         foreach ($values[$this->getName()] as $enum) {
-            $conditions[] = match ($enum) {
+            $conditions[] = match ((int) $enum) {
                 MeetupParticipationEnums::ONE_PER_MONTH => $queryBuilder->expr()->gte('response.numberMeetupParticipation', 12),
                 MeetupParticipationEnums::ONE_PER_QUARTER => $queryBuilder->expr()->and($queryBuilder->expr()->gt('response.numberMeetupParticipation', 0), $queryBuilder->expr()->lt('response.numberMeetupParticipation', 12)),
                 MeetupParticipationEnums::NEVER => $queryBuilder->expr()->eq('response.numberMeetupParticipation', 0),
+                default => throw new \InvalidArgumentException(\sprintf('Unknown meetup participation enum: %s', $enum)),
             };
         }
 

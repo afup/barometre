@@ -1,0 +1,18 @@
+on: [push, pull_request]
+name: Tests
+
+jobs:
+    tests:
+        name: Tests
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: '8.5'
+                  extensions: intl, pdo_mysql
+            - name: Install dependencies
+              run: composer install --prefer-dist --no-progress
+            - name: Run tests
+              run: vendor/bin/phpunit

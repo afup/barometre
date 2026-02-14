@@ -41,7 +41,7 @@ class ExperienceFilter implements FilterInterface
 
         $conditions = [];
         foreach ($values[$this->getName()] as $enum) {
-            $conditions[] = match ($enum) {
+            $conditions[] = match ((int) $enum) {
                 ExperienceEnums::XP_0_2 => $queryBuilder->expr()->lt('response.experienceInYear', 2),
                 ExperienceEnums::XP_2_5 => $queryBuilder->expr()->and($queryBuilder->expr()->gte('response.experienceInYear', 2), $queryBuilder->expr()->lt('response.experienceInYear', 5)),
                 ExperienceEnums::XP_5_10 => $queryBuilder->expr()->and($queryBuilder->expr()->gte('response.experienceInYear', 5), $queryBuilder->expr()->lt('response.experienceInYear', 10)),
@@ -52,6 +52,7 @@ class ExperienceFilter implements FilterInterface
                 ExperienceEnums::XP_30_35 => $queryBuilder->expr()->and($queryBuilder->expr()->gte('response.experienceInYear', 30), $queryBuilder->expr()->lt('response.experienceInYear', 35)),
                 ExperienceEnums::XP_35_40 => $queryBuilder->expr()->and($queryBuilder->expr()->gte('response.experienceInYear', 35), $queryBuilder->expr()->lt('response.experienceInYear', 40)),
                 ExperienceEnums::XP_40 => $queryBuilder->expr()->gte('response.experienceInYear', 40),
+                default => throw new \InvalidArgumentException(\sprintf('Unknown experience enum: %s', $enum)),
             };
         }
         $queryBuilder->andWhere(

@@ -77,11 +77,11 @@ abstract class AbstractSalaryExperienceWithColumnReport extends AbstractReport
     /**
      * {@inheritdoc}
      */
-    public function hasResults()
+    public function hasResults(): bool
     {
         $data = $this->getData();
 
-        return \count($data['data']);
+        return \count($data['data']) > 0;
     }
 
     abstract protected function getColumn(): string;

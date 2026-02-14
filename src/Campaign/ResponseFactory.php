@@ -187,19 +187,19 @@ class ResponseFactory
         }
 
         $response->setHasRecentTraining(
-            'oui' === mb_strtolower($data['has_formation'] ?? null)
+            'oui' === mb_strtolower($data['has_formation'] ?? '')
         );
 
         $response->setIsRecentTrainingHadSalaryImpact(
-            'oui' === mb_strtolower($data['formation_impact'] ?? null)
+            'oui' === mb_strtolower($data['formation_impact'] ?? '')
         );
 
         $response->setUseGenerativeAI(
-            'oui' === mb_strtolower($data['use_generative_ai'] ?? null)
+            'oui' === mb_strtolower($data['use_generative_ai'] ?? '')
         );
 
         $response->setIncludeAiInProject(
-            'oui' === mb_strtolower($data['include_ai_in_project'] ?? null)
+            'oui' === mb_strtolower($data['include_ai_in_project'] ?? '')
         );
 
         return $response;

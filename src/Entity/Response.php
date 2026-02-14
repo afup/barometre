@@ -18,7 +18,7 @@ class Response
     private int $id;
 
     #[ORM\ManyToOne(targetEntity: Campaign::class)]
-    #[ORM\JoinColumn(name: 'campaign_id', referencedColumnName: 'id')]
+    #[ORM\JoinColumn(name: 'campaign_id', referencedColumnName: 'id', nullable: false)]
     private Campaign $campaign;
 
     #[ORM\Column(type: 'integer', nullable: true)]
@@ -66,6 +66,7 @@ class Response
     #[ORM\Column(type: 'integer', nullable: true)]
     private ?int $companySize = null;
 
+    /** @var Collection<int, JobInterest> */
     #[ORM\ManyToMany(targetEntity: JobInterest::class)]
     private Collection $jobInterests;
 
@@ -90,15 +91,18 @@ class Response
     #[ORM\Column(type: 'integer', nullable: true)]
     private ?int $osDeveloppment = null;
 
+    /** @var Collection<int, HostingType> */
     #[ORM\ManyToMany(targetEntity: HostingType::class)]
     private Collection $hostingTypes;
 
+    /** @var Collection<int, ContainerEnvironmentUsage> */
     #[ORM\ManyToMany(targetEntity: ContainerEnvironmentUsage::class)]
     private Collection $containerEnvironmentsUsage;
 
     #[ORM\Column(type: 'integer', nullable: true)]
     private ?int $workMethod = null;
 
+    /** @var Collection<int, Speciality> */
     #[ORM\ManyToMany(targetEntity: Speciality::class)]
     private Collection $specialities;
 
@@ -114,6 +118,7 @@ class Response
     #[ORM\Column(type: 'integer', nullable: true)]
     private ?int $cmsUsageInProject = null;
 
+    /** @var Collection<int, Certification> */
     #[ORM\ManyToMany(targetEntity: Certification::class)]
     private Collection $certifications;
 

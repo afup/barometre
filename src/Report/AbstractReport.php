@@ -51,17 +51,15 @@ abstract class AbstractReport implements ReportInterface
     /**
      * {@inheritdoc}
      */
-    public function hasResults()
+    public function hasResults(): bool
     {
-        return null !== $this->data && \count($this->getData());
+        return null !== $this->data && \count($this->getData()) > 0;
     }
 
     /**
      * report weight.
-     *
-     * @return null
      */
-    public function getWeight()
+    public function getWeight(): ?int
     {
         return 0;
     }

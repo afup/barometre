@@ -59,7 +59,7 @@ class Format2014 implements FormatInterface
 
         $status = explode(',', $data['status']);
 
-        $data['status'] = isset($status[0]) ? ucfirst($status[0]) : 'Autre';
+        $data['status'] = '' !== $status[0] ? ucfirst($status[0]) : 'Autre';
 
         if ('Niveau Master2  ou ingénieur' === $data['initial_training']) {
             $data['initial_training'] = 'Niveau Master2 ou ingénieur';

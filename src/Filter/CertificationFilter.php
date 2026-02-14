@@ -42,7 +42,7 @@ class CertificationFilter implements FilterInterface
 
         $certifications = $values[$this->getName()]->toArray();
         $certifications = array_map(static function (Certification $item) {
-            return $item->getId();
+            return (string) $item->getId();
         }, $certifications);
 
         $queryBuilder

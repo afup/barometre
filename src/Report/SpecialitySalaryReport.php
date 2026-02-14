@@ -101,19 +101,14 @@ class SpecialitySalaryReport extends AbstractReport
     /**
      * {@inheritdoc}
      */
-    public function hasResults()
+    public function hasResults(): bool
     {
         $data = $this->getData();
 
-        return \count($data['data']);
+        return \count($data['data']) > 0;
     }
 
-    /**
-     * report weight.
-     *
-     * @return int
-     */
-    public function getWeight()
+    public function getWeight(): int
     {
         return 6;
     }

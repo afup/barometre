@@ -6,7 +6,6 @@ namespace App\Filter;
 
 use Doctrine\DBAL\Query\QueryBuilder;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\FormInterface;
 
 /**
  * A collection of filter.
@@ -41,10 +40,8 @@ class FilterCollection
 
     /**
      * Build Form.
-     *
-     * @return FormInterface
      */
-    public function buildForm(FormBuilderInterface $builder)
+    public function buildForm(FormBuilderInterface $builder): void
     {
         ksort($this->filters);
         foreach ($this->filters as $filter) {

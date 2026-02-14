@@ -41,7 +41,7 @@ class CampaignFilter implements FilterInterface
         }
 
         $campaigns = array_map(static function (Campaign $item) {
-            return $item->getId();
+            return (string) $item->getId();
         }, $values[$this->getName()]->toArray());
 
         $queryBuilder

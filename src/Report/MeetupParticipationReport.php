@@ -66,10 +66,8 @@ class MeetupParticipationReport extends AbstractReport
 
     /**
      * report weight.
-     *
-     * @return int
      */
-    public function getWeight()
+    public function getWeight(): int
     {
         return -30;
     }
