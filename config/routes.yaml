@@ -7,11 +7,9 @@ afup_barometre_homepage:
     permanent: false
 
 afup_barometre_form:
-  path: /campaign/2025
+  path: /campaign/2026
   methods: GET
-  controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController
-  defaults:
-    path: /about
+  controller: App\Controller\CampaignController::formAction
 
 controllers:
   resource:

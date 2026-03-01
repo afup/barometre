@@ -41,6 +41,14 @@ class MenuBuilder
         $menu->setChildrenAttribute('class', 'nav navbar-nav');
 
         $menu->addChild(
+            'menu.survey',
+            [
+                'route' => 'afup_barometre_form',
+                'routeAbsolute' => UrlGeneratorInterface::ABSOLUTE_URL,
+            ]
+        );
+
+        $menu->addChild(
             'menu.result2025',
             [
                 'route' => 'afup_barometre_campaign',
