@@ -7,6 +7,10 @@ namespace App\Tests\Campaign;
 use App\Campaign\ResponseFactory;
 use App\Entity\Campaign;
 use App\Entity\Response;
+use App\Enums\AiJobImpactEnums;
+use App\Enums\AiJobMarketImpactEnums;
+use App\Enums\AiPerceptionEnums;
+use App\Enums\AiUsageFrequencyEnums;
 use App\Enums\CmsUsageInProjectEnums;
 use App\Enums\CompanySizeEnums;
 use App\Enums\CompanyTypeEnums;
@@ -38,6 +42,7 @@ use App\Enums\SalaryInflationEnums;
 use App\Enums\StatusEnums;
 use App\Enums\TechnologicalWatchEnums;
 use App\Enums\WorkMethodEnums;
+use App\Repository\AiUsagePurposeRepository;
 use App\Repository\CertificationRepository;
 use App\Repository\ContainerEnvironmentUsageRepository;
 use App\Repository\HostingTypeRepository;
@@ -82,6 +87,10 @@ class ResponseFactoryTest extends TestCase
             new SalaryImpactEnums(),
             new PartialUnemploymentEnums(),
             new RegularRemoteFeelingEnums(),
+            new AiUsageFrequencyEnums(),
+            new AiPerceptionEnums(),
+            new AiJobImpactEnums(),
+            new AiJobMarketImpactEnums(),
         ]);
 
         $certificationRepository = $this->createMock(CertificationRepository::class);
@@ -89,6 +98,7 @@ class ResponseFactoryTest extends TestCase
         $hostingTypeRepository = $this->createMock(HostingTypeRepository::class);
         $containerEnvironmentUsageRepository = $this->createMock(ContainerEnvironmentUsageRepository::class);
         $jobInterestRepository = $this->createMock(JobInterestRepository::class);
+        $aiUsagePurposeRepository = $this->createMock(AiUsagePurposeRepository::class);
         $propertyAccessor = PropertyAccess::createPropertyAccessor();
 
         $responseFactory = new ResponseFactory(
@@ -99,6 +109,7 @@ class ResponseFactoryTest extends TestCase
             $hostingTypeRepository,
             $containerEnvironmentUsageRepository,
             $jobInterestRepository,
+            $aiUsagePurposeRepository,
             $propertyAccessor
         );
 

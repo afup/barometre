@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Campaign;
 
 use agallou\Departements\Collection as Departments;
+use App\Entity\AiUsagePurpose;
 use App\Entity\Campaign;
 use App\Entity\Certification;
 use App\Entity\ContainerEnvironmentUsage;
@@ -12,6 +13,10 @@ use App\Entity\HostingType;
 use App\Entity\JobInterest;
 use App\Entity\Response;
 use App\Entity\Speciality;
+use App\Enums\AiJobImpactEnums;
+use App\Enums\AiJobMarketImpactEnums;
+use App\Enums\AiPerceptionEnums;
+use App\Enums\AiUsageFrequencyEnums;
 use App\Enums\CmsUsageInProjectEnums;
 use App\Enums\CompanySizeEnums;
 use App\Enums\CompanyTypeEnums;
@@ -43,6 +48,7 @@ use App\Enums\SalaryInflationEnums;
 use App\Enums\StatusEnums;
 use App\Enums\TechnologicalWatchEnums;
 use App\Enums\WorkMethodEnums;
+use App\Repository\AiUsagePurposeRepository;
 use App\Repository\CertificationRepository;
 use App\Repository\ContainerEnvironmentUsageRepository;
 use App\Repository\HostingTypeRepository;
@@ -62,6 +68,7 @@ class ResponseFactory
         private readonly HostingTypeRepository $hostingTypeRepository,
         private readonly ContainerEnvironmentUsageRepository $containerEnvironmentUsageRepository,
         private readonly JobInterestRepository $jobInterestRepository,
+        private readonly AiUsagePurposeRepository $aiUsagePurposeRepository,
         private readonly PropertyAccessorInterface $propertyAccessor,
     ) {
     }
@@ -128,6 +135,10 @@ class ResponseFactory
             'Covid19SalaryImpact' => ['key' => 'covid19_salary_impact', 'class' => SalaryImpactEnums::class],
             'Covid19PartialUnemployment' => ['key' => 'covid19_partial_unemployment', 'class' => PartialUnemploymentEnums::class],
             'Covid19RegularRemoteFeeling' => ['key' => 'covid19_regular_remote_feeling', 'class' => RegularRemoteFeelingEnums::class],
+            'aiUsageFrequency' => ['key' => 'ai_usage_frequency', 'class' => AiUsageFrequencyEnums::class],
+            'aiPerception' => ['key' => 'ai_perception', 'class' => AiPerceptionEnums::class],
+            'aiJobImpact' => ['key' => 'ai_job_impact', 'class' => AiJobImpactEnums::class],
+            'aiJobMarketImpact' => ['key' => 'ai_job_market_impact', 'class' => AiJobMarketImpactEnums::class],
         ];
 
         foreach ($enumValues as $field => $enum) {
@@ -194,12 +205,19 @@ class ResponseFactory
             'oui' === mb_strtolower($data['formation_impact'] ?? '')
         );
 
-        $response->setUseGenerativeAI(
-            'oui' === mb_strtolower($data['use_generative_ai'] ?? '')
-        );
+        if (isset($data['use_generative_ai'])) {
+            $response->setUseGenerativeAI(
+                'oui' === mb_strtolower($data['use_generative_ai'])
+            );
+        }
 
         $response->setIncludeAiInProject(
             'oui' === mb_strtolower($data['include_ai_in_project'] ?? '')
+        );
+
+        $this->addAiUsagePurpose(
+            $response,
+            explode(', ', $data['ai_usage_purpose'] ?? '')
         );
 
         return $response;
@@ -258,6 +276,19 @@ class ResponseFactory
             }
 
             $response->addContainerEnvironmentUsage($containerEnvironmentUsage);
+        }
+    }
+
+    private function addAiUsagePurpose(Response $response, array $aiUsagePurposes)
+    {
+        foreach ($aiUsagePurposes as $name) {
+            $aiUsagePurpose = $this->aiUsagePurposeRepository->findOneBy(['name' => mb_trim($name)]);
+
+            if (!$aiUsagePurpose instanceof AiUsagePurpose) {
+                continue;
+            }
+
+            $response->addAiUsagePurpose($aiUsagePurpose);
         }
     }
 

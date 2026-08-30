@@ -192,6 +192,22 @@ class Response
     #[ORM\Column(type: 'boolean', nullable: true)]
     private ?bool $includeAiInProject = null;
 
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private ?int $aiUsageFrequency = null;
+
+    /** @var Collection<int, AiUsagePurpose> */
+    #[ORM\ManyToMany(targetEntity: AiUsagePurpose::class)]
+    private Collection $aiUsagePurposes;
+
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private ?int $aiPerception = null;
+
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private ?int $aiJobImpact = null;
+
+    #[ORM\Column(type: 'integer', nullable: true)]
+    private ?int $aiJobMarketImpact = null;
+
     public function __construct()
     {
         $this->certifications = new ArrayCollection();
@@ -199,6 +215,7 @@ class Response
         $this->containerEnvironmentsUsage = new ArrayCollection();
         $this->hostingTypes = new ArrayCollection();
         $this->jobInterests = new ArrayCollection();
+        $this->aiUsagePurposes = new ArrayCollection();
     }
 
     public function getId(): int
@@ -928,6 +945,73 @@ class Response
     public function setIncludeAiInProject(?bool $includeAiInProject): self
     {
         $this->includeAiInProject = $includeAiInProject;
+
+        return $this;
+    }
+
+    public function getAiUsageFrequency(): ?int
+    {
+        return $this->aiUsageFrequency;
+    }
+
+    public function setAiUsageFrequency(?int $aiUsageFrequency): self
+    {
+        $this->aiUsageFrequency = $aiUsageFrequency;
+
+        return $this;
+    }
+
+    public function getAiUsagePurposes(): Collection
+    {
+        return $this->aiUsagePurposes;
+    }
+
+    public function setAiUsagePurposes(Collection $aiUsagePurposes): self
+    {
+        $this->aiUsagePurposes = $aiUsagePurposes;
+
+        return $this;
+    }
+
+    public function addAiUsagePurpose(AiUsagePurpose $aiUsagePurpose): self
+    {
+        $this->aiUsagePurposes->add($aiUsagePurpose);
+
+        return $this;
+    }
+
+    public function getAiPerception(): ?int
+    {
+        return $this->aiPerception;
+    }
+
+    public function setAiPerception(?int $aiPerception): self
+    {
+        $this->aiPerception = $aiPerception;
+
+        return $this;
+    }
+
+    public function getAiJobImpact(): ?int
+    {
+        return $this->aiJobImpact;
+    }
+
+    public function setAiJobImpact(?int $aiJobImpact): self
+    {
+        $this->aiJobImpact = $aiJobImpact;
+
+        return $this;
+    }
+
+    public function getAiJobMarketImpact(): ?int
+    {
+        return $this->aiJobMarketImpact;
+    }
+
+    public function setAiJobMarketImpact(?int $aiJobMarketImpact): self
+    {
+        $this->aiJobMarketImpact = $aiJobMarketImpact;
 
         return $this;
     }

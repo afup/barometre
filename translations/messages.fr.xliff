@@ -142,6 +142,22 @@
                 <source>filter.use_generative_ai</source>
                 <target>Utilisation de l'ia générative</target>
             </trans-unit>
+            <trans-unit id="filter.ai_usage_frequency">
+                <source>filter.ai_usage_frequency</source>
+                <target>Fréquence d'utilisation de l'IA générative</target>
+            </trans-unit>
+            <trans-unit id="filter.ai_perception">
+                <source>filter.ai_perception</source>
+                <target>Perception de l'IA dans le dev</target>
+            </trans-unit>
+            <trans-unit id="filter.ai_job_impact">
+                <source>filter.ai_job_impact</source>
+                <target>Impact de l'IA sur le poste</target>
+            </trans-unit>
+            <trans-unit id="filter.ai_job_market_impact">
+                <source>filter.ai_job_market_impact</source>
+                <target>Impact de l'IA sur le marché de l'emploi</target>
+            </trans-unit>
             <trans-unit id="filter.submit">
                 <source>filter.submit</source>
                 <target>Filtrer</target>
@@ -153,6 +169,26 @@
             <trans-unit id="report.include_ai_in_project.label">
                 <source>report.include_ai_in_project.label</source>
                 <target>Vos projets intègrent-ils des fonctionnalités liées à l'IA générative?</target>
+            </trans-unit>
+            <trans-unit id="report.ai_usage_frequency.label">
+                <source>report.ai_usage_frequency.label</source>
+                <target>Comment utilises-tu l'IA générative dans ton quotidien de dev ?</target>
+            </trans-unit>
+            <trans-unit id="report.ai_usage_purpose.label">
+                <source>report.ai_usage_purpose.label</source>
+                <target>Pour quels usages principaux utilises-tu l'IA ?</target>
+            </trans-unit>
+            <trans-unit id="report.ai_perception.label">
+                <source>report.ai_perception.label</source>
+                <target>Selon toi, l'IA dans le dev aujourd'hui, c'est plutôt…</target>
+            </trans-unit>
+            <trans-unit id="report.ai_job_impact.label">
+                <source>report.ai_job_impact.label</source>
+                <target>Comment estimez-vous que l'IA impactera votre poste dans les 2 à 5 prochaines années ?</target>
+            </trans-unit>
+            <trans-unit id="report.ai_job_market_impact.label">
+                <source>report.ai_job_market_impact.label</source>
+                <target>Selon vous, quel sera l'impact de l'IA sur le marché de l'emploi dans votre secteur ?</target>
             </trans-unit>
             <trans-unit id="report.company_departement.label">
                 <source>report.company_department.label</source>
