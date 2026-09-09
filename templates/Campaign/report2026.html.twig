@@ -1,0 +1,163 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}Résultats de la campagne {{ campaignName }}{% endblock %}
+
+{% block meta %}
+    {{ parent() }}
+    <meta property="og:title" content="Baromètre des salaires du PHP - Résultats {{ campaignName }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="{{ absolute_url('/report/'~campaignName) }}" />
+    <meta property="og:description" content="Les résultats du baromètre des salaires en PHP {{ campaignName }} sont disponibles. Consultez les résultats de l'enquête de référence pour le milieu PHP menée par l'AFUP, Human Coders et le Journal du Net" />
+    <meta property="og:site_name" content="Baromètre des salaires - AFUP / Human Coders / JDN" />
+{% endblock %}
+
+
+{% block content %}
+    <div class="row report2015">
+        <div class="col-md-8">
+        <h1>Résultats de la campagne {{ campaignName }}</h1>
+
+        <p>
+            L'AFUP, Human Coders et le Journal du Net sont ravis de vous présenter les résultats de l'enquête effectuée au printemps auprès de 509 devs. Cette édition est marquée par des salaires qui progressent nettement plus vite que l'inflation, et surtout par une transformation profonde de la manière dont l'IA générative s'est installée dans le quotidien des développeuses et développeurs PHP : l'usage n'est plus une simple question de "oui ou non", il s'étend désormais du copilote d'autocomplétion jusqu'aux workflows agentiques quasi autonomes. On vous explique tout cela en détail.
+        </p>
+
+        <h2>À propos de la campagne 2026</h2>
+        <p>Comme chaque année, l'AFUP, en partenariat avec Human Coders et le Journal du Net, effectue une enquête auprès des développeurs et développeuses PHP. Cette enquête a eu lieu du 2 mars au 31 mai 2026.</p>
+
+        <p>Nous avons reçu 509 réponses cette année, contre 721 en 2025 (soit environ 29 % de réponses en moins). Nous encourageons chaleureusement la communauté à relayer largement le baromètre l'an prochain pour retrouver un échantillon plus large.</p>
+
+        <p>Après l'introduction de deux premières questions sur l'IA générative en 2025, nous avons cette année entièrement retravaillé ce volet de l'enquête pour refléter la manière dont les usages ont évolué : une question sur le niveau d'autonomie laissé à l'IA (de l'autocomplétion aux workflows agentiques), une question sur les cas d'usage concrets, une question sur la perception de ce changement, ainsi que deux questions distinctes sur l'impact perçu de l'IA — l'une sur son propre poste, l'autre sur le marché de l'emploi du secteur. Une page et plusieurs filtres dédiés ont été ajoutés sur le baromètre.</p>
+
+        <h2>Profil des personnes ayant répondu</h2>
+        <p>Les personnes ayant répondu :</p>
+        <ul>
+            <li>sont en majorité des hommes, pour 91%, les femmes étant représentées à hauteur de 8% et les personnes non binaires à 1% ;</li>
+            <li>ont pour âge médian 37 ans ;</li>
+            <li>sont en CDI : cela reste de loin, le statut le plus représenté avec 93% des personnes ayant un contrat de travail de ce type ;</li>
+            <li>travaillent dans une zone géographique à forte densité (l'Île-de-France et la région Auvergne-Rhône-Alpes représentent à elles seules environ 46% des réponses, un niveau stable par rapport à 2025) ;</li>
+            <li>travaillent en majorité dans une entreprise de moins de 500 salariés (pour 83%, stable par rapport à 2025) ;</li>
+            <li>utilisent à 52% Linux en tant que système d'exploitation principal ;</li>
+            <li>font de la veille technique plusieurs fois par semaine ou plus (pour 69%) ;</li>
+            <li>23% sont issues d'une reconversion ;</li>
+            <li>97% font du télétravail au moins occasionnellement, et 34% le font à temps plein ;</li>
+            <li>14% ont suivi une formation au cours des deux dernières années, et pour 15% de ces derniers, cela a eu un impact sur leur rémunération ;</li>
+            <li>utilisent à 91% PHP 8 ou une version plus récente (PHP 8.4 et 8.5 comprises).</li>
+        </ul>
+
+
+        <h1>Analyse</h1>
+
+        <h2>Des salaires qui progressent nettement au-dessus de l'inflation</h2>
+
+        <p>
+            Sur le périmètre habituel (profils dev / tech lead), le salaire brut annuel médian s'établit à 46 656 € en 2026, contre 45 000 € en 2025, soit une progression de +3,7 %. Le salaire moyen suit la même tendance (53 407 € contre 51 896 €, soit +2,9 %).
+        </p>
+
+        <a href="{{ absolute_url('/report/salary?filter[campaign][]='~campaignId~'&filter[job_title][]=11&filter[job_title][]=12&filter[job_title][]=13&filter[job_title][]=14') }}" class="report-image">
+            <img src="{{ asset('reports/2026/evolution_salaire.png') }}" alt="Évolution des salaires"/>
+        </a>
+
+        <p>
+            Cette hausse dépasse largement l'inflation constatée par l'INSEE sur 2025 (+0,9 % en moyenne annuelle, après +2,0 % en 2024) — voir <a href="https://www.insee.fr/fr/statistiques/8726461">le bilan annuel de l'INSEE</a>. C'est la première fois depuis 2021 que le salaire médian de nos répondant·es progresse aussi nettement plus vite que les prix à la consommation.
+        </p>
+
+        <h2>Un écart hommes/femmes qui se creuse cette année</h2>
+
+        <p>
+            Le salaire moyen des hommes dev/tech lead en CDI est de 54 570 €, en hausse de 3,9 % par rapport à 2025 (52 500 €), tandis que le salaire moyen des femmes sur ce même périmètre est de 41 892 €, en léger recul de 2,2 % (42 827 € en 2025).
+        </p>
+
+        <p>
+            L'écart relatif se creuse donc cette année : le salaire moyen des femmes représente environ 77 % de celui des hommes, contre 82 % en 2025. Nous restons prudents sur ce chiffre : l'échantillon de femmes reste faible (environ 30 réponses), ce qui rend la mesure sensible aux variations d'une année sur l'autre. Nous continuerons de suivre cet indicateur dans la durée plutôt que de tirer des conclusions définitives sur une seule campagne.
+        </p>
+
+        <a href="{{ absolute_url('/report/gender?filter[campaign][]='~campaignId~'&filter[job_title][]=11&filter[job_title][]=12&filter[job_title][]=13&filter[job_title][]=14') }}" class="report-image">
+            <img src="{{ asset('reports/2026/evolution_salaire_moyen_genre.png') }}" alt="Évolution du salaire moyen par genre"/>
+        </a>
+
+
+        <h2>Une pratique du télétravail toujours stable</h2>
+
+        <p>Le télétravail reste bien installé, avec 97 % des répondant·es qui le pratiquent au moins occasionnellement, et 34 % à temps plein. Ces chiffres sont quasiment identiques à ceux de 2025, confirmant le plateau observé depuis 2022.</p>
+
+        <a href="{{ absolute_url('/report/remote_usage?filter[campaign][]='~campaignId~'&filter[job_title][]=11&filter[job_title][]=12&filter[job_title][]=13&filter[job_title][]=14') }}" class="report-image">
+            <img src="{{ asset('reports/2026/repartition_teletravailleurs.png') }}" alt="Évolution de la répartition des télétravailleurs"/>
+        </a>
+
+
+        <h1>2026, l'année du changement de paradigme IA</h1>
+
+        <p>
+            En 2025, nous posions deux questions simples : utilisez-vous l'IA générative, et l'intégrez-vous dans vos projets ? Un an plus tard, ces questions binaires ne suffisaient plus à décrire la réalité du terrain. Nous avons donc entièrement repensé ce volet de l'enquête pour comprendre non plus <em>si</em> les devs PHP utilisent l'IA, mais <em>comment</em>.
+        </p>
+
+        <h2>De l'autocomplétion aux workflows agentiques</h2>
+
+        <p>
+            Seulement 5 % des répondant·es déclarent ne pas utiliser d'IA générative du tout. 61 % restent sur un usage d'assistance ponctuelle (autocomplétion, chat, prompts manuels), 15 % sur un usage orienté specs, et 17 % sont déjà dans une logique agentique : workflows avec itérations specs ↔ code ↔ tests, voire des boucles quasi automatisées de génération, tests, correction et déploiement. Autrement dit, près d'une personne sur cinq a déjà dépassé le stade de l'assistant conversationnel. Sans surprise, les usages restent surtout concentrés sur le debug, le refactoring et l'écriture de tests. Autre signe de cette bascule : 43 % des répondant·es déclarent que leurs projets intègrent désormais des fonctionnalités liées à l'IA générative, contre 28 % en 2025.
+        </p>
+
+        <a href="{{ absolute_url('/report/ai_usage_frequency?filter[campaign][]='~campaignId) }}" class="report-image">
+            <img src="{{ asset('reports/2026/ai_usage_frequency.png') }}" alt="Comment utilisez-vous l'IA générative dans votre quotidien de dev"/>
+        </a>
+
+        <h2>Un « changement profond », pas un gadget</h2>
+
+        <p>Interrogé·es sur leur perception de l'IA dans le développement aujourd'hui, 45 % des répondant·es y voient un changement profond de leur manière de travailler, et 21 % un gain de productivité significatif — soit 65 % qui décrivent un impact majeur. À l'inverse, seulement 7 % considèrent encore l'IA générative comme un simple gadget.</p>
+
+        <a href="{{ absolute_url('/report/ai_perception?filter[campaign][]='~campaignId) }}" class="report-image">
+            <img src="{{ asset('reports/2026/ai_perception.png') }}" alt="Selon vous, l'IA dans le dev aujourd'hui, c'est plutôt…"/>
+        </a>
+
+        <h2>Transformation du poste, mais marché plus inquiet</h2>
+
+        <p>
+            Sur son propre poste, les répondant·es sont plutôt sereins : 40 % anticipent une transformation du poste (évolution des missions), 16 % un impact positif, et seulement 13 % redoutent une réduction ou suppression de poste. Le regard change quand la question porte sur le marché de l'emploi du secteur : près d'une personne sur deux (49 %) y redoute un ralentissement des embauches ou une suppression nette d'emplois, contre seulement 4 % qui anticipent des créations d'emploi. Ce contraste — confiance sur sa propre trajectoire, inquiétude sur la dynamique collective — est l'un des enseignements marquants de cette édition, que nous suivrons dans les prochaines campagnes.
+        </p>
+
+        <a href="{{ absolute_url('/report/ai_job_market_impact?filter[campaign][]='~campaignId) }}" class="report-image">
+            <img src="{{ asset('reports/2026/ai_job_market_impact.png') }}" alt="Selon vous, quel sera l'impact de l'IA sur le marché de l'emploi dans votre secteur ?"/>
+        </a>
+
+
+        <h2>À propos du baromètre</h2>
+
+        <p>Le baromètre des salaires AFUP est un projet open-source porté par des bénévoles. Nous sommes toujours à la recherche de personnes pour aider sur ce projet, que ça soit côté technique, pour le lancement de l'enquête ou l'analyse des résultats. Si vous souhaitez participer vous pouvez envoyer un message à barometre@afup.org.</p>
+
+
+        <h2>A propos de l'AFUP</h2>
+
+            <p>L'<a href="http://www.afup.org" title="Association Française des Utilisateurs de PHP">association française des utilisateurs de PHP</a> (AFUP), <a href="https://www.humancoders.com/">Human Coders</a> et le <a href="https://www.journaldunet.com" title="Journal du Net">Journal du Net</a> (JDN) vous présentent pour la 14ème année consécutive le baromètre des salaires AFUP – 2026.</p>
+
+            <p>Comme chaque année, le baromètre AFUP répond aux questions que se posent les professionnel·le·s de notre secteur :</p>
+            <ul>
+                <li>Combien gagne un·e développeur·euse débutant·e ?</li>
+                <li>Comment les salaires évoluent-ils avec l'expérience ?</li>
+                <li>Quelles sont les technos qui rapportent le plus ?</li>
+                <li>Dans quelles villes touche-t-on les meilleurs salaires ?</li>
+            </ul>
+
+            <p>Nous espérons que vous aurez une vision claire du marché après consultation de ce baromètre des salaires en PHP.</p>
+
+            <h3>AFUP</h3>
+            <p>L'<a href="http://www.afup.org" title="Association Française des Utilisateurs de PHP">AFUP</a>,  Association Française des Utilisateurs de PHP, est une association loi 1901, qui a pour objectif principal de promouvoir le langage PHP auprès des professionnel·le·s et de participer à son développement. Elle organise de nombreux événements tout au long de l'année, notamment le Forum PHP et les AFUP Day, elle diffuse et partage les connaissances auprès des utilisateurs et utilisatrices de PHP, et participe à la valorisation des développeurs et développeuses PHP sur le marché du travail.</p>
+
+            <h3>Human Coders</h3>
+
+            <p><a href="https://www.humancoders.com/">Human Coders</a> est un centre de formation pour développeur·euse·s. Fondé par 2 développeurs web il y a 13 ans, il forme sur plus de 150 langages / frameworks / méthodologies dont bien sûr PHP, Symfony et Laravel, mais aussi sur d'autres domaines comme le frontend, l'IA ou encore devops.</p>
+
+            <p>Convaincu de l'importance de faire de la veille pour rester à jour, Human Coders, c'est aussi un podcast pour développeur·euse·s, un site d'actualité et des événements mensuels dans toute la France.</p>
+
+            <h3>JDN</h3>
+
+            <p>Avec plus de 3,1 millions de visiteurs uniques par mois, le <a href="https://www.journaldunet.com" title="Journal du Net">JDN</a> est la source d'information des dirigeants et cadres qui osent. Digital, management, nouvelles technologies : le JDN propose à la fois une veille exhaustive de l'actualité et des dossiers prospectifs pour mieux comprendre l'économie de demain. Le JDN propose 4 newsletters thématiques envoyées à plus de 500 000 abonnés.</p>
+        </div>
+        <div class="col-md-4">
+            <h1>Résultats détaillés</h1>
+
+            <div class="well">
+                {% block menu_reports knp_menu_render('reports_menu', {}, 'reports') %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
