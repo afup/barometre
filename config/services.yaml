@@ -299,6 +299,26 @@ services:
       parent: App\Report\AbstractReport
       tags: [ 'barometre.report' ]
 
+    App\Report\AiUsageFrequencyReport:
+      parent: App\Report\AbstractReport
+      tags: [ 'barometre.report' ]
+
+    App\Report\AiUsagePurposeReport:
+      parent: App\Report\AbstractReport
+      tags: [ 'barometre.report' ]
+
+    App\Report\AiPerceptionReport:
+      parent: App\Report\AbstractReport
+      tags: [ 'barometre.report' ]
+
+    App\Report\AiJobImpactReport:
+      parent: App\Report\AbstractReport
+      tags: [ 'barometre.report' ]
+
+    App\Report\AiJobMarketImpactReport:
+      parent: App\Report\AbstractReport
+      tags: [ 'barometre.report' ]
+
     NumberFormatter:
         class: \NumberFormatter
         arguments: ['fr', '1']
