@@ -14,6 +14,7 @@ class IncludeAiInProjectReport extends AbstractReport
         $this->queryBuilder
             ->select('response.includeAiInProject as includeAiInProject')
             ->addSelect('COUNT(response.id) as nbResponse')
+            ->andWhere('response.includeAiInProject IS NOT NULL')
             ->addGroupBy('response.includeAiInProject')
             ->addOrderBy('response.includeAiInProject', 'desc');
 
