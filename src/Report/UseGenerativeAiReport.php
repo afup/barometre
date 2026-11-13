@@ -14,6 +14,7 @@ class UseGenerativeAiReport extends AbstractReport
         $this->queryBuilder
             ->select('response.useGenerativeAI as useGenerativeAI')
             ->addSelect('COUNT(response.id) as nbResponse')
+            ->andWhere('response.useGenerativeAI IS NOT NULL')
             ->addGroupBy('response.useGenerativeAI')
             ->addOrderBy('response.useGenerativeAI', 'desc');
 

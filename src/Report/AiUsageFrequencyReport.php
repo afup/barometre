@@ -14,6 +14,7 @@ class AiUsageFrequencyReport extends AbstractReport
         $this->queryBuilder
             ->select('response.aiUsageFrequency as aiUsageFrequency')
             ->addSelect('COUNT(response.id) as nbResponse')
+            ->andWhere('response.aiUsageFrequency IS NOT NULL')
             ->addGroupBy('response.aiUsageFrequency')
             ->addOrderBy('response.aiUsageFrequency', 'asc');
 
