@@ -144,7 +144,7 @@
             </trans-unit>
             <trans-unit id="filter.use_generative_ai">
                 <source>filter.use_generative_ai</source>
-                <target>Utilisation de l'ia générative</target>
+                <target>Utilisation de l'IA générative</target>
             </trans-unit>
             <trans-unit id="filter.ai_usage_frequency">
                 <source>filter.ai_usage_frequency</source>
@@ -168,23 +168,23 @@
             </trans-unit>
             <trans-unit id="report.use_generative_ai.label">
                 <source>report.use_generative_ai.label</source>
-                <target>Utilisez-vous l’IA générative pour développer vos projets?</target>
+                <target>Utilisez-vous l'IA générative pour développer vos projets ?</target>
             </trans-unit>
             <trans-unit id="report.include_ai_in_project.label">
                 <source>report.include_ai_in_project.label</source>
-                <target>Vos projets intègrent-ils des fonctionnalités liées à l'IA générative?</target>
+                <target>Vos projets intègrent-ils des fonctionnalités liées à l'IA générative ?</target>
             </trans-unit>
             <trans-unit id="report.ai_usage_frequency.label">
                 <source>report.ai_usage_frequency.label</source>
-                <target>Comment utilises-tu l'IA générative dans ton quotidien de dev ?</target>
+                <target>Comment utilisez-vous l'IA générative dans votre quotidien de dev ?</target>
             </trans-unit>
             <trans-unit id="report.ai_usage_purpose.label">
                 <source>report.ai_usage_purpose.label</source>
-                <target>Pour quels usages principaux utilises-tu l'IA ?</target>
+                <target>Pour quels usages principaux utilisez-vous l'IA ?</target>
             </trans-unit>
             <trans-unit id="report.ai_perception.label">
                 <source>report.ai_perception.label</source>
-                <target>Selon toi, l'IA dans le dev aujourd'hui, c'est plutôt…</target>
+                <target>Selon vous, l'IA dans le dev aujourd'hui, c'est plutôt…</target>
             </trans-unit>
             <trans-unit id="report.ai_job_impact.label">
                 <source>report.ai_job_impact.label</source>
@@ -244,7 +244,7 @@
             </trans-unit>
             <trans-unit id="report.leave_job.label">
                 <source>report.leave_job.label</source>
-                <target>Avez-vous cherché à changer de poste en cette année ?</target>
+                <target>Avez-vous cherché à changer de poste cette année ?</target>
             </trans-unit>
             <trans-unit id="report.experience_in_current_job.label">
                 <source>report.experience_in_current_job.label</source>
@@ -372,7 +372,7 @@
 
             <trans-unit id="report.view.leave_job">
                 <source>report.view.leave_job</source>
-                <target>Changement poste de cette année</target>
+                <target>Changement de poste cette année</target>
             </trans-unit>
 
             <trans-unit id="report.view.experience_in_current_job">

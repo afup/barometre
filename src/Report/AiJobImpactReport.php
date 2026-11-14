@@ -14,6 +14,7 @@ class AiJobImpactReport extends AbstractReport
         $this->queryBuilder
             ->select('response.aiJobImpact as aiJobImpact')
             ->addSelect('COUNT(response.id) as nbResponse')
+            ->andWhere('response.aiJobImpact IS NOT NULL')
             ->addGroupBy('response.aiJobImpact')
             ->addOrderBy('response.aiJobImpact', 'asc');
 

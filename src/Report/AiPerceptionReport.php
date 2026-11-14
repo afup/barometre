@@ -14,6 +14,7 @@ class AiPerceptionReport extends AbstractReport
         $this->queryBuilder
             ->select('response.aiPerception as aiPerception')
             ->addSelect('COUNT(response.id) as nbResponse')
+            ->andWhere('response.aiPerception IS NOT NULL')
             ->addGroupBy('response.aiPerception')
             ->addOrderBy('response.aiPerception', 'asc');
 

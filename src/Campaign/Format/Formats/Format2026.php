@@ -43,9 +43,9 @@ class Format2026 extends Format2025
             'has_formation', // Avez-vous suivi une formation au cours de ces deux dernières années ?,
             'formation_subject', // Sur quel(s) sujet(s) avez-vous été formés ?,
             'formation_impact', // Cela a-t-il eu une incidence sur votre emploi/rémunération ?,
-            'ai_usage_frequency', // Comment utilises-tu l'IA générative dans ton quotidien de dev ?
-            'ai_usage_purpose', // Pour quels usages principaux utilises-tu l'IA ?
-            'ai_perception', // Selon toi, l'IA dans le dev aujourd'hui, c'est plutôt…
+            'ai_usage_frequency', // Comment utilisez-vous l'IA générative dans votre quotidien de dev ?
+            'ai_usage_purpose', // Pour quels usages principaux utilisez-vous l'IA ?
+            'ai_perception', // Selon vous, l'IA dans le dev aujourd'hui, c'est plutôt…
             'ai_job_impact', // Comment estimez-vous que l'IA impactera votre poste dans les 2 à 5 prochaines années ?
             'ai_job_market_impact', // Selon vous, quel sera l'impact de l'IA sur le marché de l'emploi dans votre secteur ?
             'include_ai_in_project', // Vos projets intègrent-ils des fonctionnalités liées à l'IA générative ?
