@@ -25,7 +25,7 @@ App\Entity\Response:
     technologicalWatch: <enums('App\Enums\TechnologicalWatchEnums')>
     osDeveloppment: <enums('App\Enums\OsDeveloppmentEnums')>
     hostingTypes: '<randomArrayCollection(@hosting{0..4}, 0, 3)>'
-    containerEnvironmentsUsage: <containerEnvironmentsUsage()>
+    containerEnvironmentsUsage: '<randomArrayCollection([@container_in_dev, @container_in_staging, @container_in_prod], 0, 3)>'
     workMethod: <enums('App\Enums\WorkMethodEnums')>
     # specialities (cf. __calls)
     phpVersion: <enums('App\Enums\PHPVersionEnums')>
