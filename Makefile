@@ -20,7 +20,7 @@ asset_install:
 	node_modules/grunt-cli/bin/grunt
 
 docker-up: data_dirs
-	docker-compose up -d db
+	docker compose up -d db
 
 data_dirs: docker/data docker/data/composer
 
