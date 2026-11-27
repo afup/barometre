@@ -1,0 +1,17 @@
+framework:
+    asset_mapper:
+        paths:
+            - assets/
+        # Fichiers gérés par Grunt
+        excluded_patterns:
+            - '*/assets/js/*'
+            - '*/assets/logos/**'
+            - '*/assets/sass/**'
+        # Le dossier public/assets/ est utilisé par Grunt
+        public_prefix: /static/
+        missing_import_mode: strict
+
+when@prod:
+    framework:
+        asset_mapper:
+            missing_import_mode: warn

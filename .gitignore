@@ -38,3 +38,8 @@
 /phpunit.xml
 /.phpunit.cache/
 ###< phpunit/phpunit ###
+
+###> symfony/asset-mapper ###
+/public/static/
+/assets/vendor/
+###< symfony/asset-mapper ###
