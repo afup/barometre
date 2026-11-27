@@ -19,6 +19,7 @@
         "knplabs/knp-menu-bundle": "^3.2",
         "symfony/apache-pack": "^1.0",
         "symfony/asset": "^6.4",
+        "symfony/asset-mapper": "6.4.*",
         "symfony/console": "^6.4",
         "symfony/dotenv": "^6.4",
         "symfony/flex": "^1.17|^2",
@@ -63,7 +64,8 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+            "assets:install %PUBLIC_DIR%": "symfony-cmd",
+            "importmap:install": "symfony-cmd"
         },
         "post-install-cmd": [
             "@auto-scripts"

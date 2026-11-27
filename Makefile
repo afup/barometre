@@ -38,3 +38,4 @@ cs-fix:
 
 deploy: node_modules asset_install
 	php bin/console doctrine:migrations:migrate --env=prod --no-interaction
+	php bin/console asset-map:compile --env=prod
