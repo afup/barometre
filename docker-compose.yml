@@ -3,6 +3,12 @@ version: '3.1'
 services:
   db:
     image: mysql:5.5
+    # ulimit sinon surcharge mémoire et crash du container
+    # https://github.com/docker-library/mysql/issues/579#issuecomment-1075119349
+    ulimits:
+      nofile:
+        soft: 262144
+        hard: 262144
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_USER: barometreuser
@@ -10,3 +16,28 @@ services:
       MYSQL_DATABASE: barometre
     volumes:
       - ./docker/data/mysql:/var/lib/mysql
+
+  php:
+    build: ./docker/php
+    user: "${CURRENT_UID:-1000}:${CURRENT_GID:-1000}"
+    working_dir: /app
+    volumes:
+      - .:/app
+      - ./docker/data/composer:/tmp/composer
+    environment:
+      HOME: /tmp
+      COMPOSER_HOME: /tmp/composer
+      DATABASE_URL: mysql://barometreuser:barometrepass@db:3306/barometre?serverVersion=5.5
+    depends_on:
+      - db
+
+  node:
+    image: node:24-slim@sha256:dc26ae92c9fb15cf6b1d63e20f0944b2efe0f115b20e00be48fb23fceb061c54
+    user: "${CURRENT_UID:-1000}:${CURRENT_GID:-1000}"
+    working_dir: /app
+    volumes:
+      - .:/app
+      - ./docker/data/npm:/tmp/npm
+    environment:
+      HOME: /tmp
+      npm_config_cache: /tmp/npm

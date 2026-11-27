@@ -8,24 +8,41 @@ Lors du forum PHP 2013 l’Association Française des Utilisateurs de PHP (AFUP)
 
 Ce site a pour vocation de présenter les résultats de cette enquête en permettant de filtrer sur différents critères (le département, la rémunération, le type d'entreprise...) pour ainsi présenter des résultats plus en accord avec la situation du développeur les consultant.
 
-## Installation locale (Symfony CLI + MySQL Docker)
+## Installation locale (PHP + Symfony CLI + MySQL via Docker)
+
+Seuls Docker (compose) et make sont nécessaires sur la machine : PHP 8.5, composer et Symfony CLI tournent dans un conteneur (`docker/php/Dockerfile`), avec votre UID/GID.
 
 * cloner le dépot
-* installer Symfony CLI : https://symfony.com/download
-* démarrer MySQL : `make docker-up`
-* installer les dépendances et initialiser la base : `make init`
+* initialiser la base et les dépendances : `make init` (démarre MySQL, build l'image PHP)
 
 _Le port MySQL exposé est `3399` via `docker-compose.override.yml`._
+
+Lancer une commande dans le conteneur :
+
+```
+docker compose run --rm php php bin/console cache:clear
+docker compose run --rm php composer install
+make php-shell
+```
+
+Node 24, npm et grunt tournent aussi dans un conteneur (service `node`) :
+
+```
+make node_modules      # npm install
+make asset_install     # build des assets (grunt)
+make assets-watch      # rebuild à chaque modification
+make node-shell
+```
 
 ### Lancer l'application avec Symfony CLI
 
 ```
-symfony server:start
+make php-serve
 ```
 
-Par défaut, Symfony CLI sert le dossier `public/`. Vous pouvez ensuite accéder au site via l’URL indiquée par la commande.
+Le site est accessible sur http://localhost:8000 (Ctrl+C pour arrêter).
 
-Commandes utiles :
+Commandes utiles (si Symfony CLI est installé sur l'hôte) :
 
 ```
 symfony server:stop

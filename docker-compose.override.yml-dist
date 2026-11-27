@@ -4,3 +4,7 @@ services:
   db:
     ports:
       - "3399:3306"
+
+  php:
+    ports:
+      - "8000:8000"
